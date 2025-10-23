@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Card" load_steps=2 format=3 uid="uid://d2d1pkl2vwwhk"]
+
+[ext_resource type="Script" uid="uid://dcw4oridrwk87" path="res://custom_resources/card.gd" id="1_42elk"]
+
+[resource]
+script = ExtResource("1_42elk")
+id = "pandhawa_block"
+type = 1
+metadata/_custom_type_script = "uid://dcw4oridrwk87"

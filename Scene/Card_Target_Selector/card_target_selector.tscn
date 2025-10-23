@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://cp2ekfcfiiffu"]
+
+[ext_resource type="PackedScene" uid="uid://cdbphhnssrc6r" path="res://Scene/Card_Target_Selector/card_arc.tscn" id="1_122xy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b5okf"]
+size = Vector2(4, 4)
+
+[node name="CardTargetSelector" type="Node2D"]
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 4
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_b5okf")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="card_arc" parent="CanvasLayer" instance=ExtResource("1_122xy")]

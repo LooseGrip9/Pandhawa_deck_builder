@@ -9,7 +9,7 @@
 [ext_resource type="Resource" uid="uid://d2d1pkl2vwwhk" path="res://characters/Pandhawa/Cards/pandhawa_block.tres" id="6_v33pe"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q5a5a"]
-size = Vector2(256, 100)
+size = Vector2(256, 91)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jskq3"]
 
@@ -25,7 +25,7 @@ metadata/_edit_lock_ = true
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CardDropArea"]
-position = Vector2(128, 50)
+position = Vector2(128, 45.5)
 shape = SubResource("RectangleShape2D_q5a5a")
 debug_color = Color(0, 0.6, 0.69803923, 0.15294118)
 

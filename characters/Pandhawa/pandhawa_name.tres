@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="CharacterStats" load_steps=6 format=3 uid="uid://d3y71aj2a76ty"]
+
+[ext_resource type="Texture2D" uid="uid://cpydvk8mq66o5" path="res://art/tile_0087.png" id="1_f0qyu"]
+[ext_resource type="Script" uid="uid://ccbx3tv5o5p5l" path="res://custom_resources/character_stats.gd" id="1_g0tnp"]
+[ext_resource type="Script" uid="uid://dcw4oridrwk87" path="res://custom_resources/card.gd" id="3_wduvn"]
+[ext_resource type="Script" uid="uid://6awnk1lfb5c3" path="res://custom_resources/card_pile.gd" id="4_a8i5p"]
+
+[sub_resource type="Resource" id="Resource_wqna3"]
+script = ExtResource("4_a8i5p")
+metadata/_custom_type_script = "uid://6awnk1lfb5c3"
+
+[resource]
+script = ExtResource("1_g0tnp")
+starting_deck = SubResource("Resource_wqna3")
+cards_per_turn = 4
+max_mana = 3
+max_health = 35
+art = ExtResource("1_f0qyu")
+metadata/_custom_type_script = "uid://ccbx3tv5o5p5l"

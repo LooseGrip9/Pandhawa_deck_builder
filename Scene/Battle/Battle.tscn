@@ -1,15 +1,17 @@
-[gd_scene load_steps=10 format=3 uid="uid://busxye1bkrslo"]
+[gd_scene load_steps=12 format=3 uid="uid://busxye1bkrslo"]
 
 [ext_resource type="Texture2D" uid="uid://cp4iq5fd6j8be" path="res://art/background.png" id="1_tf5ac"]
 [ext_resource type="Texture2D" uid="uid://1u3b3hwqd8yh" path="res://art/tile_0110.png" id="2_1wioe"]
 [ext_resource type="Script" uid="uid://csbe0ofk71v0n" path="res://Scene/UI/hand.gd" id="2_q5a5a"]
 [ext_resource type="PackedScene" uid="uid://bpbya8v1xk2cf" path="res://Scene/Card_UI/card_ui.tscn" id="2_salhe"]
 [ext_resource type="PackedScene" uid="uid://cp2ekfcfiiffu" path="res://Scene/Card_Target_Selector/card_target_selector.tscn" id="3_pgpmp"]
+[ext_resource type="PackedScene" uid="uid://dq87n1yx23g8f" path="res://Scene/Player/player.tscn" id="4_jskq3"]
 [ext_resource type="Resource" uid="uid://c08j5gpyl7ane" path="res://characters/Pandhawa/Cards/pandhawa_axe_attack.tres" id="5_pgpmp"]
+[ext_resource type="Resource" uid="uid://d3y71aj2a76ty" path="res://characters/Pandhawa/pandhawa_name.tres" id="5_yygm8"]
 [ext_resource type="Resource" uid="uid://d2d1pkl2vwwhk" path="res://characters/Pandhawa/Cards/pandhawa_block.tres" id="6_v33pe"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q5a5a"]
-size = Vector2(256, 91)
+size = Vector2(256, 106)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jskq3"]
 
@@ -25,7 +27,7 @@ metadata/_edit_lock_ = true
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CardDropArea"]
-position = Vector2(128, 45.5)
+position = Vector2(128, 53)
 shape = SubResource("RectangleShape2D_q5a5a")
 debug_color = Color(0, 0.6, 0.69803923, 0.15294118)
 
@@ -40,6 +42,10 @@ texture = ExtResource("2_1wioe")
 shape = SubResource("RectangleShape2D_jskq3")
 
 [node name="CardTargetSelector" parent="." instance=ExtResource("3_pgpmp")]
+
+[node name="Player" parent="." instance=ExtResource("4_jskq3")]
+position = Vector2(49, 74)
+stats = ExtResource("5_yygm8")
 
 [node name="BattleUI" type="CanvasLayer" parent="." groups=["ui_layer"]]
 

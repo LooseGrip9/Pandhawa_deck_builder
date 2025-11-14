@@ -1,9 +1,12 @@
-[gd_resource type="Resource" script_class="Card" load_steps=2 format=3 uid="uid://c08j5gpyl7ane"]
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://c08j5gpyl7ane"]
 
-[ext_resource type="Script" uid="uid://dcw4oridrwk87" path="res://custom_resources/card.gd" id="1_0moi7"]
+[ext_resource type="Texture2D" uid="uid://ck1t4hdip6xrl" path="res://art/tile_0119.png" id="1_q6pf7"]
+[ext_resource type="Script" uid="uid://cbyn7a0jsbedb" path="res://characters/Pandhawa/Cards/pandhawa_axe_attack.gd" id="2_q6pf7"]
 
 [resource]
-script = ExtResource("1_0moi7")
+script = ExtResource("2_q6pf7")
 id = "pandhawa_axe_attack"
 target = 1
+cost = 1
+icon = ExtResource("1_q6pf7")
 metadata/_custom_type_script = "uid://dcw4oridrwk87"

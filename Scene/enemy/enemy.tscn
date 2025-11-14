@@ -15,6 +15,7 @@ script = ExtResource("1_twu3r")
 texture = ExtResource("1_ksmlx")
 
 [node name="Arrow" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(14, 0)
 rotation = -1.5707964
 scale = Vector2(0.69032604, 0.69032604)
@@ -26,3 +27,6 @@ shape = SubResource("RectangleShape2D_jskq3")
 [node name="StatsUI" parent="." instance=ExtResource("3_twu3r")]
 offset_top = 8.0
 offset_bottom = 24.0
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]

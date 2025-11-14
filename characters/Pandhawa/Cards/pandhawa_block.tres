@@ -1,9 +1,12 @@
-[gd_resource type="Resource" script_class="Card" load_steps=2 format=3 uid="uid://d2d1pkl2vwwhk"]
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://d2d1pkl2vwwhk"]
 
-[ext_resource type="Script" uid="uid://dcw4oridrwk87" path="res://custom_resources/card.gd" id="1_42elk"]
+[ext_resource type="Texture2D" uid="uid://oe7v35ii8vrs" path="res://art/tile_0102.png" id="1_6rscj"]
+[ext_resource type="Script" uid="uid://ch1f2r8jg72gt" path="res://characters/Pandhawa/Cards/pandhawa_block.gd" id="2_6rscj"]
 
 [resource]
-script = ExtResource("1_42elk")
+script = ExtResource("2_6rscj")
 id = "pandhawa_block"
 type = 1
+cost = 1
+icon = ExtResource("1_6rscj")
 metadata/_custom_type_script = "uid://dcw4oridrwk87"

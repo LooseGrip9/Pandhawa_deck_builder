@@ -1,8 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://bpbya8v1xk2cf"]
+[gd_scene load_steps=12 format=3 uid="uid://bpbya8v1xk2cf"]
 
 [ext_resource type="Theme" uid="uid://ychgttg0pudb" path="res://Main_Theme.tres" id="1_dft8m"]
 [ext_resource type="Script" uid="uid://bcbr40gj8c7sb" path="res://Scene/Card_UI/card_ui.gd" id="2_y8e1j"]
+[ext_resource type="StyleBox" uid="uid://dd8amnpesnofg" path="res://Scene/Card_UI/card_base_style_box.tres" id="3_5qrxc"]
 [ext_resource type="Script" uid="uid://rq45fscfdl1c" path="res://Scene/Card_UI/card_state_machine.gd" id="3_eygt0"]
+[ext_resource type="Texture2D" uid="uid://bfvi02kojsa00" path="res://art/tile_0103.png" id="3_qc8hc"]
 [ext_resource type="Script" uid="uid://bmur7jhbp5wy3" path="res://Scene/Card_UI/card_state/card_base_state.gd" id="4_gr34m"]
 [ext_resource type="Script" uid="uid://db03wv1cvbaof" path="res://Scene/Card_UI/card_state/card_clicked_state.gd" id="5_dc2e6"]
 [ext_resource type="Script" uid="uid://ccerue7d72abq" path="res://Scene/Card_UI/card_state/card_dragging_state.gd" id="6_qc8hc"]
@@ -25,7 +27,7 @@ grow_vertical = 2
 theme = ExtResource("1_dft8m")
 script = ExtResource("2_y8e1j")
 
-[node name="Color" type="ColorRect" parent="."]
+[node name="Panel" type="Panel" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -33,18 +35,33 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-color = Color(3.4069066e-07, 0.48337007, 0.36013547, 1)
+theme_override_styles/panel = ExtResource("3_5qrxc")
 
-[node name="State" type="Label" parent="."]
+[node name="Cost" type="Label" parent="."]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "State"
+offset_right = 9.0
+offset_bottom = 10.0
+text = "2"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Icon" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -5.0
+offset_top = -5.0
+offset_right = 5.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("3_qc8hc")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="Drop_Point_Detector" type="Area2D" parent="."]
 collision_mask = 2

@@ -6,7 +6,7 @@ class_name ManaUI
 @onready var mana_label: Label =  $ManaLabel
 
 func _ready() -> void:
-	char_stats.mana = 2
+	char_stats.mana = 3
  
 func _set_char_stats(value: CharacterStats) -> void:
 	char_stats = value

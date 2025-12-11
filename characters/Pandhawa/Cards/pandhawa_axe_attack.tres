@@ -9,4 +9,5 @@ id = "pandhawa_axe_attack"
 target = 1
 cost = 1
 icon = ExtResource("1_q6pf7")
+tooltip_text = "[center]Deal[color=\"ff0000\"] 6 [/color]damage.[/center]"
 metadata/_custom_type_script = "uid://dcw4oridrwk87"

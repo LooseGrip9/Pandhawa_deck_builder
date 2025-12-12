@@ -9,7 +9,7 @@
 
 [sub_resource type="Resource" id="Resource_exfi2"]
 script = ExtResource("4_a8i5p")
-cards = Array[ExtResource("3_wduvn")]([ExtResource("4_wqna3"), ExtResource("4_wqna3"), ExtResource("4_wqna3"), ExtResource("5_0eos4")])
+cards = Array[ExtResource("3_wduvn")]([ExtResource("5_0eos4"), ExtResource("4_wqna3"), ExtResource("4_wqna3"), ExtResource("5_0eos4"), ExtResource("5_0eos4"), ExtResource("4_wqna3"), ExtResource("4_wqna3"), ExtResource("4_wqna3")])
 metadata/_custom_type_script = "uid://6awnk1lfb5c3"
 
 [resource]

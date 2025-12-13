@@ -38,3 +38,4 @@ func _on_enemy_action_completed(enemy: Enemy) -> void:
 	
 	var next_enemy := all_enemies[index + 1] as Enemy
 	next_enemy.do_turn()
+	

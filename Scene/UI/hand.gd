@@ -4,13 +4,6 @@ extends HBoxContainer
 @export var char_stats: CharacterStats
 @onready var card_ui := preload("res://Scene/Card_UI/card_ui.tscn")
 
-var cards_played_this_turn := 0
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	Events.card_played.connect(_on_card_played)
-	
 
 func add_card(card: Card) -> void:
 	var new_card_ui := card_ui.instantiate()
@@ -27,10 +20,8 @@ func disable_hand() -> void:
 	for card in get_children():
 		card.disabled = true
 
-func _on_card_played(_card: Card) -> void:
-	cards_played_this_turn += 1
 
 func _on_card_ui_reparent_requested(child: CardUI) -> void:
 	child.reparent(self)
-	var new_index	 := clampi(child.original_index - cards_played_this_turn, 0, get_child_count())
+	var new_index := clampi(child.original_index, 0, get_child_count())
 	move_child.call_deferred(child, new_index)

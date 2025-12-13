@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://busxye1bkrslo"]
+[gd_scene load_steps=17 format=3 uid="uid://busxye1bkrslo"]
 
 [ext_resource type="Script" uid="uid://nxqkl22ab5i6" path="res://Scene/Battle/battle.gd" id="1_5t6rn"]
 [ext_resource type="Texture2D" uid="uid://cp4iq5fd6j8be" path="res://art/background.png" id="1_tf5ac"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://carfxio8y8b7o" path="res://Scene/Card_UI/mana_ui.tscn" id="11_8sv8u"]
 [ext_resource type="PackedScene" uid="uid://cumq4ssva7314" path="res://Scene/UI/tooltip.tscn" id="12_161f6"]
 [ext_resource type="Theme" uid="uid://ychgttg0pudb" path="res://Main_Theme.tres" id="13_ihogh"]
+[ext_resource type="Script" uid="uid://chij0vo23v2bv" path="res://Scene/UI/red_flash.gd" id="15_t23xh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q5a5a"]
 size = Vector2(256, 106)
@@ -100,3 +101,20 @@ grow_horizontal = 0
 grow_vertical = 0
 theme = ExtResource("13_ihogh")
 text = "End Turn"
+
+[node name="Redflash" type="CanvasLayer" parent="."]
+layer = 2
+script = ExtResource("15_t23xh")
+
+[node name="ColorRect" type="ColorRect" parent="Redflash"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.99990636, 0.3696851, 0.3531878, 0)
+
+[node name="Timer" type="Timer" parent="Redflash"]
+wait_time = 0.1
+one_shot = true

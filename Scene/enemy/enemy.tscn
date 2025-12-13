@@ -13,6 +13,7 @@ collision_layer = 4
 script = ExtResource("1_twu3r")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1, 0)
 texture = ExtResource("1_ksmlx")
 
 [node name="Arrow" type="Sprite2D" parent="."]
@@ -31,9 +32,9 @@ offset_bottom = 24.0
 
 [node name="IntentUI" parent="." instance=ExtResource("5_mf7eg")]
 offset_left = -12.0
-offset_top = -30.0
+offset_top = -26.0
 offset_right = 13.0
-offset_bottom = -14.0
+offset_bottom = -10.0
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="area_exited" from="." to="." method="_on_area_exited"]

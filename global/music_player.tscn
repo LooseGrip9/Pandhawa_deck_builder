@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://df408gr6i7em4"]
+
+[ext_resource type="Script" uid="uid://5wit1cnfoirp" path="res://global/sound_player.gd" id="1_uyuvo"]
+
+[node name="MusicPlayer" type="Node"]
+script = ExtResource("1_uyuvo")
+
+[node name="AudioStreamPlayer4" type="AudioStreamPlayer" parent="."]
+bus = &"BGM"
+
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="."]
+bus = &"BGM"
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+bus = &"BGM"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+bus = &"BGM"

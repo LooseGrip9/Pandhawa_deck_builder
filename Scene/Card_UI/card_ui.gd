@@ -3,7 +3,7 @@ extends Control
 
 signal reparent_requested(which_card_ui: CardUI)
 
-const BASE_STYLEBOX := preload("uid://dd8amnpesnofg")
+const BASE_STYLEBOX := preload("uid://bejfgssf7o5x4")
 const DRAG_STYLEBOX := preload("uid://lt8vhl320kla")
 const HOVER_STYLEBOX := preload("uid://cmvjwhw7catm6")
 

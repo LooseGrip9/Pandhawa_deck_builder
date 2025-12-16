@@ -14,7 +14,6 @@ func set_mana (value: int) -> void:
 	mana = value
 	stats_changed.emit()
 	
-
 func reset_mana() -> void:
 	self.mana = max_mana
 
@@ -34,6 +33,6 @@ func create_instance() -> Resource:
 	instance.block = 0
 	instance.reset_mana()
 	instance.deck = instance.starting_deck.duplicate()
-	instance.draw_pile = CardPile.new()
+	instance.draw_pile = instance.deck.duplicate()
 	instance.discard = CardPile.new()
 	return instance

@@ -3,7 +3,7 @@ extends Node2D
 const ARC_POINT := 8
 
 @onready var area_2d: Area2D = $Area2D
-@onready var card_arc: Line2D = $'CanvasLayer/card_arc'
+@onready var card_arc: Line2D = $CanvasLayer/card_arc
 
 var current_card: CardUI
 var targeting := false
@@ -11,31 +11,36 @@ var targeting := false
 func _ready() -> void:
 	Events.card_aim_started.connect(_on_card_aim_started)
 	Events.card_aim_ended.connect(_on_card_aim_ended)
-	
+
 func _process(_delta: float) -> void:
 	if not targeting:
 		return
 	
 	area_2d.position = get_local_mouse_position()
 	card_arc.points = _get_points()
-	
+
 func _get_points() -> Array:
 	var points := []
-	var start := current_card.global_position
-	start.x += (current_card.size.x / 2)
+	
+	# --- FIX START ---
+	# Instead of manually calculating (which fails if size is 0),
+	# we ask the card exactly where the arrow should start.
+	var start := current_card.get_aim_start_position()
+	# --- FIX END ---
+	
 	var target := get_local_mouse_position()
 	var distance := (target - start)
 	
 	for i in range(ARC_POINT):
-		var t := (1.0/ ARC_POINT) * i
-		var x := start.x + (distance.x /ARC_POINT) * i
-		var y:= start.y + ease_out_cubic(t) * distance.y
+		var t := (1.0 / ARC_POINT) * i
+		var x := start.x + (distance.x / ARC_POINT) * i
+		var y := start.y + ease_out_cubic(t) * distance.y
 		points.append(Vector2(x, y))
 	
 	points.append(target)
 	
 	return points
-	
+
 func ease_out_cubic(number: float) -> float:
 	return 1.0 - pow(1.0 - number, 3.0)
 
@@ -66,9 +71,8 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 func _on_area_2d_exited(area: Area2D) -> void:
 	if not current_card or not targeting:
 		return
-		
-		current_card.targets.erase(area)
-
+	
+	current_card.targets.erase(area)
 
 func _on_area_2d_area_exited(area: Area2D) -> void:
-	pass # Replace with function body.
+	_on_area_2d_exited(area)

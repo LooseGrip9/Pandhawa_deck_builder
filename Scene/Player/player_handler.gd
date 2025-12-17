@@ -4,7 +4,8 @@ extends Node
 const HAND_DRAW_INTERVAL := 0.25
 const HAND_DISCARD_INTERVAL := 0.25
 
-@export var hand: Hand
+# This forces Godot to find the node named "Hand" automatically
+@onready var hand: Hand = $"../BattleUI/Hand"
 
 var character: CharacterStats
 

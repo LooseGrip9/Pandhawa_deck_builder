@@ -14,10 +14,13 @@ func init(card: CardUI) -> void:
 			child.card_ui = card
 	
 	if initial_state:
-		# Initial setup to enter the first state
 		current_state = initial_state
 		current_state.enter()
 
+func _process(delta: float) -> void:
+	# NEW: This runs every frame and passes it to the active state
+	if current_state:
+		current_state.on_process(delta)
 
 func on_input(event: InputEvent) -> void:
 	if current_state:
@@ -36,18 +39,15 @@ func on_mouse_exited() -> void:
 		current_state.on_mouse_exited()
 
 func _on_transition_requested(from: CardState, to: CardState.State) -> void:
-	# 1. Validation: Ensure the request came from the currently active state
 	if from != current_state:
 		return
 		
-	var new_state: CardState = states.get(to) # Use .get() for safer dictionary access
+	var new_state: CardState = states.get(to)
 	if not new_state:
 		return
 		
-	# 2. Exit the old state
 	if current_state:
 		current_state.exit()
 
-	# 3. CRITICAL FIX: Assign the new state and call its enter function
 	current_state = new_state
 	current_state.enter()

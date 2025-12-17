@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://busxye1bkrslo"]
+[gd_scene load_steps=22 format=3 uid="uid://busxye1bkrslo"]
 
 [ext_resource type="Script" uid="uid://nxqkl22ab5i6" path="res://Scene/Battle/battle.gd" id="1_5t6rn"]
 [ext_resource type="Texture2D" uid="uid://cp4iq5fd6j8be" path="res://art/background.png" id="1_tf5ac"]
@@ -22,6 +22,14 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q5a5a"]
 size = Vector2(256, 106)
 
+[sub_resource type="Curve" id="Curve_hihqn"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.503618, 0.53651375), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_prptk"]
+_data = [Vector2(0, 0.16500056), 0.0, 0.0, 0, 0, Vector2(0.2575977, 0.5029278), 0.0, 0.0, 0, 0, Vector2(0.75687414, 0.49516612), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 4
+
 [node name="Battle" type="Node2D"]
 script = ExtResource("1_5t6rn")
 char_stats = ExtResource("5_yygm8")
@@ -31,13 +39,13 @@ music = ExtResource("3_e665m")
 modulate = Color(0.5115575, 0.51155764, 0.51155746, 1)
 position = Vector2(128, 72)
 texture = ExtResource("1_tf5ac")
-metadata/_edit_lock_ = true
 
 [node name="CardDropArea" type="Area2D" parent="."]
+position = Vector2(0, -8)
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CardDropArea"]
-position = Vector2(128, 53)
+position = Vector2(128, 62)
 shape = SubResource("RectangleShape2D_q5a5a")
 debug_color = Color(0, 0.6, 0.69803923, 0.15294118)
 
@@ -62,27 +70,30 @@ stats = ExtResource("10_hihqn")
 position = Vector2(236, 65)
 stats = ExtResource("10_hihqn")
 
-[node name="PlayerHandler" type="Node" parent="." node_paths=PackedStringArray("hand")]
+[node name="PlayerHandler" type="Node" parent="."]
 script = ExtResource("8_161f6")
-hand = NodePath("../BattleUI/Hand")
 
 [node name="BattleUI" type="CanvasLayer" parent="." groups=["ui_layer"]]
 script = ExtResource("8_t23xh")
 
-[node name="Hand" type="HBoxContainer" parent="BattleUI"]
+[node name="Hand" type="Control" parent="BattleUI"]
+layout_mode = 3
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -75.0
-offset_top = -30.0
-offset_right = 75.0
+offset_left = -9.0
+offset_top = -20.0
+offset_right = -9.0
+offset_bottom = 10.0
 grow_horizontal = 2
 grow_vertical = 0
-alignment = 1
 script = ExtResource("2_q5a5a")
 char_stats = ExtResource("5_yygm8")
+height_curve = SubResource("Curve_hihqn")
+rotation_curve = SubResource("Curve_prptk")
+x_separation = 20.0
 
 [node name="EndTurnButton" type="Button" parent="BattleUI"]
 unique_name_in_owner = true
@@ -100,8 +111,10 @@ offset_top = 13.0
 offset_bottom = 49.0
 
 [node name="ManaUI" parent="BattleUI" instance=ExtResource("11_8sv8u")]
-offset_top = -30.0
-offset_bottom = -12.0
+offset_left = 15.0
+offset_top = -27.0
+offset_right = 33.0
+offset_bottom = -9.0
 char_stats = ExtResource("5_yygm8")
 
 [node name="Redflash" type="CanvasLayer" parent="."]

@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Pandhawa_deck_builder"
+config/name="Pandhawa_deck_builder (Copy)"
 run/main_scene="uid://busxye1bkrslo"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 

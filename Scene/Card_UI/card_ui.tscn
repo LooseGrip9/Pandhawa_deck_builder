@@ -12,10 +12,10 @@
 [ext_resource type="Script" uid="uid://difw0e2nteyp3" path="res://Scene/Card_UI/card_state/card_aiming_state.gd" id="8_dc2e6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dft8m"]
-size = Vector2(25, 30)
+size = Vector2(24.982044, 30.998775)
 
 [node name="CardUI" type="Control"]
-custom_minimum_size = Vector2(25, 0)
+custom_minimum_size = Vector2(25, 30)
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -24,38 +24,51 @@ offset_right = -231.0
 offset_bottom = -114.0
 grow_horizontal = 2
 grow_vertical = 2
+rotation = 0.0011960915
+pivot_offset = Vector2(12.5, 15)
 theme = ExtResource("1_dft8m")
 script = ExtResource("2_y8e1j")
 
-[node name="Panel" type="Panel" parent="."]
-layout_mode = 1
+[node name="AimStart" type="Marker2D" parent="."]
+position = Vector2(12.5, 15)
+
+[node name="CanvasGroup" type="CanvasGroup" parent="."]
+texture_filter = 1
+position = Vector2(-0.017914305, 0.029901981)
+
+[node name="Panel" type="Panel" parent="CanvasGroup"]
+custom_minimum_size = Vector2(25, 30)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = 25.0
+offset_bottom = 30.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 theme_override_styles/panel = ExtResource("3_5qrxc")
+metadata/_edit_use_anchors_ = true
 
-[node name="Cost" type="Label" parent="."]
+[node name="Cost" type="Label" parent="CanvasGroup/Panel"]
 layout_mode = 0
 offset_left = 1.0
-offset_top = -4.0
+offset_top = -3.9999998
 offset_right = 11.0
 offset_bottom = 19.0
 text = "2"
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
-[node name="Icon" type="TextureRect" parent="."]
+[node name="Icon" type="TextureRect" parent="CanvasGroup/Panel"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -5.0
-offset_top = -5.0
+offset_left = -5.0000005
+offset_top = -4.999999
 offset_right = 5.0
 offset_bottom = 5.0
 grow_horizontal = 2
@@ -64,12 +77,14 @@ mouse_filter = 2
 texture = ExtResource("3_qc8hc")
 expand_mode = 1
 stretch_mode = 5
+metadata/_edit_use_anchors_ = true
 
 [node name="Drop_Point_Detector" type="Area2D" parent="."]
+position = Vector2(-0.00596262, -4.9850564)
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Drop_Point_Detector"]
-position = Vector2(12.5, 15)
+position = Vector2(12.497012, 20.484438)
 shape = SubResource("RectangleShape2D_dft8m")
 
 [node name="CardStateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]

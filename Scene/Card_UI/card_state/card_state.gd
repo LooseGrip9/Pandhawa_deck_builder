@@ -26,3 +26,6 @@ func on_mouse_entered() -> void:
 
 func on_mouse_exited() -> void:
 	pass
+
+func on_process(_delta: float) -> void:
+	pass

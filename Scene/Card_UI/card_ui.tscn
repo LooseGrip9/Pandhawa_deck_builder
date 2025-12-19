@@ -30,11 +30,11 @@ theme = ExtResource("1_dft8m")
 script = ExtResource("2_y8e1j")
 
 [node name="AimStart" type="Marker2D" parent="."]
+visibility_layer = 4
+z_index = 20
 position = Vector2(12.5, 15)
 
 [node name="CanvasGroup" type="CanvasGroup" parent="."]
-texture_filter = 1
-position = Vector2(-0.017914305, 0.029901981)
 
 [node name="Panel" type="Panel" parent="CanvasGroup"]
 custom_minimum_size = Vector2(25, 30)
@@ -55,6 +55,7 @@ offset_left = 1.0
 offset_top = -3.9999998
 offset_right = 11.0
 offset_bottom = 19.0
+theme_override_font_sizes/font_size = 6
 text = "2"
 horizontal_alignment = 1
 vertical_alignment = 1

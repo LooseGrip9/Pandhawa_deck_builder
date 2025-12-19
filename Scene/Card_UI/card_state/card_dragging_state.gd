@@ -24,6 +24,8 @@ func on_input(event : InputEvent) -> void:
 	var cancel = event.is_action_pressed("right_mouse")
 	var confirm = event.is_action_released("left_mouse") or event.is_action_pressed("left_mouse")
 	
+	card_ui.rotation = 0
+	
 	if single_targeted and mouse_motion and card_ui.targets.size() > 0:
 		transition_requested.emit(self, CardState.State.AIMING)
 		return

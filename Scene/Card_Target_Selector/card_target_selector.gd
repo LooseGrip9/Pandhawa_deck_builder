@@ -22,11 +22,7 @@ func _process(_delta: float) -> void:
 func _get_points() -> Array:
 	var points := []
 	
-	# --- FIX START ---
-	# Instead of manually calculating (which fails if size is 0),
-	# we ask the card exactly where the arrow should start.
 	var start := current_card.get_aim_start_position()
-	# --- FIX END ---
 	
 	var target := get_local_mouse_position()
 	var distance := (target - start)

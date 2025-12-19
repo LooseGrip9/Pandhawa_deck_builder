@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://nxqkl22ab5i6" path="res://Scene/Battle/battle.gd" id="1_5t6rn"]
 [ext_resource type="Texture2D" uid="uid://cp4iq5fd6j8be" path="res://art/background.png" id="1_tf5ac"]
-[ext_resource type="PackedScene" uid="uid://dphwon1rajjyv" path="res://Scene/Enemy/enemy.tscn" id="2_jskq3"]
+[ext_resource type="PackedScene" uid="uid://dphwon1rajjyv" path="res://Scene/enemy/enemy.tscn" id="2_jskq3"]
 [ext_resource type="Script" uid="uid://csbe0ofk71v0n" path="res://Scene/UI/hand.gd" id="2_q5a5a"]
 [ext_resource type="AudioStream" uid="uid://b0c05bjchcjol" path="res://BGM/Battle 1.mp3" id="3_e665m"]
 [ext_resource type="PackedScene" uid="uid://cp2ekfcfiiffu" path="res://Scene/Card_Target_Selector/card_target_selector.tscn" id="3_pgpmp"]
@@ -20,14 +20,15 @@
 [ext_resource type="PackedScene" uid="uid://bjcmx83buti5m" path="res://Scene/UI/battle_over_panel.tscn" id="17_yguqv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q5a5a"]
-size = Vector2(256, 106)
+size = Vector2(256, 117)
 
 [sub_resource type="Curve" id="Curve_hihqn"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.503618, 0.53651375), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 3
 
 [sub_resource type="Curve" id="Curve_prptk"]
-_data = [Vector2(0, 0.16500056), 0.0, 0.0, 0, 0, Vector2(0.2575977, 0.5029278), 0.0, 0.0, 0, 0, Vector2(0.75687414, 0.49516612), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+_limits = [-0.5, 1.0, 0.0, 1.0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.2575977, 0.5029278), 0.0, 0.0, 0, 0, Vector2(0.75687414, 0.49516612), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 4
 
 [node name="Battle" type="Node2D"]
@@ -45,7 +46,7 @@ position = Vector2(0, -8)
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CardDropArea"]
-position = Vector2(128, 62)
+position = Vector2(128, 67.5)
 shape = SubResource("RectangleShape2D_q5a5a")
 debug_color = Color(0, 0.6, 0.69803923, 0.15294118)
 

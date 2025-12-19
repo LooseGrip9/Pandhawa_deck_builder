@@ -7,7 +7,7 @@ func enter() -> void:
 	
 	var target_pos = card_ui.global_position
 	
-	target_pos.y -= 20.0
+	target_pos.y -= 10
 	card_ui.animate_to_position(target_pos, 0.2)
 	var rot_tween = create_tween()
 	rot_tween.tween_property(card_ui, "rotation", 0.0, 0.2)
@@ -28,5 +28,4 @@ func on_input(event: InputEvent) -> void:
 	if (mouse_motion and mouse_at_botton) or event.is_action_pressed("right_mouse"):
 		transition_requested.emit(self, CardState.State.BASE)
 	elif event.is_action_released("left_mouse") or event.is_action_pressed("left_mouse"):
-		get_viewport().set_input_as_handled()
 		transition_requested.emit(self, CardState.State.RELEASED)

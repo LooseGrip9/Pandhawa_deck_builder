@@ -1,9 +1,63 @@
-[gd_scene format=3 uid="uid://b4uslrvp3kl5p"]
+[gd_scene load_steps=7 format=3 uid="uid://b4uslrvp3kl5p"]
 
-[node name="MainMenu" type="Control"]
+[ext_resource type="Script" uid="uid://c3skcwsffyenx" path="res://Scene/UI/main_menu.gd" id="1_3si4p"]
+[ext_resource type="Texture2D" uid="uid://b1sbewlyi23w6" path="res://art/Main Menu/BG.png" id="2_m8m1u"]
+[ext_resource type="Texture2D" uid="uid://bwkmwmc6i5jcv" path="res://art/Main Menu/Werkudoro.png" id="3_yoe8p"]
+[ext_resource type="Texture2D" uid="uid://bfnfgaswjeipr" path="res://art/Main Menu/Awan.png" id="4_jn3pw"]
+[ext_resource type="Texture2D" uid="uid://c4ysmq2hujxtg" path="res://art/Main Menu/Title.png" id="5_6ws6c"]
+[ext_resource type="Theme" uid="uid://ychgttg0pudb" path="res://Main_Theme.tres" id="5_68aio"]
+
+[node name="MainMenu" type="Node2D"]
+script = ExtResource("1_3si4p")
+
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+position = Vector2(128, 72)
+texture = ExtResource("2_m8m1u")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(128, 72)
+texture = ExtResource("4_jn3pw")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(127, 72)
+texture = ExtResource("3_yoe8p")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(121, 69)
+texture = ExtResource("5_6ws6c")
+
+[node name="Control" type="Control" parent="."]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Exit" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 59.0
+offset_top = 119.0
+offset_right = 117.0
+offset_bottom = 133.0
+theme = ExtResource("5_68aio")
+text = "KELUAR"
+
+[node name="Continue" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 97.0
+offset_right = 90.0
+offset_bottom = 111.0
+theme = ExtResource("5_68aio")
+text = "LANJUTKAN"
+
+[node name="Start" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 74.0
+offset_right = 67.0
+offset_bottom = 89.0
+theme = ExtResource("5_68aio")
+text = "MULAI GAME"
+
+[connection signal="pressed" from="Control/Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="Control/Start" to="." method="_on_start_pressed"]

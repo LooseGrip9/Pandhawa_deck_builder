@@ -9,6 +9,7 @@ extends Node2D
 @onready var enemy_handler: EnemyHandler = $EnemyHandler as EnemyHandler
 
 func _ready() -> void:
+	$ColorRect/AnimationPlayer.play("fade_out")
 	var new_stats: CharacterStats = char_stats.create_instance()
 	battle_ui.char_stats = new_stats
 	player.stats = new_stats

@@ -1,14 +1,14 @@
-[gd_scene load_steps=22 format=3 uid="uid://busxye1bkrslo"]
+[gd_scene load_steps=23 format=3 uid="uid://busxye1bkrslo"]
 
 [ext_resource type="Script" uid="uid://nxqkl22ab5i6" path="res://Scene/Battle/battle.gd" id="1_5t6rn"]
 [ext_resource type="Texture2D" uid="uid://cp4iq5fd6j8be" path="res://art/background.png" id="1_tf5ac"]
-[ext_resource type="PackedScene" uid="uid://dphwon1rajjyv" path="res://Scene/enemy/enemy.tscn" id="2_jskq3"]
+[ext_resource type="PackedScene" uid="uid://dphwon1rajjyv" path="res://Scene/Enemy/enemy.tscn" id="2_jskq3"]
 [ext_resource type="Script" uid="uid://csbe0ofk71v0n" path="res://Scene/UI/hand.gd" id="2_q5a5a"]
 [ext_resource type="AudioStream" uid="uid://b0c05bjchcjol" path="res://BGM/Battle 1.mp3" id="3_e665m"]
 [ext_resource type="PackedScene" uid="uid://cp2ekfcfiiffu" path="res://Scene/Card_Target_Selector/card_target_selector.tscn" id="3_pgpmp"]
 [ext_resource type="PackedScene" uid="uid://dq87n1yx23g8f" path="res://Scene/Player/player.tscn" id="4_jskq3"]
 [ext_resource type="Resource" uid="uid://c2gxjqxrqus5v" path="res://enemies/crab/crab_enemy.tres" id="5_ihogh"]
-[ext_resource type="Resource" uid="uid://d3y71aj2a76ty" path="res://characters/Pandhawa/pandhawa_name.tres" id="5_yygm8"]
+[ext_resource type="Resource" uid="uid://d3y71aj2a76ty" path="res://characters/Werkudara/werkudara.tres" id="5_yygm8"]
 [ext_resource type="Script" uid="uid://bpgjwa75u6j54" path="res://Scene/Enemy/enemy_handler.gd" id="6_5t6rn"]
 [ext_resource type="Script" uid="uid://b0patbc6ta4yo" path="res://Scene/Player/player_handler.gd" id="8_161f6"]
 [ext_resource type="Script" uid="uid://2ibeirsi1oi4" path="res://Scene/UI/battle_ui.gd" id="8_t23xh"]
@@ -18,6 +18,7 @@
 [ext_resource type="Theme" uid="uid://ychgttg0pudb" path="res://Main_Theme.tres" id="13_ihogh"]
 [ext_resource type="Script" uid="uid://kumxwnpkv0yi" path="res://Scene/Battle/redflash.gd" id="17_hihqn"]
 [ext_resource type="PackedScene" uid="uid://bjcmx83buti5m" path="res://Scene/UI/battle_over_panel.tscn" id="17_yguqv"]
+[ext_resource type="PackedScene" uid="uid://cntn477r6b82o" path="res://Scene/Transition_Animation/color_rect.tscn" id="19_prptk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q5a5a"]
 size = Vector2(256, 117)
@@ -124,7 +125,6 @@ script = ExtResource("17_hihqn")
 
 [node name="ColorRect" type="ColorRect" parent="Redflash"]
 unique_name_in_owner = true
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -141,3 +141,5 @@ layer = 2
 
 [node name="BattleOverPanel" parent="CanvasLayer" instance=ExtResource("17_yguqv")]
 visible = false
+
+[node name="ColorRect" parent="." instance=ExtResource("19_prptk")]

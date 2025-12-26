@@ -14,7 +14,7 @@ const WHITE_SPRITE_MATERIAL := preload("res://art/white_sprite_material.tres")
 var enemy_action_picker: EnemyActionPicker
 var current_action: EnemyAction : set = set_current_action
 
-func set_current_action(value: EnemyAction)	 -> void:
+func set_current_action(value: EnemyAction)-> void:
 	current_action = value
 	if current_action:
 		intent_ui.update_intent(current_action.intent)

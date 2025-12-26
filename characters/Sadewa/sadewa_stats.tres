@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="CharacterStats" load_steps=4 format=3 uid="uid://dn6g1ithum1wr"]
+
+[ext_resource type="Texture2D" uid="uid://dc7crere7e7ow" path="res://art/tile_0099.png" id="1_k16l5"]
+[ext_resource type="Script" uid="uid://ccbx3tv5o5p5l" path="res://custom_resources/character_stats.gd" id="2_06sfw"]
+[ext_resource type="Resource" path="res://characters/Sadewa/sadewa_starting_deck.tres" id="3_w8q8o"]
+
+[resource]
+script = ExtResource("2_06sfw")
+character_name = "Arjuna"
+description = "Satria 'Le Lanang Jagad' dengan
+seribu nama. Ketika busur Gandiva 
+dalam genggamannya, langit menurunkan 
+hujan panah atas perintahnya"
+icon = ExtResource("1_k16l5")
+starting_deck = ExtResource("3_w8q8o")
+cards_per_turn = 3
+max_mana = 6
+max_health = 35
+metadata/_custom_type_script = "uid://ccbx3tv5o5p5l"

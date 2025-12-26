@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://b4uslrvp3kl5p"]
+[gd_scene load_steps=8 format=3 uid="uid://b4uslrvp3kl5p"]
 
 [ext_resource type="Script" uid="uid://c3skcwsffyenx" path="res://Scene/UI/main_menu.gd" id="1_3si4p"]
 [ext_resource type="Texture2D" uid="uid://b1sbewlyi23w6" path="res://art/Main Menu/BG.png" id="2_m8m1u"]
@@ -6,23 +6,24 @@
 [ext_resource type="Texture2D" uid="uid://bfnfgaswjeipr" path="res://art/Main Menu/Awan.png" id="4_jn3pw"]
 [ext_resource type="Texture2D" uid="uid://c4ysmq2hujxtg" path="res://art/Main Menu/Title.png" id="5_6ws6c"]
 [ext_resource type="Theme" uid="uid://ychgttg0pudb" path="res://Main_Theme.tres" id="5_68aio"]
+[ext_resource type="PackedScene" uid="uid://cntn477r6b82o" path="res://Scene/Transition_Animation/color_rect.tscn" id="7_m8m1u"]
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource("1_3si4p")
 
-[node name="Sprite2D4" type="Sprite2D" parent="."]
+[node name="Background" type="Sprite2D" parent="."]
 position = Vector2(128, 72)
 texture = ExtResource("2_m8m1u")
 
-[node name="Sprite2D3" type="Sprite2D" parent="."]
+[node name="Cloud" type="Sprite2D" parent="."]
 position = Vector2(128, 72)
 texture = ExtResource("4_jn3pw")
 
-[node name="Sprite2D2" type="Sprite2D" parent="."]
+[node name="Werkudara" type="Sprite2D" parent="."]
 position = Vector2(127, 72)
 texture = ExtResource("3_yoe8p")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Title" type="Sprite2D" parent="."]
 position = Vector2(121, 69)
 texture = ExtResource("5_6ws6c")
 
@@ -59,5 +60,11 @@ offset_bottom = 89.0
 theme = ExtResource("5_68aio")
 text = "MULAI GAME"
 
+[node name="ColorRect" parent="." instance=ExtResource("7_m8m1u")]
+visible = false
+
+[node name="Timer" type="Timer" parent="ColorRect"]
+
 [connection signal="pressed" from="Control/Exit" to="." method="_on_exit_pressed"]
 [connection signal="pressed" from="Control/Start" to="." method="_on_start_pressed"]
+[connection signal="timeout" from="ColorRect/Timer" to="." method="_on_fade_timer_timeout"]

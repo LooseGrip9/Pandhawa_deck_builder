@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="CardPile" load_steps=3 format=3 uid="uid://b2u5ve7b06v6h"]
+
+[ext_resource type="Script" uid="uid://dcw4oridrwk87" path="res://custom_resources/card.gd" id="1_qd3s1"]
+[ext_resource type="Script" uid="uid://6awnk1lfb5c3" path="res://custom_resources/card_pile.gd" id="2_iae2o"]
+
+[resource]
+script = ExtResource("2_iae2o")
+cards = Array[ExtResource("1_qd3s1")]([null, null, null, null, null, null, null, null, null])
+metadata/_custom_type_script = "uid://6awnk1lfb5c3"

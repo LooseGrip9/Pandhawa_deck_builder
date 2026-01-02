@@ -1,15 +1,20 @@
-[gd_scene load_steps=12 format=3 uid="uid://bpbya8v1xk2cf"]
+[gd_scene load_steps=14 format=3 uid="uid://bpbya8v1xk2cf"]
 
 [ext_resource type="Theme" uid="uid://ychgttg0pudb" path="res://Main_Theme.tres" id="1_dft8m"]
 [ext_resource type="Script" uid="uid://bcbr40gj8c7sb" path="res://Scene/Card_UI/card_ui.gd" id="2_y8e1j"]
 [ext_resource type="StyleBox" uid="uid://bejfgssf7o5x4" path="res://Scene/Card_UI/card_only_theme.tres" id="3_5qrxc"]
 [ext_resource type="Script" uid="uid://rq45fscfdl1c" path="res://Scene/Card_UI/card_state_machine.gd" id="3_eygt0"]
 [ext_resource type="Texture2D" uid="uid://bfvi02kojsa00" path="res://art/tile_0103.png" id="3_qc8hc"]
+[ext_resource type="FontFile" uid="uid://dskmdk146n4rq" path="res://art/pixel_rpg.ttf" id="4_87qho"]
 [ext_resource type="Script" uid="uid://bmur7jhbp5wy3" path="res://Scene/Card_UI/card_state/card_base_state.gd" id="4_gr34m"]
 [ext_resource type="Script" uid="uid://db03wv1cvbaof" path="res://Scene/Card_UI/card_state/card_clicked_state.gd" id="5_dc2e6"]
 [ext_resource type="Script" uid="uid://ccerue7d72abq" path="res://Scene/Card_UI/card_state/card_dragging_state.gd" id="6_qc8hc"]
 [ext_resource type="Script" uid="uid://b6sckh1me0wm3" path="res://Scene/Card_UI/card_state/card_released_state.gd" id="7_5qrxc"]
 [ext_resource type="Script" uid="uid://difw0e2nteyp3" path="res://Scene/Card_UI/card_state/card_aiming_state.gd" id="8_dc2e6"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_twkfw"]
+font = ExtResource("4_87qho")
+font_size = 6
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dft8m"]
 size = Vector2(24.982044, 30.998775)
@@ -50,6 +55,7 @@ theme_override_styles/panel = ExtResource("3_5qrxc")
 metadata/_edit_use_anchors_ = true
 
 [node name="Cost" type="Label" parent="CanvasGroup/Panel"]
+texture_filter = 1
 layout_mode = 0
 offset_left = 1.0
 offset_top = -3.9999998
@@ -57,6 +63,7 @@ offset_right = 11.0
 offset_bottom = 19.0
 theme_override_font_sizes/font_size = 6
 text = "2"
+label_settings = SubResource("LabelSettings_twkfw")
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true

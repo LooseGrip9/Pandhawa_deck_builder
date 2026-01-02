@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="RunStartup" load_steps=2 format=3 uid="uid://b5x66usxwetcg"]
+
+[ext_resource type="Script" uid="uid://df8uvrnsvwjym" path="res://custom_resources/run_startup.gd" id="1_v6bv0"]
+
+[resource]
+script = ExtResource("1_v6bv0")
+metadata/_custom_type_script = "uid://df8uvrnsvwjym"

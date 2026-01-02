@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b3v78srtfu33k"
-path="res://.godot/imported/Bima.png-9854e3ca14784669c2138ec1abdad3a5.ctex"
+uid="uid://b3dlvs4s5ig1y"
+path="res://.godot/imported/yudhistira1.png-da11f42690c7e2fdc266eea676e6d1ab.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/Character Portrait/Bima.png"
-dest_files=["res://.godot/imported/Bima.png-9854e3ca14784669c2138ec1abdad3a5.ctex"]
+source_file="res://art/Character Portrait/yudhistira1.png"
+dest_files=["res://.godot/imported/yudhistira1.png-da11f42690c7e2fdc266eea676e6d1ab.ctex"]
 
 [params]
 

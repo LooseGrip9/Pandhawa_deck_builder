@@ -1,0 +1,57 @@
+[gd_scene load_steps=5 format=3 uid="uid://dcrxvafnlrkn3"]
+
+[ext_resource type="Script" uid="uid://cgd1e7jgkuxer" path="res://Scene/run/run.gd" id="1_rlm2j"]
+[ext_resource type="PackedScene" uid="uid://cv3vc6bonr6gk" path="res://Scene/map/map.tscn" id="2_7yjmf"]
+[ext_resource type="Resource" uid="uid://b5x66usxwetcg" path="res://Scene/run/run_startup.tres" id="2_cigyy"]
+[ext_resource type="Theme" uid="uid://ychgttg0pudb" path="res://Main_Theme.tres" id="3_cigyy"]
+
+[node name="Run" type="Node"]
+script = ExtResource("1_rlm2j")
+run_startup = ExtResource("2_cigyy")
+
+[node name="Map" parent="." instance=ExtResource("2_7yjmf")]
+
+[node name="CurrentView" type="Node" parent="."]
+
+[node name="DebugButton" type="VBoxContainer" parent="."]
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 39.0
+grow_vertical = 2
+
+[node name="Map" type="Button" parent="DebugButton"]
+custom_minimum_size = Vector2(20, 8)
+layout_mode = 2
+theme = ExtResource("3_cigyy")
+text = "map"
+text_overrun_behavior = 3
+
+[node name="Battle" type="Button" parent="DebugButton"]
+custom_minimum_size = Vector2(20, 8)
+layout_mode = 2
+theme = ExtResource("3_cigyy")
+text = "battle"
+
+[node name="Shop" type="Button" parent="DebugButton"]
+custom_minimum_size = Vector2(20, 8)
+layout_mode = 2
+theme = ExtResource("3_cigyy")
+text = "shop"
+
+[node name="Treasure" type="Button" parent="DebugButton"]
+custom_minimum_size = Vector2(20, 8)
+layout_mode = 2
+theme = ExtResource("3_cigyy")
+text = "treasure"
+
+[node name="Rewards" type="Button" parent="DebugButton"]
+custom_minimum_size = Vector2(20, 8)
+layout_mode = 2
+theme = ExtResource("3_cigyy")
+text = "rewards"
+
+[node name="Campfire" type="Button" parent="DebugButton"]
+custom_minimum_size = Vector2(20, 8)
+layout_mode = 2
+theme = ExtResource("3_cigyy")
+text = "campfire"

@@ -1,19 +1,21 @@
-[gd_resource type="Resource" script_class="CharacterStats" load_steps=4 format=3 uid="uid://b83ty4v8mu1qt"]
+[gd_resource type="Resource" script_class="CharacterStats" load_steps=5 format=3 uid="uid://b83ty4v8mu1qt"]
 
 [ext_resource type="Texture2D" uid="uid://bpgk3uxxwda42" path="res://art/tile_0098.png" id="1_eepdu"]
+[ext_resource type="Texture2D" uid="uid://ctkq062xqjydp" path="res://art/Character Portrait/nakula1.png" id="2_d1ebs"]
 [ext_resource type="Script" uid="uid://ccbx3tv5o5p5l" path="res://custom_resources/character_stats.gd" id="2_iusj7"]
-[ext_resource type="Resource" path="res://characters/Nakula/nakula_starting_deck.tres" id="3_d1ebs"]
+[ext_resource type="Resource" uid="uid://b2u5ve7b06v6h" path="res://characters/Nakula/nakula_starting_deck.tres" id="3_d1ebs"]
 
 [resource]
 script = ExtResource("2_iusj7")
-character_name = "Arjuna"
-description = "Satria 'Le Lanang Jagad' dengan
-seribu nama. Ketika busur Gandiva 
-dalam genggamannya, langit menurunkan 
-hujan panah atas perintahnya"
-icon = ExtResource("1_eepdu")
+character_name = "Nakula"
+description = "Putra Aswin yang diberkati dengan kelincahan
+tak masuk akal. Ia tak perlu menangkis 
+serangan, karena musuh takkan pernah 
+bisa menyentuhnya."
+portrait = ExtResource("2_d1ebs")
 starting_deck = ExtResource("3_d1ebs")
 cards_per_turn = 3
 max_mana = 6
 max_health = 30
+art = ExtResource("1_eepdu")
 metadata/_custom_type_script = "uid://ccbx3tv5o5p5l"

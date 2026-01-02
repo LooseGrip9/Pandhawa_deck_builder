@@ -1,21 +1,27 @@
-[gd_scene load_steps=13 format=3 uid="uid://byloj65pp7jh"]
+[gd_scene load_steps=16 format=3 uid="uid://byloj65pp7jh"]
 
 [ext_resource type="Texture2D" uid="uid://b1sbewlyi23w6" path="res://art/Main Menu/BG.png" id="1_fi6x7"]
 [ext_resource type="Script" uid="uid://2tq2x83iguk7" path="res://Scene/UI/character_selector.gd" id="1_jklnb"]
+[ext_resource type="Resource" uid="uid://b5x66usxwetcg" path="res://Scene/run/run_startup.tres" id="2_kk0iq"]
 [ext_resource type="Texture2D" uid="uid://bfnfgaswjeipr" path="res://art/Main Menu/Awan.png" id="2_nprv2"]
 [ext_resource type="Theme" uid="uid://ychgttg0pudb" path="res://Main_Theme.tres" id="3_3i43m"]
+[ext_resource type="FontFile" uid="uid://dskmdk146n4rq" path="res://art/pixel_rpg.ttf" id="5_27gld"]
 [ext_resource type="Texture2D" uid="uid://bmi0ejpglw8i0" path="res://art/Character Portrait/arjuna1.png" id="5_jklnb"]
 [ext_resource type="Texture2D" uid="uid://cpydvk8mq66o5" path="res://art/tile_0087.png" id="5_s733c"]
 [ext_resource type="Texture2D" uid="uid://bj3im6egs4wxx" path="res://art/tile_0086.png" id="6_jklnb"]
 [ext_resource type="Texture2D" uid="uid://bpgk3uxxwda42" path="res://art/tile_0098.png" id="7_27gld"]
 [ext_resource type="Texture2D" uid="uid://dc7crere7e7ow" path="res://art/tile_0099.png" id="8_3syst"]
 [ext_resource type="Texture2D" uid="uid://dpfqok8tuy4r7" path="res://art/tile_0084.png" id="9_kk0iq"]
+[ext_resource type="PackedScene" uid="uid://cntn477r6b82o" path="res://Scene/Transition_Animation/color_rect.tscn" id="12_3syst"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_w0ang"]
 font_size = 12
 
-[sub_resource type="LabelSettings" id="LabelSettings_27gld"]
+[sub_resource type="LabelSettings" id="LabelSettings_jklnb"]
+line_spacing = 4.0
+font = ExtResource("5_27gld")
 font_size = 6
+shadow_size = 0
 
 [node name="CharacterSelector" type="Control"]
 layout_mode = 3
@@ -25,6 +31,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_jklnb")
+run_startup = ExtResource("2_kk0iq")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 modulate = Color(0.55844885, 0.55844885, 0.55844885, 1)
@@ -47,21 +54,25 @@ offset_left = 8.0
 offset_top = 22.0
 offset_right = 177.0
 offset_bottom = 62.0
-scale = Vector2(0.85, 0.85)
 
 [node name="Title" type="Label" parent="VBoxContainer"]
+texture_filter = 1
 layout_mode = 2
 theme = ExtResource("3_3i43m")
 text = "WERKUDARA"
 label_settings = SubResource("LabelSettings_w0ang")
 
 [node name="Description" type="Label" parent="VBoxContainer"]
+texture_filter = 1
+texture_repeat = 1
 layout_mode = 2
 theme = ExtResource("3_3i43m")
-text = "Putra tertua Pandu, penjelmaan kebenaran 
-berdarah putih. Senjatanya bukanlah besi, 
-melainkan hukum Dharma yang mutlak"
-label_settings = SubResource("LabelSettings_27gld")
+theme_override_constants/line_spacing = 4
+theme_override_font_sizes/font_size = 6
+text = "Putra tertua tandu. Penjelmaan
+kebenaran suci berdarah putih yang 
+bersenjatakan hukum dharma yang"
+label_settings = SubResource("LabelSettings_jklnb")
 
 [node name="CharacterPortrait" type="TextureRect" parent="."]
 layout_mode = 0
@@ -117,6 +128,13 @@ offset_bottom = 136.0
 theme = ExtResource("3_3i43m")
 theme_override_font_sizes/font_size = 6
 text = "MULAI PERTARUNGAN"
+
+[node name="ColorRect" parent="." instance=ExtResource("12_3syst")]
+visible = false
+layout_mode = 0
+mouse_filter = 2
+
+[node name="Timer" type="Timer" parent="ColorRect"]
 
 [connection signal="pressed" from="HBoxContainer/Werkudara" to="." method="_on_werkudara_pressed"]
 [connection signal="pressed" from="HBoxContainer/Arjuna" to="." method="_on_arjuna_pressed"]

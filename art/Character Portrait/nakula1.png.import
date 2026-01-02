@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dvfu2kykm3dn3"
-path="res://.godot/imported/yudhistira.png-8e70ff8879b26487a5ff34786b690e7d.ctex"
+uid="uid://ctkq062xqjydp"
+path="res://.godot/imported/nakula1.png-d552406d931bd821164c8a974812713e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/Character Portrait/yudhistira.png"
-dest_files=["res://.godot/imported/yudhistira.png-8e70ff8879b26487a5ff34786b690e7d.ctex"]
+source_file="res://art/Character Portrait/nakula1.png"
+dest_files=["res://.godot/imported/nakula1.png-d552406d931bd821164c8a974812713e.ctex"]
 
 [params]
 

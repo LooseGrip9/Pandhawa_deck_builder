@@ -1,7 +1,8 @@
-[gd_resource type="Resource" script_class="CharacterStats" load_steps=9 format=3 uid="uid://d3y71aj2a76ty"]
+[gd_resource type="Resource" script_class="CharacterStats" load_steps=10 format=3 uid="uid://d3y71aj2a76ty"]
 
 [ext_resource type="Texture2D" uid="uid://cpydvk8mq66o5" path="res://art/tile_0087.png" id="1_tgpcm"]
 [ext_resource type="Script" uid="uid://ccbx3tv5o5p5l" path="res://custom_resources/character_stats.gd" id="2_hnb3s"]
+[ext_resource type="Texture2D" uid="uid://b0kl55id1u7kl" path="res://art/Character Portrait/Werkudoro.png" id="2_kcmqm"]
 [ext_resource type="Script" uid="uid://dcw4oridrwk87" path="res://custom_resources/card.gd" id="3_cku3c"]
 [ext_resource type="Resource" uid="uid://bp7d0y1tctu8o" path="res://characters/Werkudara/Cards/pandhawa_slash_attack.tres" id="4_jdl13"]
 [ext_resource type="Resource" uid="uid://d2d1pkl2vwwhk" path="res://characters/Werkudara/Cards/pandhawa_block.tres" id="5_8iwmo"]
@@ -16,9 +17,11 @@ metadata/_custom_type_script = "uid://6awnk1lfb5c3"
 [resource]
 script = ExtResource("2_hnb3s")
 character_name = "Werkudara"
-description = "Putra tertua tandu. Penjelmaan
-kebenaran suci berdarah putih yang 
-bersenjatakan hukum dharma yang"
+description = "Raksasa dengan kekuatan setara sepuluh ribu 
+gajah. Ia adalah badai yang menghancurkan
+ketidakadilan, mengayunkan gada yang cukup
+berat untuk meratakan gunung."
+portrait = ExtResource("2_kcmqm")
 starting_deck = SubResource("Resource_exfi2")
 cards_per_turn = 5
 max_mana = 3

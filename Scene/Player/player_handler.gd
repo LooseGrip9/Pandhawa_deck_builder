@@ -14,12 +14,6 @@ func _ready() -> void:
 
 func start_battle(char_stats: CharacterStats) -> void:
 	character = char_stats
-	
-	# SAFETY CHECK: If deck is empty, stop and warn the user.
-	if character.deck.cards.is_empty():
-		print("WARNING: 'Starting Deck' is empty in the Inspector! No cards to draw.")
-		return
-	
 	character.draw_pile = character.deck.duplicate(true)
 	character.draw_pile.shuffle()
 	character.discard = CardPile.new()

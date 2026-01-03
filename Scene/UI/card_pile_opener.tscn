@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dafnuhe63p4is"]
+
+[ext_resource type="Texture2D" uid="uid://6lkvnhodboit" path="res://art/Button/Discard Pile.png" id="1_082lj"]
+
+[node name="CardPileOpener" type="TextureButton"]
+offset_right = 12.0
+offset_bottom = 12.0
+texture_normal = ExtResource("1_082lj")
+ignore_texture_size = true
+stretch_mode = 5

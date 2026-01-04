@@ -1,15 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://d4lssxulawatx"]
+[gd_scene load_steps=4 format=3 uid="uid://d4lssxulawatx"]
 
-[ext_resource type="Theme" uid="uid://ychgttg0pudb" path="res://Main_Theme.tres" id="1_b45jj"]
 [ext_resource type="Script" uid="uid://cmt2rcwm1gjfu" path="res://Scene/UI/card_menu_ui.gd" id="1_nd2j4"]
 [ext_resource type="Resource" uid="uid://bp7d0y1tctu8o" path="res://characters/Werkudara/Cards/pandhawa_slash_attack.tres" id="2_wvq5o"]
-[ext_resource type="FontFile" uid="uid://dskmdk146n4rq" path="res://art/pixel_rpg.ttf" id="4_dobam"]
-[ext_resource type="StyleBox" uid="uid://dd8amnpesnofg" path="res://Scene/Card_UI/card_base_style_box.tres" id="4_wvq5o"]
-[ext_resource type="Texture2D" uid="uid://bfvi02kojsa00" path="res://art/tile_0103.png" id="5_cbq7b"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_twkfw"]
-font = ExtResource("4_dobam")
-font_size = 6
+[ext_resource type="PackedScene" uid="uid://xqaoa7m73a2e" path="res://Scene/UI/card_visuals.tscn" id="3_4vq52"]
 
 [node name="CardMenuUI" type="CenterContainer"]
 texture_filter = 1
@@ -19,57 +12,8 @@ size_flags_horizontal = 3
 script = ExtResource("1_nd2j4")
 card = ExtResource("2_wvq5o")
 
-[node name="Visuals" type="Control" parent="."]
-custom_minimum_size = Vector2(25, 30)
+[node name="Visuals" parent="." instance=ExtResource("3_4vq52")]
 layout_mode = 2
-theme = ExtResource("1_b45jj")
-
-[node name="CanvasGroup" type="CanvasGroup" parent="Visuals"]
-
-[node name="Panel" type="Panel" parent="Visuals/CanvasGroup"]
-custom_minimum_size = Vector2(25, 30)
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = 25.0
-offset_bottom = 30.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-theme_override_styles/panel = ExtResource("4_wvq5o")
-metadata/_edit_use_anchors_ = true
-
-[node name="Cost" type="Label" parent="Visuals/CanvasGroup/Panel"]
-texture_filter = 1
-layout_mode = 0
-offset_left = 1.0
-offset_top = -3.9999998
-offset_right = 11.0
-offset_bottom = 19.0
-theme_override_font_sizes/font_size = 6
-text = "2"
-label_settings = SubResource("LabelSettings_twkfw")
-horizontal_alignment = 1
-vertical_alignment = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="Icon" type="TextureRect" parent="Visuals/CanvasGroup/Panel"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -4.5
-offset_top = -5.0
-offset_right = 5.5
-offset_bottom = 5.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-texture = ExtResource("5_cbq7b")
-expand_mode = 1
-stretch_mode = 5
 
 [connection signal="gui_input" from="Visuals" to="." method="_on_visuals_gui_input"]
 [connection signal="mouse_entered" from="Visuals" to="." method="_on_visuals_mouse_entered"]

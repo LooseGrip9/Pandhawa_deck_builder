@@ -18,9 +18,6 @@ func _ready() -> void:
 	
 	card_tooltip_popup.hide_tooltip()
 	
-	await get_tree().create_timer(3.0).timeout
-	card_pile = preload("res://characters/Werkudara/werkudara_starting_deck.tres")
-	show_current_view("Deck")
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):

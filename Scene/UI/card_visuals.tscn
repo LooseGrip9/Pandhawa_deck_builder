@@ -1,0 +1,72 @@
+[gd_scene load_steps=8 format=3 uid="uid://xqaoa7m73a2e"]
+
+[ext_resource type="Theme" uid="uid://ychgttg0pudb" path="res://Main_Theme.tres" id="1_jruy5"]
+[ext_resource type="Script" uid="uid://c8ryfkjklsy3a" path="res://Scene/UI/card_visuals.gd" id="2_f11pj"]
+[ext_resource type="FontFile" uid="uid://dskmdk146n4rq" path="res://art/pixel_rpg.ttf" id="3_f11pj"]
+[ext_resource type="Resource" uid="uid://c08j5gpyl7ane" path="res://characters/Werkudara/Cards/pandhawa_axe_attack.tres" id="3_i7n4q"]
+[ext_resource type="StyleBox" uid="uid://bejfgssf7o5x4" path="res://Scene/Card_UI/card_only_theme.tres" id="4_f11pj"]
+[ext_resource type="Texture2D" uid="uid://bfvi02kojsa00" path="res://art/tile_0103.png" id="4_i7n4q"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_twkfw"]
+font = ExtResource("3_f11pj")
+font_size = 6
+
+[node name="CardVisuals" type="Control"]
+texture_filter = 1
+custom_minimum_size = Vector2(25, 30)
+layout_mode = 3
+anchors_preset = 0
+theme = ExtResource("1_jruy5")
+script = ExtResource("2_f11pj")
+card = ExtResource("3_i7n4q")
+
+[node name="CanvasGroup" type="CanvasGroup" parent="."]
+texture_filter = 1
+
+[node name="Panel" type="Panel" parent="CanvasGroup"]
+texture_filter = 1
+clip_contents = true
+custom_minimum_size = Vector2(25, 30)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 25.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = ExtResource("4_f11pj")
+metadata/_edit_use_anchors_ = true
+
+[node name="Cost" type="Label" parent="CanvasGroup/Panel"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 1.0
+offset_top = -3.9999998
+offset_right = 11.0
+offset_bottom = 19.0
+theme_override_font_sizes/font_size = 6
+text = "2"
+label_settings = SubResource("LabelSettings_twkfw")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Icon" type="TextureRect" parent="CanvasGroup/Panel"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.5
+offset_top = -5.0
+offset_right = 5.5
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("4_i7n4q")
+expand_mode = 1
+stretch_mode = 5

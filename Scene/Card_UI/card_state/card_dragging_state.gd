@@ -9,7 +9,7 @@ func enter() -> void:
 	if ui_layer:
 		card_ui.reparent(ui_layer)
 		
-	card_ui.panel.set("theme_override_styles/panel", card_ui.DRAG_STYLEBOX)
+	card_ui.card_visuals.set("theme_override_styles/panel", card_ui.DRAG_STYLEBOX)
 	Events.card_drag_started.emit(card_ui)
 	minimum_drag_elapsed_time = false
 	var threshold_timer := get_tree().create_timer(DRAG_MINIMUM_THRESHOLD, false)

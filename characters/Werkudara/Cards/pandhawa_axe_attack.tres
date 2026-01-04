@@ -7,6 +7,7 @@
 [resource]
 script = ExtResource("2_q6pf7")
 id = "pandhawa_axe_attack"
+rarity = 1
 target = 1
 cost = 1
 icon = ExtResource("1_q6pf7")

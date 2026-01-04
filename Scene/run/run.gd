@@ -11,6 +11,9 @@ const TREASURE_SCENE := preload("res://Scene/Treasure/treasure.tscn")
 @export var run_startup: RunStartup
 
 @onready var current_view: Node = $CurrentView
+@onready var deck_button: CardPileOpener = %DeckButton
+@onready var deck_view: CardPileView= %DeckView
+
 @onready var battle_button: Button = $DebugButton/Battle
 @onready var campfire_button: Button = $DebugButton/Campfire
 @onready var map_button: Button = $DebugButton/Map
@@ -37,6 +40,7 @@ func _ready() -> void:
 
 func _start_run() -> void:
 	_setup_event_connections()
+	_setup_top_bar()
 	print("TODO: Procedurally generated maps")
 
 func _change_view(scene: PackedScene) -> void:
@@ -61,6 +65,11 @@ func _setup_event_connections() -> void:
 	rewards_button.pressed.connect(_change_view.bind(BATTLE_REWARD_SCENE))
 	shop_button.pressed.connect(_change_view.bind(SHOP_SCENE))
 	treasure_button.pressed.connect(_change_view.bind(TREASURE_SCENE))
+
+func _setup_top_bar():
+	deck_button.card_pile = character.deck
+	deck_view.card_pile = character.deck
+	deck_button.pressed.connect(deck_view.show_current_view.bind("Deck"))
 
 func _on_map_exited() -> void:
 	print("TODO: from the MAP, change view based on room type")

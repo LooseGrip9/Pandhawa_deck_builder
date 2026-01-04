@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://nxqkl22ab5i6" path="res://Scene/Battle/battle.gd" id="1_5t6rn"]
 [ext_resource type="Texture2D" uid="uid://cp4iq5fd6j8be" path="res://art/background.png" id="1_tf5ac"]
-[ext_resource type="PackedScene" uid="uid://dphwon1rajjyv" path="res://Scene/Enemy/enemy.tscn" id="2_jskq3"]
+[ext_resource type="PackedScene" uid="uid://dphwon1rajjyv" path="res://Scene/enemy/enemy.tscn" id="2_jskq3"]
 [ext_resource type="Script" uid="uid://csbe0ofk71v0n" path="res://Scene/UI/hand.gd" id="2_q5a5a"]
 [ext_resource type="AudioStream" uid="uid://b0c05bjchcjol" path="res://BGM/Battle 1.mp3" id="3_e665m"]
 [ext_resource type="PackedScene" uid="uid://cp2ekfcfiiffu" path="res://Scene/Card_Target_Selector/card_target_selector.tscn" id="3_pgpmp"]
@@ -29,12 +29,12 @@
 size = Vector2(256, 117)
 
 [sub_resource type="Curve" id="Curve_hihqn"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.503618, 0.53651375), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.50421345, 0.41436893), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 3
 
 [sub_resource type="Curve" id="Curve_prptk"]
 _limits = [-0.5, 1.0, 0.0, 1.0]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.2575977, 0.5029278), 0.0, 0.0, 0, 0, Vector2(0.75687414, 0.49516612), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+_data = [Vector2(0, -0.5), 0.0, 0.0, 0, 0, Vector2(0.2575977, 0.5029278), 0.0, 0.0, 0, 0, Vector2(0.75687414, 0.49516612), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 4
 
 [sub_resource type="LabelSettings" id="LabelSettings_2xnyg"]
@@ -94,9 +94,9 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -16.0
+offset_left = -18.0
 offset_top = -19.0
-offset_right = -16.0
+offset_right = -18.0
 offset_bottom = 11.0
 grow_horizontal = 2
 grow_vertical = 0
@@ -140,10 +140,10 @@ card_pile = ExtResource("18_dt0kd")
 
 [node name="Counter" type="Label" parent="BattleUI/DrawPileButton"]
 layout_mode = 0
-offset_left = 6.0
-offset_top = 19.0
-offset_right = 17.0
-offset_bottom = 25.0
+offset_left = 13.0
+offset_top = 15.0
+offset_right = 29.0
+offset_bottom = 21.0
 text = "99"
 label_settings = SubResource("LabelSettings_2xnyg")
 
@@ -161,15 +161,17 @@ card_pile = ExtResource("18_dt0kd")
 
 [node name="DiscardCounter" type="Label" parent="BattleUI/DiscardPileButton"]
 layout_mode = 0
-offset_left = 5.0
-offset_top = 19.0
-offset_right = 16.0
-offset_bottom = 25.0
+offset_left = -9.0
+offset_top = 15.0
+offset_right = 6.0
+offset_bottom = 21.0
 text = "99"
 label_settings = SubResource("LabelSettings_2xnyg")
+horizontal_alignment = 2
 
 [node name="Redflash" type="CanvasLayer" parent="."]
 layer = 2
+visible = false
 script = ExtResource("17_hihqn")
 
 [node name="ColorRect" type="ColorRect" parent="Redflash"]
@@ -192,6 +194,7 @@ layer = 3
 visible = false
 
 [node name="ColorRect" parent="." instance=ExtResource("19_prptk")]
+visible = false
 
 [node name="CardPileView" type="CanvasLayer" parent="."]
 layer = 3

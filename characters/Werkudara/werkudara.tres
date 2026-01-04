@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="CharacterStats" load_steps=10 format=3 uid="uid://d3y71aj2a76ty"]
+[gd_resource type="Resource" script_class="CharacterStats" load_steps=12 format=3 uid="uid://d3y71aj2a76ty"]
 
 [ext_resource type="Texture2D" uid="uid://cpydvk8mq66o5" path="res://art/tile_0087.png" id="1_tgpcm"]
 [ext_resource type="Script" uid="uid://ccbx3tv5o5p5l" path="res://custom_resources/character_stats.gd" id="2_hnb3s"]
@@ -8,10 +8,12 @@
 [ext_resource type="Resource" uid="uid://d2d1pkl2vwwhk" path="res://characters/Werkudara/Cards/pandhawa_block.tres" id="5_8iwmo"]
 [ext_resource type="Resource" uid="uid://c08j5gpyl7ane" path="res://characters/Werkudara/Cards/pandhawa_axe_attack.tres" id="6_88pel"]
 [ext_resource type="Script" uid="uid://6awnk1lfb5c3" path="res://custom_resources/card_pile.gd" id="7_sepfq"]
+[ext_resource type="Resource" uid="uid://b2qv6qd4i81e6" path="res://characters/Werkudara/Cards/werkudara_slam.tres" id="8_yqqyg"]
+[ext_resource type="Resource" uid="uid://clmsng2o0pwtl" path="res://characters/Werkudara/Cards/obat_kuat.tres" id="9_vyn6q"]
 
 [sub_resource type="Resource" id="Resource_exfi2"]
 script = ExtResource("7_sepfq")
-cards = Array[ExtResource("3_cku3c")]([ExtResource("4_jdl13"), ExtResource("5_8iwmo"), ExtResource("6_88pel"), ExtResource("5_8iwmo"), ExtResource("5_8iwmo"), ExtResource("5_8iwmo"), ExtResource("6_88pel"), ExtResource("4_jdl13"), ExtResource("6_88pel")])
+cards = Array[ExtResource("3_cku3c")]([ExtResource("4_jdl13"), ExtResource("5_8iwmo"), ExtResource("6_88pel"), ExtResource("5_8iwmo"), ExtResource("5_8iwmo"), ExtResource("5_8iwmo"), ExtResource("6_88pel"), ExtResource("4_jdl13"), ExtResource("8_yqqyg"), ExtResource("9_vyn6q"), ExtResource("9_vyn6q")])
 metadata/_custom_type_script = "uid://6awnk1lfb5c3"
 
 [resource]

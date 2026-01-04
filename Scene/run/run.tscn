@@ -66,6 +66,7 @@ theme = ExtResource("3_cigyy")
 text = "campfire"
 
 [node name="TopBar" type="CanvasLayer" parent="."]
+layer = 3
 
 [node name="Background" type="ColorRect" parent="TopBar"]
 custom_minimum_size = Vector2(0, 18)
@@ -104,3 +105,4 @@ label_settings = SubResource("LabelSettings_oc3rx")
 [node name="DeckView" parent="TopBar" instance=ExtResource("8_nesxt")]
 unique_name_in_owner = true
 visible = false
+visibility_layer = 16

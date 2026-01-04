@@ -4,8 +4,8 @@ extends Control
 @export var card: Card : set = set_card
 
 @onready var panel: Panel = $CanvasGroup/Panel
-@onready var cost: Label = $CanvasGroup/Panel/Cost
-@onready var icon: TextureRect = $CanvasGroup/Panel/Icon
+@onready var cost: Label = $DataContainer/Cost
+@onready var icon: TextureRect = $DataContainer/Icon
 
 func set_card(value: Card) -> void:
 	if not is_node_ready():

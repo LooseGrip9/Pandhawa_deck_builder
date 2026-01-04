@@ -38,7 +38,13 @@ mouse_filter = 2
 theme_override_styles/panel = ExtResource("4_f11pj")
 metadata/_edit_use_anchors_ = true
 
-[node name="Cost" type="Label" parent="CanvasGroup/Panel"]
+[node name="DataContainer" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 25.0
+offset_bottom = 30.0
+mouse_filter = 2
+
+[node name="Cost" type="Label" parent="DataContainer"]
 texture_filter = 1
 layout_mode = 0
 offset_left = 1.0
@@ -50,9 +56,8 @@ text = "2"
 label_settings = SubResource("LabelSettings_twkfw")
 horizontal_alignment = 1
 vertical_alignment = 1
-metadata/_edit_use_anchors_ = true
 
-[node name="Icon" type="TextureRect" parent="CanvasGroup/Panel"]
+[node name="Icon" type="TextureRect" parent="DataContainer"]
 texture_filter = 1
 layout_mode = 1
 anchors_preset = 8
@@ -60,13 +65,12 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -4.5
-offset_top = -5.0
-offset_right = 5.5
-offset_bottom = 5.0
+offset_left = -7.5
+offset_top = -8.0
+offset_right = 8.5
+offset_bottom = 8.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 texture = ExtResource("4_i7n4q")
-expand_mode = 1
 stretch_mode = 5

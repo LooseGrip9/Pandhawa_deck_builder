@@ -16,7 +16,7 @@ const HOVER_STYLEBOX := preload("uid://cmvjwhw7catm6")
 @export var char_stats: CharacterStats : set = _set_char_stats
 
 @onready var card_visuals: CardVisuals = $CardVisuals
-
+@onready var canvas_group: CanvasGroup = $CardVisuals/CanvasGroup
 @onready var drop_point_detector: Area2D = $Drop_Point_Detector
 @onready var card_state_machine: CardStateMachine = $CardStateMachine as CardStateMachine
 @onready var targets: Array[Node] = []
@@ -49,11 +49,11 @@ func _ready() -> void:
 	Events.card_aim_ended.connect(_on_card_drag_or_aim_ended)
 
 func _process(delta: float) -> void:
-	if not card_visuals.material:
+	if not canvas_group.material:
 		return
 		
-	var current_x = card_visuals.material.get_shader_parameter("x_rot")
-	var current_y = card_visuals.material.get_shader_parameter("y_rot")
+	var current_x = canvas_group.material.get_shader_parameter("x_rot")
+	var current_y = canvas_group.material.get_shader_parameter("y_rot")
 	
 	if current_x == null or current_y == null:
 		return
@@ -61,8 +61,8 @@ func _process(delta: float) -> void:
 	var new_x = lerp(float(current_x), _target_rot_x, delta * 10.0)
 	var new_y = lerp(float(current_y), _target_rot_y, delta * 10.0)
 	
-	card_visuals.material.set_shader_parameter("x_rot", new_x)
-	card_visuals.material.set_shader_parameter("y_rot", new_y)
+	canvas_group.material.set_shader_parameter("x_rot", new_x)
+	canvas_group.material.set_shader_parameter("y_rot", new_y)
 
 func _input(event: InputEvent) -> void:
 	card_state_machine.on_input(event)

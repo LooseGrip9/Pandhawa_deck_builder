@@ -1,3 +1,12 @@
-[gd_resource type="Resource" format=3 uid="uid://b2qv6qd4i81e6"]
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://b2qv6qd4i81e6"]
+
+[ext_resource type="Texture2D" uid="uid://dwmvwfpijkkhg" path="res://art/Lorc OGA Icon/789_Lorc_RPG_icons/Icon.1_64.png" id="1_pnxky"]
+[ext_resource type="Script" uid="uid://bqwfikeaxxkih" path="res://characters/Werkudara/Cards/werkudara_slam.gd" id="2_x7lm1"]
 
 [resource]
+script = ExtResource("2_x7lm1")
+id = "Werkudara_Slam"
+rarity = 1
+target = 1
+cost = 2
+icon = ExtResource("1_pnxky")

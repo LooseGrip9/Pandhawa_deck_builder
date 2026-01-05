@@ -32,7 +32,8 @@ texture_repeat = 1
 custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 texture = ExtResource("3_mqje7")
-stretch_mode = 5
+expand_mode = 2
+stretch_mode = 3
 
 [node name="TooltipText" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true

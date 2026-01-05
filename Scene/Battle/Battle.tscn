@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://nxqkl22ab5i6" path="res://Scene/Battle/battle.gd" id="1_5t6rn"]
 [ext_resource type="Texture2D" uid="uid://cp4iq5fd6j8be" path="res://art/background.png" id="1_tf5ac"]
-[ext_resource type="PackedScene" uid="uid://dphwon1rajjyv" path="res://Scene/Enemy/enemy.tscn" id="2_jskq3"]
+[ext_resource type="PackedScene" uid="uid://dphwon1rajjyv" path="res://Scene/enemy/enemy.tscn" id="2_jskq3"]
 [ext_resource type="Script" uid="uid://csbe0ofk71v0n" path="res://Scene/UI/hand.gd" id="2_q5a5a"]
 [ext_resource type="AudioStream" uid="uid://b0c05bjchcjol" path="res://BGM/Battle 1.mp3" id="3_e665m"]
 [ext_resource type="PackedScene" uid="uid://cp2ekfcfiiffu" path="res://Scene/Card_Target_Selector/card_target_selector.tscn" id="3_pgpmp"]
@@ -120,11 +120,12 @@ theme_override_font_sizes/font_size = 6
 text = "End Turn"
 
 [node name="Tooltip" parent="BattleUI" instance=ExtResource("12_161f6")]
+visibility_layer = 16
 z_index = 100
 offset_left = -54.0
-offset_top = 2.0
-offset_right = 56.0
-offset_bottom = 47.0
+offset_top = 19.0
+offset_right = 53.0
+offset_bottom = 59.0
 
 [node name="ManaUI" parent="BattleUI" instance=ExtResource("11_8sv8u")]
 offset_top = -22.0

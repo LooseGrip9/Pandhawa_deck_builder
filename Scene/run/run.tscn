@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://dcrxvafnlrkn3"]
+[gd_scene load_steps=11 format=3 uid="uid://dcrxvafnlrkn3"]
 
 [ext_resource type="Script" uid="uid://cgd1e7jgkuxer" path="res://Scene/run/run.gd" id="1_rlm2j"]
 [ext_resource type="PackedScene" uid="uid://cv3vc6bonr6gk" path="res://Scene/map/map.tscn" id="2_7yjmf"]
 [ext_resource type="Resource" uid="uid://b5x66usxwetcg" path="res://Scene/run/run_startup.tres" id="2_cigyy"]
 [ext_resource type="Theme" uid="uid://ychgttg0pudb" path="res://Main_Theme.tres" id="3_cigyy"]
+[ext_resource type="PackedScene" uid="uid://cv2aifvmei6gf" path="res://Scene/UI/gold_ui.tscn" id="5_6wwhy"]
 [ext_resource type="PackedScene" uid="uid://dafnuhe63p4is" path="res://Scene/UI/card_pile_opener.tscn" id="5_cigyy"]
 [ext_resource type="Texture2D" uid="uid://df5bv1nvgpipb" path="res://art/Button/Deck.png" id="6_rno54"]
 [ext_resource type="FontFile" uid="uid://dskmdk146n4rq" path="res://art/pixel_rpg.ttf" id="7_6wwhy"]
@@ -66,34 +67,38 @@ theme = ExtResource("3_cigyy")
 text = "campfire"
 
 [node name="TopBar" type="CanvasLayer" parent="."]
-layer = 3
+layer = 4
 
 [node name="Background" type="ColorRect" parent="TopBar"]
-custom_minimum_size = Vector2(0, 18)
+custom_minimum_size = Vector2(0, 16)
 anchors_preset = 10
 anchor_right = 1.0
 grow_horizontal = 2
 color = Color(0.16153285, 0.037556756, 0.019863332, 1)
 
-[node name="HBoxContainer" type="HBoxContainer" parent="TopBar"]
-custom_minimum_size = Vector2(0, 18)
+[node name="BarItem" type="HBoxContainer" parent="TopBar"]
+custom_minimum_size = Vector2(0, 10)
 anchors_preset = 10
 anchor_right = 1.0
 grow_horizontal = 2
 
-[node name="PlaceHolder" type="Control" parent="TopBar/HBoxContainer"]
+[node name="GoldUI" parent="TopBar/BarItem" instance=ExtResource("5_6wwhy")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="PlaceHolder" type="Control" parent="TopBar/BarItem"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 12.66
 
-[node name="DeckButton" parent="TopBar/HBoxContainer" node_paths=PackedStringArray("counter") instance=ExtResource("5_cigyy")]
+[node name="DeckButton" parent="TopBar/BarItem" node_paths=PackedStringArray("counter") instance=ExtResource("5_cigyy")]
 unique_name_in_owner = true
 layout_mode = 2
 texture_normal = ExtResource("6_rno54")
 stretch_mode = 4
 counter = NodePath("Counter")
 
-[node name="Counter" type="Label" parent="TopBar/HBoxContainer/DeckButton"]
+[node name="Counter" type="Label" parent="TopBar/BarItem/DeckButton"]
 layout_mode = 0
 offset_left = -5.0
 offset_top = 12.0

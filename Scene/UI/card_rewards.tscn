@@ -1,8 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://p4m0hdnpy5mg"]
+[gd_scene load_steps=9 format=3 uid="uid://p4m0hdnpy5mg"]
 
+[ext_resource type="Script" uid="uid://cj3b5paamsmx6" path="res://Scene/UI/card_rewards.gd" id="1_ptgbe"]
 [ext_resource type="PackedScene" uid="uid://d4lssxulawatx" path="res://Scene/UI/card_menu_ui.tscn" id="1_rgjkt"]
+[ext_resource type="Script" uid="uid://dcw4oridrwk87" path="res://custom_resources/card.gd" id="2_icand"]
 [ext_resource type="Theme" uid="uid://ychgttg0pudb" path="res://Main_Theme.tres" id="2_ptgbe"]
+[ext_resource type="Resource" uid="uid://d2d1pkl2vwwhk" path="res://characters/Werkudara/Cards/pandhawa_block.tres" id="3_j1gty"]
 [ext_resource type="PackedScene" uid="uid://c8f4jow3yb067" path="res://Scene/UI/card_tooltip_pop_up.tscn" id="3_pwwyj"]
+[ext_resource type="Resource" uid="uid://clmsng2o0pwtl" path="res://characters/Werkudara/Cards/obat_kuat.tres" id="4_vh2pc"]
+[ext_resource type="Resource" uid="uid://b2qv6qd4i81e6" path="res://characters/Werkudara/Cards/werkudara_slam.tres" id="5_s731x"]
 
 [node name="CardRewards" type="ColorRect"]
 anchors_preset = 15
@@ -11,6 +16,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.7019608)
+script = ExtResource("1_ptgbe")
+rewards = Array[ExtResource("2_icand")]([ExtResource("3_j1gty"), ExtResource("4_vh2pc"), ExtResource("5_s731x")])
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -26,23 +33,48 @@ offset_bottom = 21.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+[node name="Cards" type="HBoxContainer" parent="VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 
-[node name="CardMenuUI" parent="VBoxContainer/HBoxContainer" instance=ExtResource("1_rgjkt")]
+[node name="CardMenuUI" parent="VBoxContainer/Cards" instance=ExtResource("1_rgjkt")]
 layout_mode = 2
 
-[node name="CardMenuUI2" parent="VBoxContainer/HBoxContainer" instance=ExtResource("1_rgjkt")]
+[node name="CardMenuUI2" parent="VBoxContainer/Cards" instance=ExtResource("1_rgjkt")]
 layout_mode = 2
 
-[node name="CardMenuUI3" parent="VBoxContainer/HBoxContainer" instance=ExtResource("1_rgjkt")]
+[node name="CardMenuUI3" parent="VBoxContainer/Cards" instance=ExtResource("1_rgjkt")]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="VBoxContainer"]
+[node name="SkipCardButton" type="Button" parent="VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(35, 12)
 layout_mode = 2
+size_flags_horizontal = 4
 theme = ExtResource("2_ptgbe")
 text = "Lewati"
 
 [node name="CardTooltipPopUp" parent="." instance=ExtResource("3_pwwyj")]
 visible = false
 layout_mode = 1
+offset_right = 1.0
+offset_bottom = 4.0
+background_color = Color(0.29803923, 0.12941177, 0.2, 0.78431374)
+
+[node name="TakeButton" type="Button" parent="CardTooltipPopUp"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(35, 12)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -4.0
+offset_top = -35.0
+offset_right = 4.0
+offset_bottom = -27.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("2_ptgbe")
+text = "Ambil"

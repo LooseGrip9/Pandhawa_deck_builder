@@ -3,6 +3,9 @@ extends Control
 
 const CARD_MENU_UI_SCENE = preload("res://Scene/UI/card_menu_ui.tscn")
 
+@export var background_color: Color = Color("00000b0")
+
+@onready var background: ColorRect = $Background
 @onready var tooltip_card: CenterContainer = %TooltipCard
 @onready var card_description: RichTextLabel = %Description
 
@@ -10,6 +13,7 @@ func _ready() -> void:
 	for card: CardMenuUI in tooltip_card.get_children():
 		card.queue_free()
 		
+	background.color = background_color
 
 func _on_gui_input(event: InputEvent) -> void:
 	if event.is_action_pressed("left_mouse"):

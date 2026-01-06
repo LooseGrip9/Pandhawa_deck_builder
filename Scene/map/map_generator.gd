@@ -27,7 +27,11 @@ func generate_map() -> Array[Array]:
 	map_data = _generate_initial_grid()
 	var starting_points := _get_random_starting_points()
 	
-	print(starting_points)
+	for j in starting_points:
+		var current_j := j
+		for i in FLOORS -1:
+			current_j = _setup_connection(i, current_j)
+			
 	
 	return []
 	
@@ -68,7 +72,17 @@ func _get_random_starting_points() -> Array[int]:
 				unique_points += 1
 			
 			y_coordinates.append(starting_point)
-		
 	
 	return y_coordinates
+
+func _setup_connection(i: int, j: int) -> int:
+	var next_room: Room
+	var current_room := map_data[i][j] as Room
 	
+	while not next_room or _would_cross_existing_path(i, j, next_room):
+		var random_j := clampf(randi_range(j - 1, j+ 1), 0, MAP_WIDTH - 1)
+		next_room = map_data[i + 1][random_j]
+	
+	current_room.next_rooms.append(next_room)
+	
+	return next_room.column

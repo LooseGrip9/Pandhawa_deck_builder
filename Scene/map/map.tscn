@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cv3vc6bonr6gk"]
+[gd_scene load_steps=4 format=3 uid="uid://cv3vc6bonr6gk"]
 
 [ext_resource type="Script" uid="uid://c64xgcegsu6ln" path="res://map.gd" id="1_6a0s5"]
 [ext_resource type="Theme" uid="uid://ychgttg0pudb" path="res://Main_Theme.tres" id="2_0dym8"]
+[ext_resource type="Script" uid="uid://beeurhsbnoay1" path="res://Scene/map/map_generator.gd" id="3_0dym8"]
 
 [node name="Map" type="Control"]
 layout_mode = 3
@@ -46,5 +47,8 @@ custom_minimum_size = Vector2(0, 12)
 layout_mode = 2
 theme = ExtResource("2_0dym8")
 text = "Kembali"
+
+[node name="MapGenerator" type="Node" parent="."]
+script = ExtResource("3_0dym8")
 
 [connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]

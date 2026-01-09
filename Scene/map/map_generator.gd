@@ -36,6 +36,15 @@ func generate_map() -> Array[Array]:
 	_setup_random_room_weights()
 	_setup_room_types()
 	
+	var i := 0
+	for floor in map_data:
+		print("floor %s" % i)
+		var used_rooms=floor.filter(
+			func(room: Room): return room.next_rooms.size() > 0
+		)
+		print(used_rooms)
+		i += 1
+	
 	return map_data
 	
 func _generate_initial_grid() -> Array[Array]:
@@ -75,7 +84,7 @@ func _get_random_starting_points() -> Array[int]:
 				unique_points += 1
 			
 			y_coordinates.append(starting_point)
-	
+	 
 	return y_coordinates
 
 func _setup_connection(i: int, j: int) -> int:
@@ -143,7 +152,7 @@ func _setup_room_types() -> void:
 	
 	for room: Room in map_data[8]:
 		if room.next_rooms.size() > 0:
-			room.type = Room.Type.SHOP
+			room.type = Room.Type.CAMPFIRE
 	
 	for room: Room in map_data[13]:
 		if room.next_rooms.size() > 0:
@@ -176,9 +185,41 @@ func _set_room_randomly(room_to_set: Room) -> void:
 		consecutive_campfire = is_campfire and has_campfire_parent
 		consecutive_shop = is_shop and has_shop_parent
 		campfire_on_13 = is_campfire and room_to_set.row == 12
-
-func _room_has_parent_of_type() -> void:
 	
+	room_to_set.type = type_candidate
 
-func _get_randon_room_type_by_weight() -> void:
+func _room_has_parent_of_type(room: Room, type: Room.Type) -> bool:
+	var parents: Array[Room] = []
+	#left parents
+	if room.column > 0 and room.row > 0:
+		var parent_candidate := map_data[room.row -1][room.column-1] as Room
+		if parent_candidate.next_rooms.has(room):
+			parents.append(parent_candidate)
+	
+	#parents below
+	if room.row> 0:
+		var parent_candidate := map_data[room.row -1][room.column] as Room
+		if parent_candidate.next_rooms.has(room):
+			parents.append(parent_candidate)
+	
+	#right parents
+	if room.column < MAP_WIDTH-1 and room.row > 0:
+		var parent_candidate := map_data[room.row - 1][room.column + 1] as Room
+		if parent_candidate.next_rooms.has(room):
+			parents.append(parent_candidate)
+	
+	for parent: Room in parents:
+		if parent.type == type:
+			return true
+	
+	return false
+
+func _get_randon_room_type_by_weight() -> Room.Type:
+	var roll := randf_range(0.0, random_room_type_total_weight)
+	
+	for type: Room.Type in random_room_type_weights:
+		if random_room_type_weights[type] > roll:
+			return type
+	
+	return Room.Type.MONSTER
 	

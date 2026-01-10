@@ -5,12 +5,14 @@
 [ext_resource type="Texture2D" uid="uid://2a168ib85qgk" path="res://Scene/map/Map BG.png" id="3_4sf8n"]
 
 [node name="Map" type="Node2D"]
+visibility_layer = 8
 script = ExtResource("1_6a0s5")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(128, 72)
 
 [node name="Visuals" type="Node2D" parent="."]
+visibility_layer = 8
 
 [node name="Lines" type="Node2D" parent="Visuals"]
 unique_name_in_owner = true
@@ -22,11 +24,16 @@ unique_name_in_owner = true
 script = ExtResource("3_0dym8")
 
 [node name="MapBackground" type="CanvasLayer" parent="."]
+layer = -1
 
 [node name="TextureRect" type="TextureRect" parent="MapBackground"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -8.0
+offset_top = -6.0
+offset_right = 8.0
+offset_bottom = 3.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_4sf8n")

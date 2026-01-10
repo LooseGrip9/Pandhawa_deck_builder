@@ -1,8 +1,9 @@
-[gd_resource type="Resource" load_steps=4 format=3 uid="uid://b2qv6qd4i81e6"]
+[gd_resource type="Resource" load_steps=5 format=3 uid="uid://b2qv6qd4i81e6"]
 
 [ext_resource type="Texture2D" uid="uid://ca052gd8sw8jm" path="res://Skill_icon/slam.png" id="1_x7lm1"]
 [ext_resource type="AudioStream" uid="uid://ded6s6suf3scj" path="res://SFX/hits/hit09.mp3.mp3" id="2_2ytvg"]
 [ext_resource type="Script" uid="uid://bqwfikeaxxkih" path="res://characters/Werkudara/Cards/werkudara_slam.gd" id="2_x7lm1"]
+[ext_resource type="AudioStream" uid="uid://dbvka8n0y0nqx" path="res://SFX/hits/hit01.mp3.mp3" id="4_2ytvg"]
 
 [resource]
 script = ExtResource("2_x7lm1")
@@ -13,3 +14,4 @@ target = 1
 cost = 2
 icon = ExtResource("1_x7lm1")
 tooltip_text = "[center]Deal[color=\"ff0000\"] 12 [/color]damage to one enemy and  [color=\"ff0000\"] 2 [/color]damage to self .[/center]"
+sound = ExtResource("4_2ytvg")

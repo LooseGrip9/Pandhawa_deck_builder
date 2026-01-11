@@ -1,0 +1,50 @@
+[gd_scene load_steps=14 format=3 uid="uid://c87c1m8pxdlmh"]
+
+[ext_resource type="Script" uid="uid://c02emn3b1g806" path="res://Scene/Enemy/enemy_action_picker.gd" id="1_8wkah"]
+[ext_resource type="Script" uid="uid://pqg4b0uy42ad" path="res://enemies/prajurit/prajurit_attack_action.gd" id="2_tr7sr"]
+[ext_resource type="Texture2D" uid="uid://bfvi02kojsa00" path="res://art/tile_0103.png" id="3_1wlnl"]
+[ext_resource type="Script" uid="uid://dpuqxpt0l6ehf" path="res://custom_resources/intent.gd" id="4_on0xw"]
+[ext_resource type="AudioStream" uid="uid://de2ryat1pxq6" path="res://art/enemy_attack.ogg" id="5_ynddt"]
+[ext_resource type="Script" uid="uid://bjm2ci1uul1yt" path="res://enemies/prajurit/prajurit_block_action.gd" id="6_ouef1"]
+[ext_resource type="Texture2D" uid="uid://bi6pfjs32f820" path="res://art/tile_0101.png" id="7_a1fe1"]
+[ext_resource type="AudioStream" uid="uid://k8m4o3hlwm7l" path="res://art/enemy_block.ogg" id="8_ggfrl"]
+[ext_resource type="Script" uid="uid://c3wng80ojgtdl" path="res://enemies/prajurit/prajurit_mega_block_action.gd" id="9_3e58m"]
+[ext_resource type="Texture2D" uid="uid://oe7v35ii8vrs" path="res://art/tile_0102.png" id="10_puby2"]
+
+[sub_resource type="Resource" id="Resource_yihd4"]
+script = ExtResource("4_on0xw")
+number = "7"
+icon = ExtResource("3_1wlnl")
+metadata/_custom_type_script = "uid://dpuqxpt0l6ehf"
+
+[sub_resource type="Resource" id="Resource_34me6"]
+script = ExtResource("4_on0xw")
+icon = ExtResource("7_a1fe1")
+metadata/_custom_type_script = "uid://dpuqxpt0l6ehf"
+
+[sub_resource type="Resource" id="Resource_0pw8a"]
+script = ExtResource("4_on0xw")
+icon = ExtResource("10_puby2")
+metadata/_custom_type_script = "uid://dpuqxpt0l6ehf"
+
+[node name="CrabEnemyAI" type="Node"]
+script = ExtResource("1_8wkah")
+
+[node name="AttackAction" type="Node" parent="."]
+script = ExtResource("2_tr7sr")
+intent = SubResource("Resource_yihd4")
+type = 1
+chance_weight = 1.0
+sound = ExtResource("5_ynddt")
+
+[node name="BlockAction" type="Node" parent="."]
+script = ExtResource("6_ouef1")
+intent = SubResource("Resource_34me6")
+type = 1
+chance_weight = 1.0
+sound = ExtResource("8_ggfrl")
+
+[node name="MegaBlockAction" type="Node" parent="."]
+script = ExtResource("9_3e58m")
+intent = SubResource("Resource_0pw8a")
+sound = ExtResource("8_ggfrl")

@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://ui0ug4rj58kq"]
+
+[ext_resource type="PackedScene" uid="uid://dphwon1rajjyv" path="res://Scene/Enemy/enemy.tscn" id="1_tbxrr"]
+[ext_resource type="Resource" uid="uid://c2gxjqxrqus5v" path="res://enemies/prajurit/prajurit_enemy.tres" id="2_toepx"]
+
+[node name="Tier_0_Prajurit_3" type="Node2D"]
+
+[node name="Enemy" parent="." instance=ExtResource("1_tbxrr")]
+position = Vector2(162, 83)
+stats = ExtResource("2_toepx")
+
+[node name="Enemy2" parent="." instance=ExtResource("1_tbxrr")]
+position = Vector2(200, 99)
+stats = ExtResource("2_toepx")
+
+[node name="Enemy3" parent="." instance=ExtResource("1_tbxrr")]
+position = Vector2(232, 65)
+stats = ExtResource("2_toepx")

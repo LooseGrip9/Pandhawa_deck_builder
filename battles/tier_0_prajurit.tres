@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="BattleStats" load_steps=3 format=3 uid="uid://diuorj26bb7t"]
+
+[ext_resource type="PackedScene" uid="uid://bmf4oliymbaps" path="res://battles/tier_0_prajurit.tscn" id="1_vjguc"]
+[ext_resource type="Script" uid="uid://bvm4v1tb74khm" path="res://custom_resources/battle_stats.gd" id="2_4eb5g"]
+
+[resource]
+script = ExtResource("2_4eb5g")
+weight = 2.5
+gold_max = 20
+gold_min = 48
+enemies = ExtResource("1_vjguc")
+metadata/_custom_type_script = "uid://bvm4v1tb74khm"

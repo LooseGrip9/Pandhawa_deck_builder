@@ -162,7 +162,7 @@ func get_aim_start_position() -> Vector2:
 		
 func _on_card_drag_or_aim_ended(_card: CardUI) -> void:
 	disabled = false
-	self.playable = char_stats.can_play_card(card)
+	playable = char_stats.can_play_card(card)
 	
 	if _card == self:
 		var stylebox: StyleBoxFlat = BASE_STYLEBOX.duplicate()
@@ -170,4 +170,4 @@ func _on_card_drag_or_aim_ended(_card: CardUI) -> void:
 		card_visuals.panel.add_theme_stylebox_override("panel", stylebox)
 
 func _on_char_stats_changed() -> void:
-	self.playable = char_stats.can_play_card(card)
+	playable = char_stats.can_play_card(card)

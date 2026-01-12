@@ -4,7 +4,7 @@
 extends Card
 
 @export var optional_sound: AudioStream
-@export var self_damage_amount: int = 5
+@export var self_damage_amount: int = 2
 
 func apply_effects(targets: Array[Node]) -> void:
 	var damage_effect = DamageEffect.new()

@@ -1,12 +1,14 @@
-[gd_resource type="Resource" script_class="BattleStatsPool" load_steps=6 format=3 uid="uid://chgjfkjbnkchh"]
+[gd_resource type="Resource" script_class="BattleStatsPool" load_steps=8 format=3 uid="uid://chgjfkjbnkchh"]
 
 [ext_resource type="Script" uid="uid://bvm4v1tb74khm" path="res://custom_resources/battle_stats.gd" id="1_c4ej1"]
 [ext_resource type="Script" uid="uid://dqqsud6ikiinl" path="res://custom_resources/battle_stats_pool.gd" id="2_42yw1"]
 [ext_resource type="Resource" uid="uid://diuorj26bb7t" path="res://battles/tier_0_prajurit.tres" id="2_mktey"]
 [ext_resource type="Resource" uid="uid://d4f2fhys5bfdp" path="res://battles/tier_0_prajurit_2.tres" id="3_lrvlq"]
-[ext_resource type="Resource" uid="uid://d08biu1gigbw7" path="res://battles/tier_0_prajurit_3.tres" id="4_s5wuo"]
+[ext_resource type="Resource" uid="uid://d08biu1gigbw7" path="res://battles/tier_1_prajurit_3.tres" id="4_lrvlq"]
+[ext_resource type="Resource" uid="uid://cg3v0evc22qv6" path="res://battles/tier_0_prajurit_tombak_2.tres" id="5_s5wuo"]
+[ext_resource type="Resource" uid="uid://cvycpjcfewa5b" path="res://battles/tier_1_prajurit_2_tombak_2.tres" id="6_s5wuo"]
 
 [resource]
 script = ExtResource("2_42yw1")
-pool = Array[ExtResource("1_c4ej1")]([ExtResource("2_mktey"), ExtResource("3_lrvlq"), ExtResource("4_s5wuo")])
+pool = Array[ExtResource("1_c4ej1")]([ExtResource("2_mktey"), ExtResource("3_lrvlq"), ExtResource("4_lrvlq"), ExtResource("5_s5wuo"), ExtResource("6_s5wuo")])
 metadata/_custom_type_script = "uid://dqqsud6ikiinl"

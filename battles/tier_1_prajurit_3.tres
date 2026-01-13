@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="BattleStats" load_steps=3 format=3 uid="uid://d08biu1gigbw7"]
 
-[ext_resource type="PackedScene" uid="uid://ui0ug4rj58kq" path="res://battles/tier_0_prajurit_3.tscn" id="1_difer"]
+[ext_resource type="PackedScene" uid="uid://ui0ug4rj58kq" path="res://battles/tier_1_prajurit_3.tscn" id="1_difer"]
 [ext_resource type="Script" uid="uid://bvm4v1tb74khm" path="res://custom_resources/battle_stats.gd" id="2_tu04w"]
 
 [resource]

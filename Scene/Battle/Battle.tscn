@@ -12,7 +12,7 @@
 [ext_resource type="Script" uid="uid://bpgjwa75u6j54" path="res://Scene/Enemy/enemy_handler.gd" id="6_5t6rn"]
 [ext_resource type="Script" uid="uid://b0patbc6ta4yo" path="res://Scene/Player/player_handler.gd" id="8_161f6"]
 [ext_resource type="Script" uid="uid://2ibeirsi1oi4" path="res://Scene/UI/battle_ui.gd" id="8_t23xh"]
-[ext_resource type="Resource" uid="uid://i6isnb51jrgo" path="res://enemies/bat/bat_enemy.tres" id="10_hihqn"]
+[ext_resource type="Resource" uid="uid://i6isnb51jrgo" path="res://enemies/prajurit tombak/prajurit_tombak_enemy.tres" id="10_hihqn"]
 [ext_resource type="PackedScene" uid="uid://carfxio8y8b7o" path="res://Scene/Card_UI/mana_ui.tscn" id="11_8sv8u"]
 [ext_resource type="PackedScene" uid="uid://cumq4ssva7314" path="res://Scene/UI/tooltip.tscn" id="12_161f6"]
 [ext_resource type="Theme" uid="uid://ychgttg0pudb" path="res://Main_Theme.tres" id="13_ihogh"]

@@ -4,6 +4,7 @@
 
 [resource]
 script = ExtResource("1_ujqo7")
+battle_tier = 1
 weight = 1.0
 gold_max = 70
 metadata/_custom_type_script = "uid://bvm4v1tb74khm"

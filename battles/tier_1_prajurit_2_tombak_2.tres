@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="BattleStats" load_steps=2 format=3 uid="uid://cvycpjcfewa5b"]
+[gd_resource type="Resource" script_class="BattleStats" load_steps=3 format=3 uid="uid://cvycpjcfewa5b"]
 
+[ext_resource type="PackedScene" uid="uid://kory8bbmku5m" path="res://battles/tier_1_prajurit_2_tombak_2.tscn" id="1_3lvok"]
 [ext_resource type="Script" uid="uid://bvm4v1tb74khm" path="res://custom_resources/battle_stats.gd" id="1_ujqo7"]
 
 [resource]
@@ -7,4 +8,5 @@ script = ExtResource("1_ujqo7")
 battle_tier = 1
 weight = 1.0
 gold_max = 70
+enemies = ExtResource("1_3lvok")
 metadata/_custom_type_script = "uid://bvm4v1tb74khm"

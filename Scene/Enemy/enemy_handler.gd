@@ -1,6 +1,8 @@
 class_name EnemyHandler
 extends Node2D
 
+var acting_enemies: Array[Enemy] = []
+
 func setup_enemies(battle_stats: BattleStats) -> void:
 	if not battle_stats:
 		return

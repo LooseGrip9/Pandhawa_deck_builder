@@ -1,7 +1,7 @@
 [gd_resource type="Resource" load_steps=3 format=3 uid="uid://clmsng2o0pwtl"]
 
 [ext_resource type="Texture2D" uid="uid://cl0uwnbu2bikw" path="res://Skill_icon/Strength.png" id="1_ejark"]
-[ext_resource type="Script" path="res://characters/Werkudara/Cards/obat_kuat.gd" id="2_x3tkl"]
+[ext_resource type="Script" uid="uid://dw64wseboaqvj" path="res://characters/Werkudara/Cards/obat_kuat.gd" id="2_x3tkl"]
 
 [resource]
 script = ExtResource("2_x3tkl")
@@ -9,5 +9,6 @@ id = "obat_kuat"
 rarity = 1
 type = 2
 cost = 1
+exhausts = true
 icon = ExtResource("1_ejark")
 tooltip_text = "[center]Gain 2 [color=\"d4a331\"] kyat [/color].[/center]"

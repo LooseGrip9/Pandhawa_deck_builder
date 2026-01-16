@@ -4,7 +4,8 @@ extends Node
 const HAND_DRAW_INTERVAL := 0.25
 const HAND_DISCARD_INTERVAL := 0.25
 
-# This forces Godot to find the node named "Hand" automatically
+@export var player: Player
+
 @onready var hand: Hand = $"../BattleUI/Hand"
 
 var character: CharacterStats
@@ -17,23 +18,23 @@ func start_battle(char_stats: CharacterStats) -> void:
 	character.draw_pile = character.deck.duplicate(true)
 	character.draw_pile.shuffle()
 	character.discard = CardPile.new()
+	player.status_handler.statuses_applied.connect(_on_statuses_applied)
 	start_turn()
 
 func start_turn() -> void:
 	character.block = 0
 	character.reset_mana()
-	draw_cards(character.cards_per_turn)
+	player.status_handler.apply_statuses_by_type(Status.Type.START_OF_TURN)
 
 func end_turn() -> void:
 	print("DEBUG: Player End Turn Started")
 	hand.disable_hand()
+	player.status_handler.apply_statuses_by_type(Status.Type.END_OF_TURN)
 	
-	discard_cards()
 
 func draw_card() -> void:
 	reshuffle_deck_from_discard()
 	
-	# SAFETY CHECK: Only draw if we actually have cards
 	var card = character.draw_pile.draw_card()
 	if card:
 		hand.add_card(card)
@@ -75,4 +76,14 @@ func reshuffle_deck_from_discard() -> void:
 	character.draw_pile.shuffle()
 
 func _on_card_played(card: Card) -> void:
+	if card.exhausts or Card.Type.POWER:
+		return
+	
 	character.discard.add_card(card)
+
+func _on_statuses_applied(type: Status.Type) -> void:
+	match type:
+		Status.Type.START_OF_TURN:
+			draw_cards(character.cards_per_turn)
+		Status.Type.END_OF_TURN:
+			discard_cards()

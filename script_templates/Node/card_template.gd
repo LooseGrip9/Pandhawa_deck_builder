@@ -1,10 +1,19 @@
 #meta-name: Card Logic
 #meta-description : What happens when a card is played
 
-extends Card
+class_name StatusTemplate
+extends Status
+
+var member_var := 0
 
 @export var optional_sound: AudioStream
 
-func apply_effects(targets: Array[Node]) -> void:
-	print("My awesome card has been played!")
-	print("Targets: %s" % targets)
+func initialize_status(_target: Node) -> void:
+	print("initialize status for target %s" % _target)
+	
+
+func apply_status(_target: Node) -> void:
+	print("apply status to target : %s" % _target)
+	print("apply status to target : %s" % member_var)
+	
+	status_applied.emit(self)

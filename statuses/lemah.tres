@@ -1,10 +1,10 @@
 [gd_resource type="Resource" load_steps=3 format=3 uid="uid://brok0juudqgiy"]
 
 [ext_resource type="Texture2D" uid="uid://cru2vmk48wdwj" path="res://art/expose.png" id="1_qi0xw"]
-[ext_resource type="Script" uid="uid://bmqr6s36ylwlo" path="res://custom_resources/status.gd" id="2_nwpnb"]
+[ext_resource type="Script" uid="uid://dbhlmfnkywim2" path="res://statuses/lemah.gd" id="2_qi0xw"]
 
 [resource]
-script = ExtResource("2_nwpnb")
+script = ExtResource("2_qi0xw")
 id = "lemah"
 stack_type = 2
 can_expire = true

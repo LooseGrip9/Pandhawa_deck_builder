@@ -64,7 +64,7 @@ debug_color = Color(0, 0.6, 0.69803923, 0.15294118)
 [node name="CardTargetSelector" parent="." instance=ExtResource("3_pgpmp")]
 
 [node name="Player" parent="." instance=ExtResource("4_jskq3")]
-position = Vector2(49, 74)
+position = Vector2(77, 74)
 stats = ExtResource("5_yygm8")
 
 [node name="EnemyHandler" type="Node2D" parent="."]
@@ -82,8 +82,9 @@ stats = ExtResource("10_hihqn")
 position = Vector2(236, 65)
 stats = ExtResource("10_hihqn")
 
-[node name="PlayerHandler" type="Node" parent="."]
+[node name="PlayerHandler" type="Node" parent="." node_paths=PackedStringArray("player")]
 script = ExtResource("8_161f6")
+player = NodePath("../Player")
 
 [node name="BattleUI" type="CanvasLayer" parent="." groups=["ui_layer"]]
 layer = 3

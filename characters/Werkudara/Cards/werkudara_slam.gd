@@ -3,12 +3,17 @@
 
 extends Card
 
+const LEMAH_STATUS = preload("res://statuses/lemah.tres")
+
+var base_damage := 12
+var lemah_duration := 2
+
 @export var optional_sound: AudioStream
-@export var self_damage_amount: int = 2
+@export var self_damage_amount: int = 4
 
 func apply_effects(targets: Array[Node]) -> void:
 	var damage_effect = DamageEffect.new()
-	damage_effect.amount = 12
+	damage_effect.amount = base_damage
 	damage_effect.sound = sound
 	damage_effect.execute(targets)
 	
@@ -21,3 +26,9 @@ func apply_effects(targets: Array[Node]) -> void:
 			var self_damage = DamageEffect.new()
 			self_damage.amount = self_damage_amount
 			self_damage.execute(player_targets)
+	
+	var status_effect := StatusEffect.new()
+	var lemah := LEMAH_STATUS.duplicate()
+	lemah.duration = lemah_duration
+	status_effect.status = lemah
+	status_effect.execute(targets)

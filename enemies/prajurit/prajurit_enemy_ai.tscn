@@ -13,21 +13,23 @@
 
 [sub_resource type="Resource" id="Resource_yihd4"]
 script = ExtResource("4_on0xw")
-number = "7"
+base_text = "%s"
 icon = ExtResource("3_1wlnl")
 metadata/_custom_type_script = "uid://dpuqxpt0l6ehf"
 
 [sub_resource type="Resource" id="Resource_34me6"]
 script = ExtResource("4_on0xw")
+base_text = "6"
 icon = ExtResource("7_a1fe1")
 metadata/_custom_type_script = "uid://dpuqxpt0l6ehf"
 
 [sub_resource type="Resource" id="Resource_0pw8a"]
 script = ExtResource("4_on0xw")
+base_text = "15"
 icon = ExtResource("10_puby2")
 metadata/_custom_type_script = "uid://dpuqxpt0l6ehf"
 
-[node name="CrabEnemyAI" type="Node"]
+[node name="PrajuritEnemyAI" type="Node"]
 script = ExtResource("1_8wkah")
 
 [node name="AttackAction" type="Node" parent="."]

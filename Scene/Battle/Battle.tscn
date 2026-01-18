@@ -90,7 +90,7 @@ player = NodePath("../Player")
 layer = 3
 script = ExtResource("8_t23xh")
 
-[node name="Hand" type="Control" parent="BattleUI"]
+[node name="Hand" type="Control" parent="BattleUI" node_paths=PackedStringArray("player")]
 layout_mode = 3
 anchors_preset = 7
 anchor_left = 0.5
@@ -104,6 +104,7 @@ offset_bottom = 11.0
 grow_horizontal = 2
 grow_vertical = 0
 script = ExtResource("2_q5a5a")
+player = NodePath("../../Player")
 char_stats = ExtResource("5_yygm8")
 height_curve = SubResource("Curve_hihqn")
 rotation_curve = SubResource("Curve_prptk")

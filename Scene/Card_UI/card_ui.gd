@@ -12,6 +12,7 @@ const HOVER_STYLEBOX := preload("uid://cmvjwhw7catm6")
 @export var scale_amount: float = 1.15 
 @export var hover_speed: float = 0.1 
 
+@export var player_modifiers: ModifierHandler
 @export var card: Card : set = _set_card
 @export var char_stats: CharacterStats : set = _set_char_stats
 
@@ -112,7 +113,7 @@ func play() -> void:
 	
 	var play_targets: Array[Node] = targets
 	
-	card.play(play_targets, char_stats)
+	card.play(play_targets, char_stats, player_modifiers)
 	queue_free()
 
 func _on_drop_point_detector_area_entered(area: Area2D) -> void:

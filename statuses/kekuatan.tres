@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="KekuatanStatus" load_steps=3 format=3 uid="uid://b6b1hmye50lr5"]
+
+[ext_resource type="Texture2D" uid="uid://pgj8vfpj6tc5" path="res://art/tile_0130.png" id="1_schgq"]
+[ext_resource type="Script" uid="uid://bvsl48pcidjea" path="res://statuses/kekuatan.gd" id="2_8cki1"]
+
+[resource]
+script = ExtResource("2_8cki1")
+id = "kekuatan"
+icon = ExtResource("1_schgq")
+metadata/_custom_type_script = "uid://bmqr6s36ylwlo"

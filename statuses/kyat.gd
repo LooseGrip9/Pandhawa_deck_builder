@@ -2,16 +2,20 @@ class_name KyatStatus
 extends Status
 
 
-var KYAT_STATUS = preload("res://statuses/kyat.tres")
-var stacks_per_turn := 2
+func initialize_status(_target: Node) -> void:
+	status_changed.connect(_on_status_changed.bind(_target))
+	_on_status_changed(_target)
 
-func apply_status(_target: Node) -> void:
-	print("Apply kyat Status")
+func _on_status_changed(target: Node) -> void:
+	assert(target.get("modifier_handler"), "No Modifier on %s" % target)
 	
-	var status_effect = StatusEffect.new()
-	var kyat := KYAT_STATUS.duplicate()
-	kyat.stacks = stacks_per_turn
-	status_effect.status = kyat
-	status_effect.execute([_target])
+	var dmg_delt_modifier: Modifier = target.modifier_handler.get_modifier(Modifier.Type.DMG_DEALT)
+	assert(dmg_delt_modifier, "No dmg dealt modifier on %s" % target)
 	
-	status_applied.emit(self)
+	var kyat_modifier_value := dmg_delt_modifier.get_value("kyat")
+	
+	if not kyat_modifier_value:
+		kyat_modifier_value = ModifierValue.create_new_modifier("kyat", ModifierValue.Type.FLAT)
+	
+	kyat_modifier_value.flat_value = stacks
+	dmg_delt_modifier.add_new_value(kyat_modifier_value)

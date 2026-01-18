@@ -25,6 +25,12 @@ func clear_values() -> void:
 	for value: ModifierValue in get_children():
 		value.queue_free()
 
+func remove_value(source: String) -> void:
+	for child in get_children():
+		if child is ModifierValue and child.source == source:
+			child.queue_free()
+			return
+
 func get_modified_value(base: int) -> int:
 	var flat_result: int = base
 	var percent_result: float = 1.0

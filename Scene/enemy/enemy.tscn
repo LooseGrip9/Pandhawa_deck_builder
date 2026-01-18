@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dphwon1rajjyv"]
+[gd_scene load_steps=10 format=3 uid="uid://dphwon1rajjyv"]
 
 [ext_resource type="Texture2D" uid="uid://1u3b3hwqd8yh" path="res://art/tile_0110.png" id="1_ksmlx"]
 [ext_resource type="Script" uid="uid://c35g4f2mmtd54" path="res://Scene/Enemy/enemy.gd" id="1_twu3r"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://c6as50hnt7420" path="res://Scene/UI/stats_ui.tscn" id="3_twu3r"]
 [ext_resource type="PackedScene" uid="uid://bffgui61bfbiu" path="res://Scene/UI/intent_ui.tscn" id="5_mf7eg"]
 [ext_resource type="PackedScene" uid="uid://dsx6nbrwvwstb" path="res://Scene/status_handler/status_handler.tscn" id="6_l2ebk"]
+[ext_resource type="PackedScene" uid="uid://dtoo7xjuhnjj5" path="res://modifier_handler/modifier_handler.tscn" id="7_cpvux"]
+[ext_resource type="PackedScene" uid="uid://5coka4upbj70" path="res://modifier_handler/modifier.tscn" id="8_l6v7j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jskq3"]
 
@@ -43,6 +45,13 @@ offset_top = 24.0
 offset_right = 25.0
 offset_bottom = 64.0
 status_owner = NodePath("..")
+
+[node name="Modifier_Handler" parent="." instance=ExtResource("7_cpvux")]
+
+[node name="DmgDealtModifier" parent="Modifier_Handler" instance=ExtResource("8_l6v7j")]
+
+[node name="DmgTakenModifier" parent="Modifier_Handler" instance=ExtResource("8_l6v7j")]
+type = 2
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="area_exited" from="." to="." method="_on_area_exited"]

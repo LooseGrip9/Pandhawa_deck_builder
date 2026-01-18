@@ -1,6 +1,7 @@
 class_name Hand
 extends Control
 
+@export var player: Player
 @export var char_stats: CharacterStats
 @onready var card_ui := preload("res://Scene/Card_UI/card_ui.tscn")
 
@@ -60,6 +61,7 @@ func add_card(card: Card) -> void:
 	new_card_ui.card = card
 	new_card_ui.parent = self
 	new_card_ui.char_stats = char_stats
+	new_card_ui.player_modifiers = player.modifier_handler
 
 func discard_card(card: CardUI) -> void:
 	card.queue_free()

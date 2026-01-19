@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://c1w8g4etfb7df"]
+
+[ext_resource type="Texture2D" uid="uid://cru2vmk48wdwj" path="res://art/expose.png" id="1_5n5wb"]
+[ext_resource type="Script" uid="uid://bmuy6cu4iijw2" path="res://Scene/UI/status_tooltip.gd" id="1_ntog4"]
+[ext_resource type="Resource" uid="uid://brok0juudqgiy" path="res://statuses/lemah.tres" id="2_m17q6"]
+[ext_resource type="FontFile" uid="uid://dskmdk146n4rq" path="res://art/pixel_rpg.ttf" id="2_ntog4"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_m17q6"]
+font = ExtResource("2_ntog4")
+font_size = 6
+
+[node name="StatusTooltip" type="HBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+offset_right = 150.0
+offset_bottom = 15.0
+theme_override_constants/separation = 10
+script = ExtResource("1_ntog4")
+status = ExtResource("2_m17q6")
+
+[node name="Icon" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+texture = ExtResource("1_5n5wb")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="."]
+custom_minimum_size = Vector2(110, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Takes 50% more damage for %s turn"
+label_settings = SubResource("LabelSettings_m17q6")
+vertical_alignment = 1
+autowrap_mode = 3

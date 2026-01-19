@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=3 format=3 uid="uid://brok0juudqgiy"]
+[gd_resource type="Resource" script_class="LemahStatus" load_steps=3 format=3 uid="uid://brok0juudqgiy"]
 
 [ext_resource type="Texture2D" uid="uid://cru2vmk48wdwj" path="res://art/expose.png" id="1_qi0xw"]
 [ext_resource type="Script" uid="uid://dbhlmfnkywim2" path="res://statuses/lemah.gd" id="2_qi0xw"]
@@ -10,5 +10,5 @@ stack_type = 2
 can_expire = true
 duration = 1
 icon = ExtResource("1_qi0xw")
-tooltip = "TODO"
+tooltip = "Lemah: Take 50%% more damage for %s turns"
 metadata/_custom_type_script = "uid://bmqr6s36ylwlo"

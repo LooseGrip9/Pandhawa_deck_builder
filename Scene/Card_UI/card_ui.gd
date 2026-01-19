@@ -65,6 +65,17 @@ func _process(delta: float) -> void:
 	canvas_group.material.set_shader_parameter("x_rot", new_x)
 	canvas_group.material.set_shader_parameter("y_rot", new_y)
 
+func get_active_enemy_modifier() -> ModifierHandler:
+	if targets.is_empty() or targets.size() > 1 or not targets[0] is Enemy:
+		return null
+		
+	return targets[0].modifier_handler
+
+func request_tooltip() -> void:
+	var enemy_modifiers := get_active_enemy_modifier()
+	var updated_tooltip := card.get_updated_tooltip(player_modifiers, enemy_modifiers)
+	Events.card_tooltip_requested.emit(card.icon, updated_tooltip)
+
 func _input(event: InputEvent) -> void:
 	card_state_machine.on_input(event)
 

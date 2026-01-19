@@ -11,6 +11,6 @@ rarity = 2
 target = 2
 cost = 3
 icon = ExtResource("1_k8ph5")
-tooltip_text = "[center]Deal[color=\"ff0000\"] 4 [/color]damage to all enemies.[/center]"
+tooltip_text = "[center]Deal[color=\"ff0000\"] %s [/color]damage to all enemies.[/center]"
 sound = ExtResource("3_ui3r5")
 metadata/_custom_type_script = "uid://dcw4oridrwk87"

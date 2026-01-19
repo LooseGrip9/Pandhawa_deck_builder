@@ -7,4 +7,5 @@
 script = ExtResource("2_8cki1")
 id = "kekuatan"
 icon = ExtResource("1_schgq")
+tooltip = "Kekuatan: Start of turn gain 2 Kyat"
 metadata/_custom_type_script = "uid://bmqr6s36ylwlo"

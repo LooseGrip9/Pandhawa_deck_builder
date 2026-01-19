@@ -3,7 +3,7 @@
 
 extends EnemyAction
 
-@export var damage := 4
+@export var damage := 3
 
 func perform_action() -> void:
 	if not enemy or not target:

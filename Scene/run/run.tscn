@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dcrxvafnlrkn3"]
+[gd_scene load_steps=14 format=3 uid="uid://dcrxvafnlrkn3"]
 
 [ext_resource type="Script" uid="uid://cgd1e7jgkuxer" path="res://Scene/run/run.gd" id="1_rlm2j"]
 [ext_resource type="PackedScene" uid="uid://cv3vc6bonr6gk" path="res://Scene/map/map.tscn" id="2_7yjmf"]
@@ -9,7 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://cu6bdxafpy2lp" path="res://Scene/UI/health_ui.tscn" id="5_nesxt"]
 [ext_resource type="Texture2D" uid="uid://df5bv1nvgpipb" path="res://art/Button/Deck.png" id="6_rno54"]
 [ext_resource type="FontFile" uid="uid://dskmdk146n4rq" path="res://art/pixel_rpg.ttf" id="7_6wwhy"]
+[ext_resource type="PackedScene" uid="uid://bkf46smxtkv5o" path="res://relic_handler/relic_handler.tscn" id="7_oc3rx"]
 [ext_resource type="PackedScene" uid="uid://hxsth35f7i3h" path="res://Scene/UI/card_pile_view.tscn" id="8_nesxt"]
+[ext_resource type="PackedScene" uid="uid://4mdcma6u2imt" path="res://relic_handler/relic_tooltip.tscn" id="12_eq342"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_oc3rx"]
 font = ExtResource("7_6wwhy")
@@ -24,6 +26,7 @@ run_startup = ExtResource("2_cigyy")
 [node name="CurrentView" type="Node" parent="."]
 
 [node name="DebugButton" type="VBoxContainer" parent="."]
+visible = false
 anchors_preset = 9
 anchor_bottom = 1.0
 offset_right = 39.0
@@ -93,10 +96,14 @@ show_max_hp = true
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="PlaceHolder" type="Control" parent="TopBar/BarItem"]
+[node name="RelicUIContainer" type="CenterContainer" parent="TopBar/BarItem"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 12.66
+
+[node name="RelicHandler" parent="TopBar/BarItem/RelicUIContainer" instance=ExtResource("7_oc3rx")]
+unique_name_in_owner = true
+layout_mode = 2
 
 [node name="DeckButton" parent="TopBar/BarItem" node_paths=PackedStringArray("counter") instance=ExtResource("5_cigyy")]
 unique_name_in_owner = true
@@ -118,3 +125,7 @@ label_settings = SubResource("LabelSettings_oc3rx")
 unique_name_in_owner = true
 visible = false
 visibility_layer = 16
+
+[node name="RelicToolip" parent="TopBar" instance=ExtResource("12_eq342")]
+unique_name_in_owner = true
+visible = false

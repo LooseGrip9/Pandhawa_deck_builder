@@ -11,6 +11,7 @@ extends Stats
 @export var starting_deck: CardPile
 @export var cards_per_turn: int
 @export var max_mana: int
+@export var starting_relic: Relic
 
 var mana: int : set = set_mana
 var deck: CardPile

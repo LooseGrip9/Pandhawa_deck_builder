@@ -1,7 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://bcebvxq5hoht2"]
+[gd_scene load_steps=10 format=3 uid="uid://bcebvxq5hoht2"]
 
 [ext_resource type="Script" uid="uid://cxmn48ptgmiyq" path="res://Scene/Shop/shop.gd" id="1_5es7v"]
+[ext_resource type="Texture2D" uid="uid://2a168ib85qgk" path="res://Scene/map/Map BG.png" id="2_5d4yr"]
 [ext_resource type="Theme" uid="uid://ychgttg0pudb" path="res://Main_Theme.tres" id="2_ijuys"]
+[ext_resource type="Theme" uid="uid://dxvm7f8lbc0t2" path="res://new_theme.tres" id="3_ljipp"]
+[ext_resource type="FontFile" uid="uid://dskmdk146n4rq" path="res://art/pixel_rpg.ttf" id="4_kdfvd"]
+[ext_resource type="PackedScene" uid="uid://bim27votfy6sd" path="res://Scene/Shop/shop_card.tscn" id="6_ljipp"]
+[ext_resource type="PackedScene" uid="uid://b1pljvn0xs3i5" path="res://Scene/Shop/shop_relic.tscn" id="7_2wyg6"]
+[ext_resource type="PackedScene" uid="uid://c8f4jow3yb067" path="res://Scene/UI/card_tooltip_pop_up.tscn" id="7_kdfvd"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_2wyg6"]
+font = ExtResource("4_kdfvd")
+font_size = 12
 
 [node name="Shop" type="Control"]
 layout_mode = 3
@@ -12,39 +22,71 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_5es7v")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 0.56078434)
+[node name="Background" type="CanvasLayer" parent="."]
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 13.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Sprite2D" type="Sprite2D" parent="Background"]
+modulate = Color(0.4033144, 0.40331438, 0.40331435, 1)
+self_modulate = Color(0.8630706, 0.86307067, 0.8630706, 1)
+position = Vector2(128, 72)
+texture = ExtResource("2_5d4yr")
 
-[node name="Label" type="Label" parent="VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-theme = ExtResource("2_ijuys")
-text = "Shop"
+[node name="UILayer" type="CanvasLayer" parent="."]
 
-[node name="Button" type="Button" parent="VBoxContainer"]
-custom_minimum_size = Vector2(0, 12)
-layout_mode = 2
+[node name="Label" type="Label" parent="UILayer"]
+offset_left = 194.0
+offset_top = 56.0
+offset_right = 226.0
+offset_bottom = 68.0
+theme = ExtResource("3_ljipp")
+text = "Toko"
+label_settings = SubResource("LabelSettings_2wyg6")
+
+[node name="BackButton" type="Button" parent="UILayer"]
+custom_minimum_size = Vector2(40, 16)
+offset_left = 189.0
+offset_top = 75.0
+offset_right = 229.0
+offset_bottom = 91.0
 theme = ExtResource("2_ijuys")
 text = "Kembali"
 
-[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]
+[node name="ShopContent" type="VBoxContainer" parent="UILayer"]
+offset_left = 41.0
+offset_top = 25.0
+offset_right = 151.0
+offset_bottom = 131.0
+theme_override_constants/separation = 10
+
+[node name="Cards" type="HBoxContainer" parent="UILayer/ShopContent"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="ShopCard" parent="UILayer/ShopContent/Cards" instance=ExtResource("6_ljipp")]
+layout_mode = 2
+
+[node name="ShopCard2" parent="UILayer/ShopContent/Cards" instance=ExtResource("6_ljipp")]
+layout_mode = 2
+
+[node name="ShopCard3" parent="UILayer/ShopContent/Cards" instance=ExtResource("6_ljipp")]
+layout_mode = 2
+
+[node name="Relics" type="HBoxContainer" parent="UILayer/ShopContent"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="ShopRelic" parent="UILayer/ShopContent/Relics" instance=ExtResource("7_2wyg6")]
+layout_mode = 2
+
+[node name="ShopRelic2" parent="UILayer/ShopContent/Relics" instance=ExtResource("7_2wyg6")]
+layout_mode = 2
+
+[node name="ShopRelic3" parent="UILayer/ShopContent/Relics" instance=ExtResource("7_2wyg6")]
+layout_mode = 2
+
+[node name="CardTooltipPopUp" parent="UILayer" instance=ExtResource("7_kdfvd")]
+unique_name_in_owner = true
+visible = false
+
+[connection signal="pressed" from="UILayer/BackButton" to="." method="_on_back_button_pressed"]

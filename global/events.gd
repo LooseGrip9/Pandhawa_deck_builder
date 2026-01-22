@@ -32,6 +32,8 @@ signal map_exited(room: Room)
 
 #shop
 signal shop_exited
+signal shop_relic_bought(relic: Relic, gold_cost: int)
+signal shop_card_bought(card: Card, gold_cost: int)
 
 #campfire
 signal campfire_exited
@@ -41,3 +43,6 @@ signal battle_reward_exited
 
 #treasure
 signal treasure_room_exited
+
+#relic
+signal relic_tooltip_requested(relic: Relic)

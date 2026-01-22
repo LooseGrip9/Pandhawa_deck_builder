@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Relic" load_steps=3 format=3 uid="uid://cort3f7ynw1li"]
+
+[ext_resource type="Texture2D" uid="uid://baaca80ggraln" path="res://art/gold.png" id="1_dl3ae"]
+[ext_resource type="Script" uid="uid://spwidn0jd7oe" path="res://custom_resources/relic.gd" id="2_vt77x"]
+
+[resource]
+script = ExtResource("2_vt77x")
+relic_name = "Coupons"
+id = "coupons"
+type = 4
+icon = ExtResource("1_dl3ae")
+tooltip = "[color=\"ffdf00\"]Coupons[/color] All items in the shop are discounted by 30%"
+metadata/_custom_type_script = "uid://spwidn0jd7oe"

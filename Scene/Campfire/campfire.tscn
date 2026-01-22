@@ -1,7 +1,6 @@
-[gd_scene load_steps=16 format=3 uid="uid://c1fx2y0xnen2h"]
+[gd_scene load_steps=15 format=3 uid="uid://c1fx2y0xnen2h"]
 
 [ext_resource type="Script" uid="uid://c1bqoxik00wha" path="res://Scene/Campfire/campfire.gd" id="1_ugpah"]
-[ext_resource type="Texture2D" uid="uid://2a168ib85qgk" path="res://Scene/map/Map BG.png" id="2_jc52d"]
 [ext_resource type="Resource" uid="uid://d3y71aj2a76ty" path="res://characters/Werkudara/werkudara.tres" id="2_undw7"]
 [ext_resource type="Theme" uid="uid://ychgttg0pudb" path="res://Main_Theme.tres" id="2_wwnjj"]
 [ext_resource type="FontFile" uid="uid://dskmdk146n4rq" path="res://art/pixel_rpg.ttf" id="4_oy014"]
@@ -63,16 +62,44 @@ char_stats = ExtResource("2_undw7")
 
 [node name="UI" type="CanvasLayer" parent="."]
 
-[node name="Background" type="CanvasLayer" parent="."]
-layer = -1
-
-[node name="TextureRect" type="TextureRect" parent="Background"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+[node name="VBoxContainer" type="VBoxContainer" parent="UI"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 32.0
+offset_top = -19.5
+offset_right = 96.0
+offset_bottom = 25.5
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_jc52d")
+
+[node name="Title" type="Label" parent="UI/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("2_wwnjj")
+text = "Campfire"
+label_settings = SubResource("LabelSettings_ccriv")
+
+[node name="Control" type="Control" parent="UI/VBoxContainer"]
+layout_mode = 2
+
+[node name="RestButton" type="Button" parent="UI/VBoxContainer"]
+custom_minimum_size = Vector2(38, 15)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("2_wwnjj")
+text = "Istirahat"
+
+[node name="Description" type="Label" parent="UI/VBoxContainer"]
+layout_mode = 2
+text = "+30% HP"
+label_settings = SubResource("LabelSettings_undw7")
+horizontal_alignment = 1
+
+[node name="Background" type="CanvasLayer" parent="."]
+layer = 0
 
 [node name="ColorRect" type="ColorRect" parent="Background"]
 anchors_preset = 15
@@ -80,47 +107,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.059125952, 0.059125945, 0.059125938, 0.6117647)
-
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 32.0
-offset_top = -18.0
-offset_right = 96.0
-offset_bottom = 24.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Title" type="Label" parent="VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-theme = ExtResource("2_wwnjj")
-text = "Campfire"
-label_settings = SubResource("LabelSettings_ccriv")
-
-[node name="Control" type="Control" parent="VBoxContainer"]
-layout_mode = 2
-
-[node name="RestButton" type="Button" parent="VBoxContainer"]
-custom_minimum_size = Vector2(38, 15)
-layout_mode = 2
-size_flags_horizontal = 4
-theme = ExtResource("2_wwnjj")
-text = "Istirahat"
-
-[node name="Description" type="Label" parent="VBoxContainer"]
-layout_mode = 2
-text = "+30% HP"
-label_settings = SubResource("LabelSettings_undw7")
-horizontal_alignment = 1
+color = Color(0.20784314, 0.20784314, 0.20784314, 0.69411767)
 
 [node name="Particle" type="CanvasLayer" parent="."]
-layer = -1
+layer = 0
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Particle"]
 texture_filter = 1
@@ -139,10 +129,11 @@ offset_bottom = 123.0
 texture = ExtResource("7_tjff2")
 
 [node name="FadeTransition" parent="." instance=ExtResource("6_ccriv")]
+unique_name_in_owner = true
 visible = false
 layout_mode = 0
 
 [node name="Timer" type="Timer" parent="FadeTransition"]
 
-[connection signal="pressed" from="VBoxContainer/RestButton" to="." method="_on_rest_button_pressed"]
+[connection signal="pressed" from="UI/VBoxContainer/RestButton" to="." method="_on_rest_button_pressed"]
 [connection signal="timeout" from="FadeTransition/Timer" to="." method="_on_fade_timer_timeout"]

@@ -108,24 +108,28 @@ func _would_cross_existing_path(i: int, j: int, room: Room) -> bool:
 	var left_neighbour: Room
 	var right_neighbour : Room
 	
-	#if we used j == 0 there's no left neighbour
+	# if we used j == 0 there's no left neighbour
 	if j > 0:
 		left_neighbour = map_data[i][j - 1]
 	
-	#if we used j == MAP_WIDTH - 1 there's no right neighbour
+	# if we used j == MAP_WIDTH - 1 there's no right neighbour
 	if j < MAP_WIDTH - 1:
 		right_neighbour = map_data[i][j + 1]
 	
-	#can't cross in right direction if right goes to left neighbour
+	# can't cross in right direction if right goes to left neighbour
+	# We are moving RIGHT (target > current)
 	if right_neighbour and room.column > j:
 		for next_room: Room in right_neighbour.next_rooms:
+			# Neighbor moves LEFT (Neighbor Target < My Target)
 			if next_room.column < room.column:
 				return true
 	
-	#can't cross in left direction if left goes to right neighbour
-	if left_neighbour and room.column > j:
+	# can't cross in left direction if left goes to right neighbour
+	# We are moving LEFT (target < current)
+	if left_neighbour and room.column < j: 
 		for next_room: Room in left_neighbour.next_rooms:
-			if next_room.column < room.column:
+			# Neighbor moves RIGHT (Neighbor Target > My Target)
+			if next_room.column > room.column:
 				return true
 	
 	return false

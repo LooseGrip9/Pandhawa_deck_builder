@@ -12,6 +12,5 @@ func _on_rest_button_pressed() -> void:
 	$FadeTransition/Timer.start()
 	$FadeTransition/AnimationPlayer.play("fade_in")
 
-
 func _on_fade_timer_timeout() -> void:
 	Events.campfire_exited.emit()

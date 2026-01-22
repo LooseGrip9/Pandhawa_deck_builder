@@ -12,9 +12,6 @@ const WHITE_SPRITE_MATERIAL := preload("res://art/white_sprite_material.tres")
 
 func _ready() -> void:
 	status_handler.status_owner = self
-	var lemah := preload("res://statuses/lemah.tres").duplicate()
-	lemah.duration = 3
-	status_handler.add_status(lemah)
 
 func set_character_stats(value: CharacterStats) -> void:
 	stats = value

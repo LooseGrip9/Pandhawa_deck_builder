@@ -32,6 +32,5 @@ func _on_gui_input(event: InputEvent) -> void:
 	if event.is_action_pressed("left_mouse") and visible:
 		hide_view()
 
-
-func _on_back_button_pressed() -> void:
+func _on_button_pressed() -> void:
 	hide()

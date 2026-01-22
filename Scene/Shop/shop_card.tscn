@@ -1,0 +1,55 @@
+[gd_scene load_steps=8 format=3 uid="uid://bim27votfy6sd"]
+
+[ext_resource type="PackedScene" uid="uid://d4lssxulawatx" path="res://Scene/UI/card_menu_ui.tscn" id="1_dqp4b"]
+[ext_resource type="Script" uid="uid://fw3d2n1jyxtc" path="res://Scene/Shop/shop_card.gd" id="1_jdhmm"]
+[ext_resource type="Resource" uid="uid://b2qv6qd4i81e6" path="res://characters/Werkudara/Cards/werkudara_slam.tres" id="2_guho2"]
+[ext_resource type="Texture2D" uid="uid://baaca80ggraln" path="res://art/gold.png" id="2_jdhmm"]
+[ext_resource type="FontFile" uid="uid://dskmdk146n4rq" path="res://art/pixel_rpg.ttf" id="3_guho2"]
+[ext_resource type="Theme" uid="uid://ychgttg0pudb" path="res://Main_Theme.tres" id="4_7m6dr"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_spj7i"]
+font = ExtResource("3_guho2")
+font_size = 6
+
+[node name="ShopCard" type="VBoxContainer"]
+custom_minimum_size = Vector2(30, 56)
+offset_right = 30.0
+offset_bottom = 54.0
+theme_override_constants/separation = 1
+script = ExtResource("1_jdhmm")
+card = ExtResource("2_guho2")
+
+[node name="CardContainer" type="CenterContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="CardMenuUI" parent="CardContainer" instance=ExtResource("1_dqp4b")]
+layout_mode = 2
+
+[node name="Price" type="HBoxContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="GoldIcon" type="TextureRect" parent="Price"]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+texture = ExtResource("2_jdhmm")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="PriceLabel" type="Label" parent="Price"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "999"
+label_settings = SubResource("LabelSettings_spj7i")
+
+[node name="BuyButton" type="Button" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(30, 12)
+layout_mode = 2
+theme = ExtResource("4_7m6dr")
+text = "Beli"
+
+[connection signal="pressed" from="BuyButton" to="." method="_on_buy_button_pressed"]

@@ -7,6 +7,7 @@ const PLACEMENT_RANDOMNESS := 5
 const FLOORS := 15
 const MAP_WIDTH := 7
 const PATHS := 7
+const TREASURE_ROOM_WEIGHT := 0.5
 const MONSTER_ROOM_WEIGHT := 10.0
 const SHOP_ROOM_WEIGHT := 2.5
 const CAMPFIRE_ROOM_WEIGHT := 4.0
@@ -16,6 +17,7 @@ const CAMPFIRE_ROOM_WEIGHT := 4.0
 var random_room_type_weights = {
 	Room.Type.MONSTER: 0.0,
 	Room.Type.CAMPFIRE: 0.0,
+	Room.Type.TREASURE: 0.0,
 	Room.Type.SHOP: 0.0,
 }
 
@@ -160,9 +162,9 @@ func _setup_room_types() -> void:
 			room.type = Room.Type.MONSTER
 			room.battle_stats = battle_stats_pool.get_random_battle_for_tier(0)
 	
-	for room: Room in map_data[8]:
+	for room: Room in map_data[1]:
 		if room.next_rooms.size() > 0:
-			room.type = Room.Type.CAMPFIRE
+			room.type = Room.Type.TREASURE
 	
 	for room: Room in map_data[13]:
 		if room.next_rooms.size() > 0:

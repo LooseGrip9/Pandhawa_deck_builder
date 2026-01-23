@@ -1,13 +1,20 @@
-[gd_scene load_steps=10 format=3 uid="uid://bcebvxq5hoht2"]
+[gd_scene load_steps=17 format=3 uid="uid://bcebvxq5hoht2"]
 
 [ext_resource type="Script" uid="uid://cxmn48ptgmiyq" path="res://Scene/Shop/shop.gd" id="1_5es7v"]
+[ext_resource type="Script" uid="uid://spwidn0jd7oe" path="res://custom_resources/relic.gd" id="2_2n4qt"]
 [ext_resource type="Texture2D" uid="uid://2a168ib85qgk" path="res://Scene/map/Map BG.png" id="2_5d4yr"]
 [ext_resource type="Theme" uid="uid://ychgttg0pudb" path="res://Main_Theme.tres" id="2_ijuys"]
 [ext_resource type="Theme" uid="uid://dxvm7f8lbc0t2" path="res://new_theme.tres" id="3_ljipp"]
+[ext_resource type="Resource" uid="uid://cvhyis21fq51l" path="res://relics/healing_potion.tres" id="3_wbj5i"]
+[ext_resource type="Resource" uid="uid://bf2nd6x5s7geg" path="res://relics/mana_potion.tres" id="4_bgxel"]
 [ext_resource type="FontFile" uid="uid://dskmdk146n4rq" path="res://art/pixel_rpg.ttf" id="4_kdfvd"]
+[ext_resource type="Resource" uid="uid://csvjftkly3ibl" path="res://relics/explosives_barrel.tres" id="5_aiw1j"]
 [ext_resource type="PackedScene" uid="uid://bim27votfy6sd" path="res://Scene/Shop/shop_card.tscn" id="6_ljipp"]
+[ext_resource type="Resource" uid="uid://cort3f7ynw1li" path="res://relics/coupon.tres" id="6_x0qts"]
 [ext_resource type="PackedScene" uid="uid://b1pljvn0xs3i5" path="res://Scene/Shop/shop_relic.tscn" id="7_2wyg6"]
 [ext_resource type="PackedScene" uid="uid://c8f4jow3yb067" path="res://Scene/UI/card_tooltip_pop_up.tscn" id="7_kdfvd"]
+[ext_resource type="PackedScene" uid="uid://dtoo7xjuhnjj5" path="res://modifier_handler/modifier_handler.tscn" id="14_aiw1j"]
+[ext_resource type="PackedScene" uid="uid://5coka4upbj70" path="res://modifier_handler/modifier.tscn" id="15_x0qts"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_2wyg6"]
 font = ExtResource("4_kdfvd")
@@ -21,6 +28,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_5es7v")
+shop_relics = Array[ExtResource("2_2n4qt")]([ExtResource("3_wbj5i"), ExtResource("4_bgxel"), ExtResource("5_aiw1j"), ExtResource("6_x0qts")])
 
 [node name="Background" type="CanvasLayer" parent="."]
 
@@ -88,5 +96,10 @@ layout_mode = 2
 [node name="CardTooltipPopUp" parent="UILayer" instance=ExtResource("7_kdfvd")]
 unique_name_in_owner = true
 visible = false
+
+[node name="Modifier_Handler" parent="." instance=ExtResource("14_aiw1j")]
+
+[node name="ShopCostModifier" parent="Modifier_Handler" instance=ExtResource("15_x0qts")]
+type = 3
 
 [connection signal="pressed" from="UILayer/BackButton" to="." method="_on_back_button_pressed"]

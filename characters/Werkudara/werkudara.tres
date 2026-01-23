@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://b0kl55id1u7kl" path="res://art/Character Portrait/Werkudoro.png" id="2_kcmqm"]
 [ext_resource type="Resource" uid="uid://csbj2mxejxd6u" path="res://characters/Werkudara/werkudara_draftable_card.tres" id="2_kmo5k"]
 [ext_resource type="Resource" uid="uid://bfh1h6r52wtgg" path="res://characters/Werkudara/werkudara_starting_deck.tres" id="5_yb06x"]
-[ext_resource type="Resource" uid="uid://ctxm841jtcp54" path="res://relics/reinforced_armor.tres" id="6_yb06x"]
+[ext_resource type="Resource" uid="uid://cvhyis21fq51l" path="res://relics/healing_potion.tres" id="6_yb06x"]
 
 [resource]
 script = ExtResource("2_hnb3s")

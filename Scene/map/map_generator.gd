@@ -162,7 +162,7 @@ func _setup_room_types() -> void:
 			room.type = Room.Type.MONSTER
 			room.battle_stats = battle_stats_pool.get_random_battle_for_tier(0)
 	
-	for room: Room in map_data[1]:
+	for room: Room in map_data[8]:
 		if room.next_rooms.size() > 0:
 			room.type = Room.Type.TREASURE
 	

@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Card" load_steps=4 format=3 uid="uid://02i7cy1q7h4t"]
+
+[ext_resource type="Script" uid="uid://dcw4oridrwk87" path="res://custom_resources/card.gd" id="1_43vd0"]
+[ext_resource type="Texture2D" uid="uid://cru2vmk48wdwj" path="res://art/expose.png" id="1_54j1d"]
+[ext_resource type="AudioStream" uid="uid://k8m4o3hlwm7l" path="res://art/enemy_block.ogg" id="3_lg7m8"]
+
+[resource]
+script = ExtResource("1_43vd0")
+id = "stun"
+rarity = 3
+type = 1
+cost = 1
+exhausts = true
+icon = ExtResource("1_54j1d")
+tooltip_text = "[center]Slows you down[/center]"
+sound = ExtResource("3_lg7m8")
+metadata/_custom_type_script = "uid://dcw4oridrwk87"

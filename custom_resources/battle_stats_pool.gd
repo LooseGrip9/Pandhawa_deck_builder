@@ -12,7 +12,7 @@ func _get_all_battles_for_tier(tier: int) -> Array[BattleStats]:
 )
 
 func _setup_weight_for_tier(tier: int) -> void:
-	var roll := randf_range(0.0, total_weights_by_tier[tier])
+	var roll := Rng.instance.randf_range(0.0, total_weights_by_tier[tier])
 	var battles := _get_all_battles_for_tier(tier)
 	
 	for battle: BattleStats in battles:
@@ -20,7 +20,7 @@ func _setup_weight_for_tier(tier: int) -> void:
 		battle.accumulated_weight = total_weights_by_tier[tier]
 
 func get_random_battle_for_tier(tier: int) -> BattleStats:
-	var roll := randf_range(0.0, total_weights_by_tier[tier])
+	var roll := Rng.instance.randf_range(0.0, total_weights_by_tier[tier])
 	var battles := _get_all_battles_for_tier(tier)
 	
 	for battle: BattleStats in battles:

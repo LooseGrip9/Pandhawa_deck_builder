@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://b4uslrvp3kl5p"]
+[gd_scene load_steps=9 format=3 uid="uid://b4uslrvp3kl5p"]
 
 [ext_resource type="Script" uid="uid://c3skcwsffyenx" path="res://Scene/UI/main_menu.gd" id="1_3si4p"]
 [ext_resource type="Texture2D" uid="uid://b1sbewlyi23w6" path="res://art/Main Menu/BG.png" id="2_m8m1u"]
+[ext_resource type="Resource" uid="uid://b5x66usxwetcg" path="res://Scene/run/run_startup.tres" id="2_yoe8p"]
 [ext_resource type="Texture2D" uid="uid://bwkmwmc6i5jcv" path="res://art/Main Menu/Werkudoro.png" id="3_yoe8p"]
 [ext_resource type="Texture2D" uid="uid://bfnfgaswjeipr" path="res://art/Main Menu/Awan.png" id="4_jn3pw"]
 [ext_resource type="Texture2D" uid="uid://c4ysmq2hujxtg" path="res://art/Main Menu/Title.png" id="5_6ws6c"]
@@ -10,6 +11,7 @@
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource("1_3si4p")
+run_startup = ExtResource("2_yoe8p")
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(128, 72)
@@ -34,6 +36,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Exit" type="Button" parent="Control"]
+unique_name_in_owner = true
 layout_mode = 0
 offset_left = 59.0
 offset_top = 119.0
@@ -43,6 +46,7 @@ theme = ExtResource("5_68aio")
 text = "KELUAR"
 
 [node name="Continue" type="Button" parent="Control"]
+unique_name_in_owner = true
 layout_mode = 0
 offset_left = 32.0
 offset_top = 97.0
@@ -52,6 +56,7 @@ theme = ExtResource("5_68aio")
 text = "LANJUTKAN"
 
 [node name="Start" type="Button" parent="Control"]
+unique_name_in_owner = true
 layout_mode = 0
 offset_left = 9.0
 offset_top = 74.0

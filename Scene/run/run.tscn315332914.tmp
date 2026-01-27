@@ -136,9 +136,7 @@ unique_name_in_owner = true
 visible = false
 
 [node name="PauseLayer" type="CanvasLayer" parent="."]
-process_mode = 3
 layer = 5
-visible = false
 script = ExtResource("13_ban27")
 
 [node name="PauseMenu" type="Control" parent="PauseLayer"]

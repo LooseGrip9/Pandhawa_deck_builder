@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://csn8qjcw04nrq"]
+
+[ext_resource type="Texture2D" uid="uid://dojlh80rte165" path="res://art/tile_0107.png" id="1_f0bbb"]
+[ext_resource type="Script" uid="uid://bag5wl0wdahkq" path="res://characters/Werkudara/Cards/pedang_kembar_card.gd" id="2_7uixt"]
+[ext_resource type="AudioStream" uid="uid://b1vpjjmi5cj3n" path="res://art/axe.ogg" id="3_7uixt"]
+
+[resource]
+script = ExtResource("2_7uixt")
+id = "PedangKembar"
+target = 1
+cost = 1
+icon = ExtResource("1_f0bbb")
+tooltip_text = "[center]serang untuk[color=\"ff0000\"] %s [/color]damage sebanyak 2 kali.[/center]"
+sound = ExtResource("3_7uixt")
+metadata/_custom_type_script = "uid://dcw4oridrwk87"

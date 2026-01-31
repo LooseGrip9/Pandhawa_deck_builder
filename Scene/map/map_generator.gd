@@ -4,7 +4,7 @@ extends Node
 const X_DIST := 38
 const Y_DIST := 25
 const PLACEMENT_RANDOMNESS := 5
-const FLOORS := 15
+const FLOORS := 125
 const MAP_WIDTH := 7
 const PATHS := 7
 const TREASURE_ROOM_WEIGHT := 0.5
@@ -39,17 +39,9 @@ func generate_map() -> Array[Array]:
 	battle_stats_pool.setup()
 	
 	_setup_boss_room()
+	_setup_intermediate_bosses()
 	_setup_random_room_weights()
 	_setup_room_types()
-	
-	var i := 0
-	for floor in map_data:
-		print("floor %s" % i)
-		var used_rooms=floor.filter(
-			func(room: Room): return room.next_rooms.size() > 0
-		)
-		print(used_rooms)
-		i += 1
 	
 	return map_data
 	
@@ -67,7 +59,7 @@ func _generate_initial_grid() -> Array[Array]:
 			current_room.column = j
 			current_room.next_rooms = []
 			
-			if  i == FLOORS - 1 :
+			if i == FLOORS - 1 :
 				current_room.position.y = ( i + 1 ) * -Y_DIST
 			
 			adjacent_rooms.append(current_room)
@@ -110,27 +102,19 @@ func _would_cross_existing_path(i: int, j: int, room: Room) -> bool:
 	var left_neighbour: Room
 	var right_neighbour : Room
 	
-	# if we used j == 0 there's no left neighbour
 	if j > 0:
 		left_neighbour = map_data[i][j - 1]
 	
-	# if we used j == MAP_WIDTH - 1 there's no right neighbour
 	if j < MAP_WIDTH - 1:
 		right_neighbour = map_data[i][j + 1]
 	
-	# can't cross in right direction if right goes to left neighbour
-	# We are moving RIGHT (target > current)
 	if right_neighbour and room.column > j:
 		for next_room: Room in right_neighbour.next_rooms:
-			# Neighbor moves LEFT (Neighbor Target < My Target)
 			if next_room.column < room.column:
 				return true
 	
-	# can't cross in left direction if left goes to right neighbour
-	# We are moving LEFT (target < current)
 	if left_neighbour and room.column < j: 
 		for next_room: Room in left_neighbour.next_rooms:
-			# Neighbor moves RIGHT (Neighbor Target > My Target)
 			if next_room.column > room.column:
 				return true
 	
@@ -143,11 +127,48 @@ func _setup_boss_room() -> void:
 	for j in MAP_WIDTH:
 		var current_room = map_data[FLOORS - 2][j] as Room
 		if current_room.next_rooms:
-			current_room.next_rooms = [] as Array[Room]
+			current_room.next_rooms.clear()
 			current_room.next_rooms.append(boss_room)
 	
 	boss_room.type = Room.Type.BOSS
 	boss_room.battle_stats = battle_stats_pool.get_random_battle_for_tier(2)
+
+func _setup_intermediate_bosses() -> void:
+	var middle := floori(map_data[0].size() * 0.5)
+	
+	for i in range(0, FLOORS - 1):
+		if (i + 1) % 25 == 0:
+			var boss_room := map_data[i][middle] as Room
+			
+			# 1. Clear neighbors to remove phantom lines
+			for col in map_data[i].size():
+				var room = map_data[i][col]
+				if room != boss_room:
+					room.next_rooms.clear()
+
+			# 2. Funnel previous floor INTO the boss
+			if i > 0:
+				for room: Room in map_data[i - 1]:
+					if room.next_rooms.size() > 0:
+						room.next_rooms.clear()
+						room.next_rooms.append(boss_room)
+			
+			# 3. Funnel Boss OUT to the next floor
+			boss_room.next_rooms.clear()
+			
+			var next_floor_index = i + 1
+			if next_floor_index < FLOORS:
+				var next_floor_rooms = map_data[next_floor_index]
+				
+				# FIX: Only connect to rooms that have outgoing paths!
+				# This prevents connecting to dead ends.
+				for potential_target: Room in next_floor_rooms:
+					if potential_target.next_rooms.size() > 0 or next_floor_index == FLOORS - 1:
+						boss_room.next_rooms.append(potential_target)
+
+			boss_room.type = Room.Type.BOSS
+			if battle_stats_pool:
+				boss_room.battle_stats = battle_stats_pool.get_random_battle_for_tier(2)
 
 func _setup_random_room_weights() -> void:
 	random_room_type_weights[Room.Type.MONSTER] = MONSTER_ROOM_WEIGHT
@@ -162,20 +183,31 @@ func _setup_room_types() -> void:
 			room.type = Room.Type.MONSTER
 			room.battle_stats = battle_stats_pool.get_random_battle_for_tier(0)
 	
-	for room: Room in map_data[8]:
-		if room.next_rooms.size() > 0:
-			room.type = Room.Type.TREASURE
+	for i in range(0, FLOORS - 1):
+		if (i + 1) % 10 == 0 and (i + 1) % 25 != 0:
+			for room: Room in map_data[i]:
+				if room.next_rooms.size() > 0:
+					room.type = Room.Type.TREASURE
 	
-	for room: Room in map_data[13]:
-		if room.next_rooms.size() > 0:
-			room.type = Room.Type.CAMPFIRE
-	
+	for i in range(0, FLOORS - 1):
+		
+		# Skip actual Boss Floors (25, 50, 75...)
+		if (i + 1) % 25 == 0:
+			continue
+			
+		# RULE A: CAMPFIRE BEFORE BOSS
+		# Logic: If the NEXT floor (i+2) is a boss floor...
+		# Example: i=23 (Floor 24). (23+2) = 25. 25 % 25 == 0. True!
+		if (i + 2) % 25 == 0:
+			for room: Room in map_data[i]:
+				if room.next_rooms.size() > 0:
+					room.type = Room.Type.CAMPFIRE
+			
 	for current_floor in map_data:
 		for room: Room in current_floor:
 			for next_room: Room in room.next_rooms:
 				if next_room.type == Room.Type.NOT_ASSIGNED:
 					_set_room_randomly(next_room)
-
 
 func _set_room_randomly(room_to_set: Room) -> void:
 	var campfire_below_4 := true
@@ -198,7 +230,6 @@ func _set_room_randomly(room_to_set: Room) -> void:
 		consecutive_shop = is_shop and has_shop_parent
 		campfire_on_13 = is_campfire and room_to_set.row == 12
 	
-	
 	room_to_set.type = type_candidate
 	if type_candidate == Room.Type.MONSTER:
 		var tier_for_monster_rooms := 0
@@ -210,19 +241,17 @@ func _set_room_randomly(room_to_set: Room) -> void:
 
 func _room_has_parent_of_type(room: Room, type: Room.Type) -> bool:
 	var parents: Array[Room] = []
-	#left parents
+
 	if room.column > 0 and room.row > 0:
 		var parent_candidate := map_data[room.row -1][room.column-1] as Room
 		if parent_candidate.next_rooms.has(room):
 			parents.append(parent_candidate)
 	
-	#parents below
 	if room.row> 0:
 		var parent_candidate := map_data[room.row -1][room.column] as Room
 		if parent_candidate.next_rooms.has(room):
 			parents.append(parent_candidate)
 	
-	#right parents
 	if room.column < MAP_WIDTH-1 and room.row > 0:
 		var parent_candidate := map_data[room.row - 1][room.column + 1] as Room
 		if parent_candidate.next_rooms.has(room):
@@ -242,4 +271,3 @@ func _get_random_room_type_by_weight() -> Room.Type:
 			return type
 	
 	return Room.Type.MONSTER
-	

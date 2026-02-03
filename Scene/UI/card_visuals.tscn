@@ -3,7 +3,7 @@
 [ext_resource type="Theme" uid="uid://ychgttg0pudb" path="res://Main_Theme.tres" id="1_jruy5"]
 [ext_resource type="Script" uid="uid://c8ryfkjklsy3a" path="res://Scene/UI/card_visuals.gd" id="2_f11pj"]
 [ext_resource type="FontFile" uid="uid://dskmdk146n4rq" path="res://art/pixel_rpg.ttf" id="3_f11pj"]
-[ext_resource type="Resource" uid="uid://c08j5gpyl7ane" path="res://characters/Werkudara/Cards/pandhawa_axe_attack.tres" id="3_i7n4q"]
+[ext_resource type="Resource" uid="uid://c08j5gpyl7ane" path="res://characters/Werkudara/Cards/pandhawa_axe_attack card.tres" id="3_i7n4q"]
 [ext_resource type="StyleBox" uid="uid://bejfgssf7o5x4" path="res://Scene/Card_UI/card_only_theme.tres" id="4_f11pj"]
 [ext_resource type="Texture2D" uid="uid://bfvi02kojsa00" path="res://art/tile_0103.png" id="4_i7n4q"]
 

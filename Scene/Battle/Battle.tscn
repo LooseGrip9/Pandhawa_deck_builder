@@ -83,7 +83,7 @@ stats = ExtResource("10_hihqn")
 position = Vector2(236, 65)
 stats = ExtResource("10_hihqn")
 
-[node name="PlayerHandler" type="Node" parent="." node_paths=PackedStringArray("player")]
+[node name="PlayerHandler" type="Node" parent="." node_paths=PackedStringArray("player") groups=["enemies", "player", "player_handler"]]
 script = ExtResource("8_161f6")
 player = NodePath("../Player")
 
@@ -182,7 +182,6 @@ horizontal_alignment = 2
 
 [node name="Redflash" type="CanvasLayer" parent="."]
 layer = 2
-visible = false
 script = ExtResource("17_hihqn")
 
 [node name="ColorRect" type="ColorRect" parent="Redflash"]

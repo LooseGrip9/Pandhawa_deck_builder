@@ -9,9 +9,13 @@ const HAND_DISCARD_INTERVAL := 0.25
 @onready var hand: Hand = $"../BattleUI/Hand"
 
 var character: CharacterStats
+var pending_energy := 0
 
 func _ready() -> void:
 	Events.card_played.connect(_on_card_played)
+	Events.energy_gain_requested.connect(
+		func(amt):
+			pending_energy += amt)
 
 func start_battle(char_stats: CharacterStats) -> void:
 	character = char_stats
@@ -25,6 +29,10 @@ func start_battle(char_stats: CharacterStats) -> void:
 func start_turn() -> void:
 	character.block = 0
 	character.reset_mana()
+	
+	character.mana += pending_energy
+	pending_energy = 0
+	
 	relics.activate_relics_by_type(Relic.Type.START_OF_TURN)
 
 func end_turn() -> void:

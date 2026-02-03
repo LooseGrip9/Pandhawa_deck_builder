@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://pxevk8jgowqh"]
+
+[ext_resource type="Texture2D" uid="uid://d3g6xhk016qqp" path="res://art/perban.png" id="1_rx74d"]
+[ext_resource type="Script" uid="uid://df18ls6cedgvx" path="res://characters/Werkudara/Cards/perban.gd" id="2_rx74d"]
+
+[resource]
+script = ExtResource("2_rx74d")
+id = "perban"
+type = 1
+exhausts = true
+icon = ExtResource("1_rx74d")
+tooltip_text = "Sembuh HP sebanyak 4 poin"
+metadata/_custom_type_script = "uid://dcw4oridrwk87"

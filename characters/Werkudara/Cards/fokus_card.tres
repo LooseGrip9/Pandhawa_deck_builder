@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://d4j7bc68euuk4"]
+
+[ext_resource type="Texture2D" uid="uid://c7xx3uproscj" path="res://art/tile_0128.png" id="1_b28oi"]
+[ext_resource type="Script" uid="uid://cqbl6w15pe6t0" path="res://characters/Werkudara/Cards/fokus.gd" id="2_b28oi"]
+
+[resource]
+script = ExtResource("2_b28oi")
+id = "fokus"
+type = 1
+exhausts = true
+icon = ExtResource("1_b28oi")
+tooltip_text = "Dapatkan 2 energi"
+metadata/_custom_type_script = "uid://dcw4oridrwk87"

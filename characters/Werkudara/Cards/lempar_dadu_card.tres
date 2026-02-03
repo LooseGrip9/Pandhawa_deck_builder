@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://bu7nyten15g53"]
+
+[ext_resource type="Texture2D" uid="uid://3x0rqgqt6w63" path="res://art/lempar_dadu.png" id="1_5ku47"]
+[ext_resource type="Script" uid="uid://dvgjmoqoxu12t" path="res://characters/Werkudara/Cards/lempar_dadu.gd" id="2_5ku47"]
+
+[resource]
+script = ExtResource("2_5ku47")
+rarity = 1
+type = 1
+exhausts = true
+icon = ExtResource("1_5ku47")
+tooltip_text = "Tambah 2 mana dan hilangkan 5 HP"
+metadata/_custom_type_script = "uid://dcw4oridrwk87"

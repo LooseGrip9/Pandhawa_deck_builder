@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="KetakutanStatus" load_steps=2 format=3 uid="uid://b325kob21iorq"]
+
+[ext_resource type="Script" uid="uid://bx38j2og8746j" path="res://statuses/ketakutan.gd" id="1_0mwjt"]
+
+[resource]
+script = ExtResource("1_0mwjt")
+id = "ketakutan"
+stack_type = 1
+can_expire = true
+metadata/_custom_type_script = "uid://bmqr6s36ylwlo"

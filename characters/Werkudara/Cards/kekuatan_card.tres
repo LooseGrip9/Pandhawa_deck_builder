@@ -1,14 +1,14 @@
 [gd_resource type="Resource" load_steps=3 format=3 uid="uid://clmsng2o0pwtl"]
 
 [ext_resource type="Texture2D" uid="uid://cl0uwnbu2bikw" path="res://Skill_icon/Strength.png" id="1_ypsde"]
-[ext_resource type="Script" uid="uid://dw64wseboaqvj" path="res://characters/Werkudara/Cards/kekuatan_card.gd" id="2_xyi24"]
+[ext_resource type="Script" uid="uid://dw64wseboaqvj" path="res://characters/Werkudara/Cards/kekuatan.gd" id="2_eu0j0"]
 
 [resource]
-script = ExtResource("2_xyi24")
+script = ExtResource("2_eu0j0")
 id = "Kekuatan"
 rarity = 1
 type = 2
 cost = 1
 exhausts = true
 icon = ExtResource("1_ypsde")
-tooltip_text = "[center]Gain 2 [color=\"d4a331\"] kyat [/color].[/center]"
+tooltip_text = "[center]Dapatkan 2 [color=\"d4a331\"] kyat [/color].[/center]"

@@ -15,3 +15,9 @@ func _on_player_hit() -> void:
 
 func _on_timer_timeout() -> void:
 	color_rect.color.a = 0.0
+	
+func flash_red(color: Color, duration: float) -> void:
+	color_rect.color = color
+	var tween := create_tween()
+	# Fades the alpha from whatever it is now (0.2) down to 0.0
+	tween.tween_property(color_rect, "color:a", 0.0, duration)

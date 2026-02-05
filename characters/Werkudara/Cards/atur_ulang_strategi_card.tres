@@ -1,0 +1,14 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://cwddu83cloxf"]
+
+[ext_resource type="Texture2D" uid="uid://c7ss4cwccbq8k" path="res://art/atur_ulang_strategi.png" id="1_8x1tn"]
+[ext_resource type="Script" uid="uid://cyd7p5gh1cfsi" path="res://characters/Werkudara/Cards/atur_ulang_strategi.gd" id="2_o0od7"]
+
+[resource]
+script = ExtResource("2_o0od7")
+id = "atur_ulang_strategi"
+rarity = 1
+type = 1
+cost = 1
+icon = ExtResource("1_8x1tn")
+tooltip_text = "tambah 8 block, dan acak semua kartu"
+metadata/_custom_type_script = "uid://dcw4oridrwk87"

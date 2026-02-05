@@ -152,7 +152,11 @@ func _set_playable(value: bool) -> void:
 
 func _set_char_stats(value: CharacterStats) -> void:
 	char_stats = value
-	char_stats.stats_changed.connect(_on_char_stats_changed)
+	
+	if not char_stats.stats_changed.is_connected(_on_char_stats_changed):
+		char_stats.stats_changed.connect(_on_char_stats_changed)
+		
+	_on_char_stats_changed()
 
 func _on_card_drag_or_aiming_state_started(used_card: CardUI) -> void:
 	if used_card == self:

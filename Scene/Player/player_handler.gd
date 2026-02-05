@@ -34,6 +34,7 @@ func start_turn() -> void:
 	pending_energy = 0
 	
 	relics.activate_relics_by_type(Relic.Type.START_OF_TURN)
+	player.status_handler.apply_statuses_by_type(Status.Type.START_OF_TURN)
 
 func end_turn() -> void:
 	hand.disable_hand()
@@ -84,6 +85,24 @@ func reshuffle_deck_from_discard() -> void:
 	
 	character.draw_pile.shuffle()
 
+func redraw_hand(amount: int = 0) -> void:
+	var cards_to_draw := amount if amount > 0 else character.cards_per_turn
+	
+	# 2. Move current hand to draw pile
+	var cards_in_hand := hand.get_children()
+	for card_ui in cards_in_hand:
+		character.draw_pile.add_card(card_ui.card)
+		card_ui.queue_free()
+	
+	# 3. Shuffle (using your custom method)
+	character.draw_pile.shuffle()
+	
+	# 4. Draw the new cards
+	# We use a small timer or 'call_deferred' to ensure queue_free has finished
+	get_tree().create_timer(0.1).timeout.connect(func():
+		draw_cards(cards_to_draw)
+	)
+
 func _on_card_played(card: Card) -> void:
 	if card.exhausts or card.type == Card.Type.POWER:
 		return
@@ -100,6 +119,6 @@ func _on_statuses_applied(type: Status.Type) -> void:
 func _on_relics_activated(type: Relic.Type) -> void:
 	match type:
 		Relic.Type.START_OF_TURN:
-			player.status_handler.apply_statuses_by_type(Status.Type.START_OF_TURN)
-		Relic.Type.START_OF_TURN:
-			player.status_handler.apply_statuses_by_type(Status.Type.END_OF_TURN)
+			pass
+		Relic.Type.END_OF_TURN:
+			pass

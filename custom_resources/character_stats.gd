@@ -34,6 +34,9 @@ func take_damage(damage: int) -> void:
 func can_play_card(card: Card) -> bool:
 	return mana >= card.cost
 	
+func reset_counter() -> void:
+	counter_damage = 0
+	stats_changed.emit()
 
 func create_instance() -> Resource:
 	var instance: CharacterStats = self.duplicate()

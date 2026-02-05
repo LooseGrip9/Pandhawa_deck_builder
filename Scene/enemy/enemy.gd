@@ -77,6 +77,19 @@ func do_turn() -> void:
 		return
 	
 	current_action.perform_action()
+	
+	var player = get_tree().get_first_node_in_group("player")
+	
+	if player and player.get("stats"):
+		var player_stats = player.stats as Stats
+		
+		var action_name : String = current_action.get_script().get_path().to_lower()
+		var is_attacking := action_name.contains("attack")
+		
+		if is_attacking and player_stats.counter_damage > 0:
+			get_tree().create_timer(0.4).timeout.connect(
+				func(): take_damage(player_stats.counter_damage, Modifier.Type.NO_MODIFIER)
+			)
 
 func take_damage(damage: int, which_modifier: Modifier.Type) -> void:
 	if stats.health <= 0:

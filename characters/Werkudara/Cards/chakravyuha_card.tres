@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://d1fi6luiq8k61"]
+
+[ext_resource type="Texture2D" uid="uid://bygsjnmxnsnit" path="res://art/chakravuyha.png" id="1_q1xmc"]
+[ext_resource type="Script" uid="uid://pnothehbtw5y" path="res://characters/Werkudara/Cards/chakravyuha.gd" id="2_q1xmc"]
+
+[resource]
+script = ExtResource("2_q1xmc")
+id = "chakravyuha"
+type = 1
+cost = 2
+icon = ExtResource("1_q1xmc")
+tooltip_text = "Tambah 15 Block, Musuh yang menyerang kehilangan 5 HP"
+metadata/_custom_type_script = "uid://dcw4oridrwk87"

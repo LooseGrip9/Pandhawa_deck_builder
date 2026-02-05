@@ -27,7 +27,10 @@ func start_battle(char_stats: CharacterStats) -> void:
 	start_turn()
 
 func start_turn() -> void:
+	character.counter_damage = 0
 	character.block = 0
+	character.stats_changed.emit()
+	
 	character.reset_mana()
 	
 	character.mana += pending_energy
@@ -40,7 +43,6 @@ func end_turn() -> void:
 	hand.disable_hand()
 	relics.activate_relics_by_type(Relic.Type.END_OF_TURN)
 	player.status_handler.apply_statuses_by_type(Status.Type.END_OF_TURN)
-	
 
 func draw_card() -> void:
 	reshuffle_deck_from_discard()

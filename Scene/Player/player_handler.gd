@@ -10,9 +10,11 @@ const HAND_DISCARD_INTERVAL := 0.25
 
 var character: CharacterStats
 var pending_energy := 0
+var turns_locked := 0
 
 func _ready() -> void:
 	Events.card_played.connect(_on_card_played)
+	Events.player_hand_drawn.connect(_on_player_hand_drawn)
 	Events.energy_gain_requested.connect(
 		func(amt):
 			pending_energy += amt)
@@ -36,8 +38,24 @@ func start_turn() -> void:
 	character.mana += pending_energy
 	pending_energy = 0
 	
+	if turns_locked > 0:
+		hand.disable_hand()
+		hand.modulate = Color(0.5, 0.5, 0.5, 1.0)
+		print("Locked Turn! Remaining after this: ", turns_locked - 1)
+		turns_locked -= 1 
+	else:
+		hand.enable_hand()
+		hand.modulate = Color.WHITE
+	
 	relics.activate_relics_by_type(Relic.Type.START_OF_TURN)
 	player.status_handler.apply_statuses_by_type(Status.Type.START_OF_TURN)
+
+func _on_player_hand_drawn() -> void:
+	if hand.modulate != Color.WHITE:
+		hand.disable_hand()
+		print("Enforcing lock on newly drawn cards.")
+	else:
+		hand.enable_hand()
 
 func end_turn() -> void:
 	hand.disable_hand()
@@ -106,6 +124,9 @@ func redraw_hand(amount: int = 0) -> void:
 	)
 
 func _on_card_played(card: Card) -> void:
+	if card.get("used_this_turn") == true:
+		return # Do not move to discard pile
+	
 	if card.exhausts or card.type == Card.Type.POWER:
 		return
 	

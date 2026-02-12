@@ -57,6 +57,13 @@ func update_card_positions(delta: float) -> void:
 func add_card(card: Card) -> void:
 	var new_card_ui := card_ui.instantiate()
 	add_child(new_card_ui)
+	
+	var handler = get_tree().get_first_node_in_group("player_handler")
+	# FIX: Only disable if turns_locked is GREATER than 0
+	if handler and handler.turns_locked > 0:
+		new_card_ui.disabled = true
+		new_card_ui.modulate = Color(0.5, 0.5, 0.5, 1.0)
+	
 	new_card_ui.reparent_requested.connect(_on_card_ui_reparent_requested)
 	new_card_ui.card = card
 	new_card_ui.parent = self
@@ -69,6 +76,10 @@ func discard_card(card: CardUI) -> void:
 func disable_hand() -> void:
 	for card in get_children():
 		card.disabled = true
+
+func enable_hand() -> void:
+	for card in get_children():
+		card.disabled = false
 
 func _on_card_ui_reparent_requested(child: CardUI) -> void:
 	child.reparent(self)

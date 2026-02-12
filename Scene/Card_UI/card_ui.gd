@@ -77,9 +77,15 @@ func request_tooltip() -> void:
 	Events.card_tooltip_requested.emit(card.icon, updated_tooltip)
 
 func _input(event: InputEvent) -> void:
+	if disabled:
+		return
+		
 	card_state_machine.on_input(event)
 
 func _on_gui_input(event: InputEvent) -> void:
+	if disabled:
+		return
+		
 	card_state_machine.on_gui_input(event)
 	
 	if event is InputEventMouseMotion:

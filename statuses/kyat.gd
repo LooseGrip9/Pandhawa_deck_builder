@@ -22,3 +22,4 @@ func _on_status_changed(target: Node) -> void:
 	
 	kyat_modifier_value.flat_value = stacks
 	dmg_delt_modifier.add_new_value(kyat_modifier_value)
+	print("Kyat updated: ", stacks, " on ", target.name)

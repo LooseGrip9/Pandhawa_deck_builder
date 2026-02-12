@@ -9,7 +9,6 @@ func _ready() -> void:
 	timer.timeout.connect(_on_timer_timeout)
 
 func _on_player_hit() -> void:
-	print("OUCH! Player took damage. Flashing red.") # DEBUG LINE
 	color_rect.color.a = 0.2
 	timer.start()
 

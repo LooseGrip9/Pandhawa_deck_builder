@@ -16,8 +16,6 @@ func activate_relics_by_type(type: Relic.Type) -> void:
 	if type == Relic.Type.EVENT_BASED:
 		return
 	
-	print("DEBUG: Signal Type is: ", type)
-	print("DEBUG: Checking for relics of type: ", type) # Check 1
 	
 	for relic_ui in _get_all_relic_ui_nodes():
 		print("DEBUG: Relic found: ", relic_ui.relic.id, " with Type: ", relic_ui.relic.type)
@@ -30,7 +28,6 @@ func activate_relics_by_type(type: Relic.Type) -> void:
 		relics_activated.emit(type)
 		return
 	
-	print("DEBUG: Found ", relic_queue.size(), " relics.") # Check 2
 	
 	var tween := create_tween()
 	for relic_ui: RelicUI in relic_queue:

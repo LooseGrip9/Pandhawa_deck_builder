@@ -2,12 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bfvi02kojsa00"
-valid=false
+uid="uid://dnka68eg16csa"
+path="res://.godot/imported/pashupatastra.png-8e07f0e8ec7728147cfd0e7f3e0a5156.ctex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
-source_file="res://art/tile_0103.png"
+source_file="res://art/pashupatastra.png"
+dest_files=["res://.godot/imported/pashupatastra.png-8e07f0e8ec7728147cfd0e7f3e0a5156.ctex"]
 
 [params]
 

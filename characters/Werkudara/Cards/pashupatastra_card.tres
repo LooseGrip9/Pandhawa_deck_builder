@@ -1,0 +1,14 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://b0qlcho6o3tww"]
+
+[ext_resource type="Texture2D" uid="uid://dnka68eg16csa" path="res://art/pashupatastra.png" id="1_0e15x"]
+[ext_resource type="Script" uid="uid://b1siggv6a1el4" path="res://characters/Werkudara/Cards/pashupatastra.gd" id="2_mx0hm"]
+
+[resource]
+script = ExtResource("2_mx0hm")
+id = "pashupatastra"
+rarity = 2
+target = 2
+cost = 3
+icon = ExtResource("1_0e15x")
+tooltip_text = "serang semua musuh untuk 100 HP, lewati giliran sebanyak 2 kali"
+metadata/_custom_type_script = "uid://dcw4oridrwk87"

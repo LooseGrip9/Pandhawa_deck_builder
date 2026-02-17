@@ -8,7 +8,7 @@
 [ext_resource type="Resource" uid="uid://b2qv6qd4i81e6" path="res://characters/Werkudara/Cards/werkudara_slam.tres" id="4_l4ohr"]
 [ext_resource type="Resource" uid="uid://clmsng2o0pwtl" path="res://characters/Werkudara/Cards/kekuatan_card.tres" id="6_5mtbe"]
 [ext_resource type="Resource" uid="uid://cwddu83cloxf" path="res://characters/Werkudara/Cards/atur_ulang_strategi_card.tres" id="7_5i58t"]
-[ext_resource type="Resource" uid="uid://6aeholgarfp7" path="res://characters/Werkudara/Cards/tusukan_kilat_card.tres" id="8_5i58t"]
+[ext_resource type="Resource" uid="uid://cqxh5il2lajus" path="res://characters/Werkudara/Cards/sumpah_terakhir_card.tres" id="8_5i58t"]
 
 [resource]
 script = ExtResource("2_klm72")

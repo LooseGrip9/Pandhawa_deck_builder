@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://cervltj2ueyuk"]
+
+[ext_resource type="Texture2D" uid="uid://b4kf7opy363oo" path="res://art/Sanjivani.png" id="1_t3mud"]
+[ext_resource type="Script" uid="uid://jxl42fpwj611" path="res://characters/Werkudara/Cards/sanjivani.gd" id="2_axuqi"]
+
+[resource]
+script = ExtResource("2_axuqi")
+id = "sanjivani"
+rarity = 2
+type = 1
+icon = ExtResource("1_t3mud")
+tooltip_text = "Sembuhkan total dan kurangi 10 HP secara permanen, hanguskan kartu."
+metadata/_custom_type_script = "uid://dcw4oridrwk87"

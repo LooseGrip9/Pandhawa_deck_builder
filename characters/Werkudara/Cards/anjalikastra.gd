@@ -1,10 +1,10 @@
 extends Card
 
 var _last_execution_frame: int = -1
-var base_damage = 25
+var base_damage := 25
 
 func get_default_tooltip() -> String:
-	return tooltip_text
+	return tooltip_text % base_damage
 
 func get_updated_tooltip(_player_modifiers: ModifierHandler, _enemy_modifiers: ModifierHandler) -> String:
 	var modified_dmg := _player_modifiers.get_modified_value(base_damage, Modifier.Type.DMG_DEALT)
@@ -23,15 +23,18 @@ func is_playable(hand_node: Node) -> bool:
 		if is_instance_valid(child) and not child.is_queued_for_deletion():
 			count += 1
 			
-	return count <= 1
+	return count == 1
 
-func apply_effects(targets: Array[Node], _modifiers: ModifierHandler) -> void:
+func apply_effects(targets: Array[Node], modifiers: ModifierHandler) -> void:
 	var current_frame = Engine.get_process_frames()
 	if current_frame == _last_execution_frame:
 		return
 	
 	_last_execution_frame = current_frame
 
-	for target in targets:
-		if is_instance_valid(target) and target.has_method("take_damage"):
-			target.take_damage(25, Modifier.Type.NO_MODIFIER)
+	var actual_damage = modifiers.get_modified_value(base_damage, Modifier.Type.DMG_DEALT)
+
+	var damage_effect := DamageEffect.new()
+	damage_effect.amount = actual_damage
+	damage_effect.sound = sound
+	damage_effect.execute(targets)

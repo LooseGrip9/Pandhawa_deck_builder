@@ -8,9 +8,14 @@ const HAND_DISCARD_INTERVAL := 0.25
 @export var relics: RelicHandler
 @onready var hand: Hand = $"../BattleUI/Hand"
 
+# I added this back so the 8-card limit can flash the warning!
+@onready var hand_full_label: Label = %Full_Hand 
+
 var character: CharacterStats
 var pending_energy := 0
 var turns_locked := 0
+var cards_played_this_turn := 0 
+var retain_hand_once := false
 
 func _ready() -> void:
 	Events.card_played.connect(_on_card_played)
@@ -29,6 +34,9 @@ func start_battle(char_stats: CharacterStats) -> void:
 	start_turn()
 
 func start_turn() -> void:
+	# 1. Reset the played cards counter for the new turn!
+	cards_played_this_turn = 0 
+	
 	character.counter_damage = 0
 	character.block = 0
 	character.stats_changed.emit()
@@ -63,6 +71,11 @@ func end_turn() -> void:
 	player.status_handler.apply_statuses_by_type(Status.Type.END_OF_TURN)
 
 func draw_card() -> void:
+	# 2. Limit the hand size to 8!
+	if hand.get_child_count() >= 8:
+		_show_hand_full_message()
+		return
+		
 	reshuffle_deck_from_discard()
 	
 	var card = character.draw_pile.draw_card()
@@ -79,7 +92,21 @@ func draw_cards(amount: int) -> void:
 		func(): Events.player_hand_drawn.emit()
 	)
 
+# Helper function for the 8-card limit
+func _show_hand_full_message() -> void:
+	if not hand_full_label:
+		return
+	var tween = create_tween()
+	hand_full_label.modulate.a = 1.0 
+	tween.tween_property(hand_full_label, "modulate:a", 0.0, 1.2).set_delay(0.5)
+
 func discard_cards() -> void:
+	# 3. The Retain Guard: Skip the discard phase entirely if true
+	if retain_hand_once:
+		retain_hand_once = false # Reset for next turn
+		Events.player_hand_discarded.emit()
+		return
+
 	if hand.get_child_count() == 0:
 		Events.player_hand_discarded.emit()
 		return
@@ -108,24 +135,21 @@ func reshuffle_deck_from_discard() -> void:
 func redraw_hand(amount: int = 0) -> void:
 	var cards_to_draw := amount if amount > 0 else character.cards_per_turn
 	
-	# 2. Move current hand to draw pile
 	var cards_in_hand := hand.get_children()
 	for card_ui in cards_in_hand:
 		character.draw_pile.add_card(card_ui.card)
 		card_ui.queue_free()
 	
-	# 3. Shuffle (using your custom method)
 	character.draw_pile.shuffle()
 	
-	# 4. Draw the new cards
-	# We use a small timer or 'call_deferred' to ensure queue_free has finished
 	get_tree().create_timer(0.1).timeout.connect(func():
 		draw_cards(cards_to_draw)
 	)
 
 func _on_card_played(card: Card) -> void:
+	cards_played_this_turn += 1
 	if card.get("used_this_turn") == true:
-		return # Do not move to discard pile
+		return 
 	
 	if card.exhausts or card.type == Card.Type.POWER:
 		return

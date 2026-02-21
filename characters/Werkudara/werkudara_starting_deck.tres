@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="CardPile" load_steps=14 format=3 uid="uid://bfh1h6r52wtgg"]
+[gd_resource type="Resource" script_class="CardPile" load_steps=10 format=3 uid="uid://bfh1h6r52wtgg"]
 
 [ext_resource type="Script" uid="uid://dcw4oridrwk87" path="res://custom_resources/card.gd" id="1_4bc6y"]
 [ext_resource type="Resource" uid="uid://c08j5gpyl7ane" path="res://characters/Werkudara/Cards/pandhawa_axe_attack card.tres" id="2_eavd6"]
@@ -7,14 +7,10 @@
 [ext_resource type="Resource" uid="uid://bp7d0y1tctu8o" path="res://characters/Werkudara/Cards/pandhawa_slash_attack.tres" id="4_5mtbe"]
 [ext_resource type="Resource" uid="uid://b2qv6qd4i81e6" path="res://characters/Werkudara/Cards/werkudara_slam.tres" id="4_l4ohr"]
 [ext_resource type="Resource" uid="uid://clmsng2o0pwtl" path="res://characters/Werkudara/Cards/kekuatan_card.tres" id="6_5mtbe"]
-[ext_resource type="Resource" uid="uid://dr0kwig2ujj6b" path="res://characters/Werkudara/Cards/kala_chakra_card.tres" id="7_eavd6"]
-[ext_resource type="Resource" uid="uid://q6eo14pbf112" path="res://characters/Werkudara/Cards/naraya_astra_card.tres" id="8_5i58t"]
 [ext_resource type="Resource" uid="uid://be54wxsvmj7o4" path="res://characters/Werkudara/Cards/anjalikastra_card.tres" id="8_31i1i"]
-[ext_resource type="Resource" uid="uid://cd31dokqm4xdt" path="res://characters/Werkudara/Cards/karma_card.tres" id="10_n0apo"]
-[ext_resource type="Resource" uid="uid://dnhyee0kvm1bp" path="res://characters/Werkudara/Cards/kejatuhan_gathotkaca_card.tres" id="11_jftxp"]
-[ext_resource type="Resource" uid="uid://c84svaa0q85y7" path="res://characters/Werkudara/Cards/tembakan_gandiva_card.tres" id="12_3wh3g"]
+[ext_resource type="Resource" uid="uid://dbotf5150b2aw" path="res://characters/Werkudara/Cards/belati_tersembunyi.tres" id="9_523fa"]
 
 [resource]
 script = ExtResource("2_klm72")
-cards = Array[ExtResource("1_4bc6y")]([ExtResource("2_eavd6"), ExtResource("2_eavd6"), ExtResource("2_eavd6"), ExtResource("3_l4ohr"), ExtResource("3_l4ohr"), ExtResource("3_l4ohr"), ExtResource("4_l4ohr"), ExtResource("4_5mtbe"), ExtResource("4_5mtbe"), ExtResource("6_5mtbe"), ExtResource("7_eavd6"), ExtResource("8_31i1i"), ExtResource("8_5i58t"), ExtResource("10_n0apo"), ExtResource("11_jftxp"), ExtResource("12_3wh3g")])
+cards = Array[ExtResource("1_4bc6y")]([ExtResource("2_eavd6"), ExtResource("2_eavd6"), ExtResource("2_eavd6"), ExtResource("3_l4ohr"), ExtResource("3_l4ohr"), ExtResource("3_l4ohr"), ExtResource("4_l4ohr"), ExtResource("4_5mtbe"), ExtResource("4_5mtbe"), ExtResource("6_5mtbe"), ExtResource("8_31i1i"), ExtResource("9_523fa"), ExtResource("9_523fa"), ExtResource("9_523fa"), ExtResource("9_523fa")])
 metadata/_custom_type_script = "uid://6awnk1lfb5c3"

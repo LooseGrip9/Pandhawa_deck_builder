@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://cd31dokqm4xdt"]
+
+[ext_resource type="Texture2D" uid="uid://bwvt3gup3gbv7" path="res://art/karma.png" id="1_bqaxf"]
+[ext_resource type="Script" uid="uid://ci11ccpe65bwg" path="res://characters/Werkudara/Cards/karma.gd" id="2_yborq"]
+
+[resource]
+script = ExtResource("2_yborq")
+rarity = 1
+type = 1
+cost = 1
+icon = ExtResource("1_bqaxf")
+tooltip_text = "Pertahankan kartumu pada giliran berikutnya"
+metadata/_custom_type_script = "uid://dcw4oridrwk87"

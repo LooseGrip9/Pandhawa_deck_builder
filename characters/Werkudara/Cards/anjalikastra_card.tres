@@ -1,0 +1,14 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://be54wxsvmj7o4"]
+
+[ext_resource type="Texture2D" uid="uid://ciqj6423n005w" path="res://art/anjalikastra.png" id="1_l13qm"]
+[ext_resource type="Script" uid="uid://gl2np1jfa2k2" path="res://characters/Werkudara/Cards/anjalikastra.gd" id="2_32gim"]
+
+[resource]
+script = ExtResource("2_32gim")
+id = "anjalikastra"
+rarity = 2
+target = 1
+cost = 2
+icon = ExtResource("1_l13qm")
+tooltip_text = "Serang untuk %s HP. Kartu dapat dimainkan jika kartu ini sendirian di tangan."
+metadata/_custom_type_script = "uid://dcw4oridrwk87"

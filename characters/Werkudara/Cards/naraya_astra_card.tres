@@ -1,0 +1,14 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://q6eo14pbf112"]
+
+[ext_resource type="Texture2D" uid="uid://2s0drfs8rc53" path="res://art/naraya_astra.png" id="1_g38od"]
+[ext_resource type="Script" uid="uid://dvhxg2w6o4u8v" path="res://characters/Werkudara/Cards/naraya_astra.gd" id="2_g38od"]
+
+[resource]
+script = ExtResource("2_g38od")
+id = "naraya_astra"
+rarity = 2
+target = 2
+cost = 2
+icon = ExtResource("1_g38od")
+tooltip_text = "Serang 3 musuh secara acak"
+metadata/_custom_type_script = "uid://dcw4oridrwk87"

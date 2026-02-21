@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://obl8ntjf04a7"]
+
+[ext_resource type="Texture2D" uid="uid://cmby2x85vq6kn" path="res://art/ilusi_mayasura.png" id="1_qfb4g"]
+[ext_resource type="Script" uid="uid://cxd7dprfyrn77" path="res://characters/Werkudara/Cards/ilusi_mayasura.gd" id="2_qum3n"]
+
+[resource]
+script = ExtResource("2_qum3n")
+rarity = 2
+type = 1
+cost = 1
+icon = ExtResource("1_qfb4g")
+tooltip_text = "Buat salinan dari kartu menyerang yang terakhir digunakan dan buat harganya menjadi 0"
+metadata/_custom_type_script = "uid://dcw4oridrwk87"

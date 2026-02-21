@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://dr0kwig2ujj6b"]
+
+[ext_resource type="Texture2D" uid="uid://um2e7nvxuvrn" path="res://art/kala_chakra.png" id="1_ca0uw"]
+[ext_resource type="Script" uid="uid://ds186h16wm6yn" path="res://characters/Werkudara/Cards/kala_chakra.gd" id="1_gq8si"]
+
+[resource]
+script = ExtResource("1_gq8si")
+id = "kala_chakra"
+rarity = 2
+type = 1
+cost = 3
+exhausts = true
+icon = ExtResource("1_ca0uw")
+tooltip_text = "Dapatkan giliran tambahan. Hanguskan kartu"
+metadata/_custom_type_script = "uid://dcw4oridrwk87"

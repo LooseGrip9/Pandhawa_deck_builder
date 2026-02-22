@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://dvyd32enmhdv6"]
+
+[ext_resource type="Texture2D" uid="uid://cfv2guwc7nco1" path="res://art/pengorbanan.png" id="1_oulrt"]
+[ext_resource type="Script" uid="uid://b547k5kdus4s1" path="res://characters/Werkudara/Cards/pengorbanan.gd" id="2_w6wyd"]
+
+[resource]
+script = ExtResource("2_w6wyd")
+id = "pengorbanan"
+rarity = 1
+cost = 1
+icon = ExtResource("1_oulrt")
+tooltip_text = "Hanguskan kartu di tangan, dapatkan 2 energi"
+metadata/_custom_type_script = "uid://dcw4oridrwk87"

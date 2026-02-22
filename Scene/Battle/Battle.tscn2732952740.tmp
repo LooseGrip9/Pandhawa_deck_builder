@@ -91,7 +91,7 @@ player = NodePath("../Player")
 layer = 3
 script = ExtResource("8_t23xh")
 
-[node name="Hand" type="Control" parent="BattleUI" node_paths=PackedStringArray("player") groups=["hand"]]
+[node name="Hand" type="Control" parent="BattleUI" node_paths=PackedStringArray("player")]
 layout_mode = 3
 anchors_preset = 7
 anchor_left = 0.5

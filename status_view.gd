@@ -16,10 +16,14 @@ func _input(event: InputEvent) -> void:
 		hide_view()
 
 func show_view(statuses: Array[Status]) -> void:
+	for child in status_tooltips.get_children():
+		child.queue_free()
+		
 	for status: Status in statuses:
 		var new_status_tooltip:= STATUS_TOOLTIP.instantiate() as StatusTooltip
 		status_tooltips.add_child(new_status_tooltip)
 		new_status_tooltip.status = status
+		
 	show()
 
 func hide_view() -> void:

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="StatusTemplates" load_steps=3 format=3 uid="uid://cmxe06hhhrug8"]
+[gd_resource type="Resource" script_class="PoisonStatus" load_steps=3 format=3 uid="uid://cmxe06hhhrug8"]
 
 [ext_resource type="Texture2D" uid="uid://psr6xk3k26oh" path="res://art/tile_0114.png" id="1_ikvql"]
 [ext_resource type="Script" uid="uid://bnre8dbkej00q" path="res://statuses/poison.gd" id="2_q4c27"]
@@ -9,5 +9,5 @@ id = "poison"
 type = 1
 stack_type = 1
 icon = ExtResource("1_ikvql")
-tooltip = "pada akhir giliran, terima %s damage"
+tooltip = "Racun: Pada akhir giliran, terima %s damage"
 metadata/_custom_type_script = "uid://bmqr6s36ylwlo"

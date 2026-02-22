@@ -2,6 +2,7 @@ class_name StatusHandler
 extends GridContainer
 
 signal statuses_applied(type: Status.Type)
+signal statuses_changed
 
 const STATUS_APPLY_INTERVAL := 0.25
 const STATUS_UI = preload("res://Scene/status_handler/status_ui.tscn")
@@ -38,6 +39,7 @@ func add_status(status: Status) -> void:
 		new_status_ui.status = status
 		new_status_ui.status.status_applied.connect(_on_status_applied)
 		new_status_ui.status.initialize_status(status_owner)
+		statuses_changed.emit()
 		return
 	
 	#oh it's unique and already have it
@@ -48,11 +50,13 @@ func add_status(status: Status) -> void:
 	#if it's duration, extend the duration
 	if status.can_expire and status.stack_type == Status.StackType.DURATION:
 		_get_status(status.id).duration += status.duration
+		statuses_changed.emit()
 		return
 	
 	#if it's stackable, add the stacks
 	if status.stack_type == Status.StackType.INTENSITY:
 		_get_status(status.id).stacks += status.stacks
+		statuses_changed.emit()
 
 func _has_status(id: String) -> bool:
 	for status_ui: StatusUI in get_children():

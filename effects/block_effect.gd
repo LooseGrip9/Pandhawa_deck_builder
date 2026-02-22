@@ -8,5 +8,11 @@ func execute(targets : Array[Node]) -> void:
 		if not target:
 			continue
 		if target is Enemy or target is Player:
-			target.stats.block += amount
+			
+			var modified_amount := amount
+			
+			if target.get("modifier_handler"):
+				modified_amount = target.modifier_handler.get_modified_value(amount, Modifier.Type.BLOCK_GAINED)
+			
+			target.stats.block += modified_amount
 			SFXPlayer.play(sound)

@@ -32,3 +32,6 @@ type = 2
 
 [node name="CardCostModifier" parent="Modifier_Handler" instance=ExtResource("6_ewflj")]
 type = 1
+
+[node name="BlockGainedModifier" parent="Modifier_Handler" instance=ExtResource("6_ewflj")]
+type = 5

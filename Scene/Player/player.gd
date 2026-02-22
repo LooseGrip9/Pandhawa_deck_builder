@@ -9,6 +9,7 @@ const WHITE_SPRITE_MATERIAL := preload("res://art/white_sprite_material.tres")
 @onready var stats_ui: StatsUI = $StatsUI 
 @onready var status_handler: StatusHandler = $StatusHandler
 @onready var modifier_handler: ModifierHandler = $Modifier_Handler
+var has_taken_damage_this_turn := false
 
 func _ready() -> void:
 	status_handler.status_owner = self

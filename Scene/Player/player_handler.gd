@@ -34,8 +34,10 @@ func start_battle(char_stats: CharacterStats) -> void:
 	start_turn()
 
 func start_turn() -> void:
-	# 1. Reset the played cards counter for the new turn!
 	cards_played_this_turn = 0 
+	
+	if player:
+		player.has_taken_damage_this_turn = false
 	
 	character.counter_damage = 0
 	character.block = 0

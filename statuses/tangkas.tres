@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="TangkasStatus" load_steps=3 format=3 uid="uid://goy3yvftof63"]
+
+[ext_resource type="Texture2D" uid="uid://wa1chvhpw5uh" path="res://art/tangkas.png" id="1_264im"]
+[ext_resource type="Script" uid="uid://djkj2mtp7dys5" path="res://statuses/tangkas.gd" id="1_w7w7r"]
+
+[resource]
+script = ExtResource("1_w7w7r")
+id = "tangkas"
+type = 2
+stack_type = 1
+icon = ExtResource("1_264im")
+tooltip = "Tangkas: tambah "
+metadata/_custom_type_script = "uid://bmqr6s36ylwlo"

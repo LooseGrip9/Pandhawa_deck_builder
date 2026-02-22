@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="RentanStatus" load_steps=3 format=3 uid="uid://b325kob21iorq"]
+
+[ext_resource type="Texture2D" uid="uid://b6px3cafioxkm" path="res://art/rentan.png" id="1_ea56o"]
+[ext_resource type="Script" uid="uid://bx38j2og8746j" path="res://statuses/rentan.gd" id="2_mohnp"]
+
+[resource]
+script = ExtResource("2_mohnp")
+id = "ketakutan"
+type = 1
+stack_type = 2
+can_expire = true
+icon = ExtResource("1_ea56o")
+tooltip = "Rentan: Memberikan damage 25% lebih sedikit selama %s giliran"
+metadata/_custom_type_script = "uid://bmqr6s36ylwlo"

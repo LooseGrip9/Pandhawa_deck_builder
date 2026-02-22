@@ -16,6 +16,10 @@ const WHITE_SPRITE_MATERIAL := preload("res://art/white_sprite_material.tres")
 var enemy_action_picker: EnemyActionPicker
 var current_action: EnemyAction : set = set_current_action
 
+func _ready() -> void:
+	if status_handler:
+		status_handler.statuses_changed.connect(update_intent)
+
 func set_current_action(value: EnemyAction)-> void:
 	current_action = value
 	update_intent()

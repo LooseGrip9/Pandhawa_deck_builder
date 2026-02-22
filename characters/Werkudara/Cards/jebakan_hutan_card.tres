@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://d4j60rbjmexq8"]
+
+[ext_resource type="Script" uid="uid://c1scj134vrsur" path="res://characters/Werkudara/Cards/jebakan_hutan.gd" id="1_f761j"]
+[ext_resource type="Texture2D" uid="uid://5ga6vj80grps" path="res://art/jebakan.png" id="1_nukoa"]
+
+[resource]
+script = ExtResource("1_f761j")
+id = "jebakan_hutan"
+rarity = 1
+type = 1
+target = 1
+cost = 1
+icon = ExtResource("1_nukoa")
+tooltip_text = "Berikan 3 status lemah pada musuh, setiap musuh yang menyerang akan kehilangan 10 HP"
+metadata/_custom_type_script = "uid://dcw4oridrwk87"

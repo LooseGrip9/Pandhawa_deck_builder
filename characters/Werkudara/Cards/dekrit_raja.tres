@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://bujb5w4fo8jgk"]
+
+[ext_resource type="Texture2D" uid="uid://cwurltx0s874h" path="res://art/dekrit.png" id="1_jwyux"]
+[ext_resource type="Script" uid="uid://vms66j42u6jp" path="res://characters/Werkudara/Cards/dekrit_raja.gd" id="2_jwyux"]
+
+[resource]
+script = ExtResource("2_jwyux")
+id = "dekrit_raja"
+rarity = 1
+type = 2
+cost = 2
+exhausts = true
+icon = ExtResource("1_jwyux")
+tooltip_text = "Tambah 2 Kyat dan 2 Tangkas, hanguskan kartu"
+metadata/_custom_type_script = "uid://dcw4oridrwk87"

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://dtuc42whq2lu0"]
+
+[ext_resource type="Texture2D" uid="uid://bi6pfjs32f820" path="res://art/tile_0101.png" id="1_yvvbi"]
+[ext_resource type="Script" uid="uid://brf116neeyp1b" path="res://characters/Werkudara/Cards/zirah_karna.gd" id="2_11e2d"]
+
+[resource]
+script = ExtResource("2_11e2d")
+rarity = 2
+type = 2
+cost = 2
+icon = ExtResource("1_yvvbi")
+tooltip_text = "Tambah 4 Lempeng Zirah"
+metadata/_custom_type_script = "uid://dcw4oridrwk87"

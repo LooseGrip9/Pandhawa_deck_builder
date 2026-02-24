@@ -49,14 +49,12 @@ func play(targets: Array[Node], char_stats: CharacterStats, modifiers: ModifierH
 	Events.card_played.emit(self)
 	char_stats.mana -= cost
 	
-	var final_targets: Array[Node] = []
 	
 	if is_single_targeted():
 		apply_effects(targets, modifiers)
 	else:
 		apply_effects(_get_targets(targets), modifiers)
 	
-	apply_effects(final_targets, modifiers)
 
 func apply_effects(_targets: Array[Node], _modifiers: ModifierHandler) -> void:
 	pass

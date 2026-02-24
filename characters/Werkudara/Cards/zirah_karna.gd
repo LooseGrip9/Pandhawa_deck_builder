@@ -1,10 +1,13 @@
+#meta-name: Card Logic
+#meta-description : What happens when a card is played
 
 extends Card
 
-const KYAT_STATUS = preload("res://statuses/kyat.tres")
-const TANGKAS_STATUS = preload("res://statuses/tangkas.tres")
+@export var optional_sound: AudioStream
 
-@export var buff_amount := 1
+const PLATED_ARMOR_STATUS = preload("res://statuses/lempeng_zirah.tres")
+
+@export var armor_amount := 4
 
 func get_default_tooltip() -> String:
 	return tooltip_text
@@ -13,7 +16,7 @@ func get_updated_tooltip(_player_modifiers: ModifierHandler, _enemy_modifiers: M
 	return tooltip_text
 
 func apply_effects(_targets: Array[Node], _modifiers: ModifierHandler) -> void:
-	
+	# 1. Find the player
 	var tree = _targets[0].get_tree() if _targets.size() > 0 else Engine.get_main_loop()
 	var player_nodes = tree.get_nodes_in_group("player")
 	
@@ -23,14 +26,11 @@ func apply_effects(_targets: Array[Node], _modifiers: ModifierHandler) -> void:
 	var player = player_nodes[0]
 	var target_array: Array[Node] = [player]
 	
-	var kyat_effect := StatusEffect.new()
-	var kyat := KYAT_STATUS.duplicate()
-	kyat.stacks = buff_amount 
-	kyat_effect.status = kyat
-	kyat_effect.execute(target_array)
+	var armor_effect := StatusEffect.new()
+	var armor := PLATED_ARMOR_STATUS.duplicate()
 	
-	var tangkas_effect := StatusEffect.new()
-	var tangkas := TANGKAS_STATUS.duplicate()
-	tangkas.stacks = buff_amount 
-	tangkas_effect.status = tangkas
-	tangkas_effect.execute(target_array)
+
+	armor.stacks = armor_amount 
+	
+	armor_effect.status = armor
+	armor_effect.execute(target_array)

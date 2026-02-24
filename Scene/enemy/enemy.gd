@@ -80,6 +80,15 @@ func do_turn() -> void:
 	if not current_action:
 		return
 	
+	var allowed_actions := 1
+	
+	if modifier_handler:
+		allowed_actions = modifier_handler.get_modified_value(allowed_actions, Modifier.Type.ACTION_COUNT)
+	
+	if allowed_actions <= 0:
+		print("%s is too Slow to act this turn!" % name)
+		return
+	
 	current_action.perform_action()
 	
 	var player = get_tree().get_first_node_in_group("player")

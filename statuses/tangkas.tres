@@ -9,5 +9,5 @@ id = "tangkas"
 type = 2
 stack_type = 1
 icon = ExtResource("1_264im")
-tooltip = "Tangkas: tambah "
+tooltip = "Tangkas: tambah %s block ketika memainkan kartu block"
 metadata/_custom_type_script = "uid://bmqr6s36ylwlo"

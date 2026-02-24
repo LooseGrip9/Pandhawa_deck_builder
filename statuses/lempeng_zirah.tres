@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="PlatedArmorStatus" load_steps=3 format=3 uid="uid://bc2nuxngkoqo0"]
+
+[ext_resource type="Texture2D" uid="uid://bi6pfjs32f820" path="res://art/tile_0101.png" id="1_ynbu5"]
+[ext_resource type="Script" uid="uid://b6nto1cusvb36" path="res://statuses/lempeng_zirah.gd" id="2_ynbu5"]
+
+[resource]
+script = ExtResource("2_ynbu5")
+type = 1
+stack_type = 1
+icon = ExtResource("1_ynbu5")
+tooltip = "Lempeng Zirah: Tambah %s block pada akhir giliran"
+metadata/_custom_type_script = "uid://bmqr6s36ylwlo"

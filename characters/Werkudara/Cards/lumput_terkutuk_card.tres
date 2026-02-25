@@ -1,0 +1,14 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://cmo1gmwg6pf5j"]
+
+[ext_resource type="Texture2D" uid="uid://s5uju54jmx4" path="res://art/lambat.png" id="1_c4ayt"]
+[ext_resource type="Script" uid="uid://dq0iuoel2ucud" path="res://characters/Werkudara/Cards/lumpur_terkutuk.gd" id="2_6mtjx"]
+
+[resource]
+script = ExtResource("2_6mtjx")
+id = "lumpur_terkutuk"
+type = 2
+target = 1
+cost = 1
+icon = ExtResource("1_c4ayt")
+tooltip_text = "Tambah 2 lambat"
+metadata/_custom_type_script = "uid://dcw4oridrwk87"

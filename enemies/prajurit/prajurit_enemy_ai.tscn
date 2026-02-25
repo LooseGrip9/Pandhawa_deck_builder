@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c02emn3b1g806" path="res://Scene/Enemy/enemy_action_picker.gd" id="1_8wkah"]
 [ext_resource type="Script" uid="uid://pqg4b0uy42ad" path="res://enemies/prajurit/prajurit_attack_action.gd" id="2_tr7sr"]
-[ext_resource type="Texture2D" uid="uid://bfvi02kojsa00" path="res://art/tile_0103.png" id="3_1wlnl"]
+[ext_resource type="Texture2D" uid="uid://iwkh80uf5bew" path="res://art/tile_0103.png" id="3_1wlnl"]
 [ext_resource type="Script" uid="uid://dpuqxpt0l6ehf" path="res://custom_resources/intent.gd" id="4_on0xw"]
 [ext_resource type="AudioStream" uid="uid://de2ryat1pxq6" path="res://art/enemy_attack.ogg" id="5_ynddt"]
 [ext_resource type="Script" uid="uid://bjm2ci1uul1yt" path="res://enemies/prajurit/prajurit_block_action.gd" id="6_ouef1"]

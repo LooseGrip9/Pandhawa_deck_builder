@@ -53,5 +53,8 @@ status_owner = NodePath("..")
 [node name="DmgTakenModifier" parent="Modifier_Handler" instance=ExtResource("8_l6v7j")]
 type = 2
 
+[node name="ActionCountModifier" parent="Modifier_Handler" instance=ExtResource("8_l6v7j")]
+type = 6
+
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="area_exited" from="." to="." method="_on_area_exited"]

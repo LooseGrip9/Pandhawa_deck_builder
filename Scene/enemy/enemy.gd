@@ -12,6 +12,7 @@ const WHITE_SPRITE_MATERIAL := preload("res://art/white_sprite_material.tres")
 @onready var stats_ui: StatsUI = $StatsUI as StatsUI
 @onready var intent_ui: IntentUI = $IntentUI as IntentUI
 @onready var status_handler: StatusHandler = $StatusHandler
+@export var stunned_intent: Intent
 
 var enemy_action_picker: EnemyActionPicker
 var current_action: EnemyAction : set = set_current_action
@@ -70,6 +71,20 @@ func update_enemy() -> void:
 	update_stats()
 
 func update_intent() -> void:
+	var allowed_actions := 1
+	
+	if modifier_handler:
+		allowed_actions = modifier_handler.get_modified_value(allowed_actions, Modifier.Type.ACTION_COUNT)
+	
+	if allowed_actions <= 0:
+		if stunned_intent:
+			intent_ui.update_intent(stunned_intent)
+			intent_ui.show()
+		else:
+			intent_ui.hide() 
+		return
+
+	intent_ui.show()
 	if current_action:
 		current_action.update_intent_text()
 		intent_ui.update_intent(current_action.intent)
@@ -87,6 +102,11 @@ func do_turn() -> void:
 	
 	if allowed_actions <= 0:
 		print("%s is too Slow to act this turn!" % name)
+		
+		# --- THE FIX: Tell the game we are done before we return! ---
+		Events.enemy_action_completed.emit(self)
+		# ------------------------------------------------------------
+		
 		return
 	
 	current_action.perform_action()

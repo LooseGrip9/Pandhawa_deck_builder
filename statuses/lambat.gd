@@ -1,7 +1,8 @@
 class_name SlowStatus
-extends StatusTemplates 
+extends Status
 
 var _target: Node
+
 
 func initialize_status(target: Node) -> void:
 	_target = target

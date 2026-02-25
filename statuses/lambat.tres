@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="SlowStatus" load_steps=3 format=3 uid="uid://cbi8sk024t31g"]
+
+[ext_resource type="Script" uid="uid://cjef7782mx4fq" path="res://statuses/lambat.gd" id="1_752jo"]
+[ext_resource type="Texture2D" uid="uid://s5uju54jmx4" path="res://art/lambat.png" id="1_txgew"]
+
+[resource]
+script = ExtResource("1_752jo")
+id = "lambat"
+type = 1
+stack_type = 1
+icon = ExtResource("1_txgew")
+tooltip = "Lambat: Kurangi %s giliran "
+metadata/_custom_type_script = "uid://bmqr6s36ylwlo"

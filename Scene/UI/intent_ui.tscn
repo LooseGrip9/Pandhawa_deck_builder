@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bffgui61bfbiu"]
 
-[ext_resource type="Texture2D" uid="uid://bfvi02kojsa00" path="res://art/tile_0103.png" id="1_2qsbp"]
+[ext_resource type="Texture2D" uid="uid://iwkh80uf5bew" path="res://art/tile_0103.png" id="1_2qsbp"]
 [ext_resource type="Script" uid="uid://giuaoq4j17vx" path="res://Scene/UI/intent_ui.gd" id="1_p0nr7"]
 [ext_resource type="Theme" uid="uid://ychgttg0pudb" path="res://Main_Theme.tres" id="2_p0nr7"]
 

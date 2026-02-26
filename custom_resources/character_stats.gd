@@ -11,7 +11,7 @@ extends Stats
 @export var starting_deck: CardPile
 @export var cards_per_turn: int
 @export var max_mana: int
-@export var starting_relic: Relic
+@export var starting_relics: Array[Relic]
 
 var mana: int : set = set_mana
 var deck: CardPile
@@ -46,4 +46,11 @@ func create_instance() -> Resource:
 	instance.deck = instance.starting_deck.duplicate()
 	instance.draw_pile = instance.deck.duplicate()
 	instance.discard = CardPile.new()
+	
+	# Safety: If the array is null for some reason, initialize it as empty
+	if starting_relics:
+		instance.starting_relics = starting_relics.duplicate()
+	else:
+		instance.starting_relics = []
+		
 	return instance

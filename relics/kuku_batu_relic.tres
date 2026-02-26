@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://bjm7fhpr20jto"]
+
+[ext_resource type="Texture2D" uid="uid://yq5gqvc61ojd" path="res://art/kuku_batu.png" id="1_abbu2"]
+[ext_resource type="Script" uid="uid://btig8lql72ylc" path="res://relics/kuku_batu.gd" id="2_tiw0i"]
+
+[resource]
+script = ExtResource("2_tiw0i")
+relic_name = "Kuku Batu"
+id = "kuku_batu"
+type = 2
+icon = ExtResource("1_abbu2")
+tooltip = "Musuh mulai dengan 1 Lemah"
+metadata/_custom_type_script = "uid://spwidn0jd7oe"

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="GoldBonusRelic" load_steps=3 format=3 uid="uid://bko0nm3dht4na"]
+
+[ext_resource type="Script" uid="uid://blvbu28bkfvrv" path="res://relics/koin_tembaga.gd" id="1_7kbf4"]
+[ext_resource type="Texture2D" uid="uid://3raj383rrnyo" path="res://art/Copper Coin.png" id="1_n1ejt"]
+
+[resource]
+script = ExtResource("1_7kbf4")
+relic_name = "Koin Tembaga"
+id = "koin_tembaga"
+type = 4
+icon = ExtResource("1_n1ejt")
+tooltip = "[color=\"ffdf00\"]Koin Tembaga[/color] Emas yang didapatkan naik 10%"
+metadata/_custom_type_script = "uid://spwidn0jd7oe"

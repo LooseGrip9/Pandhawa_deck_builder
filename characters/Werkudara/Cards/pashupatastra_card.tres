@@ -10,5 +10,5 @@ rarity = 2
 target = 2
 cost = 3
 icon = ExtResource("1_0e15x")
-tooltip_text = "serang semua musuh untuk 100 HP, lewati giliran sebanyak 2 kali"
+tooltip_text = "serang semua musuh untuk %s HP, lewati giliran sebanyak 2 kali"
 metadata/_custom_type_script = "uid://dcw4oridrwk87"

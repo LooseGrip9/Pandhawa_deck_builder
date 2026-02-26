@@ -168,9 +168,21 @@ func _on_card_drag_or_aim_ended(_card: CardUI) -> void:
 func _on_char_stats_changed() -> void:
 	_recheck_playability()
 
+# CardUI.gd
+
 func _recheck_playability() -> void:
-	var can_afford = char_stats.can_play_card(card)
+	var player_handler = get_tree().get_first_node_in_group("player_handler")
+	var is_free = player_handler and player_handler.next_card_is_free
+	
+	if is_free:
+		card_visuals.update_cost(0, true)
+	else:
+		card_visuals.update_cost(card.cost, false)
+
+	var can_afford = is_free or char_stats.can_play_card(card)
+	
 	var requirements_met = true
 	if card.has_method("is_playable"):
 		requirements_met = card.is_playable(get_parent())
+		
 	playable = can_afford and requirements_met

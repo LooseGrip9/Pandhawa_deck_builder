@@ -11,5 +11,5 @@ id = "belati_tersembunyi"
 rarity = 1
 target = 1
 icon = ExtResource("1_gdukh")
-tooltip_text = "Serang untuk 4 hp dan 2 racun"
+tooltip_text = "Serang untuk %s hp dan 2 racun"
 metadata/_custom_type_script = "uid://dcw4oridrwk87"

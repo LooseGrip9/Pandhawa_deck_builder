@@ -26,3 +26,13 @@ func set_card(value: Card) -> void:
 				stylebox.bg_color = stylebox.bg_color.lightened(0.1)
 			
 			panel.add_theme_stylebox_override(style, stylebox)
+
+# CardVisuals.gd
+
+func update_cost(new_cost: int, is_free: bool) -> void:
+	cost.text = str(new_cost)
+	
+	if is_free:
+		cost.add_theme_color_override("font_color", Color.GREEN)
+	else:
+		cost.remove_theme_color_override("font_color")

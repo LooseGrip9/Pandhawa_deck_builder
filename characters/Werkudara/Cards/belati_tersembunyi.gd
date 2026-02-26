@@ -8,14 +8,7 @@ var _last_execution_frame: int = -1
 @export var poison_status: Status 
 
 func get_default_tooltip() -> String:
-	return tooltip_text % [base_damage, base_poison]
-
-func get_updated_tooltip(_player_modifiers: ModifierHandler, _enemy_modifiers: ModifierHandler) -> String:
-	var modified_dmg := _player_modifiers.get_modified_value(base_damage, Modifier.Type.DMG_DEALT)
-	if _enemy_modifiers:
-		modified_dmg = _enemy_modifiers.get_modified_value(modified_dmg, Modifier.Type.DMG_TAKEN)
-	
-	return tooltip_text % [modified_dmg, base_poison]
+	return tooltip_text % base_damage
 
 func apply_effects(targets: Array[Node], modifiers: ModifierHandler) -> void:
 	var current_frame = Engine.get_process_frames()

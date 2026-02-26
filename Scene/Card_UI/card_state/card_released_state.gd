@@ -2,13 +2,14 @@ extends CardState
 
 var played: bool
 
-func enter() -> void:
+# CardPlayedState.gd
 
-	played =false
+func enter() -> void:
+	played = false
 	
 	if not card_ui.targets.is_empty():
 		played = true
-		card_ui.play()
+		card_ui.play() # This calls Card.play(), which now handles the Conch perfectly
 		Events.tooltip_hide_requested.emit()
 
 func on_input(event: InputEvent) -> void:

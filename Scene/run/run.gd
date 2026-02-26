@@ -178,7 +178,7 @@ func _setup_top_bar():
 	character.stats_changed.connect(health_ui._update_stats.bind(character))
 	health_ui._update_stats(character)
 	gold_ui.run_stats = stats
-	relic_handler.add_relic(character.starting_relic)
+	relic_handler.add_relics(character.starting_relics)
 	Events.relic_tooltip_requested.connect(relic_tooltip.show_tooltip)
 	deck_button.card_pile = character.deck
 	deck_view.card_pile = character.deck

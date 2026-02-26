@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://bh6t71e2yrf3e"]
+
+[ext_resource type="Texture2D" uid="uid://ds374a70attqj" path="res://art/kerang.png" id="1_8x01k"]
+[ext_resource type="Script" uid="uid://dykrips03dbk5" path="res://relics/kerang_kecil.gd" id="2_8x01k"]
+
+[resource]
+script = ExtResource("2_8x01k")
+relic_name = "Kerang Kecil"
+id = "kerang_kecil"
+type = 2
+icon = ExtResource("1_8x01k")
+tooltip = "[color=\"ffdf00\"]Kerang Kecil[/color] Kartu ke-5 yang dimainkan akan menjadi gratis"
+metadata/_custom_type_script = "uid://spwidn0jd7oe"

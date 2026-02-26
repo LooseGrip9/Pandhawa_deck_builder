@@ -6,14 +6,6 @@ var base_damage := 25
 func get_default_tooltip() -> String:
 	return tooltip_text % base_damage
 
-func get_updated_tooltip(_player_modifiers: ModifierHandler, _enemy_modifiers: ModifierHandler) -> String:
-	var modified_dmg := _player_modifiers.get_modified_value(base_damage, Modifier.Type.DMG_DEALT)
-	
-	if _enemy_modifiers:
-		modified_dmg = _enemy_modifiers.get_modified_value(modified_dmg, Modifier.Type.DMG_TAKEN)
-	
-	return tooltip_text % modified_dmg
-
 func is_playable(hand_node: Node) -> bool:
 	if not hand_node:
 		return false

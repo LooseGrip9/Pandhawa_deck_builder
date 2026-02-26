@@ -1,3 +1,4 @@
+
 extends Card
 
 var base_damage := 9
@@ -5,17 +6,16 @@ var base_damage := 9
 func get_default_tooltip() -> String:
 	return tooltip_text % base_damage
 
-func get_updated_tooltip(_player_modifiers: ModifierHandler, _enemy_modifiers: ModifierHandler) -> String:
-	var modified_dmg := _player_modifiers.get_modified_value(base_damage, Modifier.Type.DMG_DEALT)
-	
-	if _enemy_modifiers:
-		modified_dmg = _enemy_modifiers.get_modified_value(modified_dmg, Modifier.Type.DMG_TAKEN)
-	
-	return tooltip_text % modified_dmg
-	
-
 func apply_effects(targets: Array[Node], modifiers: ModifierHandler) -> void:
+	# Get the relic bonus for the actual hit
+	var bonus := 0
+	var main_scene = Engine.get_main_loop().current_scene
+	if "stats" in main_scene and main_scene.stats:
+		bonus = main_scene.stats.bonus_damage
+		
 	var damage_effect = DamageEffect.new()
-	damage_effect.amount = modifiers.get_modified_value(base_damage, Modifier.Type.DMG_DEALT)
+	# Apply relic bonus BEFORE modifiers
+	var final_base = base_damage + bonus
+	damage_effect.amount = modifiers.get_modified_value(final_base, Modifier.Type.DMG_DEALT)
 	damage_effect.sound = sound
 	damage_effect.execute(targets)

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://if1uv5ccl56"]
+
+[ext_resource type="Texture2D" uid="uid://nexvwjtqy556" path="res://art/kipas_ekor_yak.png" id="1_8w85v"]
+[ext_resource type="Script" uid="uid://cggf6rvl2b54t" path="res://relics/kipas_ekor_yak.gd" id="1_qnsgi"]
+
+[resource]
+script = ExtResource("1_qnsgi")
+relic_name = "Kipas Ekor Yak"
+id = "kipas_ekor_yak"
+type = 2
+icon = ExtResource("1_8w85v")
+tooltip = "[color=\"ffdf00\"]Kipas Ekor Yak[/color] : Ambil 1 kartu ekstra pada giliran pertama"
+metadata/_custom_type_script = "uid://spwidn0jd7oe"

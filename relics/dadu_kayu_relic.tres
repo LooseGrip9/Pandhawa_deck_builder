@@ -1,0 +1,12 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://drybmebc3wpxa"]
+
+[ext_resource type="Texture2D" uid="uid://cih83dyqn8i7" path="res://art/dadu_kayu.png" id="1_hnpu2"]
+[ext_resource type="Script" uid="uid://b7xmr057tuy0d" path="res://relics/dadu_kayu.gd" id="2_m41yu"]
+
+[resource]
+script = ExtResource("2_m41yu")
+relic_name = "Dadu Kayu"
+id = "dadu_kayu"
+icon = ExtResource("1_hnpu2")
+tooltip = "[color=\"ffdf00\"]Dadu Kayu[/color] Serang musuh untuk 3 HP secara acak pada awal giliran"
+metadata/_custom_type_script = "uid://spwidn0jd7oe"

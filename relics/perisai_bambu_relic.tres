@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://b7ncr4k2u3qll"]
+
+[ext_resource type="Texture2D" uid="uid://bi6pfjs32f820" path="res://art/tile_0101.png" id="1_fu5nl"]
+[ext_resource type="Script" uid="uid://x363xq6062qq" path="res://relics/perisai_bambu.gd" id="2_fu5nl"]
+
+[resource]
+script = ExtResource("2_fu5nl")
+relic_name = "Perisai Bambu"
+id = "perisai_bambu"
+type = 2
+icon = ExtResource("1_fu5nl")
+tooltip = "Perisai Bambu: Mulai setiap pertarungan dengan 4 Block"
+metadata/_custom_type_script = "uid://spwidn0jd7oe"

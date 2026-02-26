@@ -10,5 +10,5 @@ rarity = 1
 target = 2
 cost = 2
 icon = ExtResource("1_n83rc")
-tooltip_text = "Serang untuk 20 HP, tapi mengurangi 10 HP"
+tooltip_text = "Serang untuk %s HP, tapi mengurangi 10 HP"
 metadata/_custom_type_script = "uid://dcw4oridrwk87"

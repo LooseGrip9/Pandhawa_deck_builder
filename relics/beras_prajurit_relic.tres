@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://fucv3iyc5sxy"]
+
+[ext_resource type="Texture2D" uid="uid://dbqawtw5x8r7v" path="res://art/beras_prajurit.png" id="1_stbej"]
+[ext_resource type="Script" uid="uid://dp7fe2hnr8pjr" path="res://relics/beras_prajurit.gd" id="2_5mhg3"]
+
+[resource]
+script = ExtResource("2_5mhg3")
+relic_name = "Beras Prajurit"
+id = "beras_prajurit"
+type = 4
+icon = ExtResource("1_stbej")
+tooltip = "[color=\"ffdf00\"]Beras Prajurit[/color] +5 HP maksimum"
+metadata/_custom_type_script = "uid://spwidn0jd7oe"

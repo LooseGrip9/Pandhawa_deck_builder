@@ -8,14 +8,17 @@ const HAND_DISCARD_INTERVAL := 0.25
 @export var relics: RelicHandler
 @onready var hand: Hand = $"../BattleUI/Hand"
 
-# I added this back so the 8-card limit can flash the warning!
 @onready var hand_full_label: Label = %Full_Hand 
 
+var extra_draws_this_turn := 0
 var character: CharacterStats
 var pending_energy := 0
 var turns_locked := 0
 var cards_played_this_turn := 0 
 var retain_hand_once := false
+var is_first_turn := true
+var next_card_is_free: bool = false
+var next_attack_doubled: bool = false
 
 func _ready() -> void:
 	Events.card_played.connect(_on_card_played)
@@ -29,9 +32,12 @@ func start_battle(char_stats: CharacterStats) -> void:
 	character.draw_pile = character.deck.duplicate(true)
 	character.draw_pile.shuffle()
 	character.discard = CardPile.new()
+	
+	character.block = 0
+	is_first_turn = true
+	
 	relics.relics_activated.connect(_on_relics_activated)
 	player.status_handler.statuses_applied.connect(_on_statuses_applied)
-	start_turn()
 
 func start_turn() -> void:
 	cards_played_this_turn = 0 
@@ -40,13 +46,18 @@ func start_turn() -> void:
 		player.has_taken_damage_this_turn = false
 	
 	character.counter_damage = 0
-	character.block = 0
+	
+	if not is_first_turn:
+		character.block = 0
+		
+	is_first_turn = false
+	
 	character.stats_changed.emit()
 	
 	character.reset_mana()
-	
 	character.mana += pending_energy
 	pending_energy = 0
+	
 	
 	if turns_locked > 0:
 		hand.disable_hand()
@@ -161,7 +172,12 @@ func _on_card_played(card: Card) -> void:
 func _on_statuses_applied(type: Status.Type) -> void:
 	match type:
 		Status.Type.START_OF_TURN:
-			draw_cards(character.cards_per_turn)
+			var total_to_draw = character.cards_per_turn + extra_draws_this_turn
+			
+			draw_cards(total_to_draw)
+			
+			extra_draws_this_turn = 0
+			
 		Status.Type.END_OF_TURN:
 			discard_cards()
 

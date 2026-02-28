@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://b06hbeff8odyh"]
+
+[ext_resource type="Texture2D" uid="uid://b3bwgsqohj00m" path="res://art/belati_beracun.png" id="1_d3w53"]
+[ext_resource type="Resource" uid="uid://cmxe06hhhrug8" path="res://statuses/poison.tres" id="2_afjc0"]
+[ext_resource type="Script" uid="uid://dj2vvq0qko7hi" path="res://relics/belati_beracun.gd" id="2_e3kvl"]
+
+[resource]
+script = ExtResource("2_e3kvl")
+poison_status_res = ExtResource("2_afjc0")
+relic_name = "Belati Beracun"
+id = "belati_beracun"
+type = 2
+icon = ExtResource("1_d3w53")
+tooltip = "[color=\"ffdf00\"]Belati Beracun[/color] Musuh memulai pertarungan dengan 3 Racun"
+metadata/_custom_type_script = "uid://spwidn0jd7oe"

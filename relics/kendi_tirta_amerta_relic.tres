@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://c80ccywpg07j8"]
+
+[ext_resource type="Texture2D" uid="uid://cp7b81vj7h24y" path="res://art/kendi_tirta_amerta.png" id="1_snc7d"]
+[ext_resource type="Script" uid="uid://cecvpqnuh8fxk" path="res://relics/kendi_tirta_amerta.gd" id="2_snc7d"]
+
+[resource]
+script = ExtResource("2_snc7d")
+relic_name = "Kendi Tirta Amerta"
+id = "kendi_tirta_amerta"
+type = 2
+icon = ExtResource("1_snc7d")
+tooltip = "[color=\"ffdf00\"]Kendi Tirta Amerta[/color] Mulai pertempuran dengan 3 energi ekstra"
+metadata/_custom_type_script = "uid://spwidn0jd7oe"

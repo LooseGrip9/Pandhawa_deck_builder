@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://cvd7huytw67va"]
+
+[ext_resource type="Script" uid="uid://uochinwqv2dl" path="res://characters/Werkudara/Cards/meteor.gd" id="1_0oduv"]
+[ext_resource type="Texture2D" uid="uid://d37q2oubxlwv7" path="res://art/meteor.png" id="1_jdend"]
+
+[resource]
+script = ExtResource("1_0oduv")
+id = "meteor"
+rarity = 1
+target = 2
+cost = 1
+exhausts = true
+icon = ExtResource("1_jdend")
+tooltip_text = "Serang semua musuh untuk %s HP"
+metadata/_custom_type_script = "uid://dcw4oridrwk87"

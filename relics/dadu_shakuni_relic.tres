@@ -1,0 +1,12 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://cu5o8kfeohao3"]
+
+[ext_resource type="Texture2D" uid="uid://bw5armrkj77d8" path="res://art/dadu_shakuni.png" id="1_f25h2"]
+[ext_resource type="Script" uid="uid://cs4mhgpvfeiv8" path="res://relics/dadu_shakuni.gd" id="2_gmtp0"]
+
+[resource]
+script = ExtResource("2_gmtp0")
+relic_name = "Dadu Shakuni"
+id = "dadu_shakuni"
+icon = ExtResource("1_f25h2")
+tooltip = "[color=\"ffdf00\"]Dadu Shakuni[/color] Acak nilai semua kartu di tangan (0-2) setiap giliran."
+metadata/_custom_type_script = "uid://spwidn0jd7oe"

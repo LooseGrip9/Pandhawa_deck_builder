@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://30ulepaejdns"]
+
+[ext_resource type="Texture2D" uid="uid://ckoy22gjqth3b" path="res://art/sarung_tangan.png" id="1_my8xl"]
+[ext_resource type="Script" uid="uid://pm6dlkh8822j" path="res://relics/sarung_tangan.gd" id="2_my8xl"]
+
+[resource]
+script = ExtResource("2_my8xl")
+relic_name = "Sarung Tangan"
+id = "sarung_tangan"
+type = 2
+icon = ExtResource("1_my8xl")
+tooltip = "[color=\"ffdf00\"]Sarung Tangan[/color] Kartu serangan ketiga yang dimainkan memiliki kerusakan dua kali lipat"
+metadata/_custom_type_script = "uid://spwidn0jd7oe"

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://dl3cgnn88hota"]
+
+[ext_resource type="Resource" uid="uid://cvd7huytw67va" path="res://characters/Werkudara/Cards/meteor_card.tres" id="1_emt1n"]
+[ext_resource type="Texture2D" uid="uid://dv5u5kgi0nbhu" path="res://art/gulungan_brahmastra.png" id="2_tibga"]
+[ext_resource type="Script" uid="uid://d3dlo8gs18bnd" path="res://relics/gulungan_brahmastra.gd" id="3_m73y0"]
+
+[resource]
+script = ExtResource("3_m73y0")
+card_to_add = ExtResource("1_emt1n")
+relic_name = "Gulungan Brahmastra"
+id = "gulungan_brahmastra"
+type = 2
+icon = ExtResource("2_tibga")
+tooltip = "[color=\"ffdf00\"]Gulungan Brahmastra[/color] Tambah 1 kartu \"Meteor\" pada deck"
+metadata/_custom_type_script = "uid://spwidn0jd7oe"

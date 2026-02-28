@@ -38,7 +38,11 @@ func start_battle() -> void:
 		
 		relics.activate_relics_by_type(Relic.Type.START_OF_COMBAT)
 	
-	get_tree().process_frame.connect(player_handler.start_turn, CONNECT_ONE_SHOT)
+	var start_turn_callable = func():
+		Events.player_turn_started.emit()
+		player_handler.start_turn()
+		
+	get_tree().process_frame.connect(start_turn_callable, CONNECT_ONE_SHOT)
 
 
 func _on_relics_activated(type: Relic.Type) -> void:
@@ -59,5 +63,6 @@ func _on_enemies_child_order_changed() -> void:
 			Events.battle_over_screen_requested.emit("Edan Menang!", BattleOverPanel.Type.WIN)
 
 func _on_enemy_turn_ended() -> void:
+	Events.player_turn_started.emit()
 	player_handler.start_turn()
 	enemy_handler.reset_enemy_actions()

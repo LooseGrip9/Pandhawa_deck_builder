@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://dpxfy36ou6hy4"]
+
+[ext_resource type="Texture2D" uid="uid://b8sl7n48yfmfx" path="res://art/senar_gandiva.png" id="1_lowj7"]
+[ext_resource type="Script" uid="uid://do1mxju3mem4l" path="res://relics/senar_gandiva.gd" id="1_lx5ta"]
+
+[resource]
+script = ExtResource("1_lx5ta")
+relic_name = "Senar Gandiva"
+id = "senar_gandiva"
+type = 2
+icon = ExtResource("1_lowj7")
+tooltip = "[color=\"ffdf00\"]Senar Gandiva[/color] Mainkan kartu Serangan pertama setiap giliran sebanyak dua kali."
+metadata/_custom_type_script = "uid://spwidn0jd7oe"

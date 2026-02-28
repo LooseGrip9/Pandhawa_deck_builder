@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://ebcsmsrhdw68"]
+
+[ext_resource type="Script" uid="uid://cr7rr8x8pt8tu" path="res://relics/tasbih_indrakila.gd" id="1_65bd2"]
+[ext_resource type="Texture2D" uid="uid://4p2q5ipjkbgp" path="res://art/tasbih.png" id="1_yrsbn"]
+
+[resource]
+script = ExtResource("1_65bd2")
+relic_name = "Tasbih Indrakila"
+id = "tasbih_indrakila"
+type = 2
+icon = ExtResource("1_yrsbn")
+tooltip = "[color=\"ffdf00\"]Tasbih Indrakila[/color] Jika mengakhiri giliran dengan Energi yang tidak terpakai, dapatkan 2 Kekuatan pada giliran berikutnya (sekali per pertarungan)."
+metadata/_custom_type_script = "uid://spwidn0jd7oe"

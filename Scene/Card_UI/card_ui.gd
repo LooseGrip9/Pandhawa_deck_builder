@@ -28,18 +28,23 @@ var tween: Tween
 var hover_tween: Tween 
 var playable := true : set = _set_playable
 var disabled := false
+var cost_override: int = -1
 
 var _target_rot_x: float = 0.0
 var _target_rot_y: float = 0.0
 
 func _ready() -> void:
+	
+	add_to_group("cards_in_hand")
 	var center = card_visuals.size / 2
 	card_visuals.position = center
+	
 	for child in card_visuals.get_children():
 		if child is CanvasItem:
 			child.position -= center
 	if theme:
 		card_visuals.theme = theme
+		
 	card_state_machine.init(self)
 	Events.card_drag_started.connect(_on_card_drag_or_aiming_state_started)
 	Events.card_aim_started.connect(_on_card_drag_or_aiming_state_started)
@@ -174,15 +179,19 @@ func _recheck_playability() -> void:
 	var player_handler = get_tree().get_first_node_in_group("player_handler")
 	var is_free = player_handler and player_handler.next_card_is_free
 	
+	var current_cost = card.cost
 	if is_free:
-		card_visuals.update_cost(0, true)
-	else:
-		card_visuals.update_cost(card.cost, false)
+		current_cost = 0
+	elif cost_override != -1:
+		current_cost = cost_override
 
-	var can_afford = is_free or char_stats.can_play_card(card)
+	var is_modified = is_free or (cost_override != -1 and cost_override != card.cost)
+	card_visuals.update_cost(current_cost, is_modified)
+
+	var can_afford = char_stats.mana >= current_cost
 	
 	var requirements_met = true
 	if card.has_method("is_playable"):
 		requirements_met = card.is_playable(get_parent())
 		
-	playable = can_afford and requirements_met
+	self.playable = can_afford and requirements_met

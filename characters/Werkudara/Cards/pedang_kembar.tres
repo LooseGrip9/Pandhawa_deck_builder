@@ -8,7 +8,6 @@
 script = ExtResource("2_7uixt")
 id = "PedangKembar"
 target = 1
-cost = 1
 icon = ExtResource("1_f0bbb")
 tooltip_text = "[center]serang untuk[color=\"ff0000\"] %s [/color]damage sebanyak 2 kali.[/center]"
 sound = ExtResource("3_7uixt")

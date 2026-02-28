@@ -132,9 +132,9 @@ offset_right = 51.0
 offset_bottom = 60.0
 
 [node name="ManaUI" parent="BattleUI" instance=ExtResource("11_8sv8u")]
-offset_left = 4.0
+offset_left = 2.0
 offset_top = -20.0
-offset_right = 22.0
+offset_right = 26.0
 offset_bottom = -2.0
 char_stats = ExtResource("5_yygm8")
 
@@ -186,6 +186,7 @@ script = ExtResource("17_hihqn")
 
 [node name="ColorRect" type="ColorRect" parent="Redflash"]
 unique_name_in_owner = true
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://cacfif7d0xne4"]
+
+[ext_resource type="Resource" uid="uid://dxh8p5wnqufx" path="res://statuses/kyat.tres" id="1_yt2nq"]
+[ext_resource type="Script" uid="uid://dc7s5ne0q0jcd" path="res://relics/jimat_surya.gd" id="2_037ey"]
+
+[resource]
+script = ExtResource("2_037ey")
+kyat_status_res = ExtResource("1_yt2nq")
+relic_name = "Jimat Surya"
+id = "jimat_surya"
+type = 2
+tooltip = "[color=\"ffdf00\"]Jimat Surya[/color] Mulai pertarungan dengan 1 Kyat"
+metadata/_custom_type_script = "uid://spwidn0jd7oe"

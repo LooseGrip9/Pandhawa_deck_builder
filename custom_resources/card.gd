@@ -51,17 +51,25 @@ func play(targets: Array[Node], char_stats: CharacterStats, _modifiers: Modifier
 	
 	var final_cost = cost
 	
-	if player_handler and player_handler.next_card_is_free == true:
+	# Check for Chaos Relic override on the CardUI in hand
+	var cards = tree.get_nodes_in_group("cards_in_hand")
+	for c_ui in cards:
+		if c_ui.get("card") == self and c_ui.get("cost_override") != null and c_ui.cost_override != -1:
+			final_cost = c_ui.cost_override
+			break
+	
+	if player_handler and player_handler.get("next_card_is_free") == true:
 		final_cost = 0
-		player_handler.next_card_is_free = false 
+		player_handler.next_card_is_free = false
 
 	char_stats.mana -= final_cost
-	Events.card_played.emit(self)
 	
 	if is_single_targeted():
 		apply_effects(targets, _modifiers)
 	else:
 		apply_effects(_get_targets(targets), _modifiers)
+
+	Events.card_played.emit(self)
 
 
 func apply_effects(_targets: Array[Node], _modifiers: ModifierHandler) -> void:
@@ -75,6 +83,10 @@ func get_updated_tooltip(player_modifiers: ModifierHandler, enemy_modifiers: Mod
 	var text := tooltip_text
 	var bonus := _get_global_bonus_damage()
 	
+	var tree = Engine.get_main_loop()
+	var player_handler = tree.get_first_node_in_group("player_handler")
+	var multiplier: int = 2 if (player_handler and player_handler.get("next_attack_doubled") and type == Type.ATTACK) else 1
+	
 	var placeholder_count = text.count("%s")
 	if placeholder_count == 0: return text
 
@@ -82,11 +94,19 @@ func get_updated_tooltip(player_modifiers: ModifierHandler, enemy_modifiers: Mod
 	
 	var dmg_val = get("base_damage")
 	if dmg_val != null:
-		var final_base = int(dmg_val) + bonus
-		var modified_dmg := player_modifiers.get_modified_value(final_base, Modifier.Type.DMG_DEALT)
+		var base_with_bonus = int(dmg_val) + bonus
+		var modified_dmg := player_modifiers.get_modified_value(base_with_bonus, Modifier.Type.DMG_DEALT)
+		
+		modified_dmg *= multiplier
+		
 		if enemy_modifiers:
 			modified_dmg = enemy_modifiers.get_modified_value(modified_dmg, Modifier.Type.DMG_TAKEN)
-		values.append(str(modified_dmg))
+		
+		var damage_string = str(modified_dmg)
+		if modified_dmg > (int(dmg_val) + bonus) or multiplier > 1:
+			damage_string = "[color=red]" + damage_string + "[/color]"
+			
+		values.append(damage_string)
 	
 	var status_val = get("base_poison")
 	if status_val != null:

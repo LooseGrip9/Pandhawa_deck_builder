@@ -1,0 +1,12 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://dtwhfadgyk83d"]
+
+[ext_resource type="Texture2D" uid="uid://cvdetxht7ix25" path="res://art/sarotama.png" id="1_23mpo"]
+[ext_resource type="Script" uid="uid://di5vmb6y0i8sl" path="res://relics/tabung_sarrotama.gd" id="2_23mpo"]
+
+[resource]
+script = ExtResource("2_23mpo")
+relic_name = "Tabung Sarrotama"
+id = "tabung_sarrotama"
+icon = ExtResource("1_23mpo")
+tooltip = "[color=\"ffdf00\"]Tabung Sarrotama[/color] Serangan yang membutuhkan 0 Energi akan mengambil 1 kartu (Terbatas 1 kali per giliran)."
+metadata/_custom_type_script = "uid://spwidn0jd7oe"

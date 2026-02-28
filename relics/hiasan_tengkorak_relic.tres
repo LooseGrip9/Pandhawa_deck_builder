@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://eb1btbnkac57"]
+
+[ext_resource type="Texture2D" uid="uid://dko4w1f14vcoa" path="res://art/hiasan_tengkorak.png" id="1_cipyw"]
+[ext_resource type="Script" uid="uid://cuvc4vrpmwmjx" path="res://relics/hiasan_tengkorak.gd" id="2_k8vsp"]
+
+[resource]
+script = ExtResource("2_k8vsp")
+relic_name = "Hiasan Tengkorak"
+id = "hiasan_tengkorak"
+type = 2
+icon = ExtResource("1_cipyw")
+tooltip = "[color=\"ffdf00\"]Hiasan Tengkorak[/color] +4 HP ketika menyalahkan musuh"
+metadata/_custom_type_script = "uid://spwidn0jd7oe"

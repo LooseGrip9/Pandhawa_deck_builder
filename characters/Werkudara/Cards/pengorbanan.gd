@@ -19,12 +19,10 @@ func apply_effects(_targets: Array[Node], _modifiers: ModifierHandler) -> void:
 	var player_handler = tree.get_first_node_in_group("player_handler")
 	var hand_node = tree.get_first_node_in_group("hand")
 	
-	# 1. Gain the energy immediately
 	if player_handler and player_handler.character:
 		player_handler.character.mana += energy_gain
 		player_handler.character.stats_changed.emit()
 
-	# 2. Gather valid targets and exhaust one randomly
 	if not hand_node:
 		return
 		

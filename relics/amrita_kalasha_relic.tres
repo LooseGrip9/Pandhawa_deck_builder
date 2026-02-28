@@ -1,0 +1,12 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://bm0340h4n58ky"]
+
+[ext_resource type="Texture2D" uid="uid://dgo8pcp087crq" path="res://art/Amrita Kalasha.png" id="1_i8qc7"]
+[ext_resource type="Script" uid="uid://d2ikeq2ajg0lr" path="res://relics/amrita_kalasha.gd" id="2_qsdee"]
+
+[resource]
+script = ExtResource("2_qsdee")
+relic_name = "Amrita Kalasha"
+id = "amrita_kalasha"
+icon = ExtResource("1_i8qc7")
+tooltip = "[color=\"ffdf00\"]Amrita Kalasha[/color] dapatkan +30 HP Maksimum dan sembuhkan total"
+metadata/_custom_type_script = "uid://spwidn0jd7oe"

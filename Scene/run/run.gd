@@ -34,12 +34,16 @@ var character: CharacterStats
 var save_data: SaveGame
 
 func _ready() -> void:
-		
-	if not character:
-		var pandhawa := load("res://characters/Werkudara/werkudara.tres")
-		character = pandhawa.create_instance()
+	print("--- RUN SCENE WOKE UP ---")
 	
 	if not run_startup:
+		# Debug fallback: if testing Run.tscn directly
+		if not character:
+			var pandhawa := load("res://characters/Werkudara/werkudara.tres")
+			character = pandhawa.create_instance()
+		
+		RunManager.current_character = character
+		_start_run()
 		return
 	
 	pause_menu.save_and_quit.connect(
@@ -50,22 +54,50 @@ func _ready() -> void:
 	match run_startup.type:
 		RunStartup.Type.NEW_RUN:
 			character = run_startup.picked_character.create_instance()
+			# CRITICAL: Tell the global manager who we picked!
+			RunManager.current_character = character 
+			print("1. RunManager set to: ", character.character_name)
 			_start_run()
+			
 		RunStartup.Type.CONTINUED_RUN:
 			_load_run()
 
 
 func _start_run() -> void:
+	print("2. Starting Run logic...")
 	stats = RunStats.new()
 	
 	_setup_event_connections()
 	_setup_top_bar()
 	
+	print("3. Calling map.generate_new_map()...")
 	map.generate_new_map()
 	map.unlock_floor(0)
 	
 	save_data = SaveGame.new()
 	_save_run(true)
+
+
+func _load_run() -> void:
+	save_data = SaveGame.load_data()
+	assert(save_data, "Couldn't load last save")
+	
+	Rng.set_from_save_data(save_data.rng_seed, save_data.rng_state)
+	stats = save_data.run_stats
+	character = save_data.char_stats
+	
+	# CRITICAL: Re-sync the RunManager on load!
+	RunManager.current_character = character
+	
+	character.deck = save_data.current_deck
+	character.health = save_data.current_health
+	relic_handler.add_relics(save_data.relics)
+	_setup_top_bar()
+	_setup_event_connections()
+	
+	map.load_map(save_data.map_data, save_data.floors_climbed, save_data.last_room)
+	if save_data.last_room and not save_data.was_on_map:
+		_on_map_exited(save_data.last_room)
 
 func _save_run(was_on_map: bool) -> void:
 	save_data.rng_seed = Rng.instance.seed
@@ -81,22 +113,7 @@ func _save_run(was_on_map: bool) -> void:
 	save_data.was_on_map = was_on_map
 	save_data.save_data()
 
-func _load_run() -> void:
-	save_data = SaveGame.load_data()
-	assert(save_data, "Couldn't load last save")
-	
-	Rng.set_from_save_data(save_data.rng_seed, save_data.rng_state)
-	stats = save_data.run_stats
-	character = save_data.char_stats
-	character.deck = save_data.current_deck
-	character.health = save_data.current_health
-	relic_handler.add_relics(save_data.relics)
-	_setup_top_bar()
-	_setup_event_connections()
-	
-	map.load_map(save_data.map_data, save_data.floors_climbed, save_data.last_room)
-	if save_data.last_room and not save_data.was_on_map:
-		_on_map_exited(save_data.last_room)
+
 
 func _change_view(scene: PackedScene) -> Node:
 	if current_view.get_child_count() > 0:

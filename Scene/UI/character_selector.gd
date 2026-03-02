@@ -1,3 +1,4 @@
+class_name CharacterSelector
 extends Control
 
 const RUN_SCENE = preload("res://Scene/run/run.tscn")
@@ -27,13 +28,20 @@ func _ready() -> void:
 
 func _on_start_pressed() -> void:
 	button_type = "start"
-	$ColorRect.show()
-	$ColorRect/Timer.start()
-	$ColorRect/AnimationPlayer.play("fade_in")
-	print("Start new run with %s" % current_character.character_name)
+	
+	print("1. Data packed for: ", current_character.character_name)
 	run_startup.type = run_startup.Type.NEW_RUN
 	run_startup.picked_character = current_character
-	get_tree().change_scene_to_packed(RUN_SCENE)
+	
+	# Play the animation for visual feedback
+	if has_node("ColorRect/AnimationPlayer"):
+		$ColorRect.show()
+		$ColorRect/AnimationPlayer.play("fade_in")
+
+	var result = get_tree().change_scene_to_packed(RUN_SCENE)
+	
+	if result != OK:
+		get_tree().change_scene_to_file("res://Scene/run/run.tscn")
 
 func set_current_character(new_character: CharacterStats) -> void:
 	current_character = new_character
@@ -41,21 +49,25 @@ func set_current_character(new_character: CharacterStats) -> void:
 	description.text = current_character.description
 	character_portrait.texture = current_character.portrait
 
+# Use the setter function so the UI updates when you click!
 func _on_werkudara_pressed() -> void:
-	current_character = WERKUDARA_STATS
+	set_current_character(WERKUDARA_STATS)
 
 func _on_arjuna_pressed() -> void:
-	current_character = ARJUNA_STATS
+	set_current_character(ARJUNA_STATS)
 
 func _on_nakula_pressed() -> void:
-	current_character = NAKULA_STATS
+	set_current_character(NAKULA_STATS)
 
 func _on_sadewa_pressed() -> void:
-	current_character = SADEWA_STATS
+	set_current_character(SADEWA_STATS)
 
 func _on_yudhistira_pressed() -> void:
-	current_character = YUDHISTIRA_STATS
+	set_current_character(YUDHISTIRA_STATS)
 
 func _on_fade_timer_timeout() -> void:
 	if button_type == "start":
-		get_tree().change_scene_to_file("res://Scene/Battle/Battle.tscn")
+		var result = get_tree().change_scene_to_packed(RUN_SCENE)
+		
+		if result != OK:
+			get_tree().change_scene_to_file("res://Scene/run/run.tscn")

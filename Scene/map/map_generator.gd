@@ -12,7 +12,7 @@ const MONSTER_ROOM_WEIGHT := 10.0
 const SHOP_ROOM_WEIGHT := 2.5
 const CAMPFIRE_ROOM_WEIGHT := 4.0
 
-@export var battle_stats_pool: BattleStatsPool
+var battle_stats_pool: BattleStatsPool
 
 var random_room_type_weights = {
 	Room.Type.MONSTER: 0.0,
@@ -28,21 +28,42 @@ func _ready() -> void:
 	generate_map()
 
 func generate_map() -> Array[Array]:
+	print("--- MAP GENERATION STARTED ---")
+	
+	var active_character = RunManager.current_character
+	print("1. Map asked RunManager for character. Result: ", active_character)
+	
+	if active_character:
+		print("2. Map checked character's pocket for Battle Pool. Result: ", active_character.battle_pool)
+	
+	if active_character and active_character.battle_pool:
+		battle_stats_pool = active_character.battle_pool 
+		print("3. SUCCESS! Map got the pool. Drawing the rooms now...")
+	else:
+		print("!!! CRITICAL FAILURE: Map aborted because data is missing !!!")
+		push_error("MAP ERROR: No character or battle pool found!")
+		return [] # Abort generation to prevent a crash
+		
+	print("4. Generating initial grid...")
 	map_data = _generate_initial_grid()
 	var starting_points := _get_random_starting_points()
 	
+	print("5. Setting up map connections...")
 	for j in starting_points:
 		var current_j := j
 		for i in FLOORS -1:
 			current_j = _setup_connection(i, current_j)
 	
+	print("6. Setting up battle pool math...")
 	battle_stats_pool.setup()
 	
+	print("7. Setting up boss rooms and random encounters...")
 	_setup_boss_room()
 	_setup_intermediate_bosses()
 	_setup_random_room_weights()
 	_setup_room_types()
 	
+	print("--- MAP GENERATION COMPLETE! ---")
 	return map_data
 	
 func _generate_initial_grid() -> Array[Array]:
@@ -82,7 +103,7 @@ func _get_random_starting_points() -> Array[int]:
 				unique_points += 1
 			
 			y_coordinates.append(starting_point)
-	 
+	
 	return y_coordinates
 
 func _setup_connection(i: int, j: int) -> int:
@@ -96,7 +117,6 @@ func _setup_connection(i: int, j: int) -> int:
 	current_room.next_rooms.append(next_room)
 	
 	return next_room.column
-
 
 func _would_cross_existing_path(i: int, j: int, room: Room) -> bool:
 	var left_neighbour: Room
@@ -140,28 +160,23 @@ func _setup_intermediate_bosses() -> void:
 		if (i + 1) % 25 == 0:
 			var boss_room := map_data[i][middle] as Room
 			
-			# 1. Clear neighbors to remove phantom lines
 			for col in map_data[i].size():
 				var room = map_data[i][col]
 				if room != boss_room:
 					room.next_rooms.clear()
 
-			# 2. Funnel previous floor INTO the boss
 			if i > 0:
 				for room: Room in map_data[i - 1]:
 					if room.next_rooms.size() > 0:
 						room.next_rooms.clear()
 						room.next_rooms.append(boss_room)
 			
-			# 3. Funnel Boss OUT to the next floor
 			boss_room.next_rooms.clear()
 			
 			var next_floor_index = i + 1
 			if next_floor_index < FLOORS:
 				var next_floor_rooms = map_data[next_floor_index]
 				
-				# FIX: Only connect to rooms that have outgoing paths!
-				# This prevents connecting to dead ends.
 				for potential_target: Room in next_floor_rooms:
 					if potential_target.next_rooms.size() > 0 or next_floor_index == FLOORS - 1:
 						boss_room.next_rooms.append(potential_target)
@@ -190,14 +205,9 @@ func _setup_room_types() -> void:
 					room.type = Room.Type.TREASURE
 	
 	for i in range(0, FLOORS - 1):
-		
-		# Skip actual Boss Floors (25, 50, 75...)
 		if (i + 1) % 25 == 0:
 			continue
 			
-		# RULE A: CAMPFIRE BEFORE BOSS
-		# Logic: If the NEXT floor (i+2) is a boss floor...
-		# Example: i=23 (Floor 24). (23+2) = 25. 25 % 25 == 0. True!
 		if (i + 2) % 25 == 0:
 			for room: Room in map_data[i]:
 				if room.next_rooms.size() > 0:

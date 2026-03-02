@@ -37,4 +37,3 @@ func _on_card_played(card: Card) -> void:
 			
 		has_triggered_this_turn = true
 		current_relic_ui.flash()
-		print("RELIC: 0-Cost Attack played! Drew 1 card. (Locked for turn)")

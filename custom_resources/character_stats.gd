@@ -12,6 +12,7 @@ extends Stats
 @export var cards_per_turn: int
 @export var max_mana: int
 @export var starting_relics: Array[Relic]
+@export var battle_pool: BattleStatsPool
 
 var mana: int : set = set_mana
 var deck: CardPile

@@ -50,9 +50,6 @@ func setup_chances() -> void:
 		if not action or action.type != EnemyAction.Type.CHANCE_BASED:
 			continue
 		
-		# --- FIX: These lines are now INSIDE the for loop ---
-		# Note: Make sure your EnemyAction script uses 'chance_weight' 
-		# (if you followed the tutorial strictly, this variable is usually named 'weight')
 		total_weight += action.chance_weight
 		action.accumulated_weight = total_weight
 

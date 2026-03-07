@@ -64,6 +64,9 @@ func _has_status(id: String) -> bool:
 			return true
 			
 	return false
+	
+func get_status(id: String) -> Status:
+	return _get_status(id)
 
 func _get_status(id: String) -> Status:
 	for status_ui: StatusUI in get_children():
@@ -78,6 +81,13 @@ func _get_all_statuses() -> Array[Status]:
 		statuses.append(status_ui.status)
 	
 	return statuses
+
+func remove_status(status_id: String) -> void:
+	for child in get_children():
+		if child is StatusUI and child.status.id == status_id:
+			child.queue_free()
+			statuses_changed.emit()
+			return
 
 func _on_status_applied(status: Status) -> void:
 	if status.can_expire:

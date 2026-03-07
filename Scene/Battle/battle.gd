@@ -44,7 +44,6 @@ func start_battle() -> void:
 		
 	get_tree().process_frame.connect(start_turn_callable, CONNECT_ONE_SHOT)
 
-
 func _on_relics_activated(type: Relic.Type) -> void:
 	match type:
 		Relic.Type.START_OF_COMBAT:

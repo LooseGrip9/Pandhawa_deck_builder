@@ -19,7 +19,7 @@ var current_character: CharacterStats : set = set_current_character
 
 func _ready() -> void:
 	$ColorRect/AnimationPlayer.play("fade_out")
-	set_current_character(YUDHISTIRA_STATS)
+	set_current_character(WERKUDARA_STATS)
 	
 	description.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 	description.add_theme_constant_override("line_spacing", 10)
@@ -33,7 +33,6 @@ func _on_start_pressed() -> void:
 	run_startup.type = run_startup.Type.NEW_RUN
 	run_startup.picked_character = current_character
 	
-	# Play the animation for visual feedback
 	if has_node("ColorRect/AnimationPlayer"):
 		$ColorRect.show()
 		$ColorRect/AnimationPlayer.play("fade_in")
@@ -49,7 +48,6 @@ func set_current_character(new_character: CharacterStats) -> void:
 	description.text = current_character.description
 	character_portrait.texture = current_character.portrait
 
-# Use the setter function so the UI updates when you click!
 func _on_werkudara_pressed() -> void:
 	set_current_character(WERKUDARA_STATS)
 

@@ -1,9 +1,13 @@
-[gd_resource type="Resource" script_class="CharacterStats" load_steps=5 format=3 uid="uid://krdgyiysjiok"]
+[gd_resource type="Resource" script_class="CharacterStats" load_steps=9 format=3 uid="uid://krdgyiysjiok"]
 
 [ext_resource type="Texture2D" uid="uid://bj3im6egs4wxx" path="res://art/tile_0086.png" id="1_1rm1i"]
 [ext_resource type="Texture2D" uid="uid://bmi0ejpglw8i0" path="res://art/Character Portrait/arjuna1.png" id="2_1inpl"]
 [ext_resource type="Script" uid="uid://ccbx3tv5o5p5l" path="res://custom_resources/character_stats.gd" id="2_5hiwr"]
+[ext_resource type="Resource" uid="uid://bypc0n773hdxi" path="res://battles/Arjuna_pool.tres" id="2_kwuo7"]
+[ext_resource type="Resource" uid="uid://csbj2mxejxd6u" path="res://characters/Werkudara/werkudara_draftable_card.tres" id="2_te452"]
 [ext_resource type="Resource" uid="uid://db4yjlin80p5c" path="res://characters/Arjuna/arjuna_starting_deck.tres" id="3_1rm1i"]
+[ext_resource type="Script" uid="uid://spwidn0jd7oe" path="res://custom_resources/relic.gd" id="5_13sjr"]
+[ext_resource type="Resource" uid="uid://fucv3iyc5sxy" path="res://relics/beras_prajurit_relic.tres" id="6_te452"]
 
 [resource]
 script = ExtResource("2_5hiwr")
@@ -13,9 +17,12 @@ seribu nama. Ketika busur Gandiva
 dalam genggamannya, langit menurunkan 
 hujan panah atas perintahnya"
 portrait = ExtResource("2_1inpl")
+draftable_cards = ExtResource("2_te452")
 starting_deck = ExtResource("3_1rm1i")
-cards_per_turn = 27
+cards_per_turn = 5
 max_mana = 6
-max_health = 25
+starting_relics = Array[ExtResource("5_13sjr")]([ExtResource("6_te452")])
+battle_pool = ExtResource("2_kwuo7")
+max_health = 60
 art = ExtResource("1_1rm1i")
 metadata/_custom_type_script = "uid://ccbx3tv5o5p5l"

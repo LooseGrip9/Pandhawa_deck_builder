@@ -6,11 +6,9 @@ func perform_action() -> void:
 	if not enemy or not target:
 		return
 		
-	# --- NEW: Ask the enemy's modifier handler to apply Rentan (-25%) ---
 	var modified_damage := damage
 	if enemy.modifier_handler:
 		modified_damage = enemy.modifier_handler.get_modified_value(damage, Modifier.Type.DMG_DEALT)
-	# ------------------------------------------------------------------
 	
 	var tween := create_tween().set_trans(Tween.TRANS_QUINT)
 	var start := enemy.global_position
@@ -18,7 +16,6 @@ func perform_action() -> void:
 	var damage_effect := DamageEffect.new()
 	var target_array: Array[Node] = [target]
 	
-	# --- CHANGED: Pass the modified damage to the effect, not the base damage! ---
 	damage_effect.amount = modified_damage 
 	damage_effect.sound = sound
 	
@@ -37,12 +34,10 @@ func update_intent_text() -> void:
 	if not player:
 		return
 		
-	# --- NEW: First, calculate the enemy's damage output (Rentan penalty) ---
 	var modified_dmg := damage
 	if enemy.modifier_handler:
 		modified_dmg = enemy.modifier_handler.get_modified_value(damage, Modifier.Type.DMG_DEALT)
 		
-	# --- CHANGED: Then, see how the Player's defenses handle that new number! ---
 	if player.modifier_handler:
 		modified_dmg = player.modifier_handler.get_modified_value(modified_dmg, Modifier.Type.DMG_TAKEN)
 		

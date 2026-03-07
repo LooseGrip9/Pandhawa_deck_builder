@@ -22,7 +22,7 @@ position = Vector2(128, 72)
 texture = ExtResource("4_jn3pw")
 
 [node name="Werkudara" type="Sprite2D" parent="."]
-position = Vector2(127, 72)
+position = Vector2(129, 73)
 texture = ExtResource("3_yoe8p")
 
 [node name="Title" type="Sprite2D" parent="."]

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="MacetStatus" load_steps=3 format=3 uid="uid://cg2aepd3sa4oj"]
+
+[ext_resource type="Script" uid="uid://dbwkwg06g5a48" path="res://statuses/macet.gd" id="1_gupne"]
+[ext_resource type="Texture2D" uid="uid://pd6m4avrofk8" path="res://art/macet.png" id="1_ouh87"]
+
+[resource]
+script = ExtResource("1_gupne")
+id = "macet"
+type = 2
+icon = ExtResource("1_ouh87")
+tooltip = "Senjata Macet! Butuh Perbaikan. Tembakan berikutnya hanya sekali"

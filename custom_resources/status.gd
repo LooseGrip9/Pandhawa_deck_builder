@@ -26,6 +26,12 @@ func apply_status(_target: Node) -> void:
 	status_applied.emit(self)
 
 func get_tooltip() -> String:
+	if not tooltip or tooltip.is_empty():
+		return ""
+	
+	if "%s" in tooltip:
+		return tooltip % stacks
+	
 	return tooltip
 
 func set_duration(new_duration: int) -> void:

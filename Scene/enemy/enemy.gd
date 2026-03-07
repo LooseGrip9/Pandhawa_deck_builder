@@ -3,6 +3,7 @@ extends Area2D
 
 const ARROW_OFFSET := 5
 const WHITE_SPRITE_MATERIAL := preload("res://art/white_sprite_material.tres")
+signal damaged(amount: int)
 
 @export var stats: EnemyStats : set = set_enemy_stats
 
@@ -25,7 +26,6 @@ func set_current_action(value: EnemyAction)-> void:
 	current_action = value
 	update_intent()
 
-
 func set_enemy_stats(value: EnemyStats) -> void:
 	stats = value.create_instance()
 	
@@ -39,10 +39,13 @@ func setup_ai() -> void:
 	if enemy_action_picker:
 		enemy_action_picker.queue_free()
 	
-	var new_action_picker: EnemyActionPicker = stats.ai.instantiate()
-	add_child(new_action_picker)
-	enemy_action_picker = new_action_picker
-	enemy_action_picker. enemy = self
+	# Added 'as EnemyActionPicker' to fix the type inference error
+	var new_action_picker := stats.ai.instantiate() as EnemyActionPicker
+	
+	if new_action_picker:
+		add_child(new_action_picker)
+		enemy_action_picker = new_action_picker
+		enemy_action_picker.enemy = self
 
 func update_action() -> void:
 	if not enemy_action_picker:
@@ -90,6 +93,9 @@ func update_intent() -> void:
 		intent_ui.update_intent(current_action.intent)
 
 func do_turn() -> void:
+	print("--- ENEMY TURN STARTING ---")
+	print("Enemy name: ", name)
+	print("Current Action picked: ", current_action) # <--- THIS IS THE TRUTH TELLER
 	stats.block = 0
 	
 	if not current_action:
@@ -101,12 +107,7 @@ func do_turn() -> void:
 		allowed_actions = modifier_handler.get_modified_value(allowed_actions, Modifier.Type.ACTION_COUNT)
 	
 	if allowed_actions <= 0:
-		print("%s is too Slow to act this turn!" % name)
-		
-		# --- THE FIX: Tell the game we are done before we return! ---
 		Events.enemy_action_completed.emit(self)
-		# ------------------------------------------------------------
-		
 		return
 	
 	current_action.perform_action()
@@ -115,7 +116,6 @@ func do_turn() -> void:
 	
 	if player and player.get("stats"):
 		var player_stats = player.stats as Stats
-		
 		var action_name : String = current_action.get_script().get_path().to_lower()
 		var is_attacking := action_name.contains("attack")
 		
@@ -125,6 +125,7 @@ func do_turn() -> void:
 			)
 
 func take_damage(damage: int, which_modifier: Modifier.Type) -> void:
+	
 	if stats.health <= 0:
 		return
 	
@@ -134,6 +135,9 @@ func take_damage(damage: int, which_modifier: Modifier.Type) -> void:
 	var tween := create_tween()
 	tween.tween_callback(Shaker.shake.bind(self, 16, 0.15))
 	tween.tween_callback(stats.take_damage.bind(modified_damage))
+	
+	tween.tween_callback(func(): damaged.emit(modified_damage))
+	
 	tween.tween_interval(0.2)
 	
 	tween.finished.connect(
@@ -145,10 +149,8 @@ func take_damage(damage: int, which_modifier: Modifier.Type) -> void:
 				queue_free()
 	)
 
-
 func _on_area_exited(_area: Area2D) -> void: 
 	arrow.hide()
-
 
 func _on_area_entered(_area: Area2D) -> void:
 	arrow.show()

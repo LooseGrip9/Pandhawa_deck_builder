@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://byloj65pp7jh"]
+[gd_scene load_steps=13 format=3 uid="uid://byloj65pp7jh"]
 
 [ext_resource type="Texture2D" uid="uid://b1sbewlyi23w6" path="res://art/Main Menu/BG.png" id="1_fi6x7"]
 [ext_resource type="Script" uid="uid://2tq2x83iguk7" path="res://Scene/UI/character_selector.gd" id="1_jklnb"]
@@ -9,9 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://bmi0ejpglw8i0" path="res://art/Character Portrait/arjuna1.png" id="5_jklnb"]
 [ext_resource type="Texture2D" uid="uid://cpydvk8mq66o5" path="res://art/tile_0087.png" id="5_s733c"]
 [ext_resource type="Texture2D" uid="uid://bj3im6egs4wxx" path="res://art/tile_0086.png" id="6_jklnb"]
-[ext_resource type="Texture2D" uid="uid://bpgk3uxxwda42" path="res://art/tile_0098.png" id="7_27gld"]
-[ext_resource type="Texture2D" uid="uid://dc7crere7e7ow" path="res://art/tile_0099.png" id="8_3syst"]
-[ext_resource type="Texture2D" uid="uid://dpfqok8tuy4r7" path="res://art/tile_0084.png" id="9_kk0iq"]
 [ext_resource type="PackedScene" uid="uid://cntn477r6b82o" path="res://Scene/Transition_Animation/color_rect.tscn" id="12_3syst"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_w0ang"]
@@ -101,24 +98,6 @@ layout_mode = 2
 icon = ExtResource("6_jklnb")
 icon_alignment = 1
 
-[node name="Nakula" type="Button" parent="HBoxContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-icon = ExtResource("7_27gld")
-icon_alignment = 1
-
-[node name="Sadewa" type="Button" parent="HBoxContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-icon = ExtResource("8_3syst")
-icon_alignment = 1
-
-[node name="Yudhistira" type="Button" parent="HBoxContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-icon = ExtResource("9_kk0iq")
-icon_alignment = 1
-
 [node name="Start" type="Button" parent="."]
 layout_mode = 0
 offset_left = 171.0
@@ -138,7 +117,4 @@ mouse_filter = 2
 
 [connection signal="pressed" from="HBoxContainer/Werkudara" to="." method="_on_werkudara_pressed"]
 [connection signal="pressed" from="HBoxContainer/Arjuna" to="." method="_on_arjuna_pressed"]
-[connection signal="pressed" from="HBoxContainer/Nakula" to="." method="_on_nakula_pressed"]
-[connection signal="pressed" from="HBoxContainer/Sadewa" to="." method="_on_sadewa_pressed"]
-[connection signal="pressed" from="HBoxContainer/Yudhistira" to="." method="_on_yudhistira_pressed"]
 [connection signal="pressed" from="Start" to="." method="_on_start_pressed"]

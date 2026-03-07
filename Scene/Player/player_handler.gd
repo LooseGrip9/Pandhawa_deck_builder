@@ -19,6 +19,7 @@ var retain_hand_once := false
 var is_first_turn := true
 var next_card_is_free: bool = false
 var next_attack_doubled: bool = false
+var last_played_attack: Card = null
 
 func _ready() -> void:
 	Events.card_played.connect(_on_card_played)
@@ -161,6 +162,10 @@ func redraw_hand(amount: int = 0) -> void:
 
 func _on_card_played(card: Card) -> void:
 	cards_played_this_turn += 1
+	
+	if card.type == Card.Type.ATTACK:
+		last_played_attack = card
+	
 	if card.get("used_this_turn") == true:
 		return 
 	

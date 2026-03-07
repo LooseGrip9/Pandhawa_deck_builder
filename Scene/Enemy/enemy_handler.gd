@@ -36,6 +36,7 @@ func reset_enemy_actions() -> void:
 
 func start_turn() -> void:
 	if get_child_count() == 0:
+		Events.enemy_turn_ended.emit()
 		return
 	
 	acting_enemies.clear()
@@ -43,7 +44,6 @@ func start_turn() -> void:
 		acting_enemies.append(enemy)
 		
 	_start_enemy_next_turn()
-
 
 func _start_enemy_next_turn() -> void:
 	if acting_enemies.is_empty():

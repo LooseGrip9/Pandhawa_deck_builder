@@ -28,42 +28,29 @@ func _ready() -> void:
 	generate_map()
 
 func generate_map() -> Array[Array]:
-	print("--- MAP GENERATION STARTED ---")
-	
 	var active_character = RunManager.current_character
-	print("1. Map asked RunManager for character. Result: ", active_character)
-	
-	if active_character:
-		print("2. Map checked character's pocket for Battle Pool. Result: ", active_character.battle_pool)
 	
 	if active_character and active_character.battle_pool:
 		battle_stats_pool = active_character.battle_pool 
-		print("3. SUCCESS! Map got the pool. Drawing the rooms now...")
 	else:
-		print("!!! CRITICAL FAILURE: Map aborted because data is missing !!!")
 		push_error("MAP ERROR: No character or battle pool found!")
-		return [] # Abort generation to prevent a crash
+		return [] 
 		
-	print("4. Generating initial grid...")
 	map_data = _generate_initial_grid()
 	var starting_points := _get_random_starting_points()
 	
-	print("5. Setting up map connections...")
 	for j in starting_points:
 		var current_j := j
 		for i in FLOORS -1:
 			current_j = _setup_connection(i, current_j)
 	
-	print("6. Setting up battle pool math...")
 	battle_stats_pool.setup()
 	
-	print("7. Setting up boss rooms and random encounters...")
 	_setup_boss_room()
 	_setup_intermediate_bosses()
 	_setup_random_room_weights()
 	_setup_room_types()
 	
-	print("--- MAP GENERATION COMPLETE! ---")
 	return map_data
 	
 func _generate_initial_grid() -> Array[Array]:

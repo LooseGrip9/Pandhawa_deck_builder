@@ -1,16 +1,6 @@
-class_name KudaBlockAction
 extends EnemyAction
 
-@export var block := 6
-
-
-func update_intent_text() -> void:
-	if not intent or not enemy:
-		return
-		
-	var final_block := block
-		
-	intent.current_text = intent.base_text % final_block
+@export var block := 3
 
 func perform_action() -> void:
 	if not enemy or not target:

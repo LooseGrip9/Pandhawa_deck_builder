@@ -33,7 +33,6 @@ func generate_map() -> Array[Array]:
 	if active_character and active_character.battle_pool:
 		battle_stats_pool = active_character.battle_pool 
 	else:
-		push_error("MAP ERROR: No character or battle pool found!")
 		return [] 
 		
 	map_data = _generate_initial_grid()

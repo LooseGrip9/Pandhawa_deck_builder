@@ -1,7 +1,7 @@
-class_name KudaBlockAction
+class_name KudaArmorBlockAction
 extends EnemyAction
 
-@export var block := 6
+@export var block := 12
 
 
 func update_intent_text() -> void:

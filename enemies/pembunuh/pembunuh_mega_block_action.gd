@@ -1,21 +1,23 @@
-class_name KudaBlockAction
 extends EnemyAction
 
-@export var block := 6
+@export var block := 15
+@export var hp_threshold := 6
 
+var already_used := false
 
-func update_intent_text() -> void:
-	if not intent or not enemy:
-		return
-		
-	var final_block := block
-		
-	intent.current_text = intent.base_text % final_block
+func is_performable() -> bool:
+	if not enemy or already_used:
+		return false
+	
+	var is_low := enemy.stats.health <= hp_threshold
+	already_used = is_low
+	
+	return is_low
 
 func perform_action() -> void:
 	if not enemy or not target:
 		return
-	
+		
 	var block_effect := BlockEffect.new()
 	block_effect.amount = block
 	block_effect.sound = sound

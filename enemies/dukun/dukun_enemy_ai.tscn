@@ -1,0 +1,41 @@
+[gd_scene load_steps=11 format=3 uid="uid://5y0fgjovrgbp"]
+
+[ext_resource type="Script" uid="uid://c02emn3b1g806" path="res://Scene/Enemy/enemy_action_picker.gd" id="1_yb6rp"]
+[ext_resource type="Script" uid="uid://bq2mnsodbqrns" path="res://enemies/dukun/attack_action.gd" id="2_fl6tf"]
+[ext_resource type="Script" uid="uid://dpuqxpt0l6ehf" path="res://custom_resources/intent.gd" id="4_7g0tj"]
+[ext_resource type="Texture2D" uid="uid://cgopx2ponr1qi" path="res://art/tile_0121.png" id="4_dlext"]
+[ext_resource type="Script" uid="uid://yi5j3j1sdqqr" path="res://enemies/dukun/block_action.gd" id="6_2krdw"]
+[ext_resource type="Script" uid="uid://bfoj10as5qjw4" path="res://enemies/dukun/santet_action.gd" id="7_37msk"]
+[ext_resource type="Texture2D" uid="uid://bi6pfjs32f820" path="res://art/tile_0101.png" id="7_dmhw5"]
+[ext_resource type="Script" uid="uid://djgwm3t04o8ro" path="res://enemies/dukun/santet_passive.gd" id="8_tw70h"]
+
+[sub_resource type="Resource" id="Resource_2krdw"]
+script = ExtResource("4_7g0tj")
+icon = ExtResource("4_dlext")
+metadata/_custom_type_script = "uid://dpuqxpt0l6ehf"
+
+[sub_resource type="Resource" id="Resource_37msk"]
+script = ExtResource("4_7g0tj")
+base_text = "%s"
+icon = ExtResource("7_dmhw5")
+metadata/_custom_type_script = "uid://dpuqxpt0l6ehf"
+
+[node name="DukunEnemyAI" type="Node"]
+script = ExtResource("1_yb6rp")
+
+[node name="AttackAction" type="Node" parent="."]
+script = ExtResource("2_fl6tf")
+intent = SubResource("Resource_2krdw")
+type = 1
+chance_weight = 7.0
+
+[node name="BlockAction" type="Node" parent="."]
+script = ExtResource("6_2krdw")
+intent = SubResource("Resource_37msk")
+chance_weight = 3.0
+
+[node name="SantetAction" type="Node" parent="."]
+script = ExtResource("7_37msk")
+
+[node name="SantetPassive" type="Node" parent="."]
+script = ExtResource("8_tw70h")

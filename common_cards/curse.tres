@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://2xy1r00rn7ix"]
+
+[ext_resource type="Texture2D" uid="uid://cgopx2ponr1qi" path="res://art/tile_0121.png" id="1_17714"]
+[ext_resource type="Script" uid="uid://dcw4oridrwk87" path="res://custom_resources/card.gd" id="1_x0phs"]
+
+[resource]
+script = ExtResource("1_x0phs")
+id = "curse"
+rarity = 3
+type = 1
+exhausts = true
+icon = ExtResource("1_17714")
+tooltip_text = "[center]Slows you down[/center]"
+metadata/_custom_type_script = "uid://dcw4oridrwk87"

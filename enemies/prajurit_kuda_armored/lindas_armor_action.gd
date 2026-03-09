@@ -1,7 +1,7 @@
-class_name TrampleAction
+class_name TrampleArmorAction
 extends EnemyAction
 
-@export var base_damage := 15
+@export var base_damage := 25
 
 func is_performable() -> bool:
 	var momentum = enemy.status_handler.get_status("laju")

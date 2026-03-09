@@ -1,0 +1,42 @@
+[gd_scene load_steps=12 format=3 uid="uid://cjt015xbg3c35"]
+
+[ext_resource type="Script" uid="uid://c02emn3b1g806" path="res://Scene/Enemy/enemy_action_picker.gd" id="1_aosn4"]
+[ext_resource type="Script" uid="uid://o4pe3ijjaoa3" path="res://enemies/pembunuh/pembunuh_block_action.gd" id="2_2ki1r"]
+[ext_resource type="Script" uid="uid://cn72x2n5punsp" path="res://enemies/pembunuh/pembunuh_attack_action.gd" id="2_lwkn2"]
+[ext_resource type="Resource" uid="uid://cmxe06hhhrug8" path="res://statuses/poison.tres" id="3_aal8h"]
+[ext_resource type="Texture2D" uid="uid://1xxwl563vxyo" path="res://art/pembunuh_attack.png" id="4_mnk1y"]
+[ext_resource type="Script" uid="uid://dpuqxpt0l6ehf" path="res://custom_resources/intent.gd" id="5_mkv8w"]
+[ext_resource type="AudioStream" uid="uid://de2ryat1pxq6" path="res://art/enemy_attack.ogg" id="6_yn30k"]
+[ext_resource type="Texture2D" uid="uid://bi6pfjs32f820" path="res://art/tile_0101.png" id="8_q2idy"]
+[ext_resource type="AudioStream" uid="uid://k8m4o3hlwm7l" path="res://art/enemy_block.ogg" id="9_arewj"]
+
+[sub_resource type="Resource" id="Resource_mnk1y"]
+script = ExtResource("5_mkv8w")
+base_text = "%s"
+icon = ExtResource("4_mnk1y")
+metadata/_custom_type_script = "uid://dpuqxpt0l6ehf"
+
+[sub_resource type="Resource" id="Resource_q6c74"]
+script = ExtResource("5_mkv8w")
+base_text = "%s"
+icon = ExtResource("8_q2idy")
+metadata/_custom_type_script = "uid://dpuqxpt0l6ehf"
+
+[node name="PembunuhEnemyAI" type="Node"]
+script = ExtResource("1_aosn4")
+
+[node name="AttackAction" type="Node" parent="."]
+script = ExtResource("2_lwkn2")
+poison_status_res = ExtResource("3_aal8h")
+is_attack = true
+intent = SubResource("Resource_mnk1y")
+type = 1
+chance_weight = 9.0
+sound = ExtResource("6_yn30k")
+
+[node name="BlockAction" type="Node" parent="."]
+script = ExtResource("2_2ki1r")
+intent = SubResource("Resource_q6c74")
+type = 1
+chance_weight = 1.0
+sound = ExtResource("9_arewj")

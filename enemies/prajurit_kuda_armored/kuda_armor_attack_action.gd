@@ -1,7 +1,8 @@
-class_name KudaAttackAction
+class_name KudaBeratAttackAction
 extends EnemyAction
 
-@export var base_damage := 6
+@export var base_damage := 10
+@export var inherent_block := 5
 @export var laju_status_res: Status 
 
 func update_intent_text() -> void:
@@ -24,6 +25,12 @@ func perform_action() -> void:
 		Events.enemy_action_completed.emit(enemy)
 		return
 	
+	# --- REVERTED TO YOUR EXACT ORIGINAL BLOCK LOGIC ---
+	var block_effect := BlockEffect.new()
+	block_effect.amount = inherent_block
+	block_effect.sound = sound # <--- This is the missing line!
+	block_effect.execute([enemy])
+	
 	var final_dmg := base_damage
 	var momentum: LajuStatus = enemy.status_handler.get_status("laju") as LajuStatus
 	
@@ -33,36 +40,43 @@ func perform_action() -> void:
 	if enemy.modifier_handler:
 		final_dmg = enemy.modifier_handler.get_modified_value(final_dmg, Modifier.Type.DMG_DEALT)
 	
-	var tween := create_tween().set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_IN)
+	var tween := create_tween()
 	var original_pos := enemy.global_position
 	
-	# Dash forward
-	tween.tween_property(enemy, "global_position:x", target.global_position.x + 50, 0.2)
+	for i in range(3):
+		tween.tween_property(enemy, "global_position:x", original_pos.x + 15, 0.15)\
+			.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+		tween.tween_property(enemy, "global_position:x", original_pos.x - 5, 0.15)\
+			.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 	
-	# 2. THE FIXED ATTACK EXECUTION
-	# Using a lambda function ensures the damage and sound execute right on impact
+	tween.tween_property(enemy, "global_position:x", target.global_position.x + 50, 0.1)\
+		.set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_IN)
+	
 	tween.tween_callback(
 		func():
 			var damage_effect := DamageEffect.new()
 			damage_effect.amount = final_dmg
-			damage_effect.sound = sound # Adds your attack sound back in
+			damage_effect.sound = sound
 			damage_effect.execute([target])
+			if Shaker:
+				Shaker.shake(enemy, 10, 0.2)
 	)
 	
-	tween.tween_property(enemy, "global_position", original_pos, 0.2)
+	tween.tween_interval(0.1)
+	tween.tween_property(enemy, "global_position", original_pos, 0.3)\
+		.set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
 	
 	tween.finished.connect(func():
 		var current_momentum = enemy.status_handler.get_status("laju") as LajuStatus
 		
 		if not current_momentum and laju_status_res:
 			var new_laju = laju_status_res.duplicate()
-			new_laju.stacks = 1 
+			new_laju.stacks = 1
 			enemy.status_handler.add_status(new_laju)
-			enemy.status_handler.statuses_changed.emit()
 		elif current_momentum:
 			current_momentum.stacks += 1
-			enemy.status_handler.statuses_changed.emit()
 			
+		enemy.status_handler.statuses_changed.emit()
 		enemy.update_intent()
 		Events.enemy_action_completed.emit(enemy)
 	)

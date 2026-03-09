@@ -1,0 +1,58 @@
+[gd_scene load_steps=16 format=3 uid="uid://dxv8qdh6uasri"]
+
+[ext_resource type="Script" uid="uid://c02emn3b1g806" path="res://Scene/Enemy/enemy_action_picker.gd" id="1_n4sbl"]
+[ext_resource type="Script" uid="uid://bhm4ngc3fwmnn" path="res://enemies/prajurit_kuda_armored/kuda_armor_attack_action.gd" id="2_njcon"]
+[ext_resource type="Resource" uid="uid://skiig1wxra8g" path="res://statuses/laju.tres" id="3_j4v84"]
+[ext_resource type="Texture2D" uid="uid://iwkh80uf5bew" path="res://art/tile_0103.png" id="4_1nkrm"]
+[ext_resource type="Script" uid="uid://dpuqxpt0l6ehf" path="res://custom_resources/intent.gd" id="5_5qc5o"]
+[ext_resource type="AudioStream" uid="uid://de2ryat1pxq6" path="res://art/enemy_attack.ogg" id="6_h0kcl"]
+[ext_resource type="Script" uid="uid://ebcuflaxih2r" path="res://enemies/prajurit_kuda_armored/kuda_armor_block_action.gd" id="7_njcon"]
+[ext_resource type="Texture2D" uid="uid://bi6pfjs32f820" path="res://art/tile_0101.png" id="8_qgkui"]
+[ext_resource type="AudioStream" uid="uid://k8m4o3hlwm7l" path="res://art/enemy_block.ogg" id="9_poh2l"]
+[ext_resource type="Script" uid="uid://bjwx1j4e4cnji" path="res://enemies/prajurit_kuda_armored/lindas_armor_action.gd" id="10_ir7ow"]
+[ext_resource type="Texture2D" uid="uid://cqcal03735mv8" path="res://art/tile_0118.png" id="11_61xgf"]
+[ext_resource type="Script" uid="uid://b23ebn3eica8q" path="res://enemies/prajurit_kuda_armored/laju_armor_passive.gd" id="12_gdaxi"]
+
+[sub_resource type="Resource" id="Resource_ghfua"]
+script = ExtResource("5_5qc5o")
+base_text = "%s"
+icon = ExtResource("4_1nkrm")
+metadata/_custom_type_script = "uid://dpuqxpt0l6ehf"
+
+[sub_resource type="Resource" id="Resource_f2ngk"]
+script = ExtResource("5_5qc5o")
+base_text = "%s"
+icon = ExtResource("8_qgkui")
+metadata/_custom_type_script = "uid://dpuqxpt0l6ehf"
+
+[sub_resource type="Resource" id="Resource_h0r80"]
+script = ExtResource("5_5qc5o")
+icon = ExtResource("11_61xgf")
+metadata/_custom_type_script = "uid://dpuqxpt0l6ehf"
+
+[node name="KudaArmorEnemyAI" type="Node"]
+script = ExtResource("1_n4sbl")
+
+[node name="AttackAction" type="Node" parent="."]
+script = ExtResource("2_njcon")
+laju_status_res = ExtResource("3_j4v84")
+is_attack = true
+intent = SubResource("Resource_ghfua")
+type = 1
+chance_weight = 5.0
+sound = ExtResource("6_h0kcl")
+
+[node name="BlockAction" type="Node" parent="."]
+script = ExtResource("7_njcon")
+intent = SubResource("Resource_f2ngk")
+type = 1
+chance_weight = 4.0
+sound = ExtResource("9_poh2l")
+
+[node name="LindasAction" type="Node" parent="."]
+script = ExtResource("10_ir7ow")
+is_attack = true
+intent = SubResource("Resource_h0r80")
+
+[node name="LajuPassive" type="Node" parent="."]
+script = ExtResource("12_gdaxi")

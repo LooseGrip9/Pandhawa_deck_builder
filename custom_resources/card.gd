@@ -6,10 +6,10 @@ enum Target {SELF, SINGLE_ENEMY, ALL_ENEMIES, EVERYONE}
 enum Rarity {COMMON, RARE, SUPER_RARE, DEBUFF}
 
 const RARITY_COLORS := {
-	Card.Rarity.COMMON: Color.DIM_GRAY,
-	Card.Rarity.RARE: Color.BLUE_VIOLET,
-	Card.Rarity.SUPER_RARE: Color.GOLDENROD,
-	Card.Rarity.DEBUFF: Color.MEDIUM_SEA_GREEN
+	Rarity.COMMON: Color.DIM_GRAY,
+	Rarity.RARE: Color.BLUE_VIOLET,
+	Rarity.SUPER_RARE: Color.GOLDENROD,
+	Rarity.DEBUFF: Color.MEDIUM_SEA_GREEN
 }
 
 @export_group("Card Attributes")
@@ -23,6 +23,7 @@ const RARITY_COLORS := {
 @export_group("Card Visual")
 @export var icon: Texture
 @export_multiline var tooltip_text : String
+@export_multiline var flavour_text : String
 @export var sound: AudioStream
 
 func is_single_targeted() -> bool:
@@ -44,7 +45,6 @@ func _get_targets(targets: Array[Node]) -> Array[Node]:
 	
 	return []
 	
-
 func play(targets: Array[Node], char_stats: CharacterStats, _modifiers: ModifierHandler) -> void:
 	var tree = Engine.get_main_loop()
 	var player_handler = tree.get_first_node_in_group("player_handler")
@@ -71,13 +71,15 @@ func play(targets: Array[Node], char_stats: CharacterStats, _modifiers: Modifier
 
 	Events.card_played.emit(self)
 
-
 func apply_effects(_targets: Array[Node], _modifiers: ModifierHandler) -> void:
 	pass
 
-
 func get_default_tooltip() -> String:
 	return tooltip_text
+
+# NEW: Helper for your CardTooltipPopup flavour_etxt label
+func get_flavour_text() -> String:
+	return flavour_text
 
 func get_updated_tooltip(player_modifiers: ModifierHandler, enemy_modifiers: ModifierHandler) -> String:
 	var text := tooltip_text
@@ -92,11 +94,11 @@ func get_updated_tooltip(player_modifiers: ModifierHandler, enemy_modifiers: Mod
 
 	var values = []
 	
+	# Use "get" to check for variables in subclasses (like AttackCard)
 	var dmg_val = get("base_damage")
 	if dmg_val != null:
 		var base_with_bonus = int(dmg_val) + bonus
 		var modified_dmg := player_modifiers.get_modified_value(base_with_bonus, Modifier.Type.DMG_DEALT)
-		
 		modified_dmg *= multiplier
 		
 		if enemy_modifiers:
@@ -105,12 +107,15 @@ func get_updated_tooltip(player_modifiers: ModifierHandler, enemy_modifiers: Mod
 		var damage_string = str(modified_dmg)
 		if modified_dmg > (int(dmg_val) + bonus) or multiplier > 1:
 			damage_string = "[color=red]" + damage_string + "[/color]"
-			
 		values.append(damage_string)
 	
 	var status_val = get("base_poison")
 	if status_val != null:
 		values.append(str(status_val))
+	
+	if values.size() < placeholder_count:
+		for i in range(placeholder_count - values.size()):
+			values.append("??")
 
 	return text % values.slice(0, placeholder_count)
 

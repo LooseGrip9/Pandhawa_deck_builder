@@ -7,7 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://b0c05bjchcjol" path="res://BGM/Battle 1.mp3" id="3_e665m"]
 [ext_resource type="PackedScene" uid="uid://cp2ekfcfiiffu" path="res://Scene/Card_Target_Selector/card_target_selector.tscn" id="3_pgpmp"]
 [ext_resource type="PackedScene" uid="uid://dq87n1yx23g8f" path="res://Scene/Player/player.tscn" id="4_jskq3"]
-[ext_resource type="Resource" uid="uid://c2gxjqxrqus5v" path="res://enemies/prajurit/prajurit_enemy.tres" id="5_ihogh"]
+[ext_resource type="Resource" uid="uid://c2gxjqxrqus5v" path="res://enemies/sengkuni/sengkuni_boss.tres" id="5_ihogh"]
 [ext_resource type="Resource" uid="uid://d3y71aj2a76ty" path="res://characters/Werkudara/werkudara.tres" id="5_yygm8"]
 [ext_resource type="Script" uid="uid://bpgjwa75u6j54" path="res://Scene/Enemy/enemy_handler.gd" id="6_5t6rn"]
 [ext_resource type="Script" uid="uid://b0patbc6ta4yo" path="res://Scene/Player/player_handler.gd" id="8_161f6"]

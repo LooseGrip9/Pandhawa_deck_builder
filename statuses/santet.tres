@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Status" load_steps=3 format=3 uid="uid://v8y2h2u7tm7t"]
+
+[ext_resource type="Texture2D" uid="uid://85o4brxdxvdb" path="res://art/santet.png" id="1_e7kat"]
+[ext_resource type="Script" uid="uid://bmqr6s36ylwlo" path="res://custom_resources/status.gd" id="1_hckcn"]
+
+[resource]
+script = ExtResource("1_hckcn")
+id = "santet"
+type = 1
+stack_type = 2
+icon = ExtResource("1_e7kat")
+tooltip = "Santet: Memantulkan semua kerusakan kembali ke penyerang."
+metadata/_custom_type_script = "uid://bmqr6s36ylwlo"

@@ -11,4 +11,5 @@ target = 1
 cost = 2
 icon = ExtResource("1_l13qm")
 tooltip_text = "Serang untuk %s HP. Kartu dapat dimainkan jika kartu ini sendirian di tangan."
+flavour_text = "Panah yang digunakan Arjuna untuk memenggal Karna. Karna menjadi rentan karena kutukan yang menyebabkan roda keretanya terbenam ke tanah saat duel terakhir mereka."
 metadata/_custom_type_script = "uid://dcw4oridrwk87"

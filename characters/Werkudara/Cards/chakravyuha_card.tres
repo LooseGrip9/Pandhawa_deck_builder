@@ -10,4 +10,5 @@ type = 1
 cost = 2
 icon = ExtResource("1_q1xmc")
 tooltip_text = "Tambah 15 Block, Musuh yang menyerang kehilangan 5 HP"
+flavour_text = "Cakrabyuha adalah formasi militer berputar yang rumit. Putra Arjuna, Abimanyu, dapat menembusnya akan tetapi terjebak dan akhirnya gugur karena ia belum mempelajari jalan keluarnya."
 metadata/_custom_type_script = "uid://dcw4oridrwk87"

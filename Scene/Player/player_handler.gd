@@ -8,7 +8,6 @@ const HAND_DISCARD_INTERVAL := 0.25
 @export var relics: RelicHandler
 @onready var hand: Hand = $"../BattleUI/Hand"
 
-@onready var hand_full_label: Label = %Full_Hand 
 
 var extra_draws_this_turn := 0
 var character: CharacterStats
@@ -85,10 +84,6 @@ func end_turn() -> void:
 	player.status_handler.apply_statuses_by_type(Status.Type.END_OF_TURN)
 
 func draw_card() -> void:
-	# 2. Limit the hand size to 8!
-	if hand.get_child_count() >= 8:
-		_show_hand_full_message()
-		return
 		
 	reshuffle_deck_from_discard()
 	
@@ -106,13 +101,7 @@ func draw_cards(amount: int) -> void:
 		func(): Events.player_hand_drawn.emit()
 	)
 
-# Helper function for the 8-card limit
-func _show_hand_full_message() -> void:
-	if not hand_full_label:
-		return
-	var tween = create_tween()
-	hand_full_label.modulate.a = 1.0 
-	tween.tween_property(hand_full_label, "modulate:a", 0.0, 1.2).set_delay(0.5)
+
 
 func discard_cards() -> void:
 	# 3. The Retain Guard: Skip the discard phase entirely if true

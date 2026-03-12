@@ -10,4 +10,5 @@ rarity = 2
 type = 1
 icon = ExtResource("1_t3mud")
 tooltip_text = "Sembuhkan total dan kurangi 10 HP secara permanen, hanguskan kartu."
+flavour_text = "Ramuan mistis penghidup kembali. Upaya luar biasa dilakukan untuk mengambil ramuan obat ini dari pegunungan demi menyembuhkan prajurit yang terluka parah."
 metadata/_custom_type_script = "uid://dcw4oridrwk87"

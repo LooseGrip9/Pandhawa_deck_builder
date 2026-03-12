@@ -10,4 +10,5 @@ type = 2
 cost = 2
 icon = ExtResource("1_yvvbi")
 tooltip_text = "Tambah 4 Lempeng Zirah"
+flavour_text = "Adipati Karna lahir dengan zirah emas (Kavacha) yang menempel di kulitnya. Ia mengelupasnya untuk diberikan kepada Indra (yang menyamar) demi memenuhi sumpah kedermawanannya."
 metadata/_custom_type_script = "uid://dcw4oridrwk87"

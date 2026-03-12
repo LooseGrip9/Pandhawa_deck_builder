@@ -35,12 +35,11 @@ func perform_action() -> void:
 			if enemy.has_method("update_stats"):
 				enemy.update_stats()
 
-			# Apply Santet status to itself
 			if santet_status_res and enemy.status_handler:
 				var current_santet = enemy.status_handler.get_status("santet")
 				if not current_santet:
 					var new_santet = santet_status_res.duplicate()
-					new_santet.stacks = 1 # Usually lasts for 1 turn
+					new_santet.stacks = 1
 					enemy.status_handler.add_status(new_santet)
 				else:
 					current_santet.stacks += 1

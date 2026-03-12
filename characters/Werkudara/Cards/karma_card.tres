@@ -5,9 +5,11 @@
 
 [resource]
 script = ExtResource("2_yborq")
+id = "karma"
 rarity = 1
 type = 1
 cost = 1
 icon = ExtResource("1_bqaxf")
 tooltip_text = "Pertahankan kartumu pada giliran berikutnya"
+flavour_text = "Filosofi utama Mahabharata. Setiap tindakan (Baik atau Buruk) memiliki konsekuensi yang tak terhindarkan, mengatur nasib dewa, raja, hingga prajurit biasa"
 metadata/_custom_type_script = "uid://dcw4oridrwk87"

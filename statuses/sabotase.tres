@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="SabotageStatus" load_steps=3 format=3 uid="uid://blr2nbjim8x0r"]
+
+[ext_resource type="Script" uid="uid://f8qjf5roj5r0" path="res://statuses/sabotase.gd" id="1_ah7dh"]
+[ext_resource type="Texture2D" uid="uid://p1pwbav7ey6h" path="res://art/Skull.png" id="1_xjayj"]
+
+[resource]
+script = ExtResource("1_ah7dh")
+id = "sabotase"
+stack_type = 1
+can_expire = true
+duration = 1
+icon = ExtResource("1_xjayj")
+tooltip = "Sabotase: Hancurkan %s kartu acak dari tanganmu."
+metadata/_custom_type_script = "uid://bmqr6s36ylwlo"

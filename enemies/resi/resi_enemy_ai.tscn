@@ -1,0 +1,27 @@
+[gd_scene load_steps=7 format=3 uid="uid://b4gc5t0gqg76s"]
+
+[ext_resource type="Script" uid="uid://c02emn3b1g806" path="res://Scene/Enemy/enemy_action_picker.gd" id="1_w01fl"]
+[ext_resource type="Script" uid="uid://w8oae6m60wh5" path="res://enemies/resi/mantra_action.gd" id="2_dt4ua"]
+[ext_resource type="Resource" uid="uid://blr2nbjim8x0r" path="res://statuses/sabotase.tres" id="3_dt4ua"]
+[ext_resource type="Texture2D" uid="uid://p1pwbav7ey6h" path="res://art/Skull.png" id="4_maq7y"]
+[ext_resource type="Script" uid="uid://dpuqxpt0l6ehf" path="res://custom_resources/intent.gd" id="5_7j0b4"]
+
+[sub_resource type="Resource" id="Resource_lw1tk"]
+script = ExtResource("5_7j0b4")
+icon = ExtResource("4_maq7y")
+metadata/_custom_type_script = "uid://dpuqxpt0l6ehf"
+
+[node name="ResiEnemyAI" type="Node"]
+script = ExtResource("1_w01fl")
+
+[node name="MantraAttackAction" type="Node" parent="."]
+script = ExtResource("2_dt4ua")
+sabotage_status_res = ExtResource("3_dt4ua")
+is_attack = true
+intent = SubResource("Resource_lw1tk")
+type = 1
+chance_weight = 5.0
+
+[node name="BlockAction" type="Node" parent="."]
+
+[node name="MegaBlockAction" type="Node" parent="."]

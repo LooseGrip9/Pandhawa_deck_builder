@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cit3ej3velhtr"]
 
 [ext_resource type="PackedScene" uid="uid://dphwon1rajjyv" path="res://Scene/Enemy/enemy.tscn" id="1_75vsn"]
-[ext_resource type="Resource" uid="uid://c2gxjqxrqus5v" path="res://enemies/prajurit/prajurit_enemy.tres" id="2_3f4ml"]
+[ext_resource type="Resource" uid="uid://c2gxjqxrqus5v" path="res://enemies/sengkuni/sengkuni_boss.tres" id="2_3f4ml"]
 
 [node name="Tier0_prajurit2" type="Node2D"]
 

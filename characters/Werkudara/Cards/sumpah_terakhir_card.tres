@@ -12,4 +12,5 @@ cost = 3
 exhausts = true
 icon = ExtResource("1_e6xi8")
 tooltip_text = "Serang sebanyak HP yang hilang. Hanguskan kartu"
+flavour_text = "Baratayuda berakhir saat Bima menghantam paha Duryudana. Menyerang di bawah pinggang melanggar aturan pertarungan gada, melambangkan kehancuran total moralitas di akhir perang."
 metadata/_custom_type_script = "uid://dcw4oridrwk87"

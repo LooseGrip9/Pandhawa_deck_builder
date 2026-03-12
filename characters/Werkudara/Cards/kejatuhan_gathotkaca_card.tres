@@ -11,4 +11,5 @@ target = 2
 cost = 2
 icon = ExtResource("1_n83rc")
 tooltip_text = "Serang untuk %s HP, tapi mengurangi 10 HP"
+flavour_text = "Gatotkaca adalah putra Bima dengan Dewi Arimbi. Saat dibunuh oleh tombak Karna, ia memperbesar tubuhnya sehingga jasadnya jatuh dan meremukkan ribuan prajurit Kurawa"
 metadata/_custom_type_script = "uid://dcw4oridrwk87"

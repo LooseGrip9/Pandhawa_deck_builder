@@ -50,6 +50,7 @@ func _ready() -> void:
 	Events.card_aim_started.connect(_on_card_drag_or_aiming_state_started)
 	Events.card_drag_ended.connect(_on_card_drag_or_aim_ended)
 	Events.card_aim_ended.connect(_on_card_drag_or_aim_ended)
+	Events.boss_rules_changed.connect(_recheck_playability)
 
 func _process(delta: float) -> void:
 	if not canvas_group.material:
@@ -131,6 +132,12 @@ func _set_card(value: Card) -> void:
 		await ready
 	card = value
 	card_visuals.card = card
+	
+	if card.id == "Fitnah":
+		card_visuals.modulate = Color(0.8, 0.5, 1.0)
+		var shiver = create_tween().set_loops()
+		shiver.tween_property(card_visuals, "rotation_degrees", 5.0, 0.5)
+		shiver.tween_property(card_visuals, "rotation_degrees", -5.0, 0.5)
 
 func _set_playable(value: bool) -> void:
 	playable = value
@@ -176,22 +183,18 @@ func _on_char_stats_changed() -> void:
 # CardUI.gd
 
 func _recheck_playability() -> void:
-	var player_handler = get_tree().get_first_node_in_group("player_handler")
-	var is_free = player_handler and player_handler.next_card_is_free
+	var extra_cost := 0
 	
-	var current_cost = card.cost
-	if is_free:
-		current_cost = 0
-	elif cost_override != -1:
-		current_cost = cost_override
-
-	var is_modified = is_free or (cost_override != -1 and cost_override != card.cost)
-	card_visuals.update_cost(current_cost, is_modified)
-
-	var can_afford = char_stats.mana >= current_cost
+	if char_stats and char_stats.get("status_handler"):
+		for status in char_stats.status_handler.get_statuses():
+			if status.has_method("get_extra_cost"):
+				extra_cost += status.get_extra_cost(card)
 	
-	var requirements_met = true
-	if card.has_method("is_playable"):
-		requirements_met = card.is_playable(get_parent())
-		
-	self.playable = can_afford and requirements_met
+	var final_cost = card.cost + extra_cost
+	
+	card_visuals.update_cost(final_cost, extra_cost > 0)
+	
+	if extra_cost > 0:
+		_play_snare_shiver()
+
+	self.playable = char_stats.mana >= final_cost

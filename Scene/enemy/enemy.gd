@@ -1,156 +1,58 @@
-class_name Enemy
-extends Area2D
+class_name Sengkuni
+extends Enemy
 
-const ARROW_OFFSET := 5
-const WHITE_SPRITE_MATERIAL := preload("res://art/white_sprite_material.tres")
-signal damaged(amount: int)
-
-@export var stats: EnemyStats : set = set_enemy_stats
-
-@onready var modifier_handler: ModifierHandler = $Modifier_Handler
-@onready var sprite_2d: Sprite2D = $Sprite2D
-@onready var arrow: Sprite2D = $Arrow
-@onready var stats_ui: StatsUI = $StatsUI as StatsUI
-@onready var intent_ui: IntentUI = $IntentUI as IntentUI
-@onready var status_handler: StatusHandler = $StatusHandler
-@export var stunned_intent: Intent
-
-var enemy_action_picker: EnemyActionPicker
-var current_action: EnemyAction : set = set_current_action
+@onready var cheat_label: Label = $CheatUI/CheatLabel
+@onready var speech_bubble: Label = $SpeechBubble
+@onready var bubble_base_y: float = speech_bubble.position.y
 
 func _ready() -> void:
-	if status_handler:
-		status_handler.statuses_changed.connect(update_intent)
+	super._ready()
+	Events.battle_setup_completed.connect(_dramatic_entrance)
 
-func set_current_action(value: EnemyAction)-> void:
-	current_action = value
-	update_intent()
-
-func set_enemy_stats(value: EnemyStats) -> void:
-	stats = value.create_instance()
-	
-	if not stats.stats_changed.is_connected(update_stats):
-		stats.stats_changed.connect(update_stats)
-		stats.stats_changed.connect(update_action)
-		
-		update_enemy()
-
-func setup_ai() -> void:
-	if enemy_action_picker:
-		enemy_action_picker.queue_free()
-	
-	# Added 'as EnemyActionPicker' to fix the type inference error
-	var new_action_picker := stats.ai.instantiate() as EnemyActionPicker
-	
-	if new_action_picker:
-		add_child(new_action_picker)
-		enemy_action_picker = new_action_picker
-		enemy_action_picker.enemy = self
-
-func update_action() -> void:
-	if not enemy_action_picker:
-		return
-	
-	if not current_action:
-		current_action = enemy_action_picker.get_action()
-		return
-	
-	var new_conditional_action := enemy_action_picker.get_first_conditional_action()
-	if new_conditional_action and current_action != new_conditional_action:
-		current_action = new_conditional_action
-	
-func update_stats() -> void:
-	stats_ui.update_stats(stats)
-
-func update_enemy() -> void:
-	if not stats is Stats:
-		return
-	if not is_inside_tree():
-		await ready
-	
-	sprite_2d.texture = stats.art
-	arrow.position = Vector2.RIGHT * (sprite_2d.get_rect().size.x / 2 + ARROW_OFFSET)
-	setup_ai()
-	update_stats()
-
-func update_intent() -> void:
-	var allowed_actions := 1
-	
-	if modifier_handler:
-		allowed_actions = modifier_handler.get_modified_value(allowed_actions, Modifier.Type.ACTION_COUNT)
-	
-	if allowed_actions <= 0:
-		if stunned_intent:
-			intent_ui.update_intent(stunned_intent)
-			intent_ui.show()
-		else:
-			intent_ui.hide() 
-		return
-
-	intent_ui.show()
-	if current_action:
-		current_action.update_intent_text()
-		intent_ui.update_intent(current_action.intent)
+func _dramatic_entrance() -> void:
+	say_something("Rasakan Jerat Sengkuni, Werkudara!")
+	await get_tree().create_timer(1.0).timeout
+	_roll_the_dice()
 
 func do_turn() -> void:
-	print("--- ENEMY TURN STARTING ---")
-	print("Enemy name: ", name)
-	print("Current Action picked: ", current_action) # <--- THIS IS THE TRUTH TELLER
-	stats.block = 0
+	is_acting = true
+	if intent_ui: intent_ui.hide()
+	await _roll_the_dice()
+	super.do_turn()
+
+func _roll_the_dice() -> void:
+	# Visual "Rolling" effect
+	for i in range(10):
+		cheat_label.text = ["MENGACAK...", "JERAT SKILL?", "JERAT SERANGAN?"].pick_random()
+		await get_tree().create_timer(0.05).timeout
 	
-	if not current_action:
-		return
+	_apply_jerat()
+
+func _apply_jerat() -> void:
+	var is_attack = randf() > 0.5
+	cheat_label.text = "JERAT SERANGAN" if is_attack else "JERAT SKILL"
 	
-	var allowed_actions := 1
-	
-	if modifier_handler:
-		allowed_actions = modifier_handler.get_modified_value(allowed_actions, Modifier.Type.ACTION_COUNT)
-	
-	if allowed_actions <= 0:
-		Events.enemy_action_completed.emit(self)
-		return
-	
-	current_action.perform_action()
-	
+	# Apply Status to Player
 	var player = get_tree().get_first_node_in_group("player")
-	
-	if player and player.get("stats"):
-		var player_stats = player.stats as Stats
-		var action_name : String = current_action.get_script().get_path().to_lower()
-		var is_attacking := action_name.contains("attack")
+	if player:
+		# Remove old jerat first
+		for s in player.status_handler.get_statuses():
+			if s is StatusJeratSengkuni: player.status_handler.remove_status(s)
 		
-		if is_attacking and player_stats.counter_damage > 0:
-			get_tree().create_timer(0.4).timeout.connect(
-				func(): take_damage(player_stats.counter_damage, Modifier.Type.NO_MODIFIER)
-			)
+		# Add new jerat
+		var snare = preload("res://statuses/jerat_sengkuni.tres").duplicate()
+		snare.target_type = 0 if is_attack else 1 # 0=Attack, 1=Skill
+		snare.stacks = 1
+		player.status_handler.add_status(snare)
+	
+	Events.boss_rules_changed.emit()
+	say_something("Satu langkah salah, dan kau terjepit!")
 
-func take_damage(damage: int, which_modifier: Modifier.Type) -> void:
-	
-	if stats.health <= 0:
-		return
-	
-	sprite_2d.material = WHITE_SPRITE_MATERIAL
-	var modified_damage := modifier_handler.get_modified_value(damage, which_modifier)
-	
-	var tween := create_tween()
-	tween.tween_callback(Shaker.shake.bind(self, 16, 0.15))
-	tween.tween_callback(stats.take_damage.bind(modified_damage))
-	
-	tween.tween_callback(func(): damaged.emit(modified_damage))
-	
-	tween.tween_interval(0.2)
-	
-	tween.finished.connect(
-		func():
-			sprite_2d.material = null
-			
-			if stats.health <= 0:
-				Events.enemy_died.emit(self)
-				queue_free()
-	)
-
-func _on_area_exited(_area: Area2D) -> void: 
-	arrow.hide()
-
-func _on_area_entered(_area: Area2D) -> void:
-	arrow.show()
+func say_something(text: String) -> void:
+	speech_bubble.text = text
+	speech_bubble.show()
+	var t = create_tween()
+	t.tween_property(speech_bubble, "modulate:a", 1.0, 0.2)
+	t.tween_interval(1.5)
+	t.tween_property(speech_bubble, "modulate:a", 0.0, 0.2)
+	t.tween_callback(speech_bubble.hide)

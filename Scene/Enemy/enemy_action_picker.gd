@@ -33,7 +33,8 @@ func get_first_conditional_action() -> EnemyAction:
 func get_chance_based_action() -> EnemyAction:
 	var roll := randf_range(0.0, total_weight)
 	
-	for action: EnemyAction in get_children():
+	for child in get_children():
+		var action := child as EnemyAction
 		if not action or action.type != EnemyAction.Type.CHANCE_BASED:
 			continue
 			
@@ -41,7 +42,6 @@ func get_chance_based_action() -> EnemyAction:
 			return action
 		
 	return null
-
 func setup_chances() -> void:
 	var action : EnemyAction
 	
@@ -56,11 +56,13 @@ func setup_chances() -> void:
 func _set_enemy(value: Enemy) -> void:
 	enemy = value
 	
-	for action in get_children():
-		action.enemy = enemy
+	for child in get_children():
+		if child is EnemyAction:
+			child.enemy = enemy
 
 func _set_target(value: Node2D) -> void:
 	target = value
 	
-	for action in get_children():
-		action.target = target
+	for child in get_children():
+		if child is EnemyAction:
+			child.target = target

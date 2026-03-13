@@ -11,7 +11,6 @@ extends Node2D
 @onready var player: Player = $Player as Player
 @onready var enemy_handler: EnemyHandler = $EnemyHandler as EnemyHandler
 
-
 func _ready() -> void:
 	$ColorRect/AnimationPlayer.play("fade_out")
 	
@@ -40,13 +39,11 @@ func start_battle() -> void:
 		relics.activate_relics_by_type(Relic.Type.START_OF_COMBAT)
 	
 	var start_turn_callable = func():
-		Events.battle_setup_completed.emit() 
-		
 		Events.player_turn_started.emit()
 		player_handler.start_turn()
 		
 	get_tree().process_frame.connect(start_turn_callable, CONNECT_ONE_SHOT)
-	
+
 func _on_relics_activated(type: Relic.Type) -> void:
 	match type:
 		Relic.Type.START_OF_COMBAT:

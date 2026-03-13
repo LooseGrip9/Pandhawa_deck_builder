@@ -8,7 +8,6 @@ signal card_aim_ended(card_ui: CardUI)
 signal card_played(card: Card)
 signal card_tooltip_requested(card: Card)
 signal tooltip_hide_requested
-signal card_added_to_deck(card: Card)
 
 #player related events
 signal player_hand_drawn
@@ -50,7 +49,3 @@ signal treasure_room_exited(found_relic: Relic)
 
 #relic
 signal relic_tooltip_requested(relic: Relic)
-
-#boss
-signal boss_rules_changed
-signal battle_setup_completed

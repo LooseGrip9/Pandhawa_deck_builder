@@ -50,6 +50,7 @@ func _ready() -> void:
 	Events.card_aim_started.connect(_on_card_drag_or_aiming_state_started)
 	Events.card_drag_ended.connect(_on_card_drag_or_aim_ended)
 	Events.card_aim_ended.connect(_on_card_drag_or_aim_ended)
+	Events.card_costs_updated.connect(_recheck_playability)
 
 func _process(delta: float) -> void:
 	if not canvas_group.material:
@@ -141,6 +142,7 @@ func _set_playable(value: bool) -> void:
 		card_visuals.remove_theme_color_override("font_color")
 		card_visuals.modulate = Color(1, 1, 1, 1)
 
+
 func _set_char_stats(value: CharacterStats) -> void:
 	char_stats = value
 	if not char_stats.stats_changed.is_connected(_on_char_stats_changed):
@@ -173,23 +175,33 @@ func _on_card_drag_or_aim_ended(_card: CardUI) -> void:
 func _on_char_stats_changed() -> void:
 	_recheck_playability()
 
-# CardUI.gd
 
 func _recheck_playability() -> void:
 	var player_handler = get_tree().get_first_node_in_group("player_handler")
+	var player = get_tree().get_first_node_in_group("player") 
+	
 	var is_free = player_handler and player_handler.next_card_is_free
+	var tax := 0
+	
+	if player and player.status_handler:
+		for status_node in player.status_handler.get_children():
+			# Check if the UI node has a status resource attached
+			var status_data = status_node.get("status")
+			if status_data and status_data.has_method("get_extra_cost"):
+				tax += status_data.get_extra_cost(card)
 	
 	var current_cost = card.cost
 	if is_free:
 		current_cost = 0
 	elif cost_override != -1:
 		current_cost = cost_override
+		
+	var final_cost = current_cost + tax
 
-	var is_modified = is_free or (cost_override != -1 and cost_override != card.cost)
-	card_visuals.update_cost(current_cost, is_modified)
+	var is_modified = is_free or tax > 0 or (cost_override != -1 and cost_override != card.cost)
+	card_visuals.update_cost(final_cost, is_modified)
 
-	var can_afford = char_stats.mana >= current_cost
-	
+	var can_afford = char_stats.mana >= final_cost
 	var requirements_met = true
 	if card.has_method("is_playable"):
 		requirements_met = card.is_playable(get_parent())

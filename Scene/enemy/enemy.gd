@@ -18,9 +18,17 @@ signal damaged(amount: int)
 var enemy_action_picker: EnemyActionPicker
 var current_action: EnemyAction : set = set_current_action
 
+# --- FLAGS FOR SENGKUNI'S AMBUSH ---
+var opening_move_performed := false
+var doing_opening_move := false
+
 func _ready() -> void:
 	if status_handler:
 		status_handler.statuses_changed.connect(update_intent)
+	
+	Events.card_played.connect(func(_card): call_deferred("update_intent"))
+	Events.player_hand_drawn.connect(func(): call_deferred("update_intent"))
+	Events.player_hand_discarded.connect(func(): call_deferred("update_intent"))
 
 func set_current_action(value: EnemyAction)-> void:
 	current_action = value
@@ -39,7 +47,6 @@ func setup_ai() -> void:
 	if enemy_action_picker:
 		enemy_action_picker.queue_free()
 	
-	# Added 'as EnemyActionPicker' to fix the type inference error
 	var new_action_picker := stats.ai.instantiate() as EnemyActionPicker
 	
 	if new_action_picker:
@@ -72,8 +79,36 @@ func update_enemy() -> void:
 	arrow.position = Vector2.RIGHT * (sprite_2d.get_rect().size.x / 2 + ARROW_OFFSET)
 	setup_ai()
 	update_stats()
+	
+	if stats.id == "Sengkuni" and not opening_move_performed:
+		opening_move_performed = true
+		_apply_opening_move()
+
+func _apply_opening_move() -> void:
+	await get_tree().process_frame 
+	
+	if not enemy_action_picker:
+		return
+
+	var player = get_tree().get_first_node_in_group("player")
+	if not player: return
+
+	for action in enemy_action_picker.get_children():
+		if action is ActionPasangJerat:
+			doing_opening_move = true 
+			
+			action.enemy = self
+			action.target = player
+			action.perform_action()
+			current_action = action 
+			
+			_refresh_card_costs()
+			break
 
 func update_intent() -> void:
+	if not is_inside_tree() or stats.health <= 0:
+		return
+
 	var allowed_actions := 1
 	
 	if modifier_handler:
@@ -92,10 +127,16 @@ func update_intent() -> void:
 		current_action.update_intent_text()
 		intent_ui.update_intent(current_action.intent)
 
+func _refresh_card_costs() -> void:
+	var cards = get_tree().get_nodes_in_group("cards_in_hand")
+	for card_ui in cards:
+		if card_ui.has_method("_recheck_playability"):
+			card_ui._recheck_playability()
+
 func do_turn() -> void:
 	print("--- ENEMY TURN STARTING ---")
 	print("Enemy name: ", name)
-	print("Current Action picked: ", current_action) # <--- THIS IS THE TRUTH TELLER
+	print("Current Action picked: ", current_action) 
 	stats.block = 0
 	
 	if not current_action:

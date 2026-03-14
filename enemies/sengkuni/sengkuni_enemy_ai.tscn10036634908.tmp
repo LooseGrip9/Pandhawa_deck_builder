@@ -1,0 +1,52 @@
+[gd_scene load_steps=14 format=3 uid="uid://b3wcet0w12x8i"]
+
+[ext_resource type="Script" uid="uid://c02emn3b1g806" path="res://Scene/Enemy/enemy_action_picker.gd" id="1_ejwji"]
+[ext_resource type="Script" uid="uid://bi04yx0ujaney" path="res://enemies/sengkuni/hasutan_action.gd" id="2_b5e3w"]
+[ext_resource type="Script" uid="uid://dx6sumi2ru51d" path="res://enemies/sengkuni/fitnah_action.gd" id="2_f8kv2"]
+[ext_resource type="Resource" path="res://common_cards/fitnah.tres" id="3_vewdq"]
+[ext_resource type="Texture2D" uid="uid://dm6t8xihw7gkk" path="res://art/Fitnah.png" id="4_oi401"]
+[ext_resource type="Script" uid="uid://dpuqxpt0l6ehf" path="res://custom_resources/intent.gd" id="5_u46le"]
+[ext_resource type="Texture2D" uid="uid://bxgrktox5it82" path="res://art/tile_0105.png" id="7_oi401"]
+[ext_resource type="Script" uid="uid://d4nenym2rk5dj" path="res://enemies/sengkuni/jerat_sengkuni_action.gd" id="8_u46le"]
+[ext_resource type="Resource" uid="uid://b2fse6osb4hhs" path="res://statuses/jerat_sengkuni.tres" id="9_c4ygw"]
+[ext_resource type="Texture2D" uid="uid://mmm10kpjc04v" path="res://art/jerat.png" id="10_6r1hq"]
+
+[sub_resource type="Resource" id="Resource_o64iq"]
+script = ExtResource("5_u46le")
+icon = ExtResource("4_oi401")
+metadata/_custom_type_script = "uid://dpuqxpt0l6ehf"
+
+[sub_resource type="Resource" id="Resource_u46le"]
+script = ExtResource("5_u46le")
+base_text = "%s"
+icon = ExtResource("7_oi401")
+metadata/_custom_type_script = "uid://dpuqxpt0l6ehf"
+
+[sub_resource type="Resource" id="Resource_kdkqn"]
+script = ExtResource("5_u46le")
+base_text = "Pasang Jerat"
+icon = ExtResource("10_6r1hq")
+metadata/_custom_type_script = "uid://dpuqxpt0l6ehf"
+
+[node name="PrajuritEnemyAI" type="Node"]
+script = ExtResource("1_ejwji")
+
+[node name="FitnahAction" type="Node" parent="."]
+script = ExtResource("2_f8kv2")
+fitnah_card = ExtResource("3_vewdq")
+amount = 2
+intent = SubResource("Resource_o64iq")
+chance_weight = 3.0
+
+[node name="HasutanAction" type="Node" parent="."]
+script = ExtResource("2_b5e3w")
+intent = SubResource("Resource_u46le")
+type = 1
+chance_weight = 3.0
+
+[node name="JeratSengkuniAction" type="Node" parent="."]
+script = ExtResource("8_u46le")
+status_resource = ExtResource("9_c4ygw")
+intent = SubResource("Resource_kdkqn")
+type = 1
+chance_weight = 1.0

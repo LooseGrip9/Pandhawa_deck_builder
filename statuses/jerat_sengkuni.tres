@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="StatusJerat" load_steps=3 format=3 uid="uid://b2fse6osb4hhs"]
+
+[ext_resource type="Texture2D" uid="uid://mmm10kpjc04v" path="res://art/jerat.png" id="1_vsava"]
+[ext_resource type="Script" uid="uid://dfsblmlu47db3" path="res://statuses/status_jerat.gd" id="2_msvjl"]
+
+[resource]
+script = ExtResource("2_msvjl")
+id = "jerat_sengkuni"
+stacks = 1
+icon = ExtResource("1_vsava")
+tooltip = "Jerat Sengkuni: +1 Mana untuk kartu serangan atau skill"
+metadata/_custom_type_script = "uid://bmqr6s36ylwlo"

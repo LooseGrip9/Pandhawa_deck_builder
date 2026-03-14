@@ -23,6 +23,7 @@ var last_played_attack: Card = null
 func _ready() -> void:
 	Events.card_played.connect(_on_card_played)
 	Events.player_hand_drawn.connect(_on_player_hand_drawn)
+	Events.card_added_to_deck.connect(_on_card_added_to_deck)
 	Events.energy_gain_requested.connect(
 		func(amt):
 			pending_energy += amt)
@@ -101,12 +102,9 @@ func draw_cards(amount: int) -> void:
 		func(): Events.player_hand_drawn.emit()
 	)
 
-
-
 func discard_cards() -> void:
-	# 3. The Retain Guard: Skip the discard phase entirely if true
 	if retain_hand_once:
-		retain_hand_once = false # Reset for next turn
+		retain_hand_once = false 
 		Events.player_hand_discarded.emit()
 		return
 
@@ -116,15 +114,43 @@ func discard_cards() -> void:
 		
 	var tween := create_tween()
 	for card_ui in hand.get_children():
-		tween.tween_callback(character.discard.add_card.bind(card_ui.card))
-		tween.tween_callback(hand.discard_card.bind(card_ui))
+		
+		if card_ui.card.id == "Fitnah":
+			tween.tween_callback(func():
+				character.take_damage(3)
+				Shaker.shake(player, 15, 0.2)
+				var player_sprite = player.get_node_or_null("Sprite2D")
+				if player_sprite:
+					var damage_tween = create_tween()
+					damage_tween.tween_property(player_sprite, "modulate", Color.RED, 0.1)
+					damage_tween.tween_property(player_sprite, "modulate", Color.WHITE, 0.1)
+				
+				print("Player took 3 damage from Fitnah!")
+				
+				# 3. Exhaust the card (Remove queue_free if you want it to go to the discard pile instead)
+				card_ui.queue_free()
+			)
+		# --- NORMAL DISCARD LOGIC ---
+		else:
+			tween.tween_callback(character.discard.add_card.bind(card_ui.card))
+			tween.tween_callback(hand.discard_card.bind(card_ui))
+		
 		tween.tween_interval(HAND_DISCARD_INTERVAL)
 		
 	tween.finished.connect(
 		func():
-			print("DEBUG: Hand Discarded. Signal Emitting.")
 			Events.player_hand_discarded.emit()
 	)
+
+func _on_card_added_to_deck(card: Card) -> void:
+	if not character:
+		return
+	
+	var new_card := card.duplicate()
+	character.draw_pile.add_card(new_card)
+	character.draw_pile.shuffle()
+	
+	print("Fitnah menyusup ke Draw Pile. Total kartu: ", character.draw_pile.cards.size())
 
 func reshuffle_deck_from_discard() -> void:
 	if not character.draw_pile.empty():

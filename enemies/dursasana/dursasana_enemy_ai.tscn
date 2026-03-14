@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://rpdepi6qise"]
+
+[ext_resource type="Script" uid="uid://c02emn3b1g806" path="res://Scene/Enemy/enemy_action_picker.gd" id="1_iu41q"]
+[ext_resource type="Script" uid="uid://b6dwxq3ng75my" path="res://enemies/dursasana/lucut_zirah_action.gd" id="2_e3mlr"]
+[ext_resource type="Script" uid="uid://bpwsap803acrq" path="res://enemies/dursasana/provokasi_action.gd" id="3_e3mlr"]
+[ext_resource type="Resource" uid="uid://dxh8p5wnqufx" path="res://statuses/kyat.tres" id="4_ywux3"]
+
+[node name="PrajuritEnemyAI" type="Node"]
+script = ExtResource("1_iu41q")
+
+[node name="LucutZirahAction" type="Node" parent="."]
+script = ExtResource("2_e3mlr")
+
+[node name="ProvokasiAction" type="Node" parent="."]
+script = ExtResource("3_e3mlr")
+provokasi_status = ExtResource("4_ywux3")
+
+[node name="JeratSengkuniAction" type="Node" parent="."]

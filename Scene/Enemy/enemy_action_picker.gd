@@ -56,11 +56,13 @@ func setup_chances() -> void:
 func _set_enemy(value: Enemy) -> void:
 	enemy = value
 	
-	for action in get_children():
-		action.enemy = enemy
+	for child in get_children():
+		if child is EnemyAction:
+			child.enemy = enemy
 
 func _set_target(value: Node2D) -> void:
 	target = value
 	
-	for action in get_children():
-		action.target = target
+	for child in get_children():
+		if child is EnemyAction:
+			child.target = target

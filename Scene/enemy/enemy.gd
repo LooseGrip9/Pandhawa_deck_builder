@@ -16,6 +16,7 @@ signal damaged(amount: int)
 
 @export var stunned_intent: Intent
 @export var kebal_status: Status 
+@export var sumpah_status: Status
 
 var enemy_action_picker: EnemyActionPicker
 var current_action: EnemyAction : set = set_current_action
@@ -81,14 +82,15 @@ func update_enemy() -> void:
 	setup_ai()
 	update_stats()
 	
-	# --- MODIFIED: Added Duryudana's opening move check! ---
 	if stats.id == "Sengkuni" and not opening_move_performed:
 		opening_move_performed = true
 		_apply_opening_move()
 	elif stats.id == "Duryudana" and not opening_move_performed:
 		opening_move_performed = true
-		# Using call_deferred so it waits for the Minions to spawn first!
 		call_deferred("_apply_diamond_body")
+	elif stats.id == "Jayadrata" and not opening_move_performed:
+		opening_move_performed = true
+		call_deferred("_apply_sunset_vow")
 
 func _apply_opening_move() -> void:
 	await get_tree().process_frame 
@@ -220,3 +222,12 @@ func _apply_diamond_body() -> void:
 		
 		handler.add_status(starting_kebal)
 		print("Phase 1: Duryudana enters the battlefield with Kekebalan Gandari!")
+
+func _apply_sunset_vow() -> void:
+	var handler = get_node_or_null("StatusHandler")
+	if handler and sumpah_status:
+		var starting_vow = sumpah_status.duplicate() as Status
+		starting_vow.stacks = 8
+		
+		handler.add_status(starting_vow)
+		print("Jayadrata hides! The 8-turn Sunset Vow begins!")

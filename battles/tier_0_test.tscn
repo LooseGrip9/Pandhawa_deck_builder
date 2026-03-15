@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://e4i72gh1v5ix"]
 
 [ext_resource type="PackedScene" uid="uid://dphwon1rajjyv" path="res://Scene/Enemy/enemy.tscn" id="1_wr3jb"]
-[ext_resource type="Resource" uid="uid://b3h5mmfo5ugrb" path="res://enemies/dursasana/Dursasana_enemy.tres" id="2_wr3jb"]
+[ext_resource type="Resource" uid="uid://c6kv60ds7o2ek" path="res://enemies/jayadrata/jayadrata_enemy.tres" id="2_wr3jb"]
 
 [node name="Tier0Test" type="Node2D"]
 

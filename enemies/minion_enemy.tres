@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="EnemyStats" load_steps=4 format=3 uid="uid://be78r2p3uu88l"]
+
+[ext_resource type="PackedScene" uid="uid://dqoocspbcpwtv" path="res://enemies/minion_enemy_ai.tscn" id="1_gmq7e"]
+[ext_resource type="Texture2D" uid="uid://cnanpxl7joy8v" path="res://art/prajurit(pedang).png" id="2_4jtu6"]
+[ext_resource type="Script" uid="uid://47ihu4inrweu" path="res://custom_resources/enemy_stats.gd" id="3_832po"]
+
+[resource]
+script = ExtResource("3_832po")
+ai = ExtResource("1_gmq7e")
+max_health = 25
+art = ExtResource("2_4jtu6")
+metadata/_custom_type_script = "uid://47ihu4inrweu"

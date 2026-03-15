@@ -1,0 +1,23 @@
+[gd_scene load_steps=7 format=3 uid="uid://gywj5puv6mg7"]
+
+[ext_resource type="Script" uid="uid://c02emn3b1g806" path="res://Scene/Enemy/enemy_action_picker.gd" id="1_komda"]
+[ext_resource type="Script" uid="uid://cyjlbm810q4wb" path="res://enemies/jayadrata/summon_kurawa_action.gd" id="2_f477l"]
+[ext_resource type="PackedScene" uid="uid://dbuc5are6xo1o" path="res://enemies/minion.tscn" id="3_6k0f2"]
+[ext_resource type="Texture2D" uid="uid://nbq17mcemwrw" path="res://art/bantuan.png" id="3_al866"]
+[ext_resource type="Script" uid="uid://dpuqxpt0l6ehf" path="res://custom_resources/intent.gd" id="4_6k0f2"]
+
+[sub_resource type="Resource" id="Resource_1vu2k"]
+script = ExtResource("4_6k0f2")
+icon = ExtResource("3_al866")
+metadata/_custom_type_script = "uid://dpuqxpt0l6ehf"
+
+[node name="JayadrataAI" type="Node"]
+script = ExtResource("1_komda")
+
+[node name="SummonKurawaAction" type="Node" parent="."]
+script = ExtResource("2_f477l")
+minion_scene = ExtResource("3_6k0f2")
+max_minions = 3
+intent = SubResource("Resource_1vu2k")
+type = 1
+chance_weight = 3.0

@@ -1,13 +1,13 @@
 [gd_resource type="Resource" script_class="EnemyStats" load_steps=4 format=3 uid="uid://b3h5mmfo5ugrb"]
 
-[ext_resource type="PackedScene" uid="uid://b3wcet0w12x8i" path="res://enemies/sengkuni/sengkuni_enemy_ai.tscn" id="1_7nkw4"]
-[ext_resource type="Texture2D" uid="uid://bq0lwtevuoll1" path="res://art/Sengkuni.png" id="2_ib6sw"]
+[ext_resource type="PackedScene" uid="uid://cvvj2jthx5m1u" path="res://enemies/duryudana/duryudana_enemy_ai.tscn" id="1_1cdcp"]
+[ext_resource type="Texture2D" uid="uid://cfrsk7781kfh8" path="res://art/Dursasana.png" id="2_1cdcp"]
 [ext_resource type="Script" uid="uid://47ihu4inrweu" path="res://custom_resources/enemy_stats.gd" id="3_7xuoi"]
 
 [resource]
 script = ExtResource("3_7xuoi")
-ai = ExtResource("1_7nkw4")
-id = "Sengkuni"
-max_health = 120
-art = ExtResource("2_ib6sw")
+ai = ExtResource("1_1cdcp")
+id = "Dursasana"
+max_health = 150
+art = ExtResource("2_1cdcp")
 metadata/_custom_type_script = "uid://47ihu4inrweu"

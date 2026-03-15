@@ -1,18 +1,65 @@
-[gd_scene load_steps=5 format=3 uid="uid://rpdepi6qise"]
+[gd_scene load_steps=17 format=3 uid="uid://rpdepi6qise"]
 
 [ext_resource type="Script" uid="uid://c02emn3b1g806" path="res://Scene/Enemy/enemy_action_picker.gd" id="1_iu41q"]
 [ext_resource type="Script" uid="uid://b6dwxq3ng75my" path="res://enemies/dursasana/lucut_zirah_action.gd" id="2_e3mlr"]
 [ext_resource type="Script" uid="uid://bpwsap803acrq" path="res://enemies/dursasana/provokasi_action.gd" id="3_e3mlr"]
-[ext_resource type="Resource" uid="uid://dxh8p5wnqufx" path="res://statuses/kyat.tres" id="4_ywux3"]
+[ext_resource type="Texture2D" uid="uid://bvoocmoitsd0j" path="res://art/lucutZirah.png" id="3_h8tk4"]
+[ext_resource type="Script" uid="uid://bsuwfumkwrli1" path="res://enemies/dursasana/cengkeraman_maut.gd" id="5_15g2f"]
+[ext_resource type="Resource" uid="uid://dau6oadg5gb4e" path="res://statuses/provokasi.tres" id="6_8k8nb"]
+[ext_resource type="Texture2D" uid="uid://bir073nc61l31" path="res://art/provokasi.png" id="6_odxwv"]
+[ext_resource type="Script" uid="uid://dpuqxpt0l6ehf" path="res://custom_resources/intent.gd" id="6_ome3d"]
+[ext_resource type="Resource" uid="uid://b325kob21iorq" path="res://statuses/rentan.tres" id="8_h8tk4"]
+[ext_resource type="Texture2D" uid="uid://b6px3cafioxkm" path="res://art/rentan.png" id="9_odxwv"]
+[ext_resource type="Script" uid="uid://x4j2tygnnx4v" path="res://enemies/dursasana/amuk_action.gd" id="11_8k8nb"]
+[ext_resource type="Texture2D" uid="uid://cqcal03735mv8" path="res://art/tile_0118.png" id="12_tj0vd"]
 
-[node name="PrajuritEnemyAI" type="Node"]
+[sub_resource type="Resource" id="Resource_odxwv"]
+script = ExtResource("6_ome3d")
+base_text = "%s"
+icon = ExtResource("3_h8tk4")
+metadata/_custom_type_script = "uid://dpuqxpt0l6ehf"
+
+[sub_resource type="Resource" id="Resource_tj0vd"]
+script = ExtResource("6_ome3d")
+icon = ExtResource("6_odxwv")
+metadata/_custom_type_script = "uid://dpuqxpt0l6ehf"
+
+[sub_resource type="Resource" id="Resource_8k8nb"]
+script = ExtResource("6_ome3d")
+icon = ExtResource("9_odxwv")
+metadata/_custom_type_script = "uid://dpuqxpt0l6ehf"
+
+[sub_resource type="Resource" id="Resource_2dcgq"]
+script = ExtResource("6_ome3d")
+base_text = "%sx%s"
+icon = ExtResource("12_tj0vd")
+metadata/_custom_type_script = "uid://dpuqxpt0l6ehf"
+
+[node name="DursasanaAI" type="Node"]
 script = ExtResource("1_iu41q")
 
 [node name="LucutZirahAction" type="Node" parent="."]
 script = ExtResource("2_e3mlr")
+intent = SubResource("Resource_odxwv")
+type = 1
+chance_weight = 2.0
 
 [node name="ProvokasiAction" type="Node" parent="."]
 script = ExtResource("3_e3mlr")
-provokasi_status = ExtResource("4_ywux3")
+provokasi_status = ExtResource("6_8k8nb")
+intent = SubResource("Resource_tj0vd")
 
-[node name="JeratSengkuniAction" type="Node" parent="."]
+[node name="CengkeramanMaut" type="Node" parent="."]
+script = ExtResource("5_15g2f")
+rentan_status = ExtResource("8_h8tk4")
+intent = SubResource("Resource_8k8nb")
+type = 1
+chance_weight = 3.0
+
+[node name="AmukAction" type="Node" parent="."]
+script = ExtResource("11_8k8nb")
+hit_count = 5
+is_attack = true
+intent = SubResource("Resource_2dcgq")
+type = 1
+chance_weight = 4.0

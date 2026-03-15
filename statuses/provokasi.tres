@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="StatusProvokasi" load_steps=4 format=3 uid="uid://dau6oadg5gb4e"]
+
+[ext_resource type="Texture2D" uid="uid://bir073nc61l31" path="res://art/provokasi.png" id="1_ntvst"]
+[ext_resource type="Resource" uid="uid://dxh8p5wnqufx" path="res://statuses/kyat.tres" id="2_bxua3"]
+[ext_resource type="Script" uid="uid://daarkeekmj616" path="res://statuses/provokasi.gd" id="3_4ccpm"]
+
+[resource]
+script = ExtResource("3_4ccpm")
+kuat_status = ExtResource("2_bxua3")
+id = "provokasi"
+stack_type = 1
+stacks = 1
+icon = ExtResource("1_ntvst")
+tooltip = "Provokasi: +1 Kyat jika kartu blok dimainkan"
+metadata/_custom_type_script = "uid://bmqr6s36ylwlo"

@@ -13,12 +13,13 @@ signal damaged(amount: int)
 @onready var stats_ui: StatsUI = $StatsUI as StatsUI
 @onready var intent_ui: IntentUI = $IntentUI as IntentUI
 @onready var status_handler: StatusHandler = $StatusHandler
+
 @export var stunned_intent: Intent
+@export var kebal_status: Status 
 
 var enemy_action_picker: EnemyActionPicker
 var current_action: EnemyAction : set = set_current_action
 
-# --- FLAGS FOR SENGKUNI'S AMBUSH ---
 var opening_move_performed := false
 var doing_opening_move := false
 
@@ -80,9 +81,14 @@ func update_enemy() -> void:
 	setup_ai()
 	update_stats()
 	
+	# --- MODIFIED: Added Duryudana's opening move check! ---
 	if stats.id == "Sengkuni" and not opening_move_performed:
 		opening_move_performed = true
 		_apply_opening_move()
+	elif stats.id == "Duryudana" and not opening_move_performed:
+		opening_move_performed = true
+		# Using call_deferred so it waits for the Minions to spawn first!
+		call_deferred("_apply_diamond_body")
 
 func _apply_opening_move() -> void:
 	await get_tree().process_frame 
@@ -166,12 +172,22 @@ func do_turn() -> void:
 			)
 
 func take_damage(damage: int, which_modifier: Modifier.Type) -> void:
-	
 	if stats.health <= 0:
 		return
 	
+	var actual_damage = damage
+	if stats.id == "Duryudana" and status_handler:
+		# Loop through the UI elements
+		for child in status_handler.get_children():
+			var status_data = child.get("status") 
+			if status_data and status_data.id == "kebal":
+				actual_damage = 0
+				print("BLOCKED! Diamond Body reduced damage to 0!")
+				break
+
 	sprite_2d.material = WHITE_SPRITE_MATERIAL
-	var modified_damage := modifier_handler.get_modified_value(damage, which_modifier)
+	
+	var modified_damage := modifier_handler.get_modified_value(actual_damage, which_modifier)
 	
 	var tween := create_tween()
 	tween.tween_callback(Shaker.shake.bind(self, 16, 0.15))
@@ -195,3 +211,12 @@ func _on_area_exited(_area: Area2D) -> void:
 
 func _on_area_entered(_area: Area2D) -> void:
 	arrow.show()
+
+func _apply_diamond_body() -> void:
+	var handler = get_node_or_null("StatusHandler")
+	if handler and kebal_status:
+		var starting_kebal = kebal_status.duplicate() as Status
+		starting_kebal.stacks = 1
+		
+		handler.add_status(starting_kebal)
+		print("Phase 1: Duryudana enters the battlefield with Kekebalan Gandari!")

@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://cvvj2jthx5m1u"]
+
+[ext_resource type="Script" uid="uid://c02emn3b1g806" path="res://Scene/Enemy/enemy_action_picker.gd" id="1_su6ve"]
+[ext_resource type="Script" uid="uid://cc3d2lsk7wlji" path="res://enemies/duryudana/siap_gada.gd" id="2_ajpct"]
+[ext_resource type="Script" uid="uid://hh5rch3qjtxb" path="res://enemies/duryudana/kiamat_gada.gd" id="3_16ou2"]
+
+[node name="DursasanaAI" type="Node"]
+script = ExtResource("1_su6ve")
+
+[node name="SiapGada" type="Node" parent="."]
+script = ExtResource("2_ajpct")
+type = 1
+chance_weight = 3.0
+
+[node name="KiamatGada" type="Node" parent="."]
+script = ExtResource("3_16ou2")

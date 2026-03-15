@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="StatusBerduri" load_steps=3 format=3 uid="uid://vnx12rcw3ip8"]
+
+[ext_resource type="Texture2D" uid="uid://da7gs3m0pg725" path="res://art/berduri.png" id="1_5qcpc"]
+[ext_resource type="Script" uid="uid://dkpnq4lfuwwyc" path="res://statuses/beduri.gd" id="1_ebusb"]
+
+[resource]
+script = ExtResource("1_ebusb")
+id = "berduri"
+stacks = 1
+icon = ExtResource("1_5qcpc")
+metadata/_custom_type_script = "uid://bmqr6s36ylwlo"

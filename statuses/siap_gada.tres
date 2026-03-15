@@ -6,6 +6,6 @@
 [resource]
 script = ExtResource("1_n5fra")
 rentan_status = ExtResource("1_pjwob")
-id = "siap_gada"
+id = "mengisi_gada"
 stacks = 1
 metadata/_custom_type_script = "uid://bmqr6s36ylwlo"

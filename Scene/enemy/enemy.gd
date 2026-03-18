@@ -15,8 +15,10 @@ signal damaged(amount: int)
 @onready var status_handler: StatusHandler = $StatusHandler
 
 @export var stunned_intent: Intent
-@export var kebal_status: Status 
+@export var kebal_status: Status
 @export var sumpah_status: Status
+@export var deflect_status: Status
+@export var sunset_vow: Status
 
 var enemy_action_picker: EnemyActionPicker
 var current_action: EnemyAction : set = set_current_action
@@ -93,7 +95,7 @@ func update_enemy() -> void:
 		call_deferred("_apply_sunset_vow")
 
 func _apply_opening_move() -> void:
-	await get_tree().process_frame 
+	await get_tree().process_frame
 	
 	if not enemy_action_picker:
 		return
@@ -103,12 +105,12 @@ func _apply_opening_move() -> void:
 
 	for action in enemy_action_picker.get_children():
 		if action is ActionPasangJerat:
-			doing_opening_move = true 
+			doing_opening_move = true
 			
 			action.enemy = self
 			action.target = player
 			action.perform_action()
-			current_action = action 
+			current_action = action
 			
 			_refresh_card_costs()
 			break
@@ -127,7 +129,7 @@ func update_intent() -> void:
 			intent_ui.update_intent(stunned_intent)
 			intent_ui.show()
 		else:
-			intent_ui.hide() 
+			intent_ui.hide()
 		return
 
 	intent_ui.show()
@@ -144,10 +146,14 @@ func _refresh_card_costs() -> void:
 func do_turn() -> void:
 	print("--- ENEMY TURN STARTING ---")
 	print("Enemy name: ", name)
-	print("Current Action picked: ", current_action) 
-	stats.block = 0
+	print("Current Action picked: ", current_action)
+	
+	if stats:
+		stats.block = 0
+		update_stats()
 	
 	if not current_action:
+		Events.enemy_action_completed.emit(self)
 		return
 	
 	var allowed_actions := 1
@@ -177,11 +183,30 @@ func take_damage(damage: int, which_modifier: Modifier.Type) -> void:
 	if stats.health <= 0:
 		return
 	
+	if stats.id == "Jayadrata":
+		var allies = []
+		var current_enemies = get_tree().get_nodes_in_group("enemies")
+		
+		for entity in current_enemies:
+			if entity != self and not entity.is_queued_for_deletion():
+				if entity.get("stats") and entity.stats.health > 0:
+					allies.append(entity)
+					
+		if allies.size() > 0:
+			var meat_shield = allies.pick_random()
+			print("Shiva's Boon triggered! Deflected ", damage, " damage to ", meat_shield.name)
+			
+			var deflect_tween = create_tween()
+			deflect_tween.tween_property(sprite_2d, "modulate", Color(0.8, 0.8, 0.8), 0.1)
+			deflect_tween.tween_property(sprite_2d, "modulate", Color.WHITE, 0.1)
+			
+			meat_shield.take_damage(damage, which_modifier)
+			return
+	
 	var actual_damage = damage
 	if stats.id == "Duryudana" and status_handler:
-		# Loop through the UI elements
 		for child in status_handler.get_children():
-			var status_data = child.get("status") 
+			var status_data = child.get("status")
 			if status_data and status_data.id == "kebal":
 				actual_damage = 0
 				print("BLOCKED! Diamond Body reduced damage to 0!")
@@ -208,7 +233,7 @@ func take_damage(damage: int, which_modifier: Modifier.Type) -> void:
 				queue_free()
 	)
 
-func _on_area_exited(_area: Area2D) -> void: 
+func _on_area_exited(_area: Area2D) -> void:
 	arrow.hide()
 
 func _on_area_entered(_area: Area2D) -> void:
@@ -225,9 +250,15 @@ func _apply_diamond_body() -> void:
 
 func _apply_sunset_vow() -> void:
 	var handler = get_node_or_null("StatusHandler")
-	if handler and sumpah_status:
-		var starting_vow = sumpah_status.duplicate() as Status
-		starting_vow.stacks = 8
-		
-		handler.add_status(starting_vow)
-		print("Jayadrata hides! The 8-turn Sunset Vow begins!")
+	if handler:
+		if sumpah_status:
+			var starting_vow = sumpah_status.duplicate() as Status
+			starting_vow.stacks = 8
+			handler.add_status(starting_vow)
+			print("Jayadrata hides! The 8-turn Sunset Vow begins!")
+			
+		if deflect_status:
+			var starting_deflect = deflect_status.duplicate() as Status
+			starting_deflect.stacks = 1
+			handler.add_status(starting_deflect)
+			print("Deflection Tooltip added to UI!")

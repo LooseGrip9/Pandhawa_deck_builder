@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://3b63da18oxtp"]
+
+[ext_resource type="PackedScene" uid="uid://dphwon1rajjyv" path="res://Scene/Enemy/enemy.tscn" id="1_2fc8q"]
+[ext_resource type="Resource" uid="uid://c6kv60ds7o2ek" path="res://enemies/jayadrata/jayadrata_enemy.tres" id="2_2fc8q"]
+[ext_resource type="Resource" uid="uid://di13vqgibh58q" path="res://statuses/perluindungan.tres" id="3_qg5qi"]
+[ext_resource type="Resource" uid="uid://d0gaam204cffn" path="res://statuses/sumpah_arjuna.tres" id="4_s2t7t"]
+[ext_resource type="Resource" uid="uid://c2gxjqxrqus5v" path="res://enemies/prajurit/prajurit_enemy.tres" id="5_p0as6"]
+
+[node name="Tier2Boss1" type="Node2D"]
+
+[node name="Enemy" parent="." instance=ExtResource("1_2fc8q")]
+position = Vector2(184, 71)
+stats = ExtResource("2_2fc8q")
+deflect_status = ExtResource("3_qg5qi")
+sunset_vow = ExtResource("4_s2t7t")
+
+[node name="Enemy2" parent="." instance=ExtResource("1_2fc8q")]
+position = Vector2(143, 98)
+stats = ExtResource("5_p0as6")
+
+[node name="Enemy3" parent="." instance=ExtResource("1_2fc8q")]
+position = Vector2(143, 44)
+stats = ExtResource("5_p0as6")
+
+[node name="Enemy4" parent="." instance=ExtResource("1_2fc8q")]
+position = Vector2(213, 101)
+stats = ExtResource("5_p0as6")
+
+[node name="Enemy5" parent="." instance=ExtResource("1_2fc8q")]
+position = Vector2(224, 39)
+stats = ExtResource("5_p0as6")

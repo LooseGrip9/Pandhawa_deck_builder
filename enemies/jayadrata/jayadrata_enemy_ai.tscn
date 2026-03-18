@@ -1,23 +1,61 @@
-[gd_scene load_steps=7 format=3 uid="uid://gywj5puv6mg7"]
+[gd_scene load_steps=17 format=3 uid="uid://gywj5puv6mg7"]
 
 [ext_resource type="Script" uid="uid://c02emn3b1g806" path="res://Scene/Enemy/enemy_action_picker.gd" id="1_komda"]
-[ext_resource type="Script" uid="uid://cyjlbm810q4wb" path="res://enemies/jayadrata/summon_kurawa_action.gd" id="2_f477l"]
-[ext_resource type="PackedScene" uid="uid://dbuc5are6xo1o" path="res://enemies/minion.tscn" id="3_6k0f2"]
-[ext_resource type="Texture2D" uid="uid://nbq17mcemwrw" path="res://art/bantuan.png" id="3_al866"]
+[ext_resource type="Script" uid="uid://dijqnexxeuqsv" path="res://enemies/jayadrata/tambah_blok_action.gd" id="2_f477l"]
+[ext_resource type="Script" uid="uid://rnakeisa1ic5" path="res://enemies/jayadrata/tambah_kyat_acction.gd" id="3_bpuyj"]
+[ext_resource type="Texture2D" uid="uid://c7ga1f7x27rxu" path="res://art/+blok.png" id="3_gi0g1"]
 [ext_resource type="Script" uid="uid://dpuqxpt0l6ehf" path="res://custom_resources/intent.gd" id="4_6k0f2"]
+[ext_resource type="Script" uid="uid://co0x6h13dwyr6" path="res://enemies/jayadrata/rentan_action.gd" id="4_al866"]
+[ext_resource type="Resource" uid="uid://dxh8p5wnqufx" path="res://statuses/kyat.tres" id="6_b1job"]
+[ext_resource type="Texture2D" uid="uid://boklhiqs1414d" path="res://art/tile_0115.png" id="7_fl6yi"]
+[ext_resource type="Resource" uid="uid://b325kob21iorq" path="res://statuses/rentan.tres" id="9_lxrgh"]
+[ext_resource type="Texture2D" uid="uid://c2xhttrclo1r7" path="res://art/tile_0116.png" id="10_33ubh"]
+[ext_resource type="Script" uid="uid://bob77egjea46j" path="res://enemies/jayadrata/panik.gd" id="11_b1job"]
+[ext_resource type="Texture2D" uid="uid://cqcal03735mv8" path="res://art/tile_0118.png" id="12_fl6yi"]
 
-[sub_resource type="Resource" id="Resource_1vu2k"]
+[sub_resource type="Resource" id="Resource_gi0g1"]
 script = ExtResource("4_6k0f2")
-icon = ExtResource("3_al866")
+base_text = "%s"
+icon = ExtResource("3_gi0g1")
+metadata/_custom_type_script = "uid://dpuqxpt0l6ehf"
+
+[sub_resource type="Resource" id="Resource_dg3px"]
+script = ExtResource("4_6k0f2")
+icon = ExtResource("7_fl6yi")
+metadata/_custom_type_script = "uid://dpuqxpt0l6ehf"
+
+[sub_resource type="Resource" id="Resource_87oky"]
+script = ExtResource("4_6k0f2")
+icon = ExtResource("10_33ubh")
+metadata/_custom_type_script = "uid://dpuqxpt0l6ehf"
+
+[sub_resource type="Resource" id="Resource_lxrgh"]
+script = ExtResource("4_6k0f2")
+icon = ExtResource("12_fl6yi")
 metadata/_custom_type_script = "uid://dpuqxpt0l6ehf"
 
 [node name="JayadrataAI" type="Node"]
 script = ExtResource("1_komda")
 
-[node name="SummonKurawaAction" type="Node" parent="."]
+[node name="TambahBlokAction" type="Node" parent="."]
 script = ExtResource("2_f477l")
-minion_scene = ExtResource("3_6k0f2")
-max_minions = 3
-intent = SubResource("Resource_1vu2k")
+intent = SubResource("Resource_gi0g1")
 type = 1
+chance_weight = 3.0
+
+[node name="TambahKyatAcction" type="Node" parent="."]
+script = ExtResource("3_bpuyj")
+kyat_resource = ExtResource("6_b1job")
+intent = SubResource("Resource_dg3px")
+type = 1
+
+[node name="RentanAction" type="Node" parent="."]
+script = ExtResource("4_al866")
+rentan_resource = ExtResource("9_lxrgh")
+intent = SubResource("Resource_87oky")
+type = 1
+
+[node name="Panik" type="Node" parent="."]
+script = ExtResource("11_b1job")
+intent = SubResource("Resource_lxrgh")
 chance_weight = 3.0

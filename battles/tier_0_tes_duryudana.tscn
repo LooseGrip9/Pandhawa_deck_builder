@@ -1,22 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://cykvcxgwblrgl"]
+[gd_scene load_steps=2 format=3 uid="uid://cykvcxgwblrgl"]
 
 [ext_resource type="PackedScene" uid="uid://dphwon1rajjyv" path="res://Scene/Enemy/enemy.tscn" id="1_7aw3i"]
-[ext_resource type="Resource" uid="uid://bv7dpsgstla2l" path="res://enemies/duryudana/duryudana_enemy.tres" id="2_r1oeg"]
-[ext_resource type="Resource" uid="uid://dltyjonleb3rq" path="res://statuses/kebal.tres" id="3_r1oeg"]
-[ext_resource type="Resource" uid="uid://iipheiwirlvf" path="res://enemies/dukun/dukun.tres" id="3_vcw33"]
-[ext_resource type="Resource" uid="uid://pbf0ovy8e41s" path="res://enemies/prajurit_kuda_armored/kuda_armor_enemy.tres" id="4_r1oeg"]
 
 [node name="Tier0Test" type="Node2D"]
 
 [node name="Enemy" parent="." instance=ExtResource("1_7aw3i")]
 position = Vector2(152, 69)
-stats = ExtResource("2_r1oeg")
-kebal_status = ExtResource("3_r1oeg")
 
 [node name="Enemy2" parent="." instance=ExtResource("1_7aw3i")]
 position = Vector2(211, 91)
-stats = ExtResource("3_vcw33")
 
 [node name="Enemy3" parent="." instance=ExtResource("1_7aw3i")]
 position = Vector2(211, 40)
-stats = ExtResource("4_r1oeg")

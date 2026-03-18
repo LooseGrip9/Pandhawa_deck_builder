@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Status" load_steps=3 format=3 uid="uid://di13vqgibh58q"]
+
+[ext_resource type="Script" uid="uid://bmqr6s36ylwlo" path="res://custom_resources/status.gd" id="1_ff24k"]
+[ext_resource type="Texture2D" uid="uid://blocvln1tojgt" path="res://art/perlindungan.png" id="1_qh7cf"]
+
+[resource]
+script = ExtResource("1_ff24k")
+id = "perlindungan"
+stacks = 1
+icon = ExtResource("1_qh7cf")
+metadata/_custom_type_script = "uid://bmqr6s36ylwlo"

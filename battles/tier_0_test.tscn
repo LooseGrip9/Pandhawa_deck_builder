@@ -1,10 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://e4i72gh1v5ix"]
+[gd_scene load_steps=4 format=3 uid="uid://e4i72gh1v5ix"]
 
 [ext_resource type="PackedScene" uid="uid://dphwon1rajjyv" path="res://Scene/Enemy/enemy.tscn" id="1_wr3jb"]
 [ext_resource type="Resource" uid="uid://c6kv60ds7o2ek" path="res://enemies/jayadrata/jayadrata_enemy.tres" id="2_wr3jb"]
+[ext_resource type="Resource" uid="uid://d0gaam204cffn" path="res://statuses/sumpah_arjuna.tres" id="3_puk33"]
 
 [node name="Tier0Test" type="Node2D"]
 
 [node name="Enemy" parent="." instance=ExtResource("1_wr3jb")]
 position = Vector2(197, 78)
 stats = ExtResource("2_wr3jb")
+sunset_vow = ExtResource("3_puk33")

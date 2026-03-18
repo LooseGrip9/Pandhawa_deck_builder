@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("2_mohnp")
-id = "ketakutan"
+id = "rentan"
 type = 1
 stack_type = 2
 can_expire = true

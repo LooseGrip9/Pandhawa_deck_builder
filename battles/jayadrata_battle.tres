@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="BattleStats" load_steps=3 format=3 uid="uid://bhm46k2l3jwhf"]
 
-[ext_resource type="PackedScene" uid="uid://cykvcxgwblrgl" path="res://battles/tier_0_tes_duryudana.tscn" id="1_d4hp7"]
+[ext_resource type="PackedScene" uid="uid://3b63da18oxtp" path="res://battles/JayadrataBattle.tscn" id="1_d4hp7"]
 [ext_resource type="Script" uid="uid://bvm4v1tb74khm" path="res://custom_resources/battle_stats.gd" id="2_576pm"]
 
 [resource]

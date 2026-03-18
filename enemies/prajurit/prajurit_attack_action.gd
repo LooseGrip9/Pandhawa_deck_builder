@@ -7,16 +7,18 @@ func perform_action() -> void:
 		return
 		
 	var modified_damage := damage
-	if enemy.modifier_handler:
+	if enemy.get("modifier_handler") and enemy.modifier_handler:
 		modified_damage = enemy.modifier_handler.get_modified_value(damage, Modifier.Type.DMG_DEALT)
 	
 	var tween := create_tween().set_trans(Tween.TRANS_QUINT)
-	var start := enemy.global_position
-	var end := target.global_position + Vector2.RIGHT * 32
+	
+	var start: Vector2 = enemy.global_position
+	var end: Vector2 = target.global_position + Vector2.RIGHT * 32
+	
 	var damage_effect := DamageEffect.new()
 	var target_array: Array[Node] = [target]
 	
-	damage_effect.amount = modified_damage 
+	damage_effect.amount = modified_damage
 	damage_effect.sound = sound
 	
 	tween.tween_property(enemy, "global_position", end, 0.4)
@@ -30,15 +32,22 @@ func perform_action() -> void:
 	)
 	
 func update_intent_text() -> void:
+	# 1. Safety Check: If enemy or target haven't been assigned yet, stop!
+	if not enemy or not target:
+		return
+		
 	var player := target as Player
 	if not player:
 		return
 		
 	var modified_dmg := damage
-	if enemy.modifier_handler:
+	
+	# 2. Safety Check: Ensure the enemy actually has a modifier_handler
+	if enemy.get("modifier_handler") and enemy.modifier_handler:
 		modified_dmg = enemy.modifier_handler.get_modified_value(damage, Modifier.Type.DMG_DEALT)
 		
-	if player.modifier_handler:
+	# 3. Safety Check: Ensure the player actually has a modifier_handler
+	if player.get("modifier_handler") and player.modifier_handler:
 		modified_dmg = player.modifier_handler.get_modified_value(modified_dmg, Modifier.Type.DMG_TAKEN)
 		
 	intent.current_text = intent.base_text % modified_dmg

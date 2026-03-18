@@ -43,34 +43,41 @@ func start_battle(char_stats: CharacterStats) -> void:
 func start_turn() -> void:
 	cards_played_this_turn = 0 
 	
-	if player:
-		player.has_taken_damage_this_turn = false
-	
+	# 1. Safety check for the Player node
+	if not is_instance_valid(player):
+		return
+		
+	player.has_taken_damage_this_turn = false
 	character.counter_damage = 0
 	
 	if not is_first_turn:
 		character.block = 0
 		
 	is_first_turn = false
-	
 	character.stats_changed.emit()
-	
 	character.reset_mana()
 	character.mana += pending_energy
 	pending_energy = 0
 	
-	
 	if turns_locked > 0:
 		hand.disable_hand()
 		hand.modulate = Color(0.5, 0.5, 0.5, 1.0)
-		print("Locked Turn! Remaining after this: ", turns_locked - 1)
 		turns_locked -= 1 
 	else:
 		hand.enable_hand()
 		hand.modulate = Color.WHITE
 	
 	relics.activate_relics_by_type(Relic.Type.START_OF_TURN)
-	player.status_handler.apply_statuses_by_type(Status.Type.START_OF_TURN)
+	
+	if player.get("status_handler") and is_instance_valid(player.status_handler):
+		player.status_handler.apply_statuses_by_type(Status.Type.START_OF_TURN)
+
+func end_turn() -> void:
+	hand.disable_hand()
+	relics.activate_relics_by_type(Relic.Type.END_OF_TURN)
+	
+	if is_instance_valid(player) and player.get("status_handler"):
+		player.status_handler.apply_statuses_by_type(Status.Type.END_OF_TURN)
 
 func _on_player_hand_drawn() -> void:
 	if hand.modulate != Color.WHITE:
@@ -79,10 +86,7 @@ func _on_player_hand_drawn() -> void:
 	else:
 		hand.enable_hand()
 
-func end_turn() -> void:
-	hand.disable_hand()
-	relics.activate_relics_by_type(Relic.Type.END_OF_TURN)
-	player.status_handler.apply_statuses_by_type(Status.Type.END_OF_TURN)
+
 
 func draw_card() -> void:
 		

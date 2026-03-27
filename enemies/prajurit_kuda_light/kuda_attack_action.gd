@@ -39,13 +39,11 @@ func perform_action() -> void:
 	# Dash forward
 	tween.tween_property(enemy, "global_position:x", target.global_position.x + 50, 0.2)
 	
-	# 2. THE FIXED ATTACK EXECUTION
-	# Using a lambda function ensures the damage and sound execute right on impact
 	tween.tween_callback(
 		func():
 			var damage_effect := DamageEffect.new()
 			damage_effect.amount = final_dmg
-			damage_effect.sound = sound # Adds your attack sound back in
+			damage_effect.sound = sound
 			damage_effect.execute([target])
 	)
 	

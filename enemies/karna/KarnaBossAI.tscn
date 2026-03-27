@@ -1,0 +1,87 @@
+[gd_scene load_steps=21 format=3 uid="uid://eerqw1ai1igl"]
+
+[ext_resource type="Script" uid="uid://c02emn3b1g806" path="res://Scene/Enemy/enemy_action_picker.gd" id="1_ys121"]
+[ext_resource type="Script" uid="uid://cb3t5u4imca7h" path="res://enemies/karna/agneyastra.gd" id="2_pj7xa"]
+[ext_resource type="Texture2D" uid="uid://dt2fg4710mqc8" path="res://art/agneyastra.png" id="3_5ubiy"]
+[ext_resource type="Script" uid="uid://csahh58p6vdft" path="res://enemies/karna/nagastra.gd" id="3_pj7xa"]
+[ext_resource type="Script" uid="uid://dpuqxpt0l6ehf" path="res://custom_resources/intent.gd" id="4_dplxh"]
+[ext_resource type="Script" uid="uid://b4re3r82prsjh" path="res://enemies/karna/brahmastra.gd" id="4_xvpqx"]
+[ext_resource type="Script" uid="uid://lv15mljelnad" path="res://enemies/karna/vasavi_shakti_charge.gd" id="5_qtwbg"]
+[ext_resource type="Texture2D" uid="uid://cny82mumxhbgl" path="res://art/Nagastra.png" id="6_dplxh"]
+[ext_resource type="Script" uid="uid://bvq4f4m3ii3yj" path="res://enemies/karna/vasavi_shakti_execute.gd" id="6_magrp"]
+[ext_resource type="Script" uid="uid://b1hne40u8b3i1" path="res://enemies/karna/bhargavastra.gd" id="6_q54kh"]
+[ext_resource type="Texture2D" uid="uid://ds20an6rjrcwp" path="res://art/Brahmastra copy.png" id="8_s8sxr"]
+[ext_resource type="Texture2D" uid="uid://c78fmfkgv0rl5" path="res://art/sashavicharge.png" id="10_o1rnl"]
+[ext_resource type="Texture2D" uid="uid://b6i2lr0j8jduh" path="res://art/sashaviexecute.png" id="12_4ksj3"]
+[ext_resource type="Texture2D" uid="uid://cy1xamlp0y0qf" path="res://art/bhargastra.png" id="14_4ksj3"]
+
+[sub_resource type="Resource" id="Resource_s8sxr"]
+script = ExtResource("4_dplxh")
+base_text = "%s"
+icon = ExtResource("3_5ubiy")
+metadata/_custom_type_script = "uid://dpuqxpt0l6ehf"
+
+[sub_resource type="Resource" id="Resource_73s06"]
+script = ExtResource("4_dplxh")
+base_text = "%s"
+icon = ExtResource("6_dplxh")
+metadata/_custom_type_script = "uid://dpuqxpt0l6ehf"
+
+[sub_resource type="Resource" id="Resource_o1rnl"]
+script = ExtResource("4_dplxh")
+base_text = "%s"
+icon = ExtResource("8_s8sxr")
+metadata/_custom_type_script = "uid://dpuqxpt0l6ehf"
+
+[sub_resource type="Resource" id="Resource_tijad"]
+script = ExtResource("4_dplxh")
+icon = ExtResource("10_o1rnl")
+metadata/_custom_type_script = "uid://dpuqxpt0l6ehf"
+
+[sub_resource type="Resource" id="Resource_sprhj"]
+script = ExtResource("4_dplxh")
+icon = ExtResource("12_4ksj3")
+metadata/_custom_type_script = "uid://dpuqxpt0l6ehf"
+
+[sub_resource type="Resource" id="Resource_y22os"]
+script = ExtResource("4_dplxh")
+base_text = "%s"
+icon = ExtResource("14_4ksj3")
+metadata/_custom_type_script = "uid://dpuqxpt0l6ehf"
+
+[node name="KarnaAI" type="Node"]
+script = ExtResource("1_ys121")
+
+[node name="Agneyastra" type="Node" parent="."]
+script = ExtResource("2_pj7xa")
+intent = SubResource("Resource_s8sxr")
+type = 1
+chance_weight = 2.0
+
+[node name="Nagastra" type="Node" parent="."]
+script = ExtResource("3_pj7xa")
+intent = SubResource("Resource_73s06")
+type = 1
+chance_weight = 2.0
+
+[node name="Brahmastra" type="Node" parent="."]
+script = ExtResource("4_xvpqx")
+intent = SubResource("Resource_o1rnl")
+type = 1
+chance_weight = 2.0
+
+[node name="VasaviShaktiCharge" type="Node" parent="."]
+script = ExtResource("5_qtwbg")
+intent = SubResource("Resource_tijad")
+type = 1
+chance_weight = 2.0
+
+[node name="VasaviShaktiExecute" type="Node" parent="."]
+script = ExtResource("6_magrp")
+intent = SubResource("Resource_sprhj")
+
+[node name="Bhargavastra" type="Node" parent="."]
+script = ExtResource("6_q54kh")
+intent = SubResource("Resource_y22os")
+type = 1
+chance_weight = 2.0

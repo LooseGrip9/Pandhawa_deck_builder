@@ -1,0 +1,63 @@
+[gd_scene load_steps=16 format=3 uid="uid://10amef1lsj05"]
+
+[ext_resource type="Script" uid="uid://c02emn3b1g806" path="res://Scene/Enemy/enemy_action_picker.gd" id="1_v4rrk"]
+[ext_resource type="Script" uid="uid://w04lrc63pv8c" path="res://enemies/salya/duka_setyowati.gd" id="2_1v6ts"]
+[ext_resource type="Resource" uid="uid://brok0juudqgiy" path="res://statuses/lemah.tres" id="3_v8the"]
+[ext_resource type="Texture2D" uid="uid://653ti03yxm8n" path="res://art/brokenHeart.png" id="4_etxgm"]
+[ext_resource type="Script" uid="uid://dpuqxpt0l6ehf" path="res://custom_resources/intent.gd" id="5_cmj0h"]
+[ext_resource type="Script" uid="uid://danshu68pbtuh" path="res://enemies/salya/resonansi_chandra_birawa.gd" id="6_csb0y"]
+[ext_resource type="Texture2D" uid="uid://pkmyft65wbb" path="res://art/chandrabirawa.png" id="7_etxgm"]
+[ext_resource type="Script" uid="uid://diqvvpk5l0r0m" path="res://enemies/salya/panah_wijayadanu.gd" id="7_v775r"]
+[ext_resource type="Script" uid="uid://dspoluvyv2eio" path="res://enemies/salya/ratha_madra.gd" id="8_kf3fb"]
+[ext_resource type="Texture2D" uid="uid://dqh1hydsd8uto" path="res://art/Gada.png" id="9_1v6ts"]
+[ext_resource type="Texture2D" uid="uid://baw2fydpd2l5h" path="res://art/wijayadanu.png" id="9_cmj0h"]
+
+[sub_resource type="Resource" id="Resource_2lxi1"]
+script = ExtResource("5_cmj0h")
+icon = ExtResource("4_etxgm")
+metadata/_custom_type_script = "uid://dpuqxpt0l6ehf"
+
+[sub_resource type="Resource" id="Resource_csb0y"]
+script = ExtResource("5_cmj0h")
+icon = ExtResource("7_etxgm")
+metadata/_custom_type_script = "uid://dpuqxpt0l6ehf"
+
+[sub_resource type="Resource" id="Resource_v775r"]
+script = ExtResource("5_cmj0h")
+base_text = "%s"
+icon = ExtResource("9_cmj0h")
+metadata/_custom_type_script = "uid://dpuqxpt0l6ehf"
+
+[sub_resource type="Resource" id="Resource_hv8n3"]
+script = ExtResource("5_cmj0h")
+base_text = "%sx%s"
+icon = ExtResource("9_1v6ts")
+metadata/_custom_type_script = "uid://dpuqxpt0l6ehf"
+
+[node name="SalyaEnemyAI" type="Node"]
+script = ExtResource("1_v4rrk")
+
+[node name="DukaSetyowati" type="Node" parent="."]
+script = ExtResource("2_1v6ts")
+weak_status = ExtResource("3_v8the")
+is_attack = true
+intent = SubResource("Resource_2lxi1")
+type = 1
+chance_weight = 2.5
+
+[node name="ResonansiChandraBirawa" type="Node" parent="."]
+script = ExtResource("6_csb0y")
+intent = SubResource("Resource_csb0y")
+type = 1
+chance_weight = 2.5
+
+[node name="PanahWijayadanu" type="Node" parent="."]
+script = ExtResource("7_v775r")
+intent = SubResource("Resource_v775r")
+type = 1
+chance_weight = 2.5
+
+[node name="RathaMadra" type="Node" parent="."]
+script = ExtResource("8_kf3fb")
+intent = SubResource("Resource_hv8n3")
+chance_weight = 2.5

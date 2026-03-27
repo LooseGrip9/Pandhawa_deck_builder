@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="BattleStatsPool" load_steps=4 format=3 uid="uid://bypc0n773hdxi"]
 
 [ext_resource type="Script" uid="uid://bvm4v1tb74khm" path="res://custom_resources/battle_stats.gd" id="1_juyxj"]
-[ext_resource type="Resource" uid="uid://bhm46k2l3jwhf" path="res://battles/jayadrata_battle.tres" id="2_0yrcd"]
+[ext_resource type="Resource" uid="uid://cex0mt3sa2yh3" path="res://battles/salya_battle.tres" id="2_0yrcd"]
 [ext_resource type="Script" uid="uid://dqqsud6ikiinl" path="res://custom_resources/battle_stats_pool.gd" id="2_rrdqd"]
 
 [resource]

@@ -50,17 +50,13 @@ func perform_action() -> void:
 	damage_effect.amount = modified_damage 
 	damage_effect.sound = sound
 	
-	# Using TRANS_BACK for a mechanical "snap" feel
 	var tween := create_tween().set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 	var original_pos := enemy.global_position
 	
-	# 1. Fire and Recoil
-	# Quick kick back (12 pixels) and snap back to position
 	tween.tween_property(enemy, "global_position:x", original_pos.x + 12, 0.05)
 	tween.tween_callback(damage_effect.execute.bind(target_array))
 	tween.tween_property(enemy, "global_position:x", original_pos.x, 0.1)
 	
-	# 2. Brief pause before finishing turn
 	tween.tween_interval(0.2)
 	
 	tween.finished.connect(

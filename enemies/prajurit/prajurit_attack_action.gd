@@ -32,7 +32,6 @@ func perform_action() -> void:
 	)
 	
 func update_intent_text() -> void:
-	# 1. Safety Check: If enemy or target haven't been assigned yet, stop!
 	if not enemy or not target:
 		return
 		
@@ -42,11 +41,9 @@ func update_intent_text() -> void:
 		
 	var modified_dmg := damage
 	
-	# 2. Safety Check: Ensure the enemy actually has a modifier_handler
 	if enemy.get("modifier_handler") and enemy.modifier_handler:
 		modified_dmg = enemy.modifier_handler.get_modified_value(damage, Modifier.Type.DMG_DEALT)
 		
-	# 3. Safety Check: Ensure the player actually has a modifier_handler
 	if player.get("modifier_handler") and player.modifier_handler:
 		modified_dmg = player.modifier_handler.get_modified_value(modified_dmg, Modifier.Type.DMG_TAKEN)
 		

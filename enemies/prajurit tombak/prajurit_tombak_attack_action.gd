@@ -1,6 +1,3 @@
-#meta-name: EnemyAction
-#meta-description: an action which can be performed
-
 extends EnemyAction
 
 @export var damage := 3

@@ -17,16 +17,12 @@ func perform_action() -> void:
 	var tween := create_tween()
 	var original_pos := enemy.global_position
 
-	# --- STAGE 1: ENTERING THE TRANCE ---
 	tween.tween_property(enemy, "global_position:y", original_pos.y - 10, 0.2)
 	if enemy.sprite_2d:
-		# Dark blood-red pulse
 		tween.parallel().tween_property(enemy.sprite_2d, "modulate", Color(0.8, 0.1, 0.2), 0.3) 
 
-	# --- STAGE 2: APPLY BLOCK AND SANTET ---
 	tween.tween_callback(
 		func():
-			# Gain block
 			var block_effect := BlockEffect.new()
 			block_effect.amount = inherent_block
 			if sound:

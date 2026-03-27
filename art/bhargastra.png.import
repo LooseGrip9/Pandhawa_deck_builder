@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bxgrktox5it82"
-path="res://.godot/imported/tile_0105.png-5faa2bfc8b7b28fbd423beb6b7ad73dd.ctex"
+uid="uid://cy1xamlp0y0qf"
+path="res://.godot/imported/bhargastra.png-b2fba1d1229a68a6395f3165ea5ff51d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/tile_0105.png"
-dest_files=["res://.godot/imported/tile_0105.png-5faa2bfc8b7b28fbd423beb6b7ad73dd.ctex"]
+source_file="res://art/bhargastra.png"
+dest_files=["res://.godot/imported/bhargastra.png-b2fba1d1229a68a6395f3165ea5ff51d.ctex"]
 
 [params]
 

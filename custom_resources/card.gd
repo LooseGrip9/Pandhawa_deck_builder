@@ -51,7 +51,6 @@ func play(targets: Array[Node], char_stats: CharacterStats, _modifiers: Modifier
 	
 	var final_cost = cost
 	
-	# Check for Chaos Relic override on the CardUI in hand
 	var cards = tree.get_nodes_in_group("cards_in_hand")
 	for c_ui in cards:
 		if c_ui.get("card") == self and c_ui.get("cost_override") != null and c_ui.cost_override != -1:
@@ -77,7 +76,6 @@ func apply_effects(_targets: Array[Node], _modifiers: ModifierHandler) -> void:
 func get_default_tooltip() -> String:
 	return tooltip_text
 
-# NEW: Helper for your CardTooltipPopup flavour_etxt label
 func get_flavour_text() -> String:
 	return flavour_text
 
@@ -94,7 +92,6 @@ func get_updated_tooltip(player_modifiers: ModifierHandler, enemy_modifiers: Mod
 
 	var values = []
 	
-	# Use "get" to check for variables in subclasses (like AttackCard)
 	var dmg_val = get("base_damage")
 	if dmg_val != null:
 		var base_with_bonus = int(dmg_val) + bonus

@@ -26,19 +26,15 @@ func perform_action() -> void:
 	tween.tween_callback(func():
 		var new_minion = minion_scene.instantiate() as Enemy
 		if new_minion:
-			# 1. Add minion to the world
 			enemy.get_parent().add_child(new_minion)
 			
-			# 2. Position in the ring (30px to 60px)
 			var angle = randf() * TAU
 			var distance = randf_range(30, 60)
 			new_minion.global_position = enemy.global_position + (Vector2.from_angle(angle) * distance)
 			
-			# 3. Force base initialization
 			if new_minion.has_method("update_enemy"):
 				new_minion.update_enemy()
 			
-			# 4. THE ULTIMATE TETHER
 			var picker: EnemyActionPicker = null
 			for child in new_minion.get_children():
 				if child is EnemyActionPicker:
@@ -49,12 +45,10 @@ func perform_action() -> void:
 				picker.enemy = new_minion
 				var chosen = picker.get_action()
 				if chosen:
-					# Force the action into the scene tree so it CANNOT be freed
 					if chosen.get_parent():
 						chosen.get_parent().remove_child(chosen)
 					new_minion.add_child(chosen)
 					
-					# Link it and update UI
 					chosen.enemy = new_minion
 					new_minion.current_action = chosen
 					new_minion.current_action.update_intent_text()
@@ -77,10 +71,8 @@ func perform_action() -> void:
 							Events.connect(s.name, callable_func)
 						break
 				
-				# Manually trigger the first turn
 				new_minion.call_deferred(turn_func)
 
-			# 6. Spawn Animation
 			new_minion.scale = Vector2.ZERO
 			var spawn_tween = new_minion.create_tween()
 			spawn_tween.tween_property(new_minion, "scale", Vector2.ONE, 0.3).set_trans(Tween.TRANS_BOUNCE)

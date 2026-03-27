@@ -57,9 +57,7 @@ func update_intent_text() -> void:
 	if enemy.modifier_handler:
 		modified_dmg = enemy.modifier_handler.get_modified_value(modified_dmg, Modifier.Type.DMG_DEALT)
 	
-	# Check for "macet" status to show only 1 hit if jammed
 	var jam_status = enemy.status_handler.get_status("macet")
 	var displayed_hits = 1 if jam_status else hit_count
 	
-	# Fixes the "%s x %s" visual issue
 	intent.current_text = intent.base_text % [modified_dmg, displayed_hits]

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="BattleStats" load_steps=3 format=3 uid="uid://cex0mt3sa2yh3"]
+
+[ext_resource type="PackedScene" uid="uid://bw8vyu36ou51" path="res://battles/SalyaBattle.tscn" id="1_kywi4"]
+[ext_resource type="Script" uid="uid://bvm4v1tb74khm" path="res://custom_resources/battle_stats.gd" id="2_p37iu"]
+
+[resource]
+script = ExtResource("2_p37iu")
+weight = 2.5
+gold_max = 500
+gold_min = 50
+enemies = ExtResource("1_kywi4")
+metadata/_custom_type_script = "uid://bvm4v1tb74khm"

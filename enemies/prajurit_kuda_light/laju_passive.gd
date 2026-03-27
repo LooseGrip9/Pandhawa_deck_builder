@@ -2,7 +2,7 @@ class_name LajuPassive
 extends Node
 
 var enemy: Enemy : set = _set_enemy
-var target: Node2D # <-- ADD THIS LINE: It catches the target assigned by the Action Picker
+var target: Node2D
 
 func _set_enemy(value: Enemy) -> void:
 	enemy = value

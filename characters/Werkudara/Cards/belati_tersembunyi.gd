@@ -22,12 +22,10 @@ func apply_effects(targets: Array[Node], modifiers: ModifierHandler) -> void:
 	damage_effect.sound = sound
 	damage_effect.execute(targets)
 	
-	# 2. Apply the Poison Status to each target
 	for target in targets:
 		if not is_instance_valid(target):
 			continue
 			
-		# Check if the target has a StatusHandler (enemies should!)
 		if target.get("status_handler") and poison_status:
 			var status_to_apply = poison_status.duplicate()
 			status_to_apply.stacks = base_poison

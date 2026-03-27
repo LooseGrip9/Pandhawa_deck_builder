@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="EnemyStats" load_steps=4 format=3 uid="uid://c6kv60ds7o2ek"]
 
 [ext_resource type="PackedScene" uid="uid://gywj5puv6mg7" path="res://enemies/jayadrata/jayadrata_enemy_ai.tscn" id="1_tvlci"]
-[ext_resource type="Texture2D" uid="uid://cfrsk7781kfh8" path="res://art/Dursasana.png" id="2_2otv6"]
+[ext_resource type="Texture2D" uid="uid://dhnci3ec21icw" path="res://art/jayadrata.png" id="2_tvlci"]
 [ext_resource type="Script" uid="uid://47ihu4inrweu" path="res://custom_resources/enemy_stats.gd" id="3_flg1w"]
 
 [resource]
@@ -9,5 +9,5 @@ script = ExtResource("3_flg1w")
 ai = ExtResource("1_tvlci")
 id = "Jayadrata"
 max_health = 150
-art = ExtResource("2_2otv6")
+art = ExtResource("2_tvlci")
 metadata/_custom_type_script = "uid://47ihu4inrweu"

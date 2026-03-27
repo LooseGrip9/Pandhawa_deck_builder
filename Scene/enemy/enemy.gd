@@ -39,18 +39,19 @@ func set_current_action(value: EnemyAction)-> void:
 	update_intent()
 
 func set_enemy_stats(value: EnemyStats) -> void:
+	if not value: return
 	stats = value.create_instance()
 	
 	if not stats.stats_changed.is_connected(update_stats):
 		stats.stats_changed.connect(update_stats)
 		stats.stats_changed.connect(update_action)
-		
 		update_enemy()
 
 func setup_ai() -> void:
 	if enemy_action_picker:
 		enemy_action_picker.queue_free()
 	
+	if not stats or not stats.ai: return
 	var new_action_picker := stats.ai.instantiate() as EnemyActionPicker
 	
 	if new_action_picker:
@@ -59,9 +60,7 @@ func setup_ai() -> void:
 		enemy_action_picker.enemy = self
 
 func update_action() -> void:
-	if not enemy_action_picker:
-		return
-	
+	if not enemy_action_picker: return
 	if not current_action:
 		current_action = enemy_action_picker.get_action()
 		return
@@ -74,10 +73,8 @@ func update_stats() -> void:
 	stats_ui.update_stats(stats)
 
 func update_enemy() -> void:
-	if not stats is Stats:
-		return
-	if not is_inside_tree():
-		await ready
+	if not stats is Stats: return
+	if not is_inside_tree(): await ready
 	
 	sprite_2d.texture = stats.art
 	arrow.position = Vector2.RIGHT * (sprite_2d.get_rect().size.x / 2 + ARROW_OFFSET)
@@ -93,36 +90,35 @@ func update_enemy() -> void:
 	elif stats.id == "Jayadrata" and not opening_move_performed:
 		opening_move_performed = true
 		call_deferred("_apply_sunset_vow")
+	elif stats.id == "Karna" and not opening_move_performed:
+		opening_move_performed = true
+		call_deferred("_apply_divine_will")
 
 func _apply_opening_move() -> void:
 	await get_tree().process_frame
-	
-	if not enemy_action_picker:
-		return
-
+	if not enemy_action_picker: return
 	var player = get_tree().get_first_node_in_group("player")
 	if not player: return
 
 	for action in enemy_action_picker.get_children():
 		if action is ActionPasangJerat:
 			doing_opening_move = true
-			
 			action.enemy = self
 			action.target = player
 			action.perform_action()
 			current_action = action
-			
 			_refresh_card_costs()
 			break
 
 func update_intent() -> void:
-	if not is_inside_tree() or stats.health <= 0:
-		return
+	if not stats or not is_inside_tree() or stats.health <= 0: return
 
 	var allowed_actions := 1
-	
 	if modifier_handler:
 		allowed_actions = modifier_handler.get_modified_value(allowed_actions, Modifier.Type.ACTION_COUNT)
+	
+	if stats.id == "Karna":
+		allowed_actions = max(1, allowed_actions)
 	
 	if allowed_actions <= 0:
 		if stunned_intent:
@@ -144,22 +140,16 @@ func _refresh_card_costs() -> void:
 			card_ui._recheck_playability()
 
 func do_turn() -> void:
-	print("--- ENEMY TURN STARTING ---")
-	print("Enemy name: ", name)
-	print("Current Action picked: ", current_action)
-	
-	if stats:
-		stats.block = 0
-		update_stats()
-	
 	if not current_action:
 		Events.enemy_action_completed.emit(self)
 		return
 	
 	var allowed_actions := 1
-	
 	if modifier_handler:
 		allowed_actions = modifier_handler.get_modified_value(allowed_actions, Modifier.Type.ACTION_COUNT)
+	
+	if stats.id == "Karna":
+		allowed_actions = max(1, allowed_actions)
 	
 	if allowed_actions <= 0:
 		Events.enemy_action_completed.emit(self)
@@ -168,7 +158,6 @@ func do_turn() -> void:
 	current_action.perform_action()
 	
 	var player = get_tree().get_first_node_in_group("player")
-	
 	if player and player.get("stats"):
 		var player_stats = player.stats as Stats
 		var action_name : String = current_action.get_script().get_path().to_lower()
@@ -180,73 +169,66 @@ func do_turn() -> void:
 			)
 
 func take_damage(damage: int, which_modifier: Modifier.Type) -> void:
-	if stats.health <= 0:
-		return
+	if not stats or stats.health <= 0: return
 	
 	if stats.id == "Jayadrata":
 		var allies = []
 		var current_enemies = get_tree().get_nodes_in_group("enemies")
-		
 		for entity in current_enemies:
 			if entity != self and not entity.is_queued_for_deletion():
 				if entity.get("stats") and entity.stats.health > 0:
 					allies.append(entity)
-					
 		if allies.size() > 0:
 			var meat_shield = allies.pick_random()
-			print("Shiva's Boon triggered! Deflected ", damage, " damage to ", meat_shield.name)
-			
 			var deflect_tween = create_tween()
 			deflect_tween.tween_property(sprite_2d, "modulate", Color(0.8, 0.8, 0.8), 0.1)
 			deflect_tween.tween_property(sprite_2d, "modulate", Color.WHITE, 0.1)
-			
 			meat_shield.take_damage(damage, which_modifier)
 			return
 	
+	if stats.counter_damage > 0 and damage > 0:
+		var player = get_tree().get_first_node_in_group("player")
+		if player:
+			get_tree().create_timer(0.4).timeout.connect(func():
+				if player.has_method("take_damage"):
+					player.take_damage(stats.counter_damage, Modifier.Type.NO_MODIFIER)
+				elif player.get("stats"):
+					player.stats.take_damage(stats.counter_damage) 
+			)
+
 	var actual_damage = damage
 	if stats.id == "Duryudana" and status_handler:
 		for child in status_handler.get_children():
 			var status_data = child.get("status")
 			if status_data and status_data.id == "kebal":
 				actual_damage = 0
-				print("BLOCKED! Diamond Body reduced damage to 0!")
 				break
 
 	sprite_2d.material = WHITE_SPRITE_MATERIAL
-	
 	var modified_damage := modifier_handler.get_modified_value(actual_damage, which_modifier)
 	
 	var tween := create_tween()
 	tween.tween_callback(Shaker.shake.bind(self, 16, 0.15))
 	tween.tween_callback(stats.take_damage.bind(modified_damage))
-	
 	tween.tween_callback(func(): damaged.emit(modified_damage))
-	
 	tween.tween_interval(0.2)
-	
 	tween.finished.connect(
 		func():
 			sprite_2d.material = null
-			
 			if stats.health <= 0:
 				Events.enemy_died.emit(self)
 				queue_free()
 	)
 
-func _on_area_exited(_area: Area2D) -> void:
-	arrow.hide()
-
-func _on_area_entered(_area: Area2D) -> void:
-	arrow.show()
+func _on_area_exited(_area: Area2D) -> void: arrow.hide()
+func _on_area_entered(_area: Area2D) -> void: arrow.show()
 
 func _apply_diamond_body() -> void:
 	var handler = get_node_or_null("StatusHandler")
 	if handler and kebal_status:
 		var starting_kebal = kebal_status.duplicate() as Status
 		starting_kebal.stacks = 1
-		
 		handler.add_status(starting_kebal)
-		print("Phase 1: Duryudana enters the battlefield with Kekebalan Gandari!")
 
 func _apply_sunset_vow() -> void:
 	var handler = get_node_or_null("StatusHandler")
@@ -255,10 +237,14 @@ func _apply_sunset_vow() -> void:
 			var starting_vow = sumpah_status.duplicate() as Status
 			starting_vow.stacks = 8
 			handler.add_status(starting_vow)
-			print("Jayadrata hides! The 8-turn Sunset Vow begins!")
-			
 		if deflect_status:
 			var starting_deflect = deflect_status.duplicate() as Status
 			starting_deflect.stacks = 1
 			handler.add_status(starting_deflect)
-			print("Deflection Tooltip added to UI!")
+
+func _apply_divine_will() -> void:
+	var handler = get_node_or_null("StatusHandler")
+	if handler and deflect_status:
+		var starting_will = deflect_status.duplicate() as Status
+		starting_will.id = "unstoppable"
+		handler.add_status(starting_will)

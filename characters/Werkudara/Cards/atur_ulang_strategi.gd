@@ -10,7 +10,6 @@ func get_updated_tooltip(_player_modifiers: ModifierHandler, _enemy_modifiers: M
 	return tooltip_text
 
 func apply_effects(targets: Array[Node], _modifiers: ModifierHandler) -> void:
-	# 1. Apply Block
 	for target in targets:
 		var stats = target.get("stats") as CharacterStats
 		if stats:

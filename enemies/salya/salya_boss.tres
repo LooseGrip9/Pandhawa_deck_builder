@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="EnemyStats" load_steps=4 format=3 uid="uid://c8sh667wo670t"]
+
+[ext_resource type="PackedScene" uid="uid://10amef1lsj05" path="res://enemies/salya/salya_boss_ai.tscn" id="1_4tvmb"]
+[ext_resource type="Texture2D" uid="uid://yb8j8m0dkfgw" path="res://art/prabu_salya.png" id="2_4tvmb"]
+[ext_resource type="Script" uid="uid://47ihu4inrweu" path="res://custom_resources/enemy_stats.gd" id="3_dr6h5"]
+
+[resource]
+script = ExtResource("3_dr6h5")
+ai = ExtResource("1_4tvmb")
+id = "prabu_salya"
+max_health = 120
+art = ExtResource("2_4tvmb")
+metadata/_custom_type_script = "uid://47ihu4inrweu"

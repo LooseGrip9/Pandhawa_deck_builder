@@ -25,15 +25,11 @@ func _on_turn_ended() -> void:
 	var player = tree.get_first_node_in_group("player")
 	if not player: return
 
-	# 1. THE CLEANUP: Remove the temporary Kyat resource
 	if applied_kyat and player.get("status_handler"):
-		# Set stacks to 0. Most StatusHandlers automatically delete 
-		# the status from the UI when stacks hit 0.
 		applied_kyat.stacks = 0 
 		applied_kyat = null
 		print("RELIC: Turn ended. Tasbih Indrakila Kyat faded.")
 
-	# 2. THE CHECK: Do we have unused mana?
 	if player.get("stats") and player.stats.mana > 0:
 		is_primed = true
 		current_relic_ui.flash()
@@ -48,14 +44,11 @@ func _on_turn_started() -> void:
 	var tree = current_relic_ui.get_tree()
 	var player = tree.get_first_node_in_group("player")
 	
-	# 3. THE BUFF: Duplicate the .tres resource exactly like your 'lemah' script
 	if player and player.get("status_handler") and status_to_apply:
 		
-		# Duplicate creates a temporary clone of the Resource
 		applied_kyat = status_to_apply.duplicate() as Status
 		applied_kyat.stacks = kyat_amount
 		
-		# Add it cleanly to the handler
 		player.status_handler.add_status(applied_kyat)
 			
 		is_primed = false 

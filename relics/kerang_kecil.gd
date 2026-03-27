@@ -1,4 +1,3 @@
-# small_conch.gd
 extends Relic
 
 var cards_played_this_turn := 0
@@ -37,7 +36,6 @@ func _set_free_card_flag(is_free: bool) -> void:
 	if player_handler:
 		player_handler.next_card_is_free = is_free
 		
-		# Force the UI to refresh so you can see if the card is playable
 		var player = tree.get_first_node_in_group("player")
 		if player and player.stats:
 			player.stats.stats_changed.emit()

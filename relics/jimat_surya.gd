@@ -1,7 +1,7 @@
 extends Relic
 
 @export var initial_kyat := 1
-@export var kyat_status_res: KyatStatus # Drag your kyat_status.tres here [cite: 2026-02-12]
+@export var kyat_status_res: KyatStatus
 
 func activate_relic(relic_ui: RelicUI) -> void:
 	var tree = relic_ui.get_tree()

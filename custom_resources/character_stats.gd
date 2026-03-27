@@ -48,7 +48,6 @@ func create_instance() -> Resource:
 	instance.draw_pile = instance.deck.duplicate()
 	instance.discard = CardPile.new()
 	
-	# Safety: If the array is null for some reason, initialize it as empty
 	if starting_relics:
 		instance.starting_relics = starting_relics.duplicate()
 	else:

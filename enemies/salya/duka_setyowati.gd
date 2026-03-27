@@ -1,7 +1,8 @@
 class_name ActionSetyawatiSorrow
 extends EnemyAction
 
-@export var damage := 10
+@export var damage := 8
+@export var weak_status: Status
 
 func perform_action() -> void:
 	if not enemy or not target: return
@@ -20,7 +21,10 @@ func perform_action() -> void:
 		damage_effect.amount = modified_damage
 		damage_effect.execute([target])
 		
-		print("Salya's sorrow affects the player's strength!")
+		if target.get("status_handler") and weak_status:
+			var weak_instance = weak_status.duplicate()
+			target.status_handler.add_status(weak_instance)
+			print("Arjuna is dampened by the sorrow of Salya.")
 	)
 	
 	tween.tween_property(enemy, "global_position", start_pos, 0.4)
@@ -28,8 +32,12 @@ func perform_action() -> void:
 
 func update_intent_text() -> void:
 	if not enemy or not target or not is_inside_tree(): return
+	var player := target as Player
 	var modified_dmg := damage
+	
 	if enemy.get("modifier_handler") and enemy.modifier_handler:
 		modified_dmg = enemy.modifier_handler.get_modified_value(damage, Modifier.Type.DMG_DEALT)
+	if player and player.get("modifier_handler") and player.modifier_handler:
+		modified_dmg = player.modifier_handler.get_modified_value(modified_dmg, Modifier.Type.DMG_TAKEN)
 	
-	intent.current_text = intent.base_text % modified_dmg
+	intent.current_text = (intent.base_text % modified_dmg) + " & Lemah"

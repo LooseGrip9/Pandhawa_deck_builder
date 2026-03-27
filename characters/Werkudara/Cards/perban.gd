@@ -6,7 +6,7 @@ extends Card
 @export var heal_amount := 4
 @export var optional_sound: AudioStream
 
-var _already_healed := false # Guard variable
+var _already_healed := false
 
 func get_default_tooltip() -> String:
 	return tooltip_text

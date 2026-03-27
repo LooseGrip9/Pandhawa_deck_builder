@@ -25,10 +25,9 @@ func perform_action() -> void:
 		Events.enemy_action_completed.emit(enemy)
 		return
 	
-	# --- REVERTED TO YOUR EXACT ORIGINAL BLOCK LOGIC ---
 	var block_effect := BlockEffect.new()
 	block_effect.amount = inherent_block
-	block_effect.sound = sound # <--- This is the missing line!
+	block_effect.sound = sound
 	block_effect.execute([enemy])
 	
 	var final_dmg := base_damage

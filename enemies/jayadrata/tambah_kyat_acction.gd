@@ -41,14 +41,11 @@ func perform_action() -> void:
 			if ally != enemy:
 				
 				if kyat_resource:
-					# 1. Duplicate the resource to avoid modifying the original file
 					var applied_kyat = kyat_resource.duplicate()
 					
-					# 2. Set the values inside the resource object
 					applied_kyat.stacks = kyat_amount
-					applied_kyat.duration = kyat_amount # Crucial for 'Duration' stack types!
+					applied_kyat.duration = kyat_amount
 					
-					# 3. Pass only the ONE argument (the resource object)
 					if ally.get("status_handler") and ally.status_handler.has_method("add_status"):
 						ally.status_handler.add_status(applied_kyat)
 					elif ally.has_method("add_status"):

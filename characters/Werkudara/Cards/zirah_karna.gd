@@ -1,6 +1,3 @@
-#meta-name: Card Logic
-#meta-description : What happens when a card is played
-
 extends Card
 
 @export var optional_sound: AudioStream
@@ -16,7 +13,6 @@ func get_updated_tooltip(_player_modifiers: ModifierHandler, _enemy_modifiers: M
 	return tooltip_text
 
 func apply_effects(_targets: Array[Node], _modifiers: ModifierHandler) -> void:
-	# 1. Find the player
 	var tree = _targets[0].get_tree() if _targets.size() > 0 else Engine.get_main_loop()
 	var player_nodes = tree.get_nodes_in_group("player")
 	

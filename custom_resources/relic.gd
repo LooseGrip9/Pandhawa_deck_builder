@@ -18,8 +18,6 @@ func initialize_relic(_owner: RelicUI) -> void:
 func activate_relic(_owner: RelicUI) -> void:
 	pass
 
-#method below is implemented bu event based relic
-#connect it to EventBus so they can get disconnected when a relic is removed
 func deactivate_relic(_owner: RelicUI) -> void:
 	pass
 

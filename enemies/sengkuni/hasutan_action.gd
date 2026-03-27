@@ -4,15 +4,12 @@ extends EnemyAction
 @export var base_damage: int = 5
 @export var damage_per_card: int = 2
 
-# We store the "Captured" damage here so it doesn't reset when hand is discarded
 var captured_damage: int = 0
 
 func _ready() -> void:
-	# Snapshot the hand the moment the player ends their turn
 	Events.player_turn_ended.connect(_on_player_turn_ended)
 
 func _on_player_turn_ended() -> void:
-	# Calculate and lock in the damage BEFORE the discard animation starts
 	captured_damage = get_raw_damage()
 	print("Sengkuni locked in Hasutan damage: ", captured_damage)
 
@@ -52,7 +49,6 @@ func perform_action() -> void:
 	var end_pos := target.global_position
 	var original_scale := sprite.scale
 	
-	# Use the damage we locked in at the end of the player's turn
 	var final_dmg := captured_damage if captured_damage > 0 else get_raw_damage()
 	
 	if enemy.modifier_handler:

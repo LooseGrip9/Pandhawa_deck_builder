@@ -16,22 +16,18 @@ func perform_action() -> void:
 	var start_pos: Vector2 = enemy.global_position
 	var end_pos: Vector2 = target.global_position + Vector2.RIGHT * 32
 	
-	# Visual: Jayadrata lunges forward
 	tween.tween_property(enemy, "global_position", end_pos, 0.2)
 	
 	tween.tween_callback(func():
-		# 1. Deal Damage
 		var damage_effect := DamageEffect.new()
 		damage_effect.amount = modified_damage
 		damage_effect.execute([target])
 		
-		# 2. Gain Block
 		if enemy.stats:
 			enemy.stats.block += block_gain
 			enemy.update_stats()
 	)
 	
-	# Visual: Jayadrata retreats to original position
 	tween.tween_interval(0.1)
 	tween.tween_property(enemy, "global_position", start_pos, 0.2)
 	
@@ -46,14 +42,11 @@ func update_intent_text() -> void:
 	var player := target as Player
 	var modified_dmg := damage
 	
-	# Calculate damage based on attacker modifiers (Strength, Weak, etc.)
 	if enemy.get("modifier_handler") and enemy.modifier_handler:
 		modified_dmg = enemy.modifier_handler.get_modified_value(damage, Modifier.Type.DMG_DEALT)
 		
-	# Calculate damage based on target modifiers (Vulnerable, etc.)
 	if player and player.get("modifier_handler") and player.modifier_handler:
 		modified_dmg = player.modifier_handler.get_modified_value(modified_dmg, Modifier.Type.DMG_TAKEN)
 	
-	# This uses your Base Text for the number, then adds the "Sembunyi" text
 	var damage_string = intent.base_text % modified_dmg
 	intent.current_text = "%s & Sembunyi (+%d)" % [damage_string, block_gain]

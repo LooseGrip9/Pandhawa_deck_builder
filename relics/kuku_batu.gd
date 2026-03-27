@@ -1,11 +1,10 @@
 extends Relic
 
 @export var kyat_amount := 2
-# Preload your Kyat resource exactly like your 'lemah' example
 var kyat_status_to_apply: Status = preload("res://statuses/kyat.tres")
 
 var is_primed := false 
-var applied_kyat: Status = null # Track the duplicated resource for cleanup
+var applied_kyat: Status = null
 var current_relic_ui: RelicUI
 
 func activate_relic(relic_ui: RelicUI) -> void:

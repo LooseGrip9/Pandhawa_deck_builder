@@ -13,7 +13,6 @@ func apply_effects(targets: Array[Node], modifiers: ModifierHandler) -> void:
 		bonus = main_scene.stats.bonus_damage
 
 	var damage_effect := DamageEffect.new()
-	# Add the bonus to the base damage BEFORE modifiers are calculated
 	var final_base = base_damage + bonus
 	damage_effect.amount = modifiers.get_modified_value(final_base, Modifier.Type.DMG_DEALT)
 	damage_effect.sound = sound

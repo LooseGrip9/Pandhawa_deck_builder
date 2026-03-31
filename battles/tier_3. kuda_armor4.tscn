@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://bkmevhnveou68"]
+
+[ext_resource type="PackedScene" uid="uid://dphwon1rajjyv" path="res://Scene/Enemy/enemy.tscn" id="1_arxym"]
+[ext_resource type="Resource" uid="uid://pbf0ovy8e41s" path="res://enemies/prajurit_kuda_armored/kuda_armor_enemy.tres" id="2_juan5"]
+
+[node name="Tier_1_Prajurit_2_Tombak_2" type="Node2D"]
+
+[node name="Enemy2" parent="." instance=ExtResource("1_arxym")]
+position = Vector2(136, 98)
+stats = ExtResource("2_juan5")
+
+[node name="Enemy3" parent="." instance=ExtResource("1_arxym")]
+position = Vector2(136, 42)
+stats = ExtResource("2_juan5")
+
+[node name="Enemy4" parent="." instance=ExtResource("1_arxym")]
+position = Vector2(214, 42)
+stats = ExtResource("2_juan5")
+
+[node name="Enemy5" parent="." instance=ExtResource("1_arxym")]
+position = Vector2(214, 98)
+stats = ExtResource("2_juan5")

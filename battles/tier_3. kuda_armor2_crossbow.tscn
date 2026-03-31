@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://xqxwn3wqiobw"]
+
+[ext_resource type="PackedScene" uid="uid://dphwon1rajjyv" path="res://Scene/Enemy/enemy.tscn" id="1_oypvc"]
+[ext_resource type="Resource" uid="uid://pbf0ovy8e41s" path="res://enemies/prajurit_kuda_armored/kuda_armor_enemy.tres" id="2_2lgpm"]
+[ext_resource type="Resource" uid="uid://cf0jsabdtym1s" path="res://enemies/prajurit_crossbow/crossbow.tres" id="3_f0hyf"]
+
+[node name="Tier_1_Prajurit_2_Tombak_2" type="Node2D"]
+
+[node name="Enemy2" parent="." instance=ExtResource("1_oypvc")]
+position = Vector2(136, 98)
+stats = ExtResource("2_2lgpm")
+
+[node name="Enemy3" parent="." instance=ExtResource("1_oypvc")]
+position = Vector2(136, 42)
+stats = ExtResource("2_2lgpm")
+
+[node name="Enemy4" parent="." instance=ExtResource("1_oypvc")]
+position = Vector2(212, 73)
+stats = ExtResource("3_f0hyf")

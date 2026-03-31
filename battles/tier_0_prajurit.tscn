@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://bmf4oliymbaps"]
+[gd_scene load_steps=3 format=3 uid="uid://bmf4oliymbaps"]
 
 [ext_resource type="PackedScene" uid="uid://dphwon1rajjyv" path="res://Scene/Enemy/enemy.tscn" id="1_xjftv"]
+[ext_resource type="Resource" uid="uid://c2gxjqxrqus5v" path="res://enemies/prajurit/prajurit_enemy.tres" id="2_xjftv"]
 
 [node name="Tier_0_Prajurit" type="Node2D"]
 
 [node name="Enemy" parent="." instance=ExtResource("1_xjftv")]
 position = Vector2(197, 78)
+stats = ExtResource("2_xjftv")

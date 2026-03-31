@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://fto2vjb4kngj"]
+
+[ext_resource type="PackedScene" uid="uid://dphwon1rajjyv" path="res://Scene/Enemy/enemy.tscn" id="1_svhmg"]
+[ext_resource type="Resource" uid="uid://c2gxjqxrqus5v" path="res://enemies/prajurit/prajurit_enemy.tres" id="3_h0so4"]
+[ext_resource type="Resource" uid="uid://cnxb02jx4vbta" path="res://enemies/pembunuh/pembunuh_enemy.tres" id="3_svhmg"]
+
+[node name="Tier_1_Prajurit_2_Tombak_2" type="Node2D"]
+
+[node name="Enemy2" parent="." instance=ExtResource("1_svhmg")]
+position = Vector2(158, 98)
+stats = ExtResource("3_h0so4")
+
+[node name="Enemy3" parent="." instance=ExtResource("1_svhmg")]
+position = Vector2(157, 42)
+stats = ExtResource("3_h0so4")
+
+[node name="Enemy4" parent="." instance=ExtResource("1_svhmg")]
+position = Vector2(212, 72)
+stats = ExtResource("3_svhmg")

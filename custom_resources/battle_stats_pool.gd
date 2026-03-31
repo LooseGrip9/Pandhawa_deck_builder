@@ -3,7 +3,6 @@ extends Resource
 
 @export var pool: Array[BattleStats]
 
-# CHANGED: Exactly 4 slots for Tiers 0, 1, 2, and 3
 var total_weights_by_tier := [0.0, 0.0, 0.0, 0.0] 
 
 func get_battle_by_name(target_name: String) -> BattleStats:

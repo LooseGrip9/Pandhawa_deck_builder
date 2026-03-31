@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="BattleStats" load_steps=3 format=3 uid="uid://vtt8e883hy2"]
+
+[ext_resource type="PackedScene" uid="uid://0duosec2f5pn" path="res://battles/tier_2. resi2_pembunuh2.tscn" id="1_25xna"]
+[ext_resource type="Script" uid="uid://bvm4v1tb74khm" path="res://custom_resources/battle_stats.gd" id="2_bugky"]
+
+[resource]
+script = ExtResource("2_bugky")
+battle_tier = 2
+weight = 2.5
+gold_max = 300
+gold_min = 250
+enemies = ExtResource("1_25xna")
+metadata/_custom_type_script = "uid://bvm4v1tb74khm"

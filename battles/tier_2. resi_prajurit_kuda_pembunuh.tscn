@@ -1,0 +1,25 @@
+[gd_scene load_steps=6 format=3 uid="uid://bb8fal45nl7d4"]
+
+[ext_resource type="PackedScene" uid="uid://dphwon1rajjyv" path="res://Scene/Enemy/enemy.tscn" id="1_4lnjk"]
+[ext_resource type="Resource" uid="uid://c2gxjqxrqus5v" path="res://enemies/prajurit/prajurit_enemy.tres" id="2_nueik"]
+[ext_resource type="Resource" uid="uid://dtm0jw2h1l271" path="res://enemies/prajurit_kuda_light/kuda_enemy.tres" id="3_orxqe"]
+[ext_resource type="Resource" uid="uid://2pp8lu6hufb5" path="res://enemies/resi/resi_enemy.tres" id="4_0s3gf"]
+[ext_resource type="Resource" uid="uid://cnxb02jx4vbta" path="res://enemies/pembunuh/pembunuh_enemy.tres" id="5_wcui7"]
+
+[node name="Tier_1_Prajurit_2_Tombak_2" type="Node2D"]
+
+[node name="Enemy2" parent="." instance=ExtResource("1_4lnjk")]
+position = Vector2(136, 98)
+stats = ExtResource("2_nueik")
+
+[node name="Enemy3" parent="." instance=ExtResource("1_4lnjk")]
+position = Vector2(136, 42)
+stats = ExtResource("3_orxqe")
+
+[node name="Enemy4" parent="." instance=ExtResource("1_4lnjk")]
+position = Vector2(215, 98)
+stats = ExtResource("4_0s3gf")
+
+[node name="Enemy5" parent="." instance=ExtResource("1_4lnjk")]
+position = Vector2(214, 42)
+stats = ExtResource("5_wcui7")

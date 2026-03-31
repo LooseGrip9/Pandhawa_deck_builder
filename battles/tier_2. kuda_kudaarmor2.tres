@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="BattleStats" load_steps=3 format=3 uid="uid://b35j3khyfqcde"]
+
+[ext_resource type="PackedScene" uid="uid://bb8fal45nl7d4" path="res://battles/tier_2. resi_prajurit_kuda_pembunuh.tscn" id="1_ysvjw"]
+[ext_resource type="Script" uid="uid://bvm4v1tb74khm" path="res://custom_resources/battle_stats.gd" id="2_2y1kk"]
+
+[resource]
+script = ExtResource("2_2y1kk")
+battle_tier = 2
+weight = 2.5
+gold_max = 300
+gold_min = 250
+enemies = ExtResource("1_ysvjw")
+metadata/_custom_type_script = "uid://bvm4v1tb74khm"

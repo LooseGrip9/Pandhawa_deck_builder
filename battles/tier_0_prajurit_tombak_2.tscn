@@ -10,5 +10,5 @@ position = Vector2(210, 88)
 stats = ExtResource("2_gqpex")
 
 [node name="Enemy2" parent="." instance=ExtResource("1_7ndmv")]
-position = Vector2(164, 71)
+position = Vector2(152, 65)
 stats = ExtResource("2_gqpex")

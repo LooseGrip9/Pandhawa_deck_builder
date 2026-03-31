@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="BattleStats" load_steps=3 format=3 uid="uid://btdtnhx23exny"]
+
+[ext_resource type="PackedScene" uid="uid://dgerg3ttubpg8" path="res://battles/tier_1_prajuritkuda_crossbow.tscn" id="1_5tw6d"]
+[ext_resource type="Script" uid="uid://bvm4v1tb74khm" path="res://custom_resources/battle_stats.gd" id="2_2y1kk"]
+
+[resource]
+script = ExtResource("2_2y1kk")
+battle_tier = 1
+weight = 2.5
+gold_max = 250
+gold_min = 200
+enemies = ExtResource("1_5tw6d")
+metadata/_custom_type_script = "uid://bvm4v1tb74khm"

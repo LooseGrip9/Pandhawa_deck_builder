@@ -1,10 +1,22 @@
-[gd_resource type="Resource" script_class="BattleStatsPool" load_steps=4 format=3 uid="uid://bypc0n773hdxi"]
+[gd_resource type="Resource" script_class="BattleStatsPool" load_steps=16 format=3 uid="uid://bypc0n773hdxi"]
 
 [ext_resource type="Script" uid="uid://bvm4v1tb74khm" path="res://custom_resources/battle_stats.gd" id="1_juyxj"]
-[ext_resource type="Resource" uid="uid://cex0mt3sa2yh3" path="res://battles/salya_battle.tres" id="2_0yrcd"]
 [ext_resource type="Script" uid="uid://dqqsud6ikiinl" path="res://custom_resources/battle_stats_pool.gd" id="2_rrdqd"]
+[ext_resource type="Resource" uid="uid://diuorj26bb7t" path="res://battles/tier_0_prajurit.tres" id="2_yo8yg"]
+[ext_resource type="Resource" uid="uid://d4f2fhys5bfdp" path="res://battles/tier_0_prajurit_2.tres" id="3_wwq6h"]
+[ext_resource type="Resource" uid="uid://cg3v0evc22qv6" path="res://battles/tier_0_prajurit_tombak_2.tres" id="4_hlrlb"]
+[ext_resource type="Resource" uid="uid://bb18xyohnnnmp" path="res://battles/tier_1_pembunuh_prajurit.tres" id="5_dn5e3"]
+[ext_resource type="Resource" uid="uid://btdtnhx23exny" path="res://battles/tier_1_prajuritkuda_crossbow.tres" id="6_1ui0w"]
+[ext_resource type="Resource" uid="uid://cvycpjcfewa5b" path="res://battles/tier_1_prajurit_2_tombak_2.tres" id="7_n3cgp"]
+[ext_resource type="Resource" uid="uid://d08biu1gigbw7" path="res://battles/tier_1_prajurit_3.tres" id="8_s2q1q"]
+[ext_resource type="Resource" uid="uid://b35j3khyfqcde" path="res://battles/tier_2. kuda_kudaarmor2.tres" id="9_rps3c"]
+[ext_resource type="Resource" uid="uid://vtt8e883hy2" path="res://battles/tier_2. resi2_pembunuh2.tres" id="10_6rbea"]
+[ext_resource type="Resource" uid="uid://cnfeqy16xmkf" path="res://battles/tier_2. resi_prajurit_kuda_pembunuh.tres" id="11_kyjv1"]
+[ext_resource type="Resource" uid="uid://bt6emhkesl3y" path="res://battles/tier_3. kuda_armor2_crossbow.tres" id="12_mta8q"]
+[ext_resource type="Resource" uid="uid://u821sat28xb" path="res://battles/tier_3. kuda_armor4.tres" id="13_jh6sh"]
+[ext_resource type="Resource" uid="uid://bo2fhxss86q4l" path="res://battles/tier_3. resi2_crossbow2.tres" id="14_omyjn"]
 
 [resource]
 script = ExtResource("2_rrdqd")
-pool = Array[ExtResource("1_juyxj")]([ExtResource("2_0yrcd"), ExtResource("2_0yrcd"), ExtResource("2_0yrcd"), ExtResource("2_0yrcd")])
+pool = Array[ExtResource("1_juyxj")]([ExtResource("2_yo8yg"), ExtResource("3_wwq6h"), ExtResource("4_hlrlb"), ExtResource("5_dn5e3"), ExtResource("6_1ui0w"), ExtResource("7_n3cgp"), ExtResource("8_s2q1q"), ExtResource("9_rps3c"), ExtResource("10_6rbea"), ExtResource("11_kyjv1"), ExtResource("12_mta8q"), ExtResource("13_jh6sh"), ExtResource("14_omyjn")])
 metadata/_custom_type_script = "uid://dqqsud6ikiinl"

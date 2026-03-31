@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="CardPile" load_steps=7 format=3 uid="uid://csbj2mxejxd6u"]
+[gd_resource type="Resource" script_class="CardPile" load_steps=27 format=3 uid="uid://csbj2mxejxd6u"]
 
 [ext_resource type="Script" uid="uid://dcw4oridrwk87" path="res://custom_resources/card.gd" id="1_g08rf"]
 [ext_resource type="Resource" uid="uid://bp7d0y1tctu8o" path="res://characters/Werkudara/Cards/pandhawa_slash_attack.tres" id="2_hxdcs"]
@@ -6,8 +6,28 @@
 [ext_resource type="Resource" uid="uid://clmsng2o0pwtl" path="res://characters/Werkudara/Cards/kekuatan_card.tres" id="3_khiqm"]
 [ext_resource type="Resource" uid="uid://d2d1pkl2vwwhk" path="res://characters/Werkudara/Cards/pandhawa_block.tres" id="4_ntllv"]
 [ext_resource type="Resource" uid="uid://c08j5gpyl7ane" path="res://characters/Werkudara/Cards/pandhawa_axe_attack card.tres" id="5_khiqm"]
+[ext_resource type="Resource" uid="uid://be54wxsvmj7o4" path="res://characters/Werkudara/Cards/anjalikastra_card.tres" id="6_dsrpy"]
+[ext_resource type="Resource" uid="uid://cwddu83cloxf" path="res://characters/Werkudara/Cards/atur_ulang_strategi_card.tres" id="7_jb3c5"]
+[ext_resource type="Resource" uid="uid://d1fi6luiq8k61" path="res://characters/Werkudara/Cards/chakravyuha_card.tres" id="8_uallg"]
+[ext_resource type="Resource" uid="uid://d4j7bc68euuk4" path="res://characters/Werkudara/Cards/fokus_card.tres" id="9_o5tn3"]
+[ext_resource type="Resource" uid="uid://obl8ntjf04a7" path="res://characters/Werkudara/Cards/ilusi_mayasura_card.tres" id="10_t6wyo"]
+[ext_resource type="Resource" uid="uid://d4j60rbjmexq8" path="res://characters/Werkudara/Cards/jebakan_hutan_card.tres" id="11_frf3j"]
+[ext_resource type="Resource" uid="uid://cd31dokqm4xdt" path="res://characters/Werkudara/Cards/karma_card.tres" id="12_vg2m8"]
+[ext_resource type="Resource" uid="uid://dnhyee0kvm1bp" path="res://characters/Werkudara/Cards/kejatuhan_gathotkaca_card.tres" id="13_q6plg"]
+[ext_resource type="Resource" uid="uid://bu7nyten15g53" path="res://characters/Werkudara/Cards/lempar_dadu_card.tres" id="14_jig4q"]
+[ext_resource type="Resource" uid="uid://cmo1gmwg6pf5j" path="res://characters/Werkudara/Cards/lumput_terkutuk_card.tres" id="15_wodcw"]
+[ext_resource type="Resource" uid="uid://q6eo14pbf112" path="res://characters/Werkudara/Cards/naraya_astra_card.tres" id="16_0ppmh"]
+[ext_resource type="Resource" uid="uid://b0qlcho6o3tww" path="res://characters/Werkudara/Cards/pashupatastra_card.tres" id="17_nhgqo"]
+[ext_resource type="Resource" uid="uid://pxevk8jgowqh" path="res://characters/Werkudara/Cards/perban_card.tres" id="18_7kumb"]
+[ext_resource type="Resource" uid="uid://cervltj2ueyuk" path="res://characters/Werkudara/Cards/sanjivani_card.tres" id="19_4khm4"]
+[ext_resource type="Resource" uid="uid://cqxh5il2lajus" path="res://characters/Werkudara/Cards/sumpah_terakhir_card.tres" id="20_cejjh"]
+[ext_resource type="Resource" uid="uid://c84svaa0q85y7" path="res://characters/Werkudara/Cards/tembakan_gandiva_card.tres" id="21_6h584"]
+[ext_resource type="Resource" uid="uid://6aeholgarfp7" path="res://characters/Werkudara/Cards/tusukan_kilat_card.tres" id="22_2f6un"]
+[ext_resource type="Resource" uid="uid://dtuc42whq2lu0" path="res://characters/Werkudara/Cards/zirah_karna_card.tres" id="23_mge2v"]
+[ext_resource type="Resource" uid="uid://bujb5w4fo8jgk" path="res://characters/Werkudara/Cards/dekrit_raja.tres" id="24_02bvc"]
+[ext_resource type="Resource" uid="uid://dbotf5150b2aw" path="res://characters/Werkudara/Cards/belati_tersembunyi.tres" id="25_ubypc"]
 
 [resource]
 script = ExtResource("2_k3ey6")
-cards = Array[ExtResource("1_g08rf")]([ExtResource("2_hxdcs"), ExtResource("3_khiqm"), ExtResource("2_hxdcs"), ExtResource("2_hxdcs"), ExtResource("4_ntllv"), ExtResource("4_ntllv"), ExtResource("4_ntllv"), ExtResource("5_khiqm"), ExtResource("5_khiqm"), ExtResource("5_khiqm")])
+cards = Array[ExtResource("1_g08rf")]([ExtResource("2_hxdcs"), ExtResource("3_khiqm"), ExtResource("2_hxdcs"), ExtResource("2_hxdcs"), ExtResource("4_ntllv"), ExtResource("4_ntllv"), ExtResource("4_ntllv"), ExtResource("5_khiqm"), ExtResource("5_khiqm"), ExtResource("5_khiqm"), ExtResource("6_dsrpy"), ExtResource("7_jb3c5"), ExtResource("7_jb3c5"), ExtResource("8_uallg"), ExtResource("8_uallg"), ExtResource("9_o5tn3"), ExtResource("9_o5tn3"), ExtResource("10_t6wyo"), ExtResource("11_frf3j"), ExtResource("11_frf3j"), ExtResource("12_vg2m8"), ExtResource("12_vg2m8"), ExtResource("13_q6plg"), ExtResource("14_jig4q"), ExtResource("15_wodcw"), ExtResource("15_wodcw"), ExtResource("16_0ppmh"), ExtResource("17_nhgqo"), ExtResource("18_7kumb"), ExtResource("19_4khm4"), ExtResource("20_cejjh"), ExtResource("21_6h584"), ExtResource("22_2f6un"), ExtResource("22_2f6un"), ExtResource("22_2f6un"), ExtResource("23_mge2v"), ExtResource("24_02bvc"), ExtResource("24_02bvc"), ExtResource("25_ubypc"), ExtResource("25_ubypc"), ExtResource("25_ubypc"), ExtResource("7_jb3c5"), ExtResource("7_jb3c5"), ExtResource("7_jb3c5")])
 metadata/_custom_type_script = "uid://6awnk1lfb5c3"

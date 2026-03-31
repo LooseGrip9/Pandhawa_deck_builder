@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="BattleStats" load_steps=3 format=3 uid="uid://cng365201604r"]
+
+[ext_resource type="PackedScene" uid="uid://cj6qpo1yfcqbl" path="res://battles/DursasanaBattle.tscn" id="1_f8rmr"]
+[ext_resource type="Script" uid="uid://bvm4v1tb74khm" path="res://custom_resources/battle_stats.gd" id="2_wgsea"]
+
+[resource]
+script = ExtResource("2_wgsea")
+battle_name = "Dursasana"
+battle_tier = 2
+weight = 2.5
+gold_max = 1500
+gold_min = 1200
+enemies = ExtResource("1_f8rmr")
+metadata/_custom_type_script = "uid://bvm4v1tb74khm"

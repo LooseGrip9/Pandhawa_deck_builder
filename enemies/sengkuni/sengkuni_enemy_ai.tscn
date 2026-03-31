@@ -6,7 +6,7 @@
 [ext_resource type="Resource" path="res://common_cards/fitnah.tres" id="3_vewdq"]
 [ext_resource type="Texture2D" uid="uid://dm6t8xihw7gkk" path="res://art/Fitnah.png" id="4_oi401"]
 [ext_resource type="Script" uid="uid://dpuqxpt0l6ehf" path="res://custom_resources/intent.gd" id="5_u46le"]
-[ext_resource type="Texture2D" uid="uid://bxgrktox5it82" path="res://art/tile_0105.png" id="7_oi401"]
+[ext_resource type="Texture2D" uid="uid://fc0j0vlel2vw" path="res://art/tile_0105.png" id="7_oi401"]
 [ext_resource type="Script" uid="uid://d4nenym2rk5dj" path="res://enemies/sengkuni/jerat_sengkuni_action.gd" id="8_u46le"]
 [ext_resource type="Resource" uid="uid://b2fse6osb4hhs" path="res://statuses/jerat_sengkuni.tres" id="9_c4ygw"]
 [ext_resource type="Texture2D" uid="uid://mmm10kpjc04v" path="res://art/jerat.png" id="10_6r1hq"]

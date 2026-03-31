@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="BattleStats" load_steps=3 format=3 uid="uid://ddu46bdfjoln0"]
 
-[ext_resource type="PackedScene" uid="uid://cykvcxgwblrgl" path="res://battles/tier_0_tes_duryudana.tscn" id="1_4rr3s"]
+[ext_resource type="PackedScene" uid="uid://snhypa7c8m7y" path="res://battles/DuryudanaBattle.tscn" id="1_4rr3s"]
 [ext_resource type="Script" uid="uid://bvm4v1tb74khm" path="res://custom_resources/battle_stats.gd" id="2_2o74s"]
 
 [resource]
 script = ExtResource("2_2o74s")
+battle_name = "Duryudana"
+battle_tier = 2
 weight = 2.5
-gold_max = 50
-gold_min = 50
+gold_max = 1500
+gold_min = 1200
 enemies = ExtResource("1_4rr3s")
 metadata/_custom_type_script = "uid://bvm4v1tb74khm"

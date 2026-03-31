@@ -4,7 +4,8 @@ extends Node
 const X_DIST := 38
 const Y_DIST := 25
 const PLACEMENT_RANDOMNESS := 5
-const FLOORS := 125
+const FLOORS := 45
+const BOSS_INTERVAL := 15
 const MAP_WIDTH := 7
 const PATHS := 7
 const TREASURE_ROOM_WEIGHT := 0.5
@@ -40,7 +41,7 @@ func generate_map() -> Array[Array]:
 	
 	for j in starting_points:
 		var current_j := j
-		for i in FLOORS -1:
+		for i in FLOORS - 1:
 			current_j = _setup_connection(i, current_j)
 	
 	battle_stats_pool.setup()
@@ -59,15 +60,15 @@ func _generate_initial_grid() -> Array[Array]:
 		var adjacent_rooms: Array[Room] = []
 		
 		for j in MAP_WIDTH:
-			var current_room : = Room.new()
+			var current_room := Room.new()
 			var offset := Vector2(randf(), randf()) * PLACEMENT_RANDOMNESS
 			current_room.position = Vector2(j * X_DIST, i * -Y_DIST) + offset
 			current_room.row = i
 			current_room.column = j
 			current_room.next_rooms = []
 			
-			if i == FLOORS - 1 :
-				current_room.position.y = ( i + 1 ) * -Y_DIST
+			if i == FLOORS - 1:
+				current_room.position.y = (i + 1) * -Y_DIST
 			
 			adjacent_rooms.append(current_room)
 		
@@ -84,7 +85,7 @@ func _get_random_starting_points() -> Array[int]:
 		y_coordinates = []
 		
 		for i in PATHS:
-			var starting_point := randi_range(0, MAP_WIDTH -1)
+			var starting_point := randi_range(0, MAP_WIDTH - 1)
 			if not y_coordinates.has(starting_point):
 				unique_points += 1
 			
@@ -97,7 +98,7 @@ func _setup_connection(i: int, j: int) -> int:
 	var current_room := map_data[i][j] as Room
 	
 	while not next_room or _would_cross_existing_path(i, j, next_room):
-		var random_j := clampf(randi_range(j - 1, j+ 1), 0, MAP_WIDTH - 1)
+		var random_j := clampf(randi_range(j - 1, j + 1), 0, MAP_WIDTH - 1)
 		next_room = map_data[i + 1][random_j]
 	
 	current_room.next_rooms.append(next_room)
@@ -106,7 +107,7 @@ func _setup_connection(i: int, j: int) -> int:
 
 func _would_cross_existing_path(i: int, j: int, room: Room) -> bool:
 	var left_neighbour: Room
-	var right_neighbour : Room
+	var right_neighbour: Room
 	
 	if j > 0:
 		left_neighbour = map_data[i][j - 1]
@@ -137,16 +138,16 @@ func _setup_boss_room() -> void:
 			current_room.next_rooms.append(boss_room)
 	
 	boss_room.type = Room.Type.BOSS
-	boss_room.battle_stats = battle_stats_pool.get_random_battle_for_tier(2)
+	boss_room.battle_stats = _get_boss_for_floor(FLOORS - 1)
 
 func _setup_intermediate_bosses() -> void:
-	var middle := floori(map_data[0].size() * 0.5)
+	var middle := floori(MAP_WIDTH * 0.5)
 	
 	for i in range(0, FLOORS - 1):
-		if (i + 1) % 25 == 0:
+		if (i + 1) % BOSS_INTERVAL == 0:
 			var boss_room := map_data[i][middle] as Room
 			
-			for col in map_data[i].size():
+			for col in MAP_WIDTH:
 				var room = map_data[i][col]
 				if room != boss_room:
 					room.next_rooms.clear()
@@ -169,7 +170,23 @@ func _setup_intermediate_bosses() -> void:
 
 			boss_room.type = Room.Type.BOSS
 			if battle_stats_pool:
-				boss_room.battle_stats = battle_stats_pool.get_random_battle_for_tier(2)
+				boss_room.battle_stats = _get_boss_for_floor(i)
+
+func _get_boss_for_floor(floor_index: int) -> BattleStats:
+	var act_index := floori((floor_index + 1) / BOSS_INTERVAL) - 1
+	var boss_list := []
+	var character_name := RunManager.current_character.character_name
+	
+	match character_name:
+		"Werkudara":
+			boss_list = ["Sengkuni", "Duryudana", "Dursasana"]
+		"Arjuna":
+			boss_list = ["Jayadrata", "Salya", "Karna"]
+		_:
+			return battle_stats_pool.get_random_battle_for_tier(2)
+			
+	var boss_name = boss_list[clamp(act_index, 0, boss_list.size() - 1)]
+	return battle_stats_pool.get_battle_by_name(boss_name)
 
 func _setup_random_room_weights() -> void:
 	random_room_type_weights[Room.Type.MONSTER] = MONSTER_ROOM_WEIGHT
@@ -185,16 +202,16 @@ func _setup_room_types() -> void:
 			room.battle_stats = battle_stats_pool.get_random_battle_for_tier(0)
 	
 	for i in range(0, FLOORS - 1):
-		if (i + 1) % 10 == 0 and (i + 1) % 25 != 0:
+		if (i + 1) % BOSS_INTERVAL == 7:
 			for room: Room in map_data[i]:
 				if room.next_rooms.size() > 0:
 					room.type = Room.Type.TREASURE
 	
 	for i in range(0, FLOORS - 1):
-		if (i + 1) % 25 == 0:
+		if (i + 1) % BOSS_INTERVAL == 0:
 			continue
 			
-		if (i + 2) % 25 == 0:
+		if (i + 2) % BOSS_INTERVAL == 0:
 			for room: Room in map_data[i]:
 				if room.next_rooms.size() > 0:
 					room.type = Room.Type.CAMPFIRE
@@ -227,11 +244,9 @@ func _set_room_randomly(room_to_set: Room) -> void:
 		campfire_on_13 = is_campfire and room_to_set.row == 12
 	
 	room_to_set.type = type_candidate
+	
 	if type_candidate == Room.Type.MONSTER:
-		var tier_for_monster_rooms := 0
-		
-		if room_to_set.row > 2:
-			tier_for_monster_rooms = 1
+		var tier_for_monster_rooms := clampi(floori(room_to_set.row / 9.0), 0, 3)
 		
 		room_to_set.battle_stats = battle_stats_pool.get_random_battle_for_tier(tier_for_monster_rooms)
 
@@ -239,16 +254,16 @@ func _room_has_parent_of_type(room: Room, type: Room.Type) -> bool:
 	var parents: Array[Room] = []
 
 	if room.column > 0 and room.row > 0:
-		var parent_candidate := map_data[room.row -1][room.column-1] as Room
+		var parent_candidate := map_data[room.row - 1][room.column - 1] as Room
 		if parent_candidate.next_rooms.has(room):
 			parents.append(parent_candidate)
 	
-	if room.row> 0:
-		var parent_candidate := map_data[room.row -1][room.column] as Room
+	if room.row > 0:
+		var parent_candidate := map_data[room.row - 1][room.column] as Room
 		if parent_candidate.next_rooms.has(room):
 			parents.append(parent_candidate)
 	
-	if room.column < MAP_WIDTH-1 and room.row > 0:
+	if room.column < MAP_WIDTH - 1 and room.row > 0:
 		var parent_candidate := map_data[room.row - 1][room.column + 1] as Room
 		if parent_candidate.next_rooms.has(room):
 			parents.append(parent_candidate)

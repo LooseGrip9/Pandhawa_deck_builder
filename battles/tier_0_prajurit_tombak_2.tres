@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_vs35k")
 weight = 3.0
-gold_max = 40
-gold_min = 56
+gold_max = 200
+gold_min = 250
 enemies = ExtResource("1_vpgko")
 metadata/_custom_type_script = "uid://bvm4v1tb74khm"

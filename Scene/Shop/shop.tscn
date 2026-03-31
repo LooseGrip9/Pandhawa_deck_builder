@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bcebvxq5hoht2"]
+[gd_scene load_steps=36 format=3 uid="uid://bcebvxq5hoht2"]
 
 [ext_resource type="Script" uid="uid://cxmn48ptgmiyq" path="res://Scene/Shop/shop.gd" id="1_5es7v"]
 [ext_resource type="Script" uid="uid://spwidn0jd7oe" path="res://custom_resources/relic.gd" id="2_2n4qt"]
@@ -12,9 +12,28 @@
 [ext_resource type="PackedScene" uid="uid://bim27votfy6sd" path="res://Scene/Shop/shop_card.tscn" id="6_ljipp"]
 [ext_resource type="Resource" uid="uid://cort3f7ynw1li" path="res://relics/coupon.tres" id="6_x0qts"]
 [ext_resource type="PackedScene" uid="uid://b1pljvn0xs3i5" path="res://Scene/Shop/shop_relic.tscn" id="7_2wyg6"]
+[ext_resource type="Resource" uid="uid://bm0340h4n58ky" path="res://relics/amrita_kalasha_relic.tres" id="7_7gy65"]
 [ext_resource type="PackedScene" uid="uid://c8f4jow3yb067" path="res://Scene/UI/card_tooltip_pop_up.tscn" id="7_kdfvd"]
+[ext_resource type="Resource" uid="uid://2vwujy1612k4" path="res://relics/batu_asah_relic.tres" id="8_acvdt"]
+[ext_resource type="Resource" uid="uid://b06hbeff8odyh" path="res://relics/belati_beracun.tres" id="9_e2lxm"]
+[ext_resource type="Resource" uid="uid://fucv3iyc5sxy" path="res://relics/beras_prajurit_relic.tres" id="10_xhuv6"]
+[ext_resource type="Resource" uid="uid://drybmebc3wpxa" path="res://relics/dadu_kayu_relic.tres" id="11_kvcjg"]
+[ext_resource type="Resource" uid="uid://cu5o8kfeohao3" path="res://relics/dadu_shakuni_relic.tres" id="12_mcpc8"]
+[ext_resource type="Resource" uid="uid://dl3cgnn88hota" path="res://relics/gulungan_brahmastra_relic.tres" id="13_ntxcq"]
+[ext_resource type="Resource" uid="uid://eb1btbnkac57" path="res://relics/hiasan_tengkorak_relic.tres" id="14_1rhqc"]
 [ext_resource type="PackedScene" uid="uid://dtoo7xjuhnjj5" path="res://modifier_handler/modifier_handler.tscn" id="14_aiw1j"]
+[ext_resource type="Resource" uid="uid://c80ccywpg07j8" path="res://relics/kendi_tirta_amerta_relic.tres" id="15_apyv8"]
 [ext_resource type="PackedScene" uid="uid://5coka4upbj70" path="res://modifier_handler/modifier.tscn" id="15_x0qts"]
+[ext_resource type="Resource" uid="uid://cacfif7d0xne4" path="res://relics/Jimat_surya_relic.tres" id="16_wuisj"]
+[ext_resource type="Resource" uid="uid://bh6t71e2yrf3e" path="res://relics/kerang_kecil_relic.tres" id="17_0a6md"]
+[ext_resource type="Resource" uid="uid://if1uv5ccl56" path="res://relics/kipas_ekor_yak_relic.tres" id="18_lsvni"]
+[ext_resource type="Resource" uid="uid://bko0nm3dht4na" path="res://relics/koin_tembaga_relic.tres" id="19_hoqw0"]
+[ext_resource type="Resource" uid="uid://bjm7fhpr20jto" path="res://relics/kuku_batu_relic.tres" id="20_ykyx6"]
+[ext_resource type="Resource" uid="uid://b7ncr4k2u3qll" path="res://relics/perisai_bambu_relic.tres" id="21_uajg0"]
+[ext_resource type="Resource" uid="uid://30ulepaejdns" path="res://relics/sarung_tangan_relic.tres" id="22_rl4hn"]
+[ext_resource type="Resource" uid="uid://dpxfy36ou6hy4" path="res://relics/senar_gandiva_relic.tres" id="23_4gl55"]
+[ext_resource type="Resource" uid="uid://dtwhfadgyk83d" path="res://relics/tabung_sarrotama_relic.tres" id="24_dbdmy"]
+[ext_resource type="Resource" uid="uid://ebcsmsrhdw68" path="res://relics/tasbih_indrakila_relic.tres" id="25_wuksp"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_2wyg6"]
 font = ExtResource("4_kdfvd")
@@ -28,7 +47,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_5es7v")
-shop_relics = Array[ExtResource("2_2n4qt")]([ExtResource("3_wbj5i"), ExtResource("4_bgxel"), ExtResource("5_aiw1j"), ExtResource("6_x0qts")])
+shop_relics = Array[ExtResource("2_2n4qt")]([ExtResource("3_wbj5i"), ExtResource("4_bgxel"), ExtResource("5_aiw1j"), ExtResource("6_x0qts"), ExtResource("7_7gy65"), ExtResource("8_acvdt"), ExtResource("9_e2lxm"), ExtResource("10_xhuv6"), ExtResource("11_kvcjg"), ExtResource("12_mcpc8"), ExtResource("13_ntxcq"), ExtResource("14_1rhqc"), ExtResource("15_apyv8"), ExtResource("16_wuisj"), ExtResource("17_0a6md"), ExtResource("18_lsvni"), ExtResource("19_hoqw0"), ExtResource("20_ykyx6"), ExtResource("21_uajg0"), ExtResource("22_rl4hn"), ExtResource("23_4gl55"), ExtResource("24_dbdmy"), ExtResource("25_wuksp"), null])
 
 [node name="Background" type="CanvasLayer" parent="."]
 

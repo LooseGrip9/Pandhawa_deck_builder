@@ -5,8 +5,9 @@
 
 [resource]
 script = ExtResource("2_fn548")
+battle_tier = 2
 weight = 2.5
-gold_max = 20
-gold_min = 48
+gold_max = 100
+gold_min = 200
 enemies = ExtResource("1_ehw7i")
 metadata/_custom_type_script = "uid://bvm4v1tb74khm"

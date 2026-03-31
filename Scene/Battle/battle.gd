@@ -65,3 +65,25 @@ func _on_enemy_turn_ended() -> void:
 	Events.player_turn_started.emit()
 	player_handler.start_turn()
 	enemy_handler.reset_enemy_actions()
+
+func _input(event: InputEvent) -> void:
+	if event is InputEventKey and event.pressed and event.keycode == KEY_H:
+		if OS.is_debug_build():
+			_debug_kill_all_enemies()
+
+func _debug_kill_all_enemies() -> void:
+	print("DEBUG: Instakill activated!")
+	
+	var enemies = get_tree().get_nodes_in_group("enemies")
+	
+
+	enemies.sort_custom(func(a, b):
+		var a_is_jayadrata = a.get("stats") and a.stats.id == "Jayadrata"
+		return not a_is_jayadrata
+	)
+	
+	for enemy in enemies:
+		if enemy.has_method("take_damage"):
+			enemy.take_damage(9999, Modifier.Type.NO_MODIFIER) 
+		else:
+			enemy.queue_free()

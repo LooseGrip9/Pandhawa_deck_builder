@@ -47,11 +47,20 @@ func _generate_shop_cards() -> void:
 		new_shop_card.update(run_stats)
 
 func _generate_shop_relics() -> void:
-	var shop_relics_array:Array[Relic] = []
+	var shop_relics_array: Array[Relic] = []
+	
 	var available_relics := shop_relics.filter(
 		func(relic: Relic):
+			# 1. SAFETY CHECK: Skip any empty slots in the Inspector
+			if relic == null:
+				return false
+			
+			# 2. LORE CHECK: Does it belong to this character?
 			var can_appear := relic.can_appear_as_reward(char_stats)
+			
+			# 3. OWNERSHIP CHECK: Do they already have it?
 			var already_had_it := relic_handler.has_relic(relic.id)
+			
 			return can_appear and not already_had_it
 	)
 	

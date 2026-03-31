@@ -29,18 +29,17 @@ func _ready() -> void:
 func _on_start_pressed() -> void:
 	button_type = "start"
 	
-	print("1. Data packed for: ", current_character.character_name)
+	RunManager.current_character = current_character
+	
 	run_startup.type = run_startup.Type.NEW_RUN
 	run_startup.picked_character = current_character
 	
 	if has_node("ColorRect/AnimationPlayer"):
 		$ColorRect.show()
 		$ColorRect/AnimationPlayer.play("fade_in")
+		await $ColorRect/AnimationPlayer.animation_finished
 
-	var result = get_tree().change_scene_to_packed(RUN_SCENE)
-	
-	if result != OK:
-		get_tree().change_scene_to_file("res://Scene/run/run.tscn")
+	get_tree().change_scene_to_file("res://Scene/cutscene/opening_wekudara.tscn")
 
 func set_current_character(new_character: CharacterStats) -> void:
 	current_character = new_character

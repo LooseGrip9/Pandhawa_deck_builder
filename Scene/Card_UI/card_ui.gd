@@ -180,12 +180,12 @@ func _recheck_playability() -> void:
 	var player_handler = get_tree().get_first_node_in_group("player_handler")
 	var player = get_tree().get_first_node_in_group("player") 
 	
-	var is_free = player_handler and player_handler.next_card_is_free
+	var is_free = player_handler and player_handler.get("next_card_is_free")
 	var tax := 0
 	
-	if player and player.status_handler:
+	# Use 'get()' or check 'in' to safely see if the node has the property
+	if player and "status_handler" in player and player.status_handler:
 		for status_node in player.status_handler.get_children():
-			# Check if the UI node has a status resource attached
 			var status_data = status_node.get("status")
 			if status_data and status_data.has_method("get_extra_cost"):
 				tax += status_data.get_extra_cost(card)

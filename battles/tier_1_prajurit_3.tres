@@ -7,7 +7,7 @@
 script = ExtResource("2_tu04w")
 battle_tier = 1
 weight = 1.0
-gold_max = 70
-gold_min = 99
+gold_max = 250
+gold_min = 200
 enemies = ExtResource("1_difer")
 metadata/_custom_type_script = "uid://bvm4v1tb74khm"

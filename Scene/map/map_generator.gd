@@ -179,14 +179,20 @@ func _get_boss_for_floor(floor_index: int) -> BattleStats:
 	
 	match character_name:
 		"Werkudara":
-			boss_list = ["Sengkuni", "Duryudana", "Dursasana"]
+			boss_list = ["Sengkuni", "Dursasana", "Duryudana"]
 		"Arjuna":
 			boss_list = ["Jayadrata", "Salya", "Karna"]
 		_:
 			return battle_stats_pool.get_random_battle_for_tier(2)
 			
 	var boss_name = boss_list[clamp(act_index, 0, boss_list.size() - 1)]
-	return battle_stats_pool.get_battle_by_name(boss_name)
+	
+	var specific_boss = battle_stats_pool.get_battle_by_name(boss_name)
+	
+	if specific_boss == null:
+		return battle_stats_pool.get_random_battle_for_tier(2)
+		
+	return specific_boss
 
 func _setup_random_room_weights() -> void:
 	random_room_type_weights[Room.Type.MONSTER] = MONSTER_ROOM_WEIGHT
@@ -246,8 +252,8 @@ func _set_room_randomly(room_to_set: Room) -> void:
 	room_to_set.type = type_candidate
 	
 	if type_candidate == Room.Type.MONSTER:
-		var tier_for_monster_rooms := clampi(floori(room_to_set.row / 9.0), 0, 3)
-		
+		# Monster biasa hanya bisa di-spawn sebagai Tier 0, 1, atau 2
+		var tier_for_monster_rooms := clampi(floori(room_to_set.row / 15.0), 0, 2)
 		room_to_set.battle_stats = battle_stats_pool.get_random_battle_for_tier(tier_for_monster_rooms)
 
 func _room_has_parent_of_type(room: Room, type: Room.Type) -> bool:

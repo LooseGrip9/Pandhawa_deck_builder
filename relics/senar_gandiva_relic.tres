@@ -10,4 +10,5 @@ id = "senar_gandiva"
 type = 2
 icon = ExtResource("1_lowj7")
 tooltip = "[color=\"ffdf00\"]Senar Gandiva[/color] Mainkan kartu Serangan pertama setiap giliran sebanyak dua kali."
+relic_story = "Tali busur Arjuna tidak bisa dipotong oleh senjata apa pun. Saat dipetik, suaranya menyebarkan teror di hati musuh."
 metadata/_custom_type_script = "uid://spwidn0jd7oe"

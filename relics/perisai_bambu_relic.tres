@@ -10,4 +10,5 @@ id = "perisai_bambu"
 type = 2
 icon = ExtResource("1_fu5nl")
 tooltip = "Perisai Bambu: Mulai setiap pertarungan dengan 4 Block"
+relic_story = "Perlengkapan standar untuk pasukan jalan kaki (Prajurit). Ini menekankan perbedaan kekuatan yang menakutkan antara manusia biasa dan para pahlawan berdarah dewa."
 metadata/_custom_type_script = "uid://spwidn0jd7oe"

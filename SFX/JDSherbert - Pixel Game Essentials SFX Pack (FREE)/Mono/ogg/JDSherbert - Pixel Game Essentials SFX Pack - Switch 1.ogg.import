@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://vgrru2oc5dv5"
+path="res://.godot/imported/JDSherbert - Pixel Game Essentials SFX Pack - Switch 1.ogg-5a68eb376b799322d52f19431b1ceeb8.oggvorbisstr"
+
+[deps]
+
+source_file="res://SFX/JDSherbert - Pixel Game Essentials SFX Pack (FREE)/Mono/ogg/JDSherbert - Pixel Game Essentials SFX Pack - Switch 1.ogg"
+dest_files=["res://.godot/imported/JDSherbert - Pixel Game Essentials SFX Pack - Switch 1.ogg-5a68eb376b799322d52f19431b1ceeb8.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

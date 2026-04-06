@@ -1,8 +1,9 @@
-[gd_resource type="Resource" load_steps=4 format=3 uid="uid://dbotf5150b2aw"]
+[gd_resource type="Resource" load_steps=5 format=3 uid="uid://dbotf5150b2aw"]
 
 [ext_resource type="Texture2D" uid="uid://bmt02cgrny8tw" path="res://art/belaati.png" id="1_gdukh"]
 [ext_resource type="Script" uid="uid://brnv6wuwhgxdd" path="res://characters/Werkudara/Cards/belati_tersembunyi.gd" id="1_vsavr"]
 [ext_resource type="Resource" uid="uid://cmxe06hhhrug8" path="res://statuses/poison.tres" id="1_x55l7"]
+[ext_resource type="AudioStream" uid="uid://2ob2ttkpm8ts" path="res://SFX/hits/hit03.mp3.mp3" id="4_7gjr3"]
 
 [resource]
 script = ExtResource("1_vsavr")
@@ -12,4 +13,6 @@ rarity = 1
 target = 1
 icon = ExtResource("1_gdukh")
 tooltip_text = "Serang untuk %s hp dan 2 racun"
+flavour_text = "Merujuk pada Sauptikaparva, di mana Aswatama membantai sisa-sisa pasukan Pandawa yang sedang tidur di malam hari sebagai balas dendam, melanggar semua aturan pertempuran terhormat."
+sound = ExtResource("4_7gjr3")
 metadata/_custom_type_script = "uid://dcw4oridrwk87"

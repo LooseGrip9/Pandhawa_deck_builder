@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://coieqlmp5g6iq"
+path="res://.godot/imported/JDSherbert - Pixel Game Essentials SFX Pack - Powerup 2.ogg-1f3dc4652cd4feaf1804f7aedf114a7d.oggvorbisstr"
+
+[deps]
+
+source_file="res://SFX/JDSherbert - Pixel Game Essentials SFX Pack (FREE)/Stereo/ogg/JDSherbert - Pixel Game Essentials SFX Pack - Powerup 2.ogg"
+dest_files=["res://.godot/imported/JDSherbert - Pixel Game Essentials SFX Pack - Powerup 2.ogg-1f3dc4652cd4feaf1804f7aedf114a7d.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

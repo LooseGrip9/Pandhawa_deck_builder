@@ -8,7 +8,7 @@ func get_default_tooltip() -> String:
 func get_updated_tooltip(_player_modifiers: ModifierHandler, _enemy_modifiers: ModifierHandler) -> String:
 	return tooltip_text
 
-func apply_effects(_targets: Array[Node], _modifiers: ModifierHandler) -> void:
+func apply_effects(_targets: Array[Node], modifiers: ModifierHandler) -> void:
 	var current_frame = Engine.get_process_frames()
 	if current_frame == _last_execution_frame:
 		return
@@ -16,6 +16,10 @@ func apply_effects(_targets: Array[Node], _modifiers: ModifierHandler) -> void:
 	_last_execution_frame = current_frame
 
 	var tree = Engine.get_main_loop() as SceneTree
+	
+	var damage_effect := DamageEffect.new()
+	damage_effect.amount = modifiers.get_modified_value(8, Modifier.Type.DMG_DEALT) 
+	damage_effect.sound = sound
 	
 	for i in range(3):
 		var all_enemies = tree.get_nodes_in_group("enemies")
@@ -31,7 +35,6 @@ func apply_effects(_targets: Array[Node], _modifiers: ModifierHandler) -> void:
 			
 		var target = valid_targets.pick_random()
 		
-		if target.has_method("take_damage"):
-			target.take_damage(8, Modifier.Type.NO_MODIFIER)
+		damage_effect.execute([target])
 		
 		await tree.create_timer(0.2).timeout

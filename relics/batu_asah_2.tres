@@ -1,0 +1,14 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://ctc62bd0mpexe"]
+
+[ext_resource type="Texture2D" uid="uid://bsvdefwpwxjnu" path="res://art/batu_asah.png" id="1_8bd4g"]
+[ext_resource type="Script" uid="uid://ca1sxdvdssg70" path="res://relics/batu_asah.gd" id="2_ujubf"]
+
+[resource]
+script = ExtResource("2_ujubf")
+relic_name = "Batu Asah"
+id = "batu_asah"
+type = 4
+icon = ExtResource("1_8bd4g")
+tooltip = "[color=\"ffdf00\"]Batu Asah[/color] +1 Kerusakan"
+relic_story = "Ketegangan yang terus memuncak menjelang Bratayuda. Pandawa dan Kurawa menghabiskan 13 tahun untuk mempersiapkan bentrokan yang tak terhindarkan di Kurusetra."
+metadata/_custom_type_script = "uid://spwidn0jd7oe"

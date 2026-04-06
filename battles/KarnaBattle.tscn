@@ -1,0 +1,14 @@
+[gd_scene load_steps=5 format=3 uid="uid://c8sxneugsfx4x"]
+
+[ext_resource type="PackedScene" uid="uid://dphwon1rajjyv" path="res://Scene/Enemy/enemy.tscn" id="1_7ldk5"]
+[ext_resource type="Resource" uid="uid://21ovtqxelair" path="res://enemies/karna/karna_boss.tres" id="2_nea1x"]
+[ext_resource type="Resource" uid="uid://di13vqgibh58q" path="res://statuses/perluindungan.tres" id="3_5k41m"]
+[ext_resource type="Resource" uid="uid://d0gaam204cffn" path="res://statuses/sumpah_arjuna.tres" id="4_r5eoy"]
+
+[node name="Tier2Boss1" type="Node2D"]
+
+[node name="Enemy" parent="." instance=ExtResource("1_7ldk5")]
+position = Vector2(184, 71)
+stats = ExtResource("2_nea1x")
+deflect_status = ExtResource("3_5k41m")
+sunset_vow = ExtResource("4_r5eoy")

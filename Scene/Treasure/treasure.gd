@@ -15,9 +15,17 @@ func generate_relic() -> void:
 			var already_had_it := relic_handler.has_relic(relic.id)
 			return can_appear and not already_had_it
 	)
+	
+	if available_relics.is_empty():
+		print("All relics collected! Awarding 500 gold.")
+		if character_stats:
+			character_stats.gold += 500
+			
+		found_relic = null
+		return
+	
 	found_relic = Rng.array_pick_random(available_relics)
 
-#called from animation player, at the end of "open" animation
 func _on_treasure_opened() -> void:
 	Events.treasure_room_exited.emit(found_relic)
 

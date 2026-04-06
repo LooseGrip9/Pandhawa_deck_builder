@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="CharacterStats" load_steps=12 format=3 uid="uid://d3y71aj2a76ty"]
 
-[ext_resource type="Texture2D" uid="uid://cpydvk8mq66o5" path="res://art/tile_0087.png" id="1_tgpcm"]
+[ext_resource type="Texture2D" uid="uid://px0q6xp4gadl" path="res://art/Werkudara.png" id="1_3ghyu"]
 [ext_resource type="Resource" uid="uid://chgjfkjbnkchh" path="res://battles/battle_stats_pool.tres" id="2_3ghyu"]
 [ext_resource type="Script" uid="uid://ccbx3tv5o5p5l" path="res://custom_resources/character_stats.gd" id="2_hnb3s"]
 [ext_resource type="Texture2D" uid="uid://b0kl55id1u7kl" path="res://art/Character Portrait/Werkudoro.png" id="2_kcmqm"]
@@ -27,5 +27,5 @@ max_mana = 3
 starting_relics = Array[ExtResource("6_3ghyu")]([ExtResource("6_yb06x"), ExtResource("8_6e074"), ExtResource("9_k2ysr"), ExtResource("10_vyn6q")])
 battle_pool = ExtResource("2_3ghyu")
 max_health = 85
-art = ExtResource("1_tgpcm")
+art = ExtResource("1_3ghyu")
 metadata/_custom_type_script = "uid://ccbx3tv5o5p5l"

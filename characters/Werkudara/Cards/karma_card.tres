@@ -1,10 +1,12 @@
-[gd_resource type="Resource" load_steps=3 format=3 uid="uid://cd31dokqm4xdt"]
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://cd31dokqm4xdt"]
 
 [ext_resource type="Texture2D" uid="uid://bwvt3gup3gbv7" path="res://art/karma.png" id="1_bqaxf"]
+[ext_resource type="AudioStream" uid="uid://d2qoq4k3idfbl" path="res://SFX/rpg_sound_pack_artisticdude_opengameart/RPG Sound Pack/inventory/cloth.wav" id="2_t3ufa"]
 [ext_resource type="Script" uid="uid://ci11ccpe65bwg" path="res://characters/Werkudara/Cards/karma.gd" id="2_yborq"]
 
 [resource]
 script = ExtResource("2_yborq")
+optional_sound = ExtResource("2_t3ufa")
 id = "karma"
 rarity = 1
 type = 1

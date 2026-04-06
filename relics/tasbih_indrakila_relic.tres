@@ -10,4 +10,5 @@ id = "tasbih_indrakila"
 type = 2
 icon = ExtResource("1_yrsbn")
 tooltip = "[color=\"ffdf00\"]Tasbih Indrakila[/color] Jika mengakhiri giliran dengan Energi yang tidak terpakai, dapatkan 2 Kekuatan pada giliran berikutnya (sekali per pertarungan)."
+relic_story = "Arjuna bertapa di Gunung Indrakila. Ia mendapatkan senjata dewa dengan mengabaikan godaan bidadari yang dikirim oleh Batara Guru."
 metadata/_custom_type_script = "uid://spwidn0jd7oe"

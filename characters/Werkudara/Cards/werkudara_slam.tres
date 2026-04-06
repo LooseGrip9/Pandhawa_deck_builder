@@ -13,6 +13,6 @@ rarity = 2
 target = 1
 cost = 2
 icon = ExtResource("1_x7lm1")
-tooltip_text = "[center]Deal[color=\"ff0000\"] %s [/color]damage and 2 [color=\"#e8b038\"] Lemah[/color] to one enemy and  [color=\"ff0000\"] 4 [/color]damage to self .[/center] "
+tooltip_text = "Deal[color=\"ff0000\"] %s [/color]damage and 2 [color=\"#e8b038\"] Lemah[/color] to one enemy and  [color=\"ff0000\"] 4 [/color]damage to self ."
 flavour_text = "Merujuk pada Konta, tombak dewa yang diberikan kepada Karna. Ia menyimpannya untuk membunuh Arjuna namun terpaksa menggunakannya untuk membunuh putra raksasa Bima, Gatotkaca, yang mengubah jalannya Bratayuda."
 sound = ExtResource("4_2ytvg")

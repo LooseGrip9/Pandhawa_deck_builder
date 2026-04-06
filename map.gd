@@ -16,6 +16,8 @@ var floors_climbed: int
 var last_room: Room
 var camera_edge_y: float
 
+var is_dragging := false
+
 
 func _ready() -> void:
 	camera_edge_y = MapGenerator.Y_DIST * (MapGenerator.FLOORS -1)
@@ -24,8 +26,14 @@ func _ready() -> void:
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("scroll_up"):
 		camera_2d.position.y -= SCROLL_SPEED
-	elif  event.is_action_pressed("scroll_down"):
+	elif event.is_action_pressed("scroll_down"):
 		camera_2d.position.y += SCROLL_SPEED
+		
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_LEFT:
+			is_dragging = event.pressed
+	elif event is InputEventMouseMotion and is_dragging:
+		camera_2d.position.y -= event.relative.y
 	
 	camera_2d.position.y = clamp(camera_2d.position.y, -camera_edge_y, 0)
 

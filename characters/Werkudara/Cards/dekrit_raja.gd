@@ -1,10 +1,10 @@
-
 extends Card
 
 const KYAT_STATUS = preload("res://statuses/kyat.tres")
 const TANGKAS_STATUS = preload("res://statuses/tangkas.tres")
 
 @export var buff_amount := 1
+@export var optional_sound: AudioStream
 
 func get_default_tooltip() -> String:
 	return tooltip_text
@@ -34,3 +34,12 @@ func apply_effects(_targets: Array[Node], _modifiers: ModifierHandler) -> void:
 	tangkas.stacks = buff_amount 
 	tangkas_effect.status = tangkas
 	tangkas_effect.execute(target_array)
+
+	if sound:
+		var sfx_player = AudioStreamPlayer.new()
+		sfx_player.stream = sound
+		
+		tree.current_scene.add_child(sfx_player) 
+		sfx_player.play()
+		
+		sfx_player.finished.connect(sfx_player.queue_free)

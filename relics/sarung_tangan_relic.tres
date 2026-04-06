@@ -10,4 +10,5 @@ id = "sarung_tangan"
 type = 2
 icon = ExtResource("1_my8xl")
 tooltip = "[color=\"ffdf00\"]Sarung Tangan[/color] Kartu serangan ketiga yang dimainkan memiliki kerusakan dua kali lipat"
+relic_story = "Kelat Bahu atau pelindung lengan bagi pemanah. Arjuna memiliki keterampilan unik, mampu memanah dengan kedua tangannya secara bersamaan."
 metadata/_custom_type_script = "uid://spwidn0jd7oe"

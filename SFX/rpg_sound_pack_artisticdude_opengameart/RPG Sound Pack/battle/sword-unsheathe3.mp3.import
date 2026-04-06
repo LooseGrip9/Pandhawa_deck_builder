@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bybevqknqlxnv"
+path="res://.godot/imported/sword-unsheathe3.mp3-8f5a51a4a431f7b94b9a0ee1dc38cc7d.mp3str"
+
+[deps]
+
+source_file="res://SFX/rpg_sound_pack_artisticdude_opengameart/RPG Sound Pack/battle/sword-unsheathe3.mp3"
+dest_files=["res://.godot/imported/sword-unsheathe3.mp3-8f5a51a4a431f7b94b9a0ee1dc38cc7d.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

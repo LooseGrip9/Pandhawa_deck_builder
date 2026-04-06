@@ -10,4 +10,5 @@ id = "hiasan_tengkorak"
 type = 2
 icon = ExtResource("1_cipyw")
 tooltip = "[color=\"ffdf00\"]Hiasan Tengkorak[/color] +4 HP ketika menyalahkan musuh"
+relic_story = "Batari Durga, perwujudan menakutkan dari Dewi Uma, sering digambarkan memakai tengkorak. Ia menguasai akhir peperangan yang kacau balau."
 metadata/_custom_type_script = "uid://spwidn0jd7oe"

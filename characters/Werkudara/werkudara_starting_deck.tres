@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="CardPile" load_steps=17 format=3 uid="uid://bfh1h6r52wtgg"]
+[gd_resource type="Resource" script_class="CardPile" load_steps=15 format=3 uid="uid://bfh1h6r52wtgg"]
 
 [ext_resource type="Script" uid="uid://dcw4oridrwk87" path="res://custom_resources/card.gd" id="1_4bc6y"]
 [ext_resource type="Resource" uid="uid://c08j5gpyl7ane" path="res://characters/Werkudara/Cards/pandhawa_axe_attack card.tres" id="2_eavd6"]
@@ -13,11 +13,9 @@
 [ext_resource type="Resource" uid="uid://be54wxsvmj7o4" path="res://characters/Werkudara/Cards/anjalikastra_card.tres" id="8_31i1i"]
 [ext_resource type="Resource" uid="uid://d4j7bc68euuk4" path="res://characters/Werkudara/Cards/fokus_card.tres" id="8_fa0na"]
 [ext_resource type="Resource" uid="uid://cd31dokqm4xdt" path="res://characters/Werkudara/Cards/karma_card.tres" id="10_ii6ln"]
-[ext_resource type="Resource" uid="uid://bujb5w4fo8jgk" path="res://characters/Werkudara/Cards/dekrit_raja.tres" id="11_xe2uo"]
-[ext_resource type="Resource" uid="uid://cmo1gmwg6pf5j" path="res://characters/Werkudara/Cards/lumput_terkutuk_card.tres" id="12_ldc1a"]
-[ext_resource type="Resource" uid="uid://dbotf5150b2aw" path="res://characters/Werkudara/Cards/belati_tersembunyi.tres" id="13_0eoxy"]
+[ext_resource type="Resource" uid="uid://q6eo14pbf112" path="res://characters/Werkudara/Cards/naraya_astra_card.tres" id="13_3wh3g"]
 
 [resource]
 script = ExtResource("2_klm72")
-cards = Array[ExtResource("1_4bc6y")]([ExtResource("2_eavd6"), ExtResource("2_eavd6"), ExtResource("3_ii6ln"), ExtResource("3_l4ohr"), ExtResource("3_l4ohr"), ExtResource("3_ii6ln"), ExtResource("4_l4ohr"), ExtResource("4_5mtbe"), ExtResource("3_ii6ln"), ExtResource("6_fa0na"), ExtResource("6_3wh3g"), ExtResource("8_5i58t"), ExtResource("8_fa0na"), ExtResource("8_31i1i"), ExtResource("8_31i1i"), ExtResource("10_ii6ln"), ExtResource("6_fa0na"), ExtResource("11_xe2uo"), ExtResource("12_ldc1a"), ExtResource("13_0eoxy")])
+cards = Array[ExtResource("1_4bc6y")]([ExtResource("2_eavd6"), ExtResource("2_eavd6"), ExtResource("3_ii6ln"), ExtResource("3_l4ohr"), ExtResource("3_l4ohr"), ExtResource("3_ii6ln"), ExtResource("4_l4ohr"), ExtResource("4_5mtbe"), ExtResource("3_ii6ln"), ExtResource("6_fa0na"), ExtResource("6_3wh3g"), ExtResource("8_5i58t"), ExtResource("8_fa0na"), ExtResource("8_31i1i"), ExtResource("8_31i1i"), ExtResource("10_ii6ln"), ExtResource("6_fa0na"), ExtResource("13_3wh3g"), ExtResource("13_3wh3g"), ExtResource("13_3wh3g")])
 metadata/_custom_type_script = "uid://6awnk1lfb5c3"

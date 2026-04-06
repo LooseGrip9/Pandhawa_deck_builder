@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://d1jx85wia6023"
+path="res://.godot/imported/spell.mp3-00074ce79529a9b7235322d31c8e1e12.mp3str"
+
+[deps]
+
+source_file="res://SFX/rpg_sound_pack_artisticdude_opengameart/RPG Sound Pack/battle/spell.mp3"
+dest_files=["res://.godot/imported/spell.mp3-00074ce79529a9b7235322d31c8e1e12.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

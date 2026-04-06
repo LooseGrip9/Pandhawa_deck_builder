@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c8h8befd23yjv"
+path="res://.godot/imported/JDSherbert - Pixel Game Essentials SFX Pack - Damage 1.wav-04b5889589525072d753516b15060982.sample"
+
+[deps]
+
+source_file="res://SFX/JDSherbert - Pixel Game Essentials SFX Pack (FREE)/Stereo/wav (SD)/JDSherbert - Pixel Game Essentials SFX Pack - Damage 1.wav"
+dest_files=["res://.godot/imported/JDSherbert - Pixel Game Essentials SFX Pack - Damage 1.wav-04b5889589525072d753516b15060982.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

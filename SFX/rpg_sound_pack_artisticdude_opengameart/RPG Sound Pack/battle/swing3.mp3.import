@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c37tojnwxf8xu"
+path="res://.godot/imported/swing3.mp3-bac75dd5cc3d65a51013c3fc8bf46ef3.mp3str"
+
+[deps]
+
+source_file="res://SFX/rpg_sound_pack_artisticdude_opengameart/RPG Sound Pack/battle/swing3.mp3"
+dest_files=["res://.godot/imported/swing3.mp3-bac75dd5cc3d65a51013c3fc8bf46ef3.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -20,5 +20,13 @@ func apply_effects(targets: Array[Node], _modifiers: ModifierHandler) -> void:
 	var player_handler = tree.get_first_node_in_group("player_handler")
 	
 	if player_handler:
-		
 		player_handler.redraw_hand()
+		
+	if optional_sound:
+		var sfx_player = AudioStreamPlayer.new()
+		sfx_player.stream = optional_sound
+		
+		tree.current_scene.add_child(sfx_player) 
+		sfx_player.play()
+		
+		sfx_player.finished.connect(sfx_player.queue_free)

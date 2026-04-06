@@ -1,10 +1,12 @@
-[gd_resource type="Resource" load_steps=3 format=3 uid="uid://b0qlcho6o3tww"]
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://b0qlcho6o3tww"]
 
 [ext_resource type="Texture2D" uid="uid://dnka68eg16csa" path="res://art/pashupatastra.png" id="1_0e15x"]
+[ext_resource type="AudioStream" uid="uid://cdnopnvy7ly5o" path="res://SFX/Arcade_Sound_FX/harsh_destruction.wav" id="2_lb2rr"]
 [ext_resource type="Script" uid="uid://b1siggv6a1el4" path="res://characters/Werkudara/Cards/pashupatastra.gd" id="2_mx0hm"]
 
 [resource]
 script = ExtResource("2_mx0hm")
+optional_sound = ExtResource("2_lb2rr")
 id = "pashupatastra"
 rarity = 2
 target = 2

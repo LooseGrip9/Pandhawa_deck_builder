@@ -5,8 +5,9 @@
 
 [resource]
 script = ExtResource("2_gmtp0")
-relic_name = "Dadu Shakuni"
-id = "dadu_shakuni"
+relic_name = "Dadu Sengkuni"
+id = "dadu_sengkuni"
 icon = ExtResource("1_f25h2")
 tooltip = "[color=\"ffdf00\"]Dadu Shakuni[/color] Acak nilai semua kartu di tangan (0-2) setiap giliran."
+relic_story = "Penguasaan mutlak Patih Sengkuni atas permainan dadu adalah senjata utamanya. Ia mewakili bahaya perjudian (Judi) dan manipulasi politik dibandingkan pertarungan militer."
 metadata/_custom_type_script = "uid://spwidn0jd7oe"

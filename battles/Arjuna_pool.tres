@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="BattleStatsPool" load_steps=16 format=3 uid="uid://bypc0n773hdxi"]
+[gd_resource type="Resource" script_class="BattleStatsPool" load_steps=19 format=3 uid="uid://bypc0n773hdxi"]
 
 [ext_resource type="Script" uid="uid://bvm4v1tb74khm" path="res://custom_resources/battle_stats.gd" id="1_juyxj"]
 [ext_resource type="Script" uid="uid://dqqsud6ikiinl" path="res://custom_resources/battle_stats_pool.gd" id="2_rrdqd"]
@@ -15,8 +15,11 @@
 [ext_resource type="Resource" uid="uid://bt6emhkesl3y" path="res://battles/tier_3. kuda_armor2_crossbow.tres" id="12_mta8q"]
 [ext_resource type="Resource" uid="uid://u821sat28xb" path="res://battles/tier_3. kuda_armor4.tres" id="13_jh6sh"]
 [ext_resource type="Resource" uid="uid://bo2fhxss86q4l" path="res://battles/tier_3. resi2_crossbow2.tres" id="14_omyjn"]
+[ext_resource type="Resource" uid="uid://cqvir88axje2s" path="res://battles/KarnaBattle.tres" id="15_dn5e3"]
+[ext_resource type="Resource" uid="uid://cex0mt3sa2yh3" path="res://battles/salya_battle.tres" id="16_1ui0w"]
+[ext_resource type="Resource" uid="uid://bhm46k2l3jwhf" path="res://battles/jayadrata_battle.tres" id="17_n3cgp"]
 
 [resource]
 script = ExtResource("2_rrdqd")
-pool = Array[ExtResource("1_juyxj")]([ExtResource("2_yo8yg"), ExtResource("3_wwq6h"), ExtResource("4_hlrlb"), ExtResource("5_dn5e3"), ExtResource("6_1ui0w"), ExtResource("7_n3cgp"), ExtResource("8_s2q1q"), ExtResource("9_rps3c"), ExtResource("10_6rbea"), ExtResource("11_kyjv1"), ExtResource("12_mta8q"), ExtResource("13_jh6sh"), ExtResource("14_omyjn")])
+pool = Array[ExtResource("1_juyxj")]([ExtResource("2_yo8yg"), ExtResource("3_wwq6h"), ExtResource("4_hlrlb"), ExtResource("5_dn5e3"), ExtResource("6_1ui0w"), ExtResource("7_n3cgp"), ExtResource("8_s2q1q"), ExtResource("9_rps3c"), ExtResource("10_6rbea"), ExtResource("11_kyjv1"), ExtResource("12_mta8q"), ExtResource("13_jh6sh"), ExtResource("14_omyjn"), ExtResource("15_dn5e3"), ExtResource("16_1ui0w"), ExtResource("17_n3cgp")])
 metadata/_custom_type_script = "uid://dqqsud6ikiinl"

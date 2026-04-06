@@ -34,3 +34,12 @@ func apply_effects(targets: Array[Node], _modifiers: ModifierHandler) -> void:
 	
 	new_card.cost = 0
 	player_handler.hand.add_card(new_card)
+	
+	if optional_sound:
+		var sfx_player = AudioStreamPlayer.new()
+		sfx_player.stream = optional_sound
+		
+		tree.current_scene.add_child(sfx_player) 
+		sfx_player.play()
+		
+		sfx_player.finished.connect(sfx_player.queue_free)

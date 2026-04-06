@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://p4m0hdnpy5mg"]
 
-[ext_resource type="Script" path="res://Scene/UI/card_rewards.gd" id="1_ptgbe"]
+[ext_resource type="Script" uid="uid://cj3b5paamsmx6" path="res://Scene/UI/card_rewards.gd" id="1_ptgbe"]
 [ext_resource type="PackedScene" uid="uid://d4lssxulawatx" path="res://Scene/UI/card_menu_ui.tscn" id="1_rgjkt"]
 [ext_resource type="Script" uid="uid://dcw4oridrwk87" path="res://custom_resources/card.gd" id="2_icand"]
 [ext_resource type="Theme" uid="uid://ychgttg0pudb" path="res://Main_Theme.tres" id="2_ptgbe"]
@@ -55,7 +55,6 @@ theme = ExtResource("2_ptgbe")
 text = "Lewati"
 
 [node name="CardTooltipPopUp" parent="." instance=ExtResource("3_pwwyj")]
-visible = false
 layout_mode = 1
 offset_right = 1.0
 offset_bottom = 4.0
@@ -70,10 +69,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -4.0
-offset_top = -35.0
-offset_right = 4.0
-offset_bottom = -27.0
+offset_left = -17.5
+offset_top = -23.0
+offset_right = 17.5
+offset_bottom = -11.0
 grow_horizontal = 2
 grow_vertical = 0
 theme = ExtResource("2_ptgbe")

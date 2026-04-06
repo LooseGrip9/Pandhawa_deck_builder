@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="BattleStatsPool" load_steps=15 format=3 uid="uid://chgjfkjbnkchh"]
+[gd_resource type="Resource" script_class="BattleStatsPool" load_steps=19 format=3 uid="uid://chgjfkjbnkchh"]
 
 [ext_resource type="Script" uid="uid://bvm4v1tb74khm" path="res://custom_resources/battle_stats.gd" id="1_c4ej1"]
 [ext_resource type="Script" uid="uid://dqqsud6ikiinl" path="res://custom_resources/battle_stats_pool.gd" id="2_42yw1"]
@@ -14,8 +14,12 @@
 [ext_resource type="Resource" uid="uid://bb18xyohnnnmp" path="res://battles/tier_1_pembunuh_prajurit.tres" id="11_smtvb"]
 [ext_resource type="Resource" uid="uid://b35j3khyfqcde" path="res://battles/tier_2. kuda_kudaarmor2.tres" id="12_6x4eu"]
 [ext_resource type="Resource" uid="uid://cnfeqy16xmkf" path="res://battles/tier_2. resi_prajurit_kuda_pembunuh.tres" id="13_r64ow"]
+[ext_resource type="Resource" uid="uid://vtt8e883hy2" path="res://battles/tier_2. resi2_pembunuh2.tres" id="14_imvag"]
+[ext_resource type="Resource" uid="uid://bt6emhkesl3y" path="res://battles/tier_3. kuda_armor2_crossbow.tres" id="15_jfc4n"]
+[ext_resource type="Resource" uid="uid://u821sat28xb" path="res://battles/tier_3. kuda_armor4.tres" id="16_pqmnr"]
+[ext_resource type="Resource" uid="uid://bo2fhxss86q4l" path="res://battles/tier_3. resi2_crossbow2.tres" id="17_iajyq"]
 
 [resource]
 script = ExtResource("2_42yw1")
-pool = Array[ExtResource("1_c4ej1")]([ExtResource("2_s5wuo"), ExtResource("5_s5wuo"), ExtResource("5_s5wuo"), ExtResource("6_7ckf5"), ExtResource("4_lrvlq"), ExtResource("6_s5wuo"), ExtResource("10_ycppb"), ExtResource("11_smtvb"), ExtResource("12_6x4eu"), ExtResource("13_r64ow"), ExtResource("7_hpysq"), ExtResource("8_a7oj0"), ExtResource("9_a7oj0")])
+pool = Array[ExtResource("1_c4ej1")]([ExtResource("2_s5wuo"), ExtResource("5_s5wuo"), ExtResource("6_7ckf5"), ExtResource("4_lrvlq"), ExtResource("6_s5wuo"), ExtResource("10_ycppb"), ExtResource("11_smtvb"), ExtResource("12_6x4eu"), ExtResource("13_r64ow"), ExtResource("7_hpysq"), ExtResource("8_a7oj0"), ExtResource("9_a7oj0"), ExtResource("14_imvag"), ExtResource("15_jfc4n"), ExtResource("16_pqmnr"), ExtResource("17_iajyq")])
 metadata/_custom_type_script = "uid://dqqsud6ikiinl"

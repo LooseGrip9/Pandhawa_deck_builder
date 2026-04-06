@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="CharacterStats" load_steps=9 format=3 uid="uid://krdgyiysjiok"]
 
-[ext_resource type="Texture2D" uid="uid://bj3im6egs4wxx" path="res://art/tile_0086.png" id="1_1rm1i"]
+[ext_resource type="Texture2D" uid="uid://b3seka8v6jgeg" path="res://art/Arjuna.png" id="1_kwuo7"]
 [ext_resource type="Texture2D" uid="uid://bmi0ejpglw8i0" path="res://art/Character Portrait/arjuna1.png" id="2_1inpl"]
 [ext_resource type="Script" uid="uid://ccbx3tv5o5p5l" path="res://custom_resources/character_stats.gd" id="2_5hiwr"]
 [ext_resource type="Resource" uid="uid://bypc0n773hdxi" path="res://battles/Arjuna_pool.tres" id="2_kwuo7"]
@@ -24,5 +24,5 @@ max_mana = 6
 starting_relics = Array[ExtResource("5_13sjr")]([ExtResource("6_te452")])
 battle_pool = ExtResource("2_kwuo7")
 max_health = 60
-art = ExtResource("1_1rm1i")
+art = ExtResource("1_kwuo7")
 metadata/_custom_type_script = "uid://ccbx3tv5o5p5l"

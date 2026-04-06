@@ -9,4 +9,5 @@ relic_name = "Dadu Kayu"
 id = "dadu_kayu"
 icon = ExtResource("1_hnpu2")
 tooltip = "[color=\"ffdf00\"]Dadu Kayu[/color] Serang musuh untuk 3 HP secara acak pada awal giliran"
+relic_story = "Dadu magis Sengkuni dibuat dari tulang ayahnya yang telah meninggal, dipenuhi niat busuk untuk menghancurkan dinasti Kuru."
 metadata/_custom_type_script = "uid://spwidn0jd7oe"

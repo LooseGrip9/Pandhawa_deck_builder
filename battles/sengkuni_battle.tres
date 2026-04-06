@@ -6,9 +6,10 @@
 [resource]
 script = ExtResource("2_p37iu")
 battle_name = "Sengkuni"
-battle_tier = 2
+battle_tier = 4
 weight = 2.5
 gold_max = 50
 gold_min = 50
 enemies = ExtResource("1_p5fxa")
+intro_dialogue = Array[String](["Werkudara : Berhenti bersembunyi di balik ilusi dan prajurit bayaranmu, Sengkuni!", "Werkudara : Hari ini, langkah licikmu berakhir. Lidah berbisamu akan kubungkam selamanya!", "Werkudara : JANGAN LUPAKAN APA YANG TERJADI DI BALAIRUNG HASTINAPURA!", "Werkudara : Kau yang memanipulasi dadu itu! Kau yang merancang penghinaan atas istri kami, Drupadi!", "Sengkuni: (Tertawa pelan, pura-pura terkejut)", "Sengkuni: Ah, memori yang sempit. Itu adalah permainan yang adil, Bima.", "Sengkuni: Kakakmu, Yudhistira, yang terlalu gila judi dan serakah hingga mempertaruhkan kerajaan, saudara, bahkan istrinya sendiri.", "Sengkuni: Aku hanya melempar dadu. Dadu tidak punya niat jahat. Dadu tidak bisa BERBOHONG.", "Werkudara menghentakkan gadanya", "Werkudara : Dadu buatanmu terbuat dari tulang kelicikan! Kau adalah akar busuk dari pohon Kurawa!", "Werkudara : Kau yang meracuni pikiran Duryudana sejak kami masih anak-anak.", "Werkudara: Tanpa hasutanmu, perang saudara sedarah Bharatayuddha ini tidak akan pernah menumpahkan darah!", "Sengkuni: (Mata menyipit, nada suaranya berubah tajam dan dingin)", "Sengkuni : Perang ini terjadi karena kalian para Pandawa tidak tahu tempat kalian! Kalian pantas diasingkan ke hutan!", "Sengkuni : Perang ini terjadi karena kalian para Pandawa tidak tahu tempat kalian! Kalian pantas diasingkan ke hutan!", "Sengkuni : Tapi baiklah, otot besar tanpa otak... Jika kau pikir kau bisa menyentuhku, cobalah.", "Sengkuni : Sihir Gandhara dan jebakanku akan membuatmu bertekuk lutut sebelum kau bisa mengayunkan gada bodohmu itu!\"", "Werkudara : (Mata memerah, mengambil kuda-kuda menyerang)", "Werkudara : Akan kurobek mulut pembohongmu!", "Werkudara : Akan kukupas kulit licikmu untuk menebus tangisan Drupadi!", "Werkudara : Bersiaplah menemui ajalmu, SENGKUNI!"])
 metadata/_custom_type_script = "uid://bvm4v1tb74khm"

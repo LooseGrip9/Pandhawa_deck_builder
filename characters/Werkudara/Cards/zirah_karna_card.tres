@@ -1,14 +1,16 @@
-[gd_resource type="Resource" load_steps=3 format=3 uid="uid://dtuc42whq2lu0"]
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://dtuc42whq2lu0"]
 
 [ext_resource type="Texture2D" uid="uid://bi6pfjs32f820" path="res://art/tile_0101.png" id="1_yvvbi"]
 [ext_resource type="Script" uid="uid://brf116neeyp1b" path="res://characters/Werkudara/Cards/zirah_karna.gd" id="2_11e2d"]
+[ext_resource type="AudioStream" uid="uid://dqs4636v40w3w" path="res://SFX/rpg_sound_pack_artisticdude_opengameart/RPG Sound Pack/inventory/metal-ringing.wav" id="2_y7atb"]
 
 [resource]
 script = ExtResource("2_11e2d")
+optional_sound = ExtResource("2_y7atb")
 rarity = 2
 type = 2
 cost = 2
 icon = ExtResource("1_yvvbi")
 tooltip_text = "Tambah 4 Lempeng Zirah"
-flavour_text = "Adipati Karna lahir dengan zirah emas (Kavacha) yang menempel di kulitnya. Ia mengelupasnya untuk diberikan kepada Indra (yang menyamar) demi memenuhi sumpah kedermawanannya."
+flavour_text = "Ciri khas utama Karna. Ia lahir dengan zirah dewa (Kavacha) dan anting-anting (Kundala) yang membuatnya kebal secara fisik selama benda itu menempel di tubuhnya"
 metadata/_custom_type_script = "uid://dcw4oridrwk87"

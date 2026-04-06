@@ -1,10 +1,12 @@
-[gd_resource type="Resource" load_steps=3 format=3 uid="uid://cqxh5il2lajus"]
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://cqxh5il2lajus"]
 
 [ext_resource type="Texture2D" uid="uid://dlrj1lcssrati" path="res://art/Sumpah_terakhir.png" id="1_e6xi8"]
+[ext_resource type="AudioStream" uid="uid://oocp3mt3j0r" path="res://SFX/Arcade_Sound_FX/fire_3.wav" id="2_vmw3u"]
 [ext_resource type="Script" uid="uid://txxwe81545si" path="res://characters/Werkudara/Cards/sumpah_terakhir.gd" id="2_yihr3"]
 
 [resource]
 script = ExtResource("2_yihr3")
+optional_sound = ExtResource("2_vmw3u")
 id = "sumpah_terakhir"
 rarity = 2
 target = 1

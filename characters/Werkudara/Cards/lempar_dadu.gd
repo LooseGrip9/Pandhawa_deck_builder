@@ -32,3 +32,13 @@ func apply_effects(targets: Array[Node], _modifiers: ModifierHandler) -> void:
 			
 			if stats.health <= 0:
 				pass
+				
+	if optional_sound and targets.size() > 0:
+		var tree = targets[0].get_tree()
+		var sfx_player = AudioStreamPlayer.new()
+		sfx_player.stream = optional_sound
+		
+		tree.current_scene.add_child(sfx_player) 
+		sfx_player.play()
+		
+		sfx_player.finished.connect(sfx_player.queue_free)

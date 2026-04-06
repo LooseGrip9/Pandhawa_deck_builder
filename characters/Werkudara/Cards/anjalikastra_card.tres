@@ -1,7 +1,8 @@
-[gd_resource type="Resource" load_steps=3 format=3 uid="uid://be54wxsvmj7o4"]
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://be54wxsvmj7o4"]
 
 [ext_resource type="Texture2D" uid="uid://ciqj6423n005w" path="res://art/anjalikastra.png" id="1_l13qm"]
 [ext_resource type="Script" uid="uid://gl2np1jfa2k2" path="res://characters/Werkudara/Cards/anjalikastra.gd" id="2_32gim"]
+[ext_resource type="AudioStream" uid="uid://0i80s6hyfp3n" path="res://SFX/hits/hit02.mp3.mp3" id="3_32gim"]
 
 [resource]
 script = ExtResource("2_32gim")
@@ -12,4 +13,5 @@ cost = 2
 icon = ExtResource("1_l13qm")
 tooltip_text = "Serang untuk %s HP. Kartu dapat dimainkan jika kartu ini sendirian di tangan."
 flavour_text = "Panah yang digunakan Arjuna untuk memenggal Karna. Karna menjadi rentan karena kutukan yang menyebabkan roda keretanya terbenam ke tanah saat duel terakhir mereka."
+sound = ExtResource("3_32gim")
 metadata/_custom_type_script = "uid://dcw4oridrwk87"

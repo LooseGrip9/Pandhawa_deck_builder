@@ -1,10 +1,13 @@
-[gd_resource type="Resource" load_steps=3 format=3 uid="uid://d4j60rbjmexq8"]
+[gd_resource type="Resource" load_steps=5 format=3 uid="uid://d4j60rbjmexq8"]
 
 [ext_resource type="Script" uid="uid://c1scj134vrsur" path="res://characters/Werkudara/Cards/jebakan_hutan.gd" id="1_f761j"]
 [ext_resource type="Texture2D" uid="uid://5ga6vj80grps" path="res://art/jebakan.png" id="1_nukoa"]
+[ext_resource type="AudioStream" uid="uid://ylornqax71oa" path="res://SFX/JDSherbert - Pixel Game Essentials SFX Pack (FREE)/Mono/mp3/JDSherbert - Pixel Game Essentials SFX Pack - Switch 1.mp3" id="2_6t865"]
+[ext_resource type="AudioStream" uid="uid://c4b40cxxuopg3" path="res://SFX/hits/hit16.mp3.mp3" id="3_hlw80"]
 
 [resource]
 script = ExtResource("1_f761j")
+optional_sound = ExtResource("2_6t865")
 id = "jebakan_hutan"
 rarity = 1
 type = 1
@@ -12,4 +15,6 @@ target = 1
 cost = 1
 icon = ExtResource("1_nukoa")
 tooltip_text = "Berikan 3 status lemah pada musuh, setiap musuh yang menyerang akan kehilangan 10 HP"
+flavour_text = "Wana Parva menceritakan kehidupan keras Pandawa di hutan, membuktikan bahwa sifat raja sejati didapatkan melalui penderitaan dan penyatuan dengan alam."
+sound = ExtResource("3_hlw80")
 metadata/_custom_type_script = "uid://dcw4oridrwk87"

@@ -10,4 +10,5 @@ id = "beras_prajurit"
 type = 4
 icon = ExtResource("1_stbej")
 tooltip = "[color=\"ffdf00\"]Beras Prajurit[/color] +5 HP maksimum"
+relic_story = "Baratayuda berlangsung tepat 18 hari, melambangkan skala perang mengerikan yang menyapu bersih ribuan prajurit biasa yang namanya tak pernah dicatat sejarah."
 metadata/_custom_type_script = "uid://spwidn0jd7oe"

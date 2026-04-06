@@ -6,9 +6,10 @@
 [resource]
 script = ExtResource("2_2o74s")
 battle_name = "Duryudana"
-battle_tier = 2
+battle_tier = 4
 weight = 2.5
 gold_max = 1500
 gold_min = 1200
 enemies = ExtResource("1_4rr3s")
+intro_dialogue = Array[String](["Duryudana : (Suaranya dingin, penuh kepahitan namun sarat akan kebanggaan yang tak mau pudar)", "Duryudana : Seratus Kurawa.", "Duryudana : Seratus saudaraku gugur ke tanah... ", "Duryudana : Dan kau, Bima, adalah algojo bagi darah dagingmu sendiri.", "Duryudana : Apakah takhta Hastinapura sepadan dengan lautan mayat ini?", "Werkudara : Jangan memutarbalikkan kenyataan di ujung usiamu, Duryudana! Kresna datang memohon perdamaian.", "Werkudara : Kami hanya meminta lima desa!", "Werkudara : Tapi keserakahanmu menjawab 'Jangankan lima desa, seluas ujung jarum pun tak akan kuberikan pada Pandawa!' ", "Werkudara : Kesombonganmulah yang membunuh seratus saudaramu!", "Duryudana mulai mengayunkan gadanya hingga menghancurkan batu disekitarnya.", "Duryudama : Hastinapura adalah milikku! mereka semua mati karena tipu muslihat licik kalian!", "Duryudana : Tapi hari ini, di sini, hanya ada kau dan aku. Gada melawan gada.", "Duryudana : Hukum ksatria murni. Dan tubuhku kini kebal terhadap segala senjata di dunia fana ini!", "Werkudara menatap tajam duryudana", "Werkudara : Tubuh baja tak bisa melindungi jiwa yang busuk. Apakah kau lupa hari di mana kau menepuk paha kirimu dengan angkuh?", "Werkudara : Hari di mana kau mengundang istri kami, Drupadi, untuk duduk di atasnya seperti seorang budak?!", "Duryudana tersenyum sinis dan menepuk pahanya yang telah mnengeras seperti besi", "Duryudanaa : Aku adalah Raja Dunia! Siapapun yang kalah dalam dadu adalah budakku! Pukul saja kalau kau bisa, Bima! Hancurkan aku jika sumpahmu memang di restui dewata!", "Werkudara mengangkat gadanya setinggi mungkin", "Werkudara : Kutukan Resi Maitreya dan sumpah darahku bersatu hari ini! Aku tidak peduli pada kulit bajamu!", "Werkudara : Aku akan meremukkan paha kesombonganmu itu, Duryudana! Bersiaplah menemui pamanmu Sengkuni di dasar neraka!", "Duryudana : MAJULAH, BIMA! BIAR SEJARAH MENCATAT SIAPA RAJA HASTINAPURA YANG SEBENARNYA!"])
 metadata/_custom_type_script = "uid://bvm4v1tb74khm"

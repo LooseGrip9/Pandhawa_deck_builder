@@ -10,6 +10,7 @@ func _ready() -> void:
 	continue_button.pressed.connect(_unpause)
 	main_menu_button.pressed.connect(_main_menu_button_pressed)
 
+# 1. This still handles PC (Escape Key)
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("pause"):
 		if visible:
@@ -18,6 +19,13 @@ func _input(event: InputEvent) -> void:
 			_pause()
 			
 		get_viewport().set_input_as_handled()
+
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_WM_GO_BACK_REQUEST:
+		if visible:
+			_unpause()
+		else:
+			_pause()
 	
 func _pause() -> void:
 	show()

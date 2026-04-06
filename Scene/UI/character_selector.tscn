@@ -7,8 +7,8 @@
 [ext_resource type="Theme" uid="uid://ychgttg0pudb" path="res://Main_Theme.tres" id="3_3i43m"]
 [ext_resource type="FontFile" uid="uid://dskmdk146n4rq" path="res://art/pixel_rpg.ttf" id="5_27gld"]
 [ext_resource type="Texture2D" uid="uid://bmi0ejpglw8i0" path="res://art/Character Portrait/arjuna1.png" id="5_jklnb"]
-[ext_resource type="Texture2D" uid="uid://cpydvk8mq66o5" path="res://art/tile_0087.png" id="5_s733c"]
-[ext_resource type="Texture2D" uid="uid://bj3im6egs4wxx" path="res://art/tile_0086.png" id="6_jklnb"]
+[ext_resource type="Texture2D" uid="uid://px0q6xp4gadl" path="res://art/Werkudara.png" id="8_jklnb"]
+[ext_resource type="Texture2D" uid="uid://b3seka8v6jgeg" path="res://art/Arjuna.png" id="9_27gld"]
 [ext_resource type="PackedScene" uid="uid://cntn477r6b82o" path="res://Scene/Transition_Animation/color_rect.tscn" id="12_3syst"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_w0ang"]
@@ -89,13 +89,13 @@ theme = ExtResource("3_3i43m")
 [node name="Werkudara" type="Button" parent="HBoxContainer"]
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
-icon = ExtResource("5_s733c")
+icon = ExtResource("8_jklnb")
 icon_alignment = 1
 
 [node name="Arjuna" type="Button" parent="HBoxContainer"]
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
-icon = ExtResource("6_jklnb")
+icon = ExtResource("9_27gld")
 icon_alignment = 1
 
 [node name="Start" type="Button" parent="."]

@@ -10,4 +10,5 @@ id = "kipas_ekor_yak"
 type = 2
 icon = ExtResource("1_8w85v")
 tooltip = "[color=\"ffdf00\"]Kipas Ekor Yak[/color] : Ambil 1 kartu ekstra pada giliran pertama"
+relic_story = "Cemara (Kipas ekor Yak) adalah simbol tradisional kerajaan dan kehormatan dewa, melambangkan betapa fananya kekuasaan di medan perang."
 metadata/_custom_type_script = "uid://spwidn0jd7oe"

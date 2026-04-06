@@ -24,3 +24,12 @@ func apply_effects(targets: Array[Node], _modifiers: ModifierHandler) -> void:
 	for target in targets:
 		if target.has_method("take_damage"):
 			target.take_damage(damage_amount, Modifier.Type.NO_MODIFIER)
+			
+	if optional_sound and targets.size() > 0:
+		var sfx_player = AudioStreamPlayer.new()
+		sfx_player.stream = optional_sound
+		
+		tree.current_scene.add_child(sfx_player) 
+		sfx_player.play()
+		
+		sfx_player.finished.connect(sfx_player.queue_free)

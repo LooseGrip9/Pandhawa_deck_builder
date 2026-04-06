@@ -5,8 +5,10 @@
 
 [resource]
 script = ExtResource("2_23mpo")
-relic_name = "Tabung Sarrotama"
-id = "tabung_sarrotama"
+relic_name = "Akshaya Tunira"
+id = "akshaya_tunira"
 icon = ExtResource("1_23mpo")
 tooltip = "[color=\"ffdf00\"]Tabung Sarrotama[/color] Serangan yang membutuhkan 0 Energi akan mengambil 1 kartu (Terbatas 1 kali per giliran)."
+relic_story = "Akshaya Tunira adalah tabung panah magis milik Arjuna yang isinya tidak pernah habis. Dianugerahkan oleh Batara Agni (Dewa Api), pusaka ini memungkinkan Arjuna menghujani medan Kuruksetra dengan anak panah tanpa henti siang dan malam.
+"
 metadata/_custom_type_script = "uid://spwidn0jd7oe"

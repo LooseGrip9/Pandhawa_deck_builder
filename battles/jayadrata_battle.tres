@@ -5,8 +5,13 @@
 
 [resource]
 script = ExtResource("2_576pm")
+battle_name = "Jayadrata"
+battle_tier = 4
 weight = 2.5
 gold_max = 50
 gold_min = 50
 enemies = ExtResource("1_d4hp7")
+intro_dialogue = Array[String](["Hari ke-14 Baratayudha", "Medan laga Kurukshetra dengan langit sore yang mulai memerah. Di kejauhan, matahari perlahan turun ke arah barat", "Jayadrata berdiri di barisan paling belakang, dikelilingi oleh prajuritnya yang bersenjata lengkap", "Arjuna berdiri tegak sendirian di atas keretanya, menggenggam busur Gandewa yang memancarkan aura kebiruan.", "Jayadrata: Prajurit! Rapatkan barisan! Jangan beri dia celah walau seujung jarum! Tahan dia sampai matahari itu tenggelam!", "Jayadarata : Jika dia gagal membunuhku, sumpah bodohnya untuk lompat ke api penyucian sendiri yang akan membakarnya hidup-hidup!\"", "Arjuna menatap ke depam. suaranya yang dingin menusuk riuhnya suara perang", "Arjuna : kau bisa bersembunyi di balik sejuta nyawa dan benteng baja, Jayadrata.", "Arjuna : Namun, selama matahari masih menggantung di langit, anak panah Gandewa tidak akan pernah kehilangan arah menuju lehermu.\"", "Jayadrata ketakutan dan bersembunyi lebih dalam di balik pasukannya", "Jayadrata : Kau sudah gila karena duka, Arjuna!", "Jayadrata : Kematian putramu telah merenggut akal sehatmu. Abimanyu mati karena kesombongan dan kecerobohannya sendiri dan  masuk ke dalam formasi Cakrawyuha.", "Jayadrata : Aku hanya... menjaga pintunya agar kalian tidak ikut campur!", "Arjuna mulai menarik tali busurnya dengan sangat keras", "Arjuna : Jangan berani menyebut nama putraku dengan mulut pengecutmu! Kau menutup jalan keluarnya", "Arjuna : Kau membiarkan enam jenderal tua yang tidak tahu malu mengeroyok seorang anak yang tak berdaya. Kalian membunuhnya saat aku tidak ada di sisinya!", "Jayadrata : Itu adalah perang! Tidak ada tempat untuk anak-anak! Pasukan, serang dia sekarang!", "Jayadrata : Jangan biarkan dia melangkah lebih dekat ke keretaku!", "Arjuna : Darah harus dibayar darah. Air mata istriku, Subadra, takkan kering sebelum kepalamu jatuh menggelinding ke bumi. Demi martabat Pandawa dan jiwa putraku...", "Arjuna : Dengarlah sumpahlku, Jayadrata! ", "Arjuna : Sebelum bayangan senja menyentuh padang Kurukshetra hari ini, anak panahku akan menembus jantungmu!
+", "Arjuna : Majulah kalian semua, dan rasakan badai panah sang Panengah Pandawa!
+"])
 metadata/_custom_type_script = "uid://bvm4v1tb74khm"

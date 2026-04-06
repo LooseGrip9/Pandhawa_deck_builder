@@ -9,12 +9,9 @@ var is_typing := false
 var active_tween: Tween
 
 func _ready() -> void:
-	# 1. INITIAL STATE: Keep everything clean and hidden
-	# We ensure the label is fully transparent and has no text yet
 	text_label.modulate.a = 0.0
 	text_label.visible_ratio = 0
 	
-	# 2. DATA SETUP: Identify character from RunManager
 	var character_name = ""
 	if RunManager.current_character:
 		character_name = RunManager.current_character.character_name
@@ -31,16 +28,12 @@ func _ready() -> void:
 		_:
 			story_pages = ["Perang Bharatayuddha telah dimulai. Takdir Pandawa ada di tanganmu."]
 
-	# 3. SEAMLESS REVEAL:
-	# We wait 0.5 seconds so the transition from the previous scene feels "settled"
 	await get_tree().create_timer(0.5).timeout
 	
-	# Gently fade in the Text Label so it doesn't "snap" in
 	var reveal_tween = create_tween()
 	reveal_tween.tween_property(text_label, "modulate:a", 1.0, 0.5)
 	await reveal_tween.finished
 	
-	# 4. START STORY
 	play_page()
 
 func _input(event: InputEvent) -> void:
@@ -87,17 +80,14 @@ func advance_to_next_page() -> void:
 		start_game()
 
 func start_game() -> void:
-	# Fade out the audio if it's playing
 	var audio_tween = create_tween()
 	audio_tween.tween_property($AudioStreamPlayer, "volume_db", -80, 1.0)
 	
-	# Slide the intro away
 	var tween = create_tween()
 	tween.tween_property(self, "offset:y", -720, 1.0).set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_IN)
 	await tween.finished
 	get_tree().change_scene_to_file("res://Scene/run/run.tscn")
 
-# --- STORY CONTENT ---
 
 func get_werkudara_story() -> Array[String]:
 	return [
@@ -106,14 +96,16 @@ func get_werkudara_story() -> Array[String]:
 		"Aku melihat mereka mencoba menelanjangi istriku di depan para tetua yang hanya tertunduk bisu. Di sela tawa sinis [color=orange]Sengkuni[/color], hatiku mendidih.",
 		"[color=red]\"Demi leluhurku! Aku tidak akan puas sebelum merobek dada Dursasana dengan tanganku sendiri dan meminum darahnya!\"[/color]",
 		"Selama tiga belas tahun di pengasingan, bayangan itu terus membakar dadaku. Setiap tetes keringatku adalah tabungan dendam.",
-		"Sengkuni, Dursasana, dan Suryudana... mereka adalah noda yang harus kuhapus agar martabat Pandawa kembali suci."
+		"Sengkuni, Dursasana, dan Duryudana... mereka adalah noda yang harus kuhapus agar martabat Pandawa kembali suci."
 	]
 
 func get_arjuna_story() -> Array[String]:
 	return [
-		"Matahari mulai tenggelam di ufuk [color=gray]Kurusetra[/color]. Cahayanya yang jingga terasa seperti luka yang terbuka di langit.",
-		"Di sampingku, [color=cyan]Krishna[/color] berdiri tenang. Namun di depanku, bayangan itu semakin nyata. [color=gold]Karna[/color].",
-		"Dia adalah cermin dari segala hal yang bisa saja menjadi diriku. Kakak yang terbuang, ksatria yang setia pada janji yang salah.",
-		"Dewa-dewa menanti busur [color=white]Gandiwa[/color] beradu dengan busur [color=gold]Vijaya[/color]. Ini bukan sekadar perang. Ini adalah [b]Karna Tanding[/b].",
-		"Satu matahari harus tenggelam agar fajar yang baru bisa terbit. Maafkan aku, saudaraku. Hari ini, takdir harus diselesaikan."
-	]
+		"Bau asap dari perabuan malam tadi masih mencekik paru-paruku. Di padang [color=gray]Kurukshetra[/color] ini, aku menangisi sisa-sisa api yang melahap putraku, [color=white]Abimanyu[/color].",
+		"Mereka menjebaknya. Anakku yang malang terkurung dalam labirin [color=gray]Cakrawyuha[/color], dikeroyok oleh para jenderal tua yang telah membuang kehormatan ksatria mereka.",
+		"Dan [color=red]Jayadrata[/color]... pengecut itu menyegel jalan keluarnya. Ia menahan kami di luar, memastikan putraku mati dalam kepungan tanpa harapan.",
+		"[color=red]\"Demi para dewa! Sebelum matahari terbenam hari ini, panahku akan memutus leher Jayadrata, atau aku sendiri yang akan melompat ke dalam api penyucian!\"[/color]",
+		"Namun jalan menuju keadilan dijaga oleh dinding baja. Aku harus menembus pertahanan [color=red]Prabu Salya[/color], paman kami yang kini terjebak sumpah menjadi kusir musuhku.",
+		"Dan jika dewata mengizinkan, di penghujung senja nanti takdir terbesarku telah menunggu. [color=orange]Adipati Karna[/color]... bayangan cerminku yang hidup dalam keangkuhan yang buta.",
+		"Hari ini, busur [color=white]Gandewa[/color] tidak akan beristirahat. Biarkan anak panah ini yang menyanyikan lagu kematian bagi mereka yang merampas masa depan putraku."
+]

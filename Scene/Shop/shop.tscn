@@ -14,7 +14,6 @@
 [ext_resource type="PackedScene" uid="uid://b1pljvn0xs3i5" path="res://Scene/Shop/shop_relic.tscn" id="7_2wyg6"]
 [ext_resource type="Resource" uid="uid://bm0340h4n58ky" path="res://relics/amrita_kalasha_relic.tres" id="7_7gy65"]
 [ext_resource type="PackedScene" uid="uid://c8f4jow3yb067" path="res://Scene/UI/card_tooltip_pop_up.tscn" id="7_kdfvd"]
-[ext_resource type="Resource" uid="uid://2vwujy1612k4" path="res://relics/batu_asah_relic.tres" id="8_acvdt"]
 [ext_resource type="Resource" uid="uid://b06hbeff8odyh" path="res://relics/belati_beracun.tres" id="9_e2lxm"]
 [ext_resource type="Resource" uid="uid://fucv3iyc5sxy" path="res://relics/beras_prajurit_relic.tres" id="10_xhuv6"]
 [ext_resource type="Resource" uid="uid://drybmebc3wpxa" path="res://relics/dadu_kayu_relic.tres" id="11_kvcjg"]
@@ -33,6 +32,7 @@
 [ext_resource type="Resource" uid="uid://30ulepaejdns" path="res://relics/sarung_tangan_relic.tres" id="22_rl4hn"]
 [ext_resource type="Resource" uid="uid://dpxfy36ou6hy4" path="res://relics/senar_gandiva_relic.tres" id="23_4gl55"]
 [ext_resource type="Resource" uid="uid://dtwhfadgyk83d" path="res://relics/tabung_sarrotama_relic.tres" id="24_dbdmy"]
+[ext_resource type="Resource" uid="uid://ctc62bd0mpexe" path="res://relics/batu_asah_2.tres" id="25_7gy65"]
 [ext_resource type="Resource" uid="uid://ebcsmsrhdw68" path="res://relics/tasbih_indrakila_relic.tres" id="25_wuksp"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_2wyg6"]
@@ -47,7 +47,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_5es7v")
-shop_relics = Array[ExtResource("2_2n4qt")]([ExtResource("3_wbj5i"), ExtResource("4_bgxel"), ExtResource("5_aiw1j"), ExtResource("6_x0qts"), ExtResource("7_7gy65"), ExtResource("8_acvdt"), ExtResource("9_e2lxm"), ExtResource("10_xhuv6"), ExtResource("11_kvcjg"), ExtResource("12_mcpc8"), ExtResource("13_ntxcq"), ExtResource("14_1rhqc"), ExtResource("15_apyv8"), ExtResource("16_wuisj"), ExtResource("17_0a6md"), ExtResource("18_lsvni"), ExtResource("19_hoqw0"), ExtResource("20_ykyx6"), ExtResource("21_uajg0"), ExtResource("22_rl4hn"), ExtResource("23_4gl55"), ExtResource("24_dbdmy"), ExtResource("25_wuksp"), null])
+shop_relics = Array[ExtResource("2_2n4qt")]([ExtResource("3_wbj5i"), ExtResource("4_bgxel"), ExtResource("5_aiw1j"), ExtResource("6_x0qts"), ExtResource("7_7gy65"), ExtResource("9_e2lxm"), ExtResource("10_xhuv6"), ExtResource("11_kvcjg"), ExtResource("12_mcpc8"), ExtResource("13_ntxcq"), ExtResource("14_1rhqc"), ExtResource("15_apyv8"), ExtResource("16_wuisj"), ExtResource("17_0a6md"), ExtResource("18_lsvni"), ExtResource("19_hoqw0"), ExtResource("20_ykyx6"), ExtResource("21_uajg0"), ExtResource("22_rl4hn"), ExtResource("23_4gl55"), ExtResource("24_dbdmy"), ExtResource("25_wuksp"), ExtResource("25_7gy65")])
 
 [node name="Background" type="CanvasLayer" parent="."]
 

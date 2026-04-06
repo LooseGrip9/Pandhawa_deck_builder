@@ -10,4 +10,5 @@ id = "kerang_kecil"
 type = 2
 icon = ExtResource("1_8x01k")
 tooltip = "[color=\"ffdf00\"]Kerang Kecil[/color] Kartu ke-5 yang dimainkan akan menjadi gratis"
+relic_story = "Terompet kerang (Sangkakala) ditiup untuk menandai awal dan akhir pertempuran. Terompet Kresna yang bernama Pancajanya dikenal mampu menebar teror di hati Kurawa."
 metadata/_custom_type_script = "uid://spwidn0jd7oe"

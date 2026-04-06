@@ -1,5 +1,7 @@
 extends Card
 
+@export var optional_sound: AudioStream
+
 var _has_triggered := false
 
 func apply_effects(targets: Array[Node], _modifiers: ModifierHandler) -> void:
@@ -12,6 +14,7 @@ func apply_effects(targets: Array[Node], _modifiers: ModifierHandler) -> void:
 	var player_handler = tree.get_first_node_in_group("player_handler")
 	
 	if not player_handler:
+		_has_triggered = false # Resetting the flag just in case it fails here!
 		return
 		
 	var stats = player_handler.character
@@ -29,3 +32,12 @@ func apply_effects(targets: Array[Node], _modifiers: ModifierHandler) -> void:
 	stats.stats_changed.emit()
 	
 	tree.create_timer(0.2).timeout.connect(func(): _has_triggered = false)
+
+	if optional_sound:
+		var sfx_player = AudioStreamPlayer.new()
+		sfx_player.stream = optional_sound
+		
+		tree.current_scene.add_child(sfx_player) 
+		sfx_player.play()
+		
+		sfx_player.finished.connect(sfx_player.queue_free)

@@ -6,9 +6,10 @@
 [resource]
 script = ExtResource("2_wgsea")
 battle_name = "Dursasana"
-battle_tier = 2
+battle_tier = 4
 weight = 2.5
 gold_max = 1500
 gold_min = 1200
 enemies = ExtResource("1_f8rmr")
+intro_dialogue = Array[String](["Dursasana : (Suaranya bergetar tapi mencoba terdengar arogan, menunjuk dari balik perisai pengawalnya)", "Durasasana : Bima! Monster tak berotak!", "Durasasana : Jangan pikir kau bisa mendekatiku!", "Dursasana : Aku adalah pangeran Hastinapura yang sah! Aku tidak akan membiarkanmu melangkah sejengkal pun!", "Werkudara : Pasukanmu sudah mati, Dursasana. Mereka hanya belum menyadarinya", "Werkudara : Pangeran macam apa yang bersembunyi di balik punggung prajurit rendahan saat kematian menatap wajahnya?", "Dursasana: (Tertawa sumbang, matanya liar mencari celah)", "Dursasana : Kematian? Kakakku Duryudana akan segera datang membawa sisa pasukan Kurawa! Berlututlah sekarang.", "Dursasana : Mungkin aku akan meminta Kakakku mengampunimu.", "Dursasana :", "Mata Werkudara membelalak, urat lehernya menonjol.", "Suaranya kini penuh murka yang tak tertahankan", "Werkudara : KAU BERANI MENYEBUT PERISTIWA ITU?!", "Werkudara : Tangan kotormu yang menarik rambut istriku, Drupadi!", "Werkudara : Suaramu yang tertawa saat mencoba mempermalukannya di depan seluruh dewa dan manusia!\"", "Dursasana menelan ludah, wajahnya pucat pasi", "Dursasana : Itu... itu hanya permainan dadu! Kami menang secara sah! Kalian yang kehilangan hak atas segalanya!", "Werkudara : Hukum manusia mungkin diam hari itu. Tapi hukum karma tidak pernah buta.", "Werkudara : Drupadi bersumpah tidak akan menyanggul rambutnya sebelum dicuci dengan darahmu.", "Werkudara : Dan aku bersumpah tidak akan mati sebelum merobek dadamu dan meminum darah pembohongmu itu!\"", "Dursasana terlihat panik", "Dursasana : Bunuh dia! Serang sekarang! Jangan biarkan monster itu mendekat!", "Werkudara : Apa yang kau maaksud? pertarungan ini hanya kau dan aku saja", "Dursasana melihat sekelilingnya, dan menyadari bahwa prajuritnya sudah musnah", "Werkudara : Hari ini, tidak ada dewa yang akan turun tangan untuk menolongmu, Dursasana. Sumpah darah harus dibayar tuntas!"])
 metadata/_custom_type_script = "uid://bvm4v1tb74khm"

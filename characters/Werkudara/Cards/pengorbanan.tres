@@ -1,13 +1,16 @@
-[gd_resource type="Resource" load_steps=3 format=3 uid="uid://dvyd32enmhdv6"]
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://dvyd32enmhdv6"]
 
 [ext_resource type="Texture2D" uid="uid://cfv2guwc7nco1" path="res://art/pengorbanan.png" id="1_oulrt"]
+[ext_resource type="AudioStream" uid="uid://b3li0qyyhqhlt" path="res://SFX/rpg_sound_pack_artisticdude_opengameart/RPG Sound Pack/battle/sword-unsheathe.mp3" id="2_ofh8o"]
 [ext_resource type="Script" uid="uid://b547k5kdus4s1" path="res://characters/Werkudara/Cards/pengorbanan.gd" id="2_w6wyd"]
 
 [resource]
 script = ExtResource("2_w6wyd")
+optional_sound = ExtResource("2_ofh8o")
 id = "pengorbanan"
 rarity = 1
 cost = 1
 icon = ExtResource("1_oulrt")
 tooltip_text = "Hanguskan kartu di tangan, dapatkan 2 energi"
+flavour_text = "Sifat utama Karna adalah kedermawanannya. Dengan memberikan zirah dewanya kepada Indra, ia dengan sadar menerima bahwa kematian akan menjemputnya kelak"
 metadata/_custom_type_script = "uid://dcw4oridrwk87"

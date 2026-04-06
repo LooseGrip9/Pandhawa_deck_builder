@@ -1,14 +1,16 @@
-[gd_resource type="Resource" load_steps=3 format=3 uid="uid://d1fi6luiq8k61"]
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://d1fi6luiq8k61"]
 
 [ext_resource type="Texture2D" uid="uid://bygsjnmxnsnit" path="res://art/chakravuyha.png" id="1_q1xmc"]
 [ext_resource type="Script" uid="uid://pnothehbtw5y" path="res://characters/Werkudara/Cards/chakravyuha.gd" id="2_q1xmc"]
+[ext_resource type="AudioStream" uid="uid://doan8h1ke0ppq" path="res://SFX/JDSherbert - Pixel Game Essentials SFX Pack (FREE)/Mono/mp3/JDSherbert - Pixel Game Essentials SFX Pack - Box Break 1.mp3" id="3_jt4xw"]
 
 [resource]
 script = ExtResource("2_q1xmc")
+optional_sound = ExtResource("3_jt4xw")
 id = "chakravyuha"
 type = 1
 cost = 2
 icon = ExtResource("1_q1xmc")
 tooltip_text = "Tambah 15 Block, Musuh yang menyerang kehilangan 5 HP"
-flavour_text = "Cakrabyuha adalah formasi militer berputar yang rumit. Putra Arjuna, Abimanyu, dapat menembusnya akan tetapi terjebak dan akhirnya gugur karena ia belum mempelajari jalan keluarnya."
+flavour_text = "Cakravyuha adalah formasi militer berputar yang rumit. Putra Arjuna, Abimanyu, dapat menembusnya akan tetapi terjebak dan akhirnya gugur karena ia belum mempelajari jalan keluarnya."
 metadata/_custom_type_script = "uid://dcw4oridrwk87"

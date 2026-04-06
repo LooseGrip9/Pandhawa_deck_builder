@@ -1,13 +1,16 @@
-[gd_resource type="Resource" load_steps=3 format=3 uid="uid://bu7nyten15g53"]
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://bu7nyten15g53"]
 
 [ext_resource type="Texture2D" uid="uid://3x0rqgqt6w63" path="res://art/lempar_dadu.png" id="1_5ku47"]
 [ext_resource type="Script" uid="uid://dvgjmoqoxu12t" path="res://characters/Werkudara/Cards/lempar_dadu.gd" id="2_5ku47"]
+[ext_resource type="AudioStream" uid="uid://dpvbv5m03uyud" path="res://SFX/rpg_sound_pack_artisticdude_opengameart/RPG Sound Pack/inventory/wood-small.wav" id="2_mwm81"]
 
 [resource]
 script = ExtResource("2_5ku47")
+optional_sound = ExtResource("2_mwm81")
 rarity = 1
 type = 1
 exhausts = true
 icon = ExtResource("1_5ku47")
 tooltip_text = "Tambah 2 mana dan hilangkan 5 HP"
+flavour_text = "Patih Sengkuni menggunakan dadu yang telah dicurangi untuk merebut kerajaan Amarta dari Yudhistira (Puntadewa), memicu pengasingan Pandawa selama 13 tahun."
 metadata/_custom_type_script = "uid://dcw4oridrwk87"

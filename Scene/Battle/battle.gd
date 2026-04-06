@@ -6,13 +6,28 @@ extends Node2D
 @export var music: AudioStream
 @export var relics: RelicHandler
 
+@export_group("Dialogue Settings")
+@export var text_speed: float = 0.03
+
 @onready var battle_ui: BattleUI = $BattleUI as BattleUI
 @onready var player_handler: PlayerHandler = $PlayerHandler as PlayerHandler
 @onready var player: Player = $Player as Player
 @onready var enemy_handler: EnemyHandler = $EnemyHandler as EnemyHandler
 
+@onready var dialogue_ui: Control = %DialogueUI
+@onready var dialogue_text: RichTextLabel = %DialogueText 
+
+var current_dialogue: Array[String] = []
+var dialogue_index: int = 0
+var in_cutscene: bool = false
+var text_tween: Tween
+var is_typing: bool = false
+
 func _ready() -> void:
 	$ColorRect/AnimationPlayer.play("fade_out")
+	
+	if dialogue_ui:
+		dialogue_ui.hide()
 	
 	enemy_handler.child_order_changed.connect(_on_enemies_child_order_changed)
 	Events.enemy_turn_ended.connect(_on_enemy_turn_ended)
@@ -35,7 +50,50 @@ func start_battle() -> void:
 	if is_instance_valid(relics):
 		if not relics.relics_activated.is_connected(_on_relics_activated):
 			relics.relics_activated.connect(_on_relics_activated)
+	
+	if "intro_dialogue" in battle_stats and battle_stats.intro_dialogue.size() > 0:
+		_start_cutscene(battle_stats.intro_dialogue)
+	else:
+		_begin_combat_phase()
+
+func _start_cutscene(dialogue_array: Array[String]) -> void:
+	in_cutscene = true
+	current_dialogue = dialogue_array
+	dialogue_index = 0
+	
+	if dialogue_ui:
+		dialogue_ui.show()
+	_show_next_dialogue_line()
+
+func _show_next_dialogue_line() -> void:
+	if dialogue_index < current_dialogue.size():
+		var next_line = current_dialogue[dialogue_index]
 		
+		if dialogue_text:
+			dialogue_text.text = next_line
+			dialogue_text.visible_characters = 0 
+			is_typing = true
+			
+			if text_tween:
+				text_tween.kill()
+				
+			text_tween = create_tween()
+			var duration = next_line.length() * text_speed
+			text_tween.tween_property(dialogue_text, "visible_characters", next_line.length(), duration)
+			text_tween.finished.connect(_on_typing_finished)
+			
+		dialogue_index += 1
+	else:
+		in_cutscene = false
+		if dialogue_ui:
+			dialogue_ui.hide()
+		_begin_combat_phase()
+
+func _on_typing_finished() -> void:
+	is_typing = false
+
+func _begin_combat_phase() -> void:
+	if is_instance_valid(relics):
 		relics.activate_relics_by_type(Relic.Type.START_OF_COMBAT)
 	
 	var start_turn_callable = func():
@@ -67,6 +125,19 @@ func _on_enemy_turn_ended() -> void:
 	enemy_handler.reset_enemy_actions()
 
 func _input(event: InputEvent) -> void:
+	if in_cutscene and event.is_action_pressed("left_mouse"):
+		get_viewport().set_input_as_handled()
+		
+		if is_typing:
+			if text_tween:
+				text_tween.kill()
+			dialogue_text.visible_characters = -1 
+			is_typing = false
+		else:
+			_show_next_dialogue_line()
+			
+		return
+		
 	if event is InputEventKey and event.pressed and event.keycode == KEY_H:
 		if OS.is_debug_build():
 			_debug_kill_all_enemies()
@@ -76,7 +147,6 @@ func _debug_kill_all_enemies() -> void:
 	
 	var enemies = get_tree().get_nodes_in_group("enemies")
 	
-
 	enemies.sort_custom(func(a, b):
 		var a_is_jayadrata = a.get("stats") and a.stats.id == "Jayadrata"
 		return not a_is_jayadrata

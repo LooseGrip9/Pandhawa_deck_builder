@@ -9,4 +9,5 @@ relic_name = "Amrita Kalasha"
 id = "amrita_kalasha"
 icon = ExtResource("1_i8qc7")
 tooltip = "[color=\"ffdf00\"]Amrita Kalasha[/color] dapatkan +30 HP Maksimum dan sembuhkan total"
+relic_story = "Dihasilkan dari pengadukan samudra susu oleh para dewa dan asura. Ini adalah hadiah dewa tertinggi, sangat kontras dengan darah fana yang tumpah di Kurusetra"
 metadata/_custom_type_script = "uid://spwidn0jd7oe"

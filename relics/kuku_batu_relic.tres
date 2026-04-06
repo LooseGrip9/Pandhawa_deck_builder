@@ -10,4 +10,5 @@ id = "kuku_batu"
 type = 2
 icon = ExtResource("1_abbu2")
 tooltip = "Musuh mulai dengan 1 Lemah"
+relic_story = "Pada Swargarohanaparva, Pandawa mendaki Gunung Meru di akhir hidup mereka. Satu per satu mereka jatuh dan mati karena cacat duniawi mereka, kecuali Yudhistira yang suci."
 metadata/_custom_type_script = "uid://spwidn0jd7oe"

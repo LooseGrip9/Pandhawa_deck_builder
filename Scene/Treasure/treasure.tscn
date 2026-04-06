@@ -1,15 +1,34 @@
-[gd_scene load_steps=21 format=3 uid="uid://c22m0522ep3ii"]
+[gd_scene load_steps=40 format=3 uid="uid://c22m0522ep3ii"]
 
 [ext_resource type="Script" uid="uid://sgh4itaphul0" path="res://Scene/Treasure/treasure.gd" id="1_vw0ql"]
 [ext_resource type="Script" uid="uid://spwidn0jd7oe" path="res://custom_resources/relic.gd" id="2_3rhp1"]
 [ext_resource type="Theme" uid="uid://ychgttg0pudb" path="res://Main_Theme.tres" id="2_r0kv7"]
 [ext_resource type="Texture2D" uid="uid://hva3iy5hon7a" path="res://art/tile_0089.png" id="3_ggixi"]
-[ext_resource type="Resource" uid="uid://cort3f7ynw1li" path="res://relics/coupon.tres" id="3_uxc25"]
-[ext_resource type="Resource" uid="uid://csvjftkly3ibl" path="res://relics/explosives_barrel.tres" id="4_gpoxm"]
+[ext_resource type="Resource" uid="uid://bm0340h4n58ky" path="res://relics/amrita_kalasha_relic.tres" id="4_o5s5x"]
 [ext_resource type="Texture2D" uid="uid://d007n5sscvumv" path="res://art/tile_0090.png" id="4_qbdvt"]
 [ext_resource type="Texture2D" uid="uid://baaca80ggraln" path="res://art/gold.png" id="4_wx1e4"]
-[ext_resource type="Resource" uid="uid://ctxm841jtcp54" path="res://relics/reinforced_armor.tres" id="5_15hvy"]
+[ext_resource type="Resource" uid="uid://drybmebc3wpxa" path="res://relics/dadu_kayu_relic.tres" id="5_iw654"]
 [ext_resource type="Texture2D" uid="uid://isan6btj7dwy" path="res://art/tile_0091.png" id="5_ukg8j"]
+[ext_resource type="Resource" uid="uid://cu5o8kfeohao3" path="res://relics/dadu_shakuni_relic.tres" id="6_0jto4"]
+[ext_resource type="Resource" uid="uid://dl3cgnn88hota" path="res://relics/gulungan_brahmastra_relic.tres" id="7_47fwl"]
+[ext_resource type="Resource" uid="uid://eb1btbnkac57" path="res://relics/hiasan_tengkorak_relic.tres" id="8_6kcgy"]
+[ext_resource type="Resource" uid="uid://c80ccywpg07j8" path="res://relics/kendi_tirta_amerta_relic.tres" id="9_873tq"]
+[ext_resource type="Resource" uid="uid://bh6t71e2yrf3e" path="res://relics/kerang_kecil_relic.tres" id="10_tmxm3"]
+[ext_resource type="Resource" uid="uid://if1uv5ccl56" path="res://relics/kipas_ekor_yak_relic.tres" id="11_2kg12"]
+[ext_resource type="Resource" uid="uid://bko0nm3dht4na" path="res://relics/koin_tembaga_relic.tres" id="12_snmhr"]
+[ext_resource type="Resource" uid="uid://bjm7fhpr20jto" path="res://relics/kuku_batu_relic.tres" id="13_3dre6"]
+[ext_resource type="Resource" uid="uid://b7ncr4k2u3qll" path="res://relics/perisai_bambu_relic.tres" id="14_bp4ig"]
+[ext_resource type="Resource" uid="uid://30ulepaejdns" path="res://relics/sarung_tangan_relic.tres" id="15_281io"]
+[ext_resource type="Resource" uid="uid://dpxfy36ou6hy4" path="res://relics/senar_gandiva_relic.tres" id="16_4nolm"]
+[ext_resource type="Resource" uid="uid://dtwhfadgyk83d" path="res://relics/tabung_sarrotama_relic.tres" id="17_vluxh"]
+[ext_resource type="Resource" uid="uid://ebcsmsrhdw68" path="res://relics/tasbih_indrakila_relic.tres" id="18_jmtqx"]
+[ext_resource type="Resource" uid="uid://bf2nd6x5s7geg" path="res://relics/mana_potion.tres" id="19_rmqb5"]
+[ext_resource type="Resource" uid="uid://ctc62bd0mpexe" path="res://relics/batu_asah_2.tres" id="20_l6u0d"]
+[ext_resource type="Resource" uid="uid://b06hbeff8odyh" path="res://relics/belati_beracun.tres" id="21_0dl7b"]
+[ext_resource type="Resource" uid="uid://cort3f7ynw1li" path="res://relics/coupon.tres" id="22_1cfj1"]
+[ext_resource type="Resource" uid="uid://fucv3iyc5sxy" path="res://relics/beras_prajurit_relic.tres" id="22_6x3dm"]
+[ext_resource type="Resource" uid="uid://csvjftkly3ibl" path="res://relics/explosives_barrel.tres" id="23_bcbs6"]
+[ext_resource type="Resource" uid="uid://cvhyis21fq51l" path="res://relics/healing_potion.tres" id="24_seuvi"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_qbdvt"]
 font_size = 12
@@ -151,7 +170,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_vw0ql")
-treasure_relic_pool = Array[ExtResource("2_3rhp1")]([ExtResource("3_uxc25"), ExtResource("4_gpoxm"), ExtResource("5_15hvy")])
+treasure_relic_pool = Array[ExtResource("2_3rhp1")]([ExtResource("22_6x3dm"), ExtResource("4_o5s5x"), ExtResource("5_iw654"), ExtResource("6_0jto4"), ExtResource("7_47fwl"), ExtResource("8_6kcgy"), ExtResource("9_873tq"), ExtResource("10_tmxm3"), ExtResource("11_2kg12"), ExtResource("12_snmhr"), ExtResource("13_3dre6"), ExtResource("14_bp4ig"), ExtResource("15_281io"), ExtResource("16_4nolm"), ExtResource("17_vluxh"), ExtResource("18_jmtqx"), ExtResource("19_rmqb5"), ExtResource("20_l6u0d"), ExtResource("21_0dl7b"), ExtResource("22_1cfj1"), ExtResource("23_bcbs6"), ExtResource("24_seuvi")])
 
 [node name="BackgroundDimmer" type="ColorRect" parent="."]
 layout_mode = 1

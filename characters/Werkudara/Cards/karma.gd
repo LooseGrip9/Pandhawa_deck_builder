@@ -1,5 +1,7 @@
 extends Card
 
+@export var optional_sound: AudioStream
+
 var _last_execution_frame: int = -1
 
 func get_default_tooltip() -> String:
@@ -19,3 +21,12 @@ func apply_effects(_targets: Array[Node], _modifiers: ModifierHandler) -> void:
 	
 	if player_handler:
 		player_handler.retain_hand_once = true
+		
+	if optional_sound:
+		var sfx_player = AudioStreamPlayer.new()
+		sfx_player.stream = optional_sound
+		
+		tree.current_scene.add_child(sfx_player) 
+		sfx_player.play()
+		
+		sfx_player.finished.connect(sfx_player.queue_free)

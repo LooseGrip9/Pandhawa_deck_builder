@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bhlr53x0ca1dc"
+path="res://.godot/imported/JDSherbert - Pixel Game Essentials SFX Pack - Shoot 1.wav-ce9ba761a961b3ee3aa7cfcbf7e10612.sample"
+
+[deps]
+
+source_file="res://SFX/JDSherbert - Pixel Game Essentials SFX Pack (FREE)/Stereo/wav (HD)/JDSherbert - Pixel Game Essentials SFX Pack - Shoot 1.wav"
+dest_files=["res://.godot/imported/JDSherbert - Pixel Game Essentials SFX Pack - Shoot 1.wav-ce9ba761a961b3ee3aa7cfcbf7e10612.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

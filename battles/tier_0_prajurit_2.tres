@@ -5,7 +5,6 @@
 
 [resource]
 script = ExtResource("2_fn548")
-battle_tier = 2
 weight = 2.5
 gold_max = 100
 gold_min = 200

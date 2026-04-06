@@ -1,10 +1,13 @@
-[gd_resource type="Resource" load_steps=3 format=3 uid="uid://bujb5w4fo8jgk"]
+[gd_resource type="Resource" load_steps=5 format=3 uid="uid://bujb5w4fo8jgk"]
 
 [ext_resource type="Texture2D" uid="uid://cwurltx0s874h" path="res://art/dekrit.png" id="1_jwyux"]
+[ext_resource type="AudioStream" uid="uid://c5j1y5lyjvkux" path="res://SFX/Arcade_Sound_FX/lightning.wav" id="2_75j4u"]
 [ext_resource type="Script" uid="uid://vms66j42u6jp" path="res://characters/Werkudara/Cards/dekrit_raja.gd" id="2_jwyux"]
+[ext_resource type="AudioStream" uid="uid://dl3cjtpvgrwk0" path="res://SFX/JDSherbert - Pixel Game Essentials SFX Pack (FREE)/Stereo/ogg/JDSherbert - Pixel Game Essentials SFX Pack - Die 1.ogg" id="3_6i4nn"]
 
 [resource]
 script = ExtResource("2_jwyux")
+optional_sound = ExtResource("2_75j4u")
 id = "dekrit_raja"
 rarity = 1
 type = 2
@@ -12,4 +15,6 @@ cost = 2
 exhausts = true
 icon = ExtResource("1_jwyux")
 tooltip_text = "Tambah 2 Kyat dan 2 Tangkas, hanguskan kartu"
+flavour_text = "Yudhistira (Puntadewa) adalah Raja Amarta. Dalam kisah Jawa, ia dikatakan memiliki \"darah putih\" karena kesabarannya yang mutlak, kemurniannya, dan penolakannya menggunakan kekerasan"
+sound = ExtResource("3_6i4nn")
 metadata/_custom_type_script = "uid://dcw4oridrwk87"

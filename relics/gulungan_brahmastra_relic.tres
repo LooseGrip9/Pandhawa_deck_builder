@@ -12,4 +12,5 @@ id = "gulungan_brahmastra"
 type = 2
 icon = ExtResource("2_tibga")
 tooltip = "[color=\"ffdf00\"]Gulungan Brahmastra[/color] Tambah 1 kartu \"Meteor\" pada deck"
+relic_story = "Senjata dewa dalam Mahabharata bukanlah benda fisik, melainkan Mantra sakti brahmastra yang dipanggil oleh pikiran untuk mengubah anak panah biasa menjadi senjata pemusnah massal"
 metadata/_custom_type_script = "uid://spwidn0jd7oe"

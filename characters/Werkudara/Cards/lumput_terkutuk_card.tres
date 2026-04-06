@@ -11,4 +11,5 @@ target = 1
 cost = 1
 icon = ExtResource("1_c4ayt")
 tooltip_text = "Tambah 2 lambat"
+flavour_text = "Karna dikutuk oleh seorang Brahmana bahwa roda keretanya akan terbenam ke bumi saat pertempuran paling krusialnya, membuatnya tak berdaya di hadapan Arjuna."
 metadata/_custom_type_script = "uid://dcw4oridrwk87"

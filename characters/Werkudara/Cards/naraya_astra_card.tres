@@ -1,7 +1,8 @@
-[gd_resource type="Resource" load_steps=3 format=3 uid="uid://q6eo14pbf112"]
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://q6eo14pbf112"]
 
 [ext_resource type="Texture2D" uid="uid://2s0drfs8rc53" path="res://art/naraya_astra.png" id="1_g38od"]
 [ext_resource type="Script" uid="uid://dvhxg2w6o4u8v" path="res://characters/Werkudara/Cards/naraya_astra.gd" id="2_g38od"]
+[ext_resource type="AudioStream" uid="uid://o2extytplujy" path="res://SFX/hits/hit33.mp3.mp3" id="3_n4ftg"]
 
 [resource]
 script = ExtResource("2_g38od")
@@ -12,4 +13,5 @@ cost = 2
 icon = ExtResource("1_g38od")
 tooltip_text = "Serang 3 musuh secara acak"
 flavour_text = "Senjata Wisnu yang kekuatannya berlipat ganda terhadap perlawanan. Kresna menyelamatkan pasukan Pandawa dengan memerintahkan mereka meletakkan senjata dan berserah diri."
+sound = ExtResource("3_n4ftg")
 metadata/_custom_type_script = "uid://dcw4oridrwk87"

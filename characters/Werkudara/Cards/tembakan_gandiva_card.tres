@@ -1,14 +1,17 @@
-[gd_resource type="Resource" load_steps=3 format=3 uid="uid://c84svaa0q85y7"]
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://c84svaa0q85y7"]
 
 [ext_resource type="Texture2D" uid="uid://dabnxakhxghe8" path="res://art/gandiva.png" id="1_h3qlp"]
 [ext_resource type="Script" uid="uid://wxro75iofh31" path="res://characters/Werkudara/Cards/tembakan_gandiva.gd" id="1_nya4r"]
+[ext_resource type="AudioStream" uid="uid://qc52bogfx0p5" path="res://SFX/Arcade_Sound_FX/fire_2.wav" id="2_pxi21"]
 
 [resource]
 script = ExtResource("1_nya4r")
+optional_sound = ExtResource("2_pxi21")
 id = "tembakan_gandiva"
 rarity = 1
 target = 1
 cost = 1
 icon = ExtResource("1_h3qlp")
 tooltip_text = "Serang untuk %s HP, apabila pada giliran saat ini sudah memainkan kartu, gandakan kerusakan."
+flavour_text = "Pasopati atau Gandewa adalah busur legendaris Arjuna, melambangkan kecerdasan yang fokus dan ketepatan yang dibutuhkan untuk melaksanakan kehendak dewa tanpa ragu."
 metadata/_custom_type_script = "uid://dcw4oridrwk87"

@@ -11,6 +11,7 @@ enum CharacterType{ALL, WERKUDARA, SADEWA, NAKULA, ARJUNA, YUDHISTIRA}
 @export var starter_relic: bool = false
 @export var icon: Texture
 @export_multiline var tooltip: String
+@export_multiline var relic_story: String
 
 func initialize_relic(_owner: RelicUI) -> void:
 	pass
@@ -23,6 +24,10 @@ func deactivate_relic(_owner: RelicUI) -> void:
 
 func get_tooltip() -> String:
 	return tooltip
+
+func get_relic_story() -> String:
+	return relic_story
+
 
 func can_appear_as_reward(character: CharacterStats) -> bool:
 	if starter_relic:

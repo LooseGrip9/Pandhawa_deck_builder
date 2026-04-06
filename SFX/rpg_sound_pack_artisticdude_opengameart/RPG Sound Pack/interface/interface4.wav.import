@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b2xd3ecoyoeyd"
+path="res://.godot/imported/interface4.wav-e390ef288a73d6b664769f9487558cba.sample"
+
+[deps]
+
+source_file="res://SFX/rpg_sound_pack_artisticdude_opengameart/RPG Sound Pack/interface/interface4.wav"
+dest_files=["res://.godot/imported/interface4.wav-e390ef288a73d6b664769f9487558cba.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

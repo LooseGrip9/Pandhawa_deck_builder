@@ -22,15 +22,25 @@ func apply_effects(targets: Array[Node], _modifiers: ModifierHandler) -> void:
 	status_effect.status = rentan
 	status_effect.execute(targets)
 	
+	if targets.is_empty(): return
+	var tree := targets[0].get_tree()
+	
 	# 2. Apply Counter damage to the player
-	if targets.size() > 0:
-		var tree = targets[0].get_tree()
-		var player_nodes = tree.get_nodes_in_group("player")
+	var player_nodes = tree.get_nodes_in_group("player")
+	
+	if player_nodes.size() > 0:
+		var player = player_nodes[0]
+		var player_stats = player.get("stats") as Stats
 		
-		if player_nodes.size() > 0:
-			var player = player_nodes[0]
-			var player_stats = player.get("stats") as Stats
+		if player_stats:
+			player_stats.counter_damage += counter_amount
+			player_stats.stats_changed.emit()
 			
-			if player_stats:
-				player_stats.counter_damage += counter_amount
-				player_stats.stats_changed.emit()
+	if optional_sound:
+		var sfx_player = AudioStreamPlayer.new()
+		sfx_player.stream = optional_sound
+		
+		tree.current_scene.add_child(sfx_player) 
+		sfx_player.play()
+		
+		sfx_player.finished.connect(sfx_player.queue_free)

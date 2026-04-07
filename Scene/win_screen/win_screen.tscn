@@ -49,7 +49,7 @@ grow_vertical = 2
 [node name="Message" type="Label" parent="VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "You Win"
+text = "Kamu Menang!"
 label_settings = SubResource("LabelSettings_fi0d3")
 
 [node name="MainMenuButton" type="Button" parent="VBoxContainer"]

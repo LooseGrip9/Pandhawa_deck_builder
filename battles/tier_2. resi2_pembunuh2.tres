@@ -5,8 +5,8 @@
 
 [resource]
 script = ExtResource("2_bugky")
-battle_tier = 2
-weight = 2.5
+battle_tier = 1
+weight = 1.0
 gold_max = 300
 gold_min = 250
 enemies = ExtResource("1_25xna")

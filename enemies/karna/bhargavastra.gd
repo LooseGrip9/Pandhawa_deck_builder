@@ -22,4 +22,4 @@ func perform_action() -> void:
 	tween.finished.connect(func(): Events.enemy_action_completed.emit(enemy))
 
 func update_intent_text() -> void:
-	intent.current_text = "Bhargavastra: Hujan Panah (Siksa Kartu)"
+	intent.current_text = "Hujan Panah"

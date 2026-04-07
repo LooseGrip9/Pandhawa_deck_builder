@@ -51,3 +51,5 @@ signal treasure_room_exited(found_relic: Relic)
 
 #relic
 signal relic_tooltip_requested(relic: Relic)
+
+signal cutscene_finished 

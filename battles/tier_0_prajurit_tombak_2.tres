@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("1_vs35k")
-weight = 2.5
+weight = 1.0
 gold_max = 200
 gold_min = 100
 enemies = ExtResource("1_vpgko")

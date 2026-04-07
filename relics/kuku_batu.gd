@@ -26,7 +26,7 @@ func _on_turn_ended() -> void:
 
 	if applied_kyat and player.get("status_handler"):
 		if player.status_handler.has_method("remove_status"):
-			player.status_handler.remove_status(applied_kyat)
+			player.status_handler.remove_status(applied_kyat.id) 
 		else:
 			applied_kyat.stacks = 0 
 			

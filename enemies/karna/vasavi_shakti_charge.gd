@@ -19,4 +19,4 @@ func perform_action() -> void:
 	)
 
 func update_intent_text() -> void:
-	intent.current_text = "Menghimpun Kekuatan Surya..."
+	intent.current_text = "Surya memperkuatku"

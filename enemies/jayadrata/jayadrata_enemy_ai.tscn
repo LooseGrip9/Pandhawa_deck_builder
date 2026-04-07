@@ -48,12 +48,14 @@ script = ExtResource("3_bpuyj")
 kyat_resource = ExtResource("6_b1job")
 intent = SubResource("Resource_dg3px")
 type = 1
+chance_weight = 3.0
 
 [node name="RentanAction" type="Node" parent="."]
 script = ExtResource("4_al866")
 rentan_resource = ExtResource("9_lxrgh")
 intent = SubResource("Resource_87oky")
 type = 1
+chance_weight = 3.0
 
 [node name="Panik" type="Node" parent="."]
 script = ExtResource("11_b1job")

@@ -1,13 +1,13 @@
 [gd_resource type="Resource" script_class="EnemyStats" load_steps=4 format=3 uid="uid://21ovtqxelair"]
 
-[ext_resource type="PackedScene" uid="uid://cvvj2jthx5m1u" path="res://enemies/duryudana/duryudana_enemy_ai.tscn" id="1_rqx40"]
-[ext_resource type="Texture2D" uid="uid://dxxvkhyxo45mo" path="res://art/Duryudana.png" id="2_fylhm"]
+[ext_resource type="PackedScene" uid="uid://eerqw1ai1igl" path="res://enemies/karna/KarnaBossAI.tscn" id="1_45i82"]
+[ext_resource type="Texture2D" uid="uid://k8i4twt6xp4p" path="res://art/Karna.png" id="2_45i82"]
 [ext_resource type="Script" uid="uid://47ihu4inrweu" path="res://custom_resources/enemy_stats.gd" id="3_qg37y"]
 
 [resource]
 script = ExtResource("3_qg37y")
-ai = ExtResource("1_rqx40")
+ai = ExtResource("1_45i82")
 id = "Karna"
-max_health = 180
-art = ExtResource("2_fylhm")
+max_health = 380
+art = ExtResource("2_45i82")
 metadata/_custom_type_script = "uid://47ihu4inrweu"

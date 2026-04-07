@@ -4,6 +4,13 @@ extends Control
 const SHOP_CARD = preload("res://Scene/Shop/shop_card.tscn")
 const SHOP_RELIC = preload("res://Scene/Shop/shop_relic.tscn")
 
+const BASE_CARD_PRICES := {
+	Card.Rarity.COMMON: 50,
+	Card.Rarity.RARE: 100,
+	Card.Rarity.SUPER_RARE: 200,
+	Card.Rarity.DEBUFF: 25
+}
+
 @export var shop_relics: Array[Relic]
 @export var char_stats: CharacterStats
 @export var run_stats: RunStats
@@ -43,7 +50,13 @@ func _generate_shop_cards() -> void:
 		cards.add_child(new_shop_card)
 		new_shop_card.card = card
 		new_shop_card.current_card_ui.tooltip_requested.connect(card_tooltip_popup.show_tooltip)
-		new_shop_card.gold_cost = _get_updated_shop_cost(new_shop_card.gold_cost)
+		
+		var dict_price = BASE_CARD_PRICES.get(card.rarity, 50)
+		var variance = randi_range(-10, 10)
+		var final_base_price = dict_price + variance
+		
+		new_shop_card.set_meta("base_haggled_price", final_base_price)
+		new_shop_card.gold_cost = _get_updated_shop_cost(final_base_price)
 		new_shop_card.update(run_stats)
 
 func _generate_shop_relics() -> void:
@@ -51,14 +64,10 @@ func _generate_shop_relics() -> void:
 	
 	var available_relics := shop_relics.filter(
 		func(relic: Relic):
-			# 1. SAFETY CHECK: Skip any empty slots in the Inspector
 			if relic == null:
 				return false
 			
-			# 2. LORE CHECK: Does it belong to this character?
 			var can_appear := relic.can_appear_as_reward(char_stats)
-			
-			# 3. OWNERSHIP CHECK: Do they already have it?
 			var already_had_it := relic_handler.has_relic(relic.id)
 			
 			return can_appear and not already_had_it
@@ -83,7 +92,8 @@ func update_items() -> void:
 
 func _update_item_costs() -> void:
 	for shop_card: ShopCard in cards.get_children():
-		shop_card.gold_cost = _get_updated_shop_cost(shop_card.gold_cost)
+		var base_price = shop_card.get_meta("base_haggled_price")
+		shop_card.gold_cost = _get_updated_shop_cost(base_price)
 		shop_card.update(run_stats)
 
 	for shop_relic: ShopRelic in relics.get_children():

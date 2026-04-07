@@ -19,6 +19,10 @@ func perform_action() -> void:
 	tween.tween_property(enemy, "global_position", end_pos, 0.2)
 	
 	tween.tween_callback(func():
+		
+		if sound:
+			SFXPlayer.play(sound)
+		
 		var damage_effect := DamageEffect.new()
 		damage_effect.amount = modified_damage
 		damage_effect.execute([target])
@@ -49,4 +53,4 @@ func update_intent_text() -> void:
 		modified_dmg = player.modifier_handler.get_modified_value(modified_dmg, Modifier.Type.DMG_TAKEN)
 	
 	var damage_string = intent.base_text % modified_dmg
-	intent.current_text = "%s & Sembunyi (+%d)" % [damage_string, block_gain]
+	intent.current_text = "%s&(+%d)" % [damage_string, block_gain]

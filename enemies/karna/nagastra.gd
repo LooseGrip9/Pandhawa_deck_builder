@@ -25,4 +25,4 @@ func perform_action() -> void:
 	tween.finished.connect(func(): Events.enemy_action_completed.emit(enemy))
 
 func update_intent_text() -> void:
-	intent.current_text = (intent.base_text % base_damage) + " & Fragile"
+	intent.current_text = (intent.base_text % base_damage) + " & Lemah"

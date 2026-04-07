@@ -1,7 +1,7 @@
 class_name CouponRelic
 extends Relic
 
-@export_range(1, 100) var discount := 50
+@export_range(1, 100) var discount := 20
 
 var relic_ui: RelicUI
 

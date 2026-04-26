@@ -5,10 +5,10 @@
 
 [resource]
 script = ExtResource("2_ifyi4")
-relic_name = "Endless Healing Potion"
+relic_name = "Jamu"
 id = "endless_healing_potion"
 type = 3
 character_type = 1
 icon = ExtResource("1_ifyi4")
-tooltip = "[color=\"ffdf00\"]Endless Healing Potion[/color] At the end of combat, heal 6 HP."
+tooltip = "[color=\"ffdf00\"]Jamu[/color] Pada akhir pertarungan +6 HP"
 metadata/_custom_type_script = "uid://spwidn0jd7oe"

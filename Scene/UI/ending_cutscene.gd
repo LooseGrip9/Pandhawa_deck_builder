@@ -56,18 +56,13 @@ func _show_next_line() -> void:
 		_finish_ending()
 
 func _finish_ending() -> void:
-	# FIX: CanvasLayer doesn't have modulate, so we fade the label instead
 	var fade = create_tween()
 	
-	# Fade the text
 	fade.tween_property(story_label, "modulate:a", 0.0, 0.5)
 	
-	# If you have a background node, fade it too so the screen doesn't "pop"
-	# Adjust "$ColorRect" to match your actual background node name
 	if has_node("ColorRect"):
 		fade.parallel().tween_property($ColorRect, "modulate:a", 0.0, 0.5)
 	
-	# Crucial: This await will now finish because the properties exist!
 	await fade.finished
 	
 	cutscene_finished.emit()

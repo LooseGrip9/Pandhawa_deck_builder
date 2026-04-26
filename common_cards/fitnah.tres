@@ -1,7 +1,7 @@
 [gd_resource type="Resource" load_steps=3 format=3 uid="uid://p8b4svno0uwi"]
 
 [ext_resource type="Texture2D" uid="uid://dm6t8xihw7gkk" path="res://art/Fitnah.png" id="1_oufw7"]
-[ext_resource type="Script" uid="uid://bgc5pmmmeb2h1" path="res://common_cards/fitnah.gd" id="2_oufw7"]
+[ext_resource type="Script" uid="uid://dk777qc54x5f5" path="res://common_cards/fitnah.gd" id="2_oufw7"]
 
 [resource]
 script = ExtResource("2_oufw7")

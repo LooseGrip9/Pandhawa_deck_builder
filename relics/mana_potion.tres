@@ -5,9 +5,9 @@
 
 [resource]
 script = ExtResource("2_nckqy")
-relic_name = "Mana Potion"
+relic_name = "Jamu Energi"
 id = "mana_potion"
 type = 2
 icon = ExtResource("1_nckqy")
-tooltip = "[color=\"ffdf00\"]Rechargable Mana Potion[/color] At the start of combat, gain 1 mana."
+tooltip = "[color=\"ffdf00\"]Jamu Energi[/color] Pada akhir pertarungan +6 Mana"
 metadata/_custom_type_script = "uid://spwidn0jd7oe"

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="CharacterStats" load_steps=12 format=3 uid="uid://d3y71aj2a76ty"]
+[gd_resource type="Resource" script_class="CharacterStats" load_steps=9 format=3 uid="uid://d3y71aj2a76ty"]
 
 [ext_resource type="Texture2D" uid="uid://px0q6xp4gadl" path="res://art/Werkudara.png" id="1_3ghyu"]
 [ext_resource type="Resource" uid="uid://chgjfkjbnkchh" path="res://battles/battle_stats_pool.tres" id="2_3ghyu"]
@@ -8,9 +8,6 @@
 [ext_resource type="Resource" uid="uid://bfh1h6r52wtgg" path="res://characters/Werkudara/werkudara_starting_deck.tres" id="5_yb06x"]
 [ext_resource type="Script" uid="uid://spwidn0jd7oe" path="res://custom_resources/relic.gd" id="6_3ghyu"]
 [ext_resource type="Resource" uid="uid://if1uv5ccl56" path="res://relics/kipas_ekor_yak_relic.tres" id="6_yb06x"]
-[ext_resource type="Resource" uid="uid://bh6t71e2yrf3e" path="res://relics/kerang_kecil_relic.tres" id="8_6e074"]
-[ext_resource type="Resource" uid="uid://b7ncr4k2u3qll" path="res://relics/perisai_bambu_relic.tres" id="9_k2ysr"]
-[ext_resource type="Resource" uid="uid://dtwhfadgyk83d" path="res://relics/tabung_sarrotama_relic.tres" id="10_vyn6q"]
 
 [resource]
 script = ExtResource("2_hnb3s")
@@ -24,7 +21,7 @@ draftable_cards = ExtResource("2_kmo5k")
 starting_deck = ExtResource("5_yb06x")
 cards_per_turn = 5
 max_mana = 3
-starting_relics = Array[ExtResource("6_3ghyu")]([ExtResource("6_yb06x"), ExtResource("8_6e074"), ExtResource("9_k2ysr"), ExtResource("10_vyn6q")])
+starting_relics = Array[ExtResource("6_3ghyu")]([ExtResource("6_yb06x")])
 battle_pool = ExtResource("2_3ghyu")
 max_health = 85
 art = ExtResource("1_3ghyu")

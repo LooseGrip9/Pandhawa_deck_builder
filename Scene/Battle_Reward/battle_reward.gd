@@ -60,7 +60,7 @@ func _show_card_rewards() -> void:
 	for i in run_stats.card_rewards:
 		_setup_card_chances()
 		var roll := Rng.instance.randf_range(0.0, card_reward_total_weight)
-		var accumulated_weight := 0.0 # Track weight progress
+		var accumulated_weight := 0.0
 		
 		for rarity: Card.Rarity in card_rarity_weights:
 			var weight: float = card_rarity_weights[rarity]
@@ -69,12 +69,11 @@ func _show_card_rewards() -> void:
 				_modify_weights(rarity)
 				var picked_card := _get_random_available_card(available_cards, rarity)
 				
-				# Safety check: ensure we actually found a card of that rarity
 				if picked_card:
 					card_reward_array.append(picked_card)
 					available_cards.erase(picked_card)
 				
-				break # Stop checking rarities, move to next card slot
+				break
 	
 	card_rewards.rewards = card_reward_array
 	card_rewards.show()

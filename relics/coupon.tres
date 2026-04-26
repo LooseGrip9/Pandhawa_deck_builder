@@ -5,9 +5,9 @@
 
 [resource]
 script = ExtResource("2_dl3ae")
-relic_name = "Coupon"
+relic_name = "Janji Pedagang"
 id = "coupon"
 type = 4
 icon = ExtResource("1_dl3ae")
-tooltip = "[color=\"ffdf00\"]Coupons[/color] kurangi harga barang di toko sebanyak 20%"
+tooltip = "[color=\"ffdf00\"]Janji Pedagang[/color] kurangi harga barang di toko sebanyak 20%"
 metadata/_custom_type_script = "uid://spwidn0jd7oe"

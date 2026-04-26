@@ -10,6 +10,6 @@ id = "pandhawa_block"
 type = 1
 cost = 1
 icon = ExtResource("1_6rscj")
-tooltip_text = "[center]Gain[color=\"0044ff\"] %s[/color] block.[/center]"
+tooltip_text = "[center]Dapatkan[color=\"0044ff\"] %s[/color] block.[/center]"
 sound = ExtResource("3_fj222")
 metadata/_custom_type_script = "uid://dcw4oridrwk87"

@@ -5,8 +5,8 @@
 
 [resource]
 script = ExtResource("2_cgrq2")
-relic_name = "Explosive Barrel"
+relic_name = "Peledak"
 id = "explosive_barrel"
 icon = ExtResource("1_cgrq2")
-tooltip = "[color=\"ffdf00\"]Explosive Barrel[/color] At the start of your turn, deal 2 damage to all enemies."
+tooltip = "[color=\"ffdf00\"]Peledak[/color] Pada awal giliran serang musuh untuk 2 dmg"
 metadata/_custom_type_script = "uid://spwidn0jd7oe"

@@ -59,7 +59,6 @@ func create_map() -> void:
 			if room.next_rooms.size() > 0:
 				_spawn_room(room)
 	
-	#boss room has no next room but still need to spawn
 	var middle := floori(map_generator.MAP_WIDTH * 0.5)
 	_spawn_room(map_data[MapGenerator.FLOORS - 1][middle])
 	

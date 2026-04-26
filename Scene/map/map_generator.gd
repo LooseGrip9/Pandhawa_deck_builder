@@ -252,7 +252,6 @@ func _set_room_randomly(room_to_set: Room) -> void:
 	room_to_set.type = type_candidate
 	
 	if type_candidate == Room.Type.MONSTER:
-		# Monster biasa hanya bisa di-spawn sebagai Tier 0, 1, atau 2
 		var tier_for_monster_rooms := clampi(floori(room_to_set.row / 15.0), 0, 2)
 		room_to_set.battle_stats = battle_stats_pool.get_random_battle_for_tier(tier_for_monster_rooms)
 

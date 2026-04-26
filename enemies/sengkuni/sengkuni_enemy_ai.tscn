@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://c02emn3b1g806" path="res://Scene/Enemy/enemy_action_picker.gd" id="1_ejwji"]
 [ext_resource type="Script" uid="uid://bi04yx0ujaney" path="res://enemies/sengkuni/hasutan_action.gd" id="2_b5e3w"]
 [ext_resource type="Script" uid="uid://dx6sumi2ru51d" path="res://enemies/sengkuni/fitnah_action.gd" id="2_f8kv2"]
-[ext_resource type="Resource" path="res://common_cards/fitnah.tres" id="3_vewdq"]
+[ext_resource type="Resource" uid="uid://p8b4svno0uwi" path="res://common_cards/fitnah.tres" id="3_vewdq"]
 [ext_resource type="Texture2D" uid="uid://dm6t8xihw7gkk" path="res://art/Fitnah.png" id="4_oi401"]
 [ext_resource type="Script" uid="uid://dpuqxpt0l6ehf" path="res://custom_resources/intent.gd" id="5_u46le"]
 [ext_resource type="Texture2D" uid="uid://fc0j0vlel2vw" path="res://art/tile_0105.png" id="7_oi401"]

@@ -68,7 +68,6 @@ func start_battle() -> void:
 
 func _on_enemies_child_order_changed() -> void:
 	if enemy_handler.get_child_count() == 0:
-		# Check by captured ID (for save files) or Floor (for normal runs)
 		var is_final_boss = active_boss_id == "Duryudana" or active_boss_id == "Karna"
 		var is_final_floor = RunManager.current_floor >= 44
 		
@@ -76,17 +75,17 @@ func _on_enemies_child_order_changed() -> void:
 			battle_ui.hide()
 			var ending = ENDING_CUTSCENE.instantiate()
 			add_child(ending)
-			# Fallback to current boss ID if active_boss_id was empty
 			ending.setup_ending(active_boss_id if active_boss_id != "" else "Duryudana")
 			
 			await ending.cutscene_finished
+			get_tree().change_scene_to_file("res://Scene/UI/main_menu.tscn")
+			return
 		
 		if is_instance_valid(relics):
 			relics.activate_relics_by_type(Relic.Type.END_OF_COMBAT)
 		else:
 			Events.battle_over_screen_requested.emit("Menang!", BattleOverPanel.Type.WIN)
 
-# --- Keep your existing dialogue, combat, and debug functions below ---
 func _start_cutscene(dialogue_array: Array[String]) -> void:
 	in_cutscene = true
 	current_dialogue = dialogue_array

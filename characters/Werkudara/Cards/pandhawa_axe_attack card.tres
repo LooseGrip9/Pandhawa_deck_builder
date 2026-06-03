@@ -11,6 +11,6 @@ rarity = 1
 target = 1
 cost = 1
 icon = ExtResource("1_q6pf7")
-tooltip_text = "[centerSerang[color=\"ff0000\"] untuk %s [/color]damage.[/center]"
+tooltip_text = "[center]Serang[color=\"ff0000\"] untuk %s [/color]damage.[/center]"
 sound = ExtResource("3_yynt4")
 metadata/_custom_type_script = "uid://dcw4oridrwk87"

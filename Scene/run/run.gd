@@ -54,7 +54,6 @@ func _ready() -> void:
 	match run_startup.type:
 		RunStartup.Type.NEW_RUN:
 			character = run_startup.picked_character.create_instance()
-			# CRITICAL: Tell the global manager who we picked!
 			RunManager.current_character = character 
 			print("1. RunManager set to: ", character.character_name)
 			_start_run()

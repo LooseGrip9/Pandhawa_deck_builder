@@ -155,6 +155,9 @@ func do_turn() -> void:
 		Events.enemy_action_completed.emit(self)
 		return
 	
+	if stats:
+		stats.block = 0
+
 	current_action.perform_action()
 	
 	var player = get_tree().get_first_node_in_group("player")

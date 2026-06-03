@@ -4,7 +4,6 @@ extends Node
 @export var enemy: Enemy: set = _set_enemy
 @export var target: Node2D: set = _set_target
 
-# NEW: Allows any action to "book" the next turn's move
 var forced_next_action: EnemyAction 
 
 @onready var total_weight := 0.0

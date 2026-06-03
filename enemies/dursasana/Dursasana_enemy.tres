@@ -8,6 +8,6 @@
 script = ExtResource("3_7xuoi")
 ai = ExtResource("1_1cdcp")
 id = "Dursasana"
-max_health = 250
+max_health = 200
 art = ExtResource("2_1cdcp")
 metadata/_custom_type_script = "uid://47ihu4inrweu"

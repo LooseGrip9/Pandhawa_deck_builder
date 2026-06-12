@@ -8,6 +8,6 @@
 script = ExtResource("3_qg37y")
 ai = ExtResource("1_45i82")
 id = "Karna"
-max_health = 250
+max_health = 380
 art = ExtResource("2_45i82")
 metadata/_custom_type_script = "uid://47ihu4inrweu"

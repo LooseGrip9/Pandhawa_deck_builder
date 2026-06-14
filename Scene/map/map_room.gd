@@ -10,16 +10,15 @@ const ICONS := {
 	Room.Type.CAMPFIRE: [preload("res://art/heart.png"), Vector2(1.0, 1.0)],
 	Room.Type.SHOP: [preload("res://art/gold.png"), Vector2(1.0, 1.0)],
 	Room.Type.BOSS: [preload("res://art/tile_0105.png"), Vector2(1.5, 1.5)],
+	Room.Type.GRIYA_PITUTUR: [preload("res://art/tile_0130.png"), Vector2(1.0, 1.0)],
 }
 
 @onready var sprite_2d: Sprite2D = $visuals/Sprite2D
 @onready var line_2d: Line2D = $visuals/Line2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
-
 var available:= false : set = set_available
 var room: Room : set = set_room
-
 
 func set_available(new_value: bool) -> void:
 	available = new_value
@@ -38,7 +37,6 @@ func set_room(new_data: Room) -> void:
 
 func show_selected() -> void:
 	line_2d.modulate = Color.WHITE
-
 
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if not available or not event.is_action_pressed("left_mouse"):

@@ -7,6 +7,7 @@ const CAMPFIRE_SCENE := preload("res://Scene/Campfire/campfire.tscn")
 const SHOP_SCENE := preload("res://Scene/Shop/shop.tscn")
 const TREASURE_SCENE := preload("res://Scene/Treasure/treasure.tscn")
 const WIN_SCREEN_SCENE := preload("res://Scene/win_screen/win_screen.tscn")
+const GRIYA_SCENE := preload("res://Scene/Griya_Pitutur/Griya.tscn")
 const MAIN_MENU_PATH := "res://Scene/UI/main_menu.tscn"
 
 @export var run_startup: RunStartup
@@ -142,6 +143,7 @@ func _setup_event_connections() -> void:
 	Events.map_exited.connect(_on_map_exited)
 	Events.shop_exited.connect(show_map)
 	Events.treasure_room_exited.connect(_on_treasure_room_exited)
+	Events.room_exited.connect(show_map)
 	
 	battle_button.pressed.connect(_change_view.bind(BATTLE_SCENE))
 	campfire_button.pressed.connect(_change_view.bind(CAMPFIRE_SCENE))
@@ -220,3 +222,9 @@ func _on_map_exited(room: Room) -> void:
 			_on_campfire_entered(room)
 		Room.Type.BOSS:
 			_on_battle_room_entered(room)
+		Room.Type.GRIYA_PITUTUR:
+			# 1. Simpan baris ke global SEBELUM pindah scene
+			RunManager.baris_kamar_saat_ini = room.row 
+			
+			# 2. Buka scene seperti biasa
+			_change_view(GRIYA_SCENE)

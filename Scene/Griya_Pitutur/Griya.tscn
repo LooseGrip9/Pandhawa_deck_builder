@@ -1,0 +1,43 @@
+[gd_scene load_steps=4 format=3 uid="uid://5uv376ppqtel"]
+
+[ext_resource type="Script" uid="uid://pyw18ok6x031" path="res://Scene/Griya_Pitutur/griya.gd" id="1_6kca6"]
+[ext_resource type="Texture2D" uid="uid://bmnahp52eaft5" path="res://art/Character Portrait/Gemini_Generated_Image_dh9k61dh9k61dh9k.png" id="1_akec5"]
+[ext_resource type="Theme" uid="uid://ychgttg0pudb" path="res://Main_Theme.tres" id="3_cwnyt"]
+
+[node name="Griya" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6kca6")
+
+[node name="BackgroundSprite" type="Sprite2D" parent="."]
+position = Vector2(129.75, 76.68748)
+scale = Vector2(0.102095164, 0.10978192)
+texture = ExtResource("1_akec5")
+
+[node name="OverlayGelap" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 256.0
+offset_bottom = 145.0
+color = Color(0.07058824, 0.07058824, 0.07058824, 0.7490196)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -109.0
+offset_top = -44.0
+offset_right = 106.0
+offset_bottom = 42.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_cwnyt")
+theme_override_constants/line_separation = 4
+horizontal_alignment = 1
+vertical_alignment = 1

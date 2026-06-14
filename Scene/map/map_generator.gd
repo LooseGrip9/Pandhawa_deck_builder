@@ -12,6 +12,7 @@ const TREASURE_ROOM_WEIGHT := 0.5
 const MONSTER_ROOM_WEIGHT := 10.0
 const SHOP_ROOM_WEIGHT := 2.5
 const CAMPFIRE_ROOM_WEIGHT := 4.0
+const GRIYA_ROOM_WEIGHT := 1.5
 
 var battle_stats_pool: BattleStatsPool
 
@@ -20,6 +21,7 @@ var random_room_type_weights = {
 	Room.Type.CAMPFIRE: 0.0,
 	Room.Type.TREASURE: 0.0,
 	Room.Type.SHOP: 0.0,
+	Room.Type.GRIYA_PITUTUR: 0.0
 }
 
 var random_room_type_total_weight := 0
@@ -202,17 +204,28 @@ func _setup_random_room_weights() -> void:
 	random_room_type_total_weight = random_room_type_weights[Room.Type.SHOP]
 
 func _setup_room_types() -> void:
+	# 1. Baris pertama selalu monster
 	for room: Room in map_data[0]:
 		if room.next_rooms.size() > 0:
 			room.type = Room.Type.MONSTER
 			room.battle_stats = battle_stats_pool.get_random_battle_for_tier(0)
 	
+	# 2. Lantai 7 di setiap Act selalu Treasure
 	for i in range(0, FLOORS - 1):
 		if (i + 1) % BOSS_INTERVAL == 7:
 			for room: Room in map_data[i]:
 				if room.next_rooms.size() > 0:
 					room.type = Room.Type.TREASURE
-	
+					
+	# --- TAMBAHAN BARU: Lantai 11 di setiap Act selalu Griya Pitutur ---
+	for i in range(0, FLOORS - 1):
+		if (i + 1) % BOSS_INTERVAL == 11:
+			for room: Room in map_data[i]:
+				if room.next_rooms.size() > 0:
+					room.type = Room.Type.GRIYA_PITUTUR
+	# ---------------------------------------------------------------------
+
+	# 3. Lantai 14 di setiap Act selalu Campfire (sebelum boss)
 	for i in range(0, FLOORS - 1):
 		if (i + 1) % BOSS_INTERVAL == 0:
 			continue
@@ -222,6 +235,7 @@ func _setup_room_types() -> void:
 				if room.next_rooms.size() > 0:
 					room.type = Room.Type.CAMPFIRE
 			
+	# 4. Sisa ruangan diisi secara acak
 	for current_floor in map_data:
 		for room: Room in current_floor:
 			for next_room: Room in room.next_rooms:
@@ -232,6 +246,7 @@ func _set_room_randomly(room_to_set: Room) -> void:
 	var campfire_below_4 := true
 	var consecutive_campfire := true
 	var consecutive_shop := true
+	var consecutive_griya := true
 	var campfire_on_13 := true
 	
 	var type_candidate: Room.Type
@@ -243,6 +258,8 @@ func _set_room_randomly(room_to_set: Room) -> void:
 		var has_campfire_parent := _room_has_parent_of_type(room_to_set, Room.Type.CAMPFIRE)
 		var is_shop := type_candidate == Room.Type.SHOP
 		var has_shop_parent := _room_has_parent_of_type(room_to_set, Room.Type.SHOP)
+		var is_griya := type_candidate == Room.Type.GRIYA_PITUTUR
+		var has_griya_parent := _room_has_parent_of_type(room_to_set, Room.Type.GRIYA_PITUTUR)
 		
 		campfire_below_4 = is_campfire and room_to_set.row < 3
 		consecutive_campfire = is_campfire and has_campfire_parent

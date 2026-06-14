@@ -22,7 +22,7 @@ func _on_start_pressed() -> void:
 
 func _on_fade_timer_timeout() -> void:
 	if button_type == "start":
-		get_tree().change_scene_to_file("res://Scene/UI/character_selector.tscn")
+		get_tree().change_scene_to_file("res://Scene/UI/synopsis_scene.tscn")
 
 
 func _on_continue_pressed() -> void:

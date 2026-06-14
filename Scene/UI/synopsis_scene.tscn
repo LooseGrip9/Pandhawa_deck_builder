@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=3 uid="uid://bbq8w5bjrmqjk"]
+
+[ext_resource type="Script" uid="uid://dvnu1cvndl8p8" path="res://synopsis_scene.gd" id="1_c7l65"]
+[ext_resource type="Theme" uid="uid://ychgttg0pudb" path="res://Main_Theme.tres" id="2_sfh1i"]
+
+[node name="SynopsisScene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_c7l65")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="StoryText" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.512
+anchor_top = 0.49300003
+anchor_right = 0.512
+anchor_bottom = 0.49300003
+offset_left = -94.07201
+offset_top = -41.992004
+offset_right = 100.92799
+offset_bottom = 42.007996
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_sfh1i")
+theme_override_constants/line_separation = 3
+horizontal_alignment = 1
+vertical_alignment = 1

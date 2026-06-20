@@ -54,3 +54,4 @@ signal relic_tooltip_requested(relic: Relic)
 
 signal cutscene_finished 
 signal room_exited
+signal quiz_completed

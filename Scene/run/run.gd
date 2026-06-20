@@ -10,6 +10,10 @@ const WIN_SCREEN_SCENE := preload("res://Scene/win_screen/win_screen.tscn")
 const GRIYA_SCENE := preload("res://Scene/Griya_Pitutur/Griya.tscn")
 const MAIN_MENU_PATH := "res://Scene/UI/main_menu.tscn"
 
+# --- TAMBAHAN BARU: Preload scene Kuis ---
+const QUIZ_SCENE := preload("res://Scene/UI/Quiz.tscn")
+# -----------------------------------------
+
 @export var run_startup: RunStartup
 
 @onready var map: Map = $Map
@@ -145,6 +149,10 @@ func _setup_event_connections() -> void:
 	Events.treasure_room_exited.connect(_on_treasure_room_exited)
 	Events.room_exited.connect(show_map)
 	
+	# --- TAMBAHAN BARU: Hubungkan sinyal Kuis ---
+	Events.quiz_completed.connect(_on_quiz_completed)
+	# --------------------------------------------
+	
 	battle_button.pressed.connect(_change_view.bind(BATTLE_SCENE))
 	campfire_button.pressed.connect(_change_view.bind(CAMPFIRE_SCENE))
 	map_button.pressed.connect(show_map)
@@ -185,12 +193,26 @@ func _on_shop_entered() -> void:
 	Events.shop_entered.emit(shop)
 	shop.populate_shop()
 
+# --- FUNGSI YANG DIUBAH: Menangani Kemenangan ---
 func _on_battle_won() -> void:
+	# Cek apakah ruangan yang baru dimenangkan adalah ruangan BOSS
+	if map.last_room.type == Room.Type.BOSS:
+		_change_view(QUIZ_SCENE)
+	else:
+		# Jika musuh biasa, berikan hadiah seperti biasa
+		show_regular_battle_rewards()
+# ------------------------------------------------
+
+# --- TAMBAHAN BARU: Menangani Alur Setelah Kuis ---
+func _on_quiz_completed() -> void:
+	# Cek apakah ini bos terakhir (lantai puncak)
 	if map.floors_climbed == MapGenerator.FLOORS:
 		var win_screen := _change_view(WIN_SCREEN_SCENE) as WinScreen
 		win_screen.character = character
 	else:
+		# Jika ini bos Act 1 atau Act 2, berikan hadiah Bos lalu munculkan peta kembali
 		show_regular_battle_rewards()
+# --------------------------------------------------
 
 func _setup_top_bar():
 	character.stats_changed.connect(health_ui._update_stats.bind(character))

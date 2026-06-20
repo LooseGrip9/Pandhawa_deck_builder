@@ -1,0 +1,116 @@
+[gd_scene load_steps=6 format=3 uid="uid://cacs3utxls3ix"]
+
+[ext_resource type="Script" uid="uid://d4chl31ec6ei2" path="res://Scene/UI/quiz.gd" id="1_fmjop"]
+[ext_resource type="Texture2D" uid="uid://b1sbewlyi23w6" path="res://art/Main Menu/BG.png" id="1_id6ko"]
+[ext_resource type="FontFile" uid="uid://dskmdk146n4rq" path="res://art/pixel_rpg.ttf" id="2_fmjop"]
+[ext_resource type="Theme" uid="uid://ychgttg0pudb" path="res://Main_Theme.tres" id="3_t53r6"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_gvy7x"]
+font = ExtResource("2_fmjop")
+font_size = 12
+
+[node name="Quiz" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fmjop")
+
+[node name="BackGroundSprite" type="Sprite2D" parent="."]
+position = Vector2(128, 72)
+texture = ExtResource("1_id6ko")
+
+[node name="OverlayGelap" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.042068668, 0.03919843, 0.036402125, 0.5803922)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer1" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="JudulKuis" type="Label" parent="MarginContainer/VBoxContainer1"]
+layout_mode = 2
+text = "Uji Pemahaman"
+label_settings = SubResource("LabelSettings_gvy7x")
+horizontal_alignment = 1
+
+[node name="PertanyaanLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer1"]
+layout_mode = 2
+theme = ExtResource("3_t53r6")
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam pellentesque felis non eros hendrerit, vitae scelerisque purus dapibus. Quisque sed suscipit leo, eu ullamcorper justo. Duis molestie lorem et enim aliquam luctus. Sed id vulputate lectus. Donec suscipit eu velit non luctus. Aliquam bibendum id eros sed dapibus. "
+fit_content = true
+horizontal_alignment = 1
+
+[node name="OpsiContainer" type="GridContainer" parent="MarginContainer/VBoxContainer1"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="TombolA" type="Button" parent="MarginContainer/VBoxContainer1/OpsiContainer"]
+custom_minimum_size = Vector2(220, 12)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme = ExtResource("3_t53r6")
+text = "Lorem Ipsum Dolor Sit Amet consectetur adipiscing elit"
+
+[node name="TombolB" type="Button" parent="MarginContainer/VBoxContainer1/OpsiContainer"]
+custom_minimum_size = Vector2(220, 12)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme = ExtResource("3_t53r6")
+text = "Lorem Ipsum Dolor Sit Amet consectetur adipiscing elit"
+
+[node name="TombolC" type="Button" parent="MarginContainer/VBoxContainer1/OpsiContainer"]
+custom_minimum_size = Vector2(220, 12)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme = ExtResource("3_t53r6")
+text = "Lorem Ipsum Dolor Sit Amet consectetur adipiscing elit"
+
+[node name="TombolD" type="Button" parent="MarginContainer/VBoxContainer1/OpsiContainer"]
+custom_minimum_size = Vector2(220, 12)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme = ExtResource("3_t53r6")
+text = "Lorem Ipsum Dolor Sit Amet consectetur adipiscing elit"
+
+[node name="PopUpFeedback" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CenterContainer" type="CenterContainer" parent="PopUpFeedback"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="PopUpFeedback/CenterContainer"]
+layout_mode = 2
+
+[node name="StatusLabel" type="Label" parent="PopUpFeedback/CenterContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="InfoLabel" type="Label" parent="PopUpFeedback/CenterContainer/VBoxContainer2"]
+layout_mode = 2
